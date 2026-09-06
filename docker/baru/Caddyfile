@@ -1,0 +1,17 @@
+{$DEPLOY_DOMAIN} {
+    encode gzip zstd
+    reverse_proxy openemr:80 {
+        lb_policy first
+        health_uri /meta/health/readyz
+        health_interval 10s
+        health_timeout 5s
+        transport http {
+            keepalive 30s
+        }
+    }
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "strict-origin-when-cross-origin"
+    }
+}

@@ -1,0 +1,10 @@
+/vendor/
+/node_modules/
+/.webpack-cache/
+/public/assets/
+/public/themes/*.map
+/sites/*/documents/
+/sites/*/sqlconf.php
+/sites/*/config.php
+*.log
+.DS_Store
