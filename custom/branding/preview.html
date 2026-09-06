@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMR Health | Workflow preview</title>
+  <style>
+    :root {
+      --navy: #102a33;
+      --teal: #147d86;
+      --mint: #e3ecee;
+      --canvas: #f7fafb;
+      --muted: #60777d;
+      --line: #d7e3e5;
+      --white: #fff;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--canvas); color: var(--navy); }
+    .shell { display: grid; grid-template-columns: 236px 1fr; min-height: 100vh; }
+    aside { background: var(--navy); color: #dcebee; padding: 28px 18px; }
+    .brand { display: flex; align-items: center; gap: 11px; margin: 0 10px 42px; color: var(--white); font-weight: 750; letter-spacing: .02em; }
+    .brand-logo { width: 42px; height: 42px; object-fit: contain; border: 2px solid var(--white); border-radius: 6px; background: var(--white); padding: 2px; }
+    nav a { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 8px; color: #b7cdd1; text-decoration: none; font-size: 14px; }
+    nav a.active, nav a:hover { background: #1a505a; color: var(--white); }
+    .status { margin: 54px 8px 0; padding: 14px; border: 1px solid #2b5c65; border-radius: 10px; color: #b7d9d7; font-size: 12px; line-height: 1.5; }
+    main { padding: 30px 4vw 52px; max-width: 1440px; width: 100%; }
+    header { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 28px; }
+    h1 { margin: 0 0 5px; font-size: clamp(25px, 3vw, 34px); }
+    .subtitle { margin: 0; color: var(--muted); }
+    .user { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 14px; }
+    .language-select { padding: 9px 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--white); color: var(--navy); }
+    button, .button { border: 0; border-radius: 7px; padding: 10px 14px; background: var(--teal); color: var(--white); cursor: pointer; font-weight: 650; text-decoration: none; }
+    button.secondary, .button.secondary { background: var(--mint); color: var(--navy); }
+    .auth-actions { display: flex; gap: 8px; margin-left: 8px; }
+    .avatar { display: grid; place-items: center; width: 38px; height: 38px; background: var(--mint); border-radius: 50%; color: var(--teal); font-weight: 700; }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 25px; }
+    .card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 4px 15px rgba(16, 42, 51, .04); }
+    .metric { padding: 19px; }
+    .metric strong { display: block; margin-top: 8px; font-size: 27px; }
+    .metric span, .eyebrow { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+    .metric small { color: #2f8f72; font-size: 12px; }
+    .content { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, 1fr); gap: 20px; }
+    .content > .card { min-width: 0; }
+    .panel { padding: 22px; }
+    .panel h2 { margin: 0 0 18px; font-size: 18px; }
+    .workflow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 24px; }
+    .step { padding: 13px 10px; background: var(--canvas); border: 1px solid var(--line); border-radius: 9px; font-size: 12px; }
+    .step.done { border-color: #8bc8b7; background: #eef8f4; }
+    .step b { display: block; margin-bottom: 7px; color: var(--teal); font-size: 17px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { padding: 13px 7px; border-bottom: 1px solid var(--line); text-align: left; }
+    th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; }
+    .pill { padding: 5px 8px; border-radius: 99px; background: #e7f5ef; color: #25775f; font-size: 11px; }
+    .notice { padding: 15px; background: #edf8f8; border-left: 4px solid var(--teal); border-radius: 5px; color: #28545b; font-size: 13px; line-height: 1.55; }
+    .view { display: none; }
+    .view.active { display: block; }
+    .form { max-width: 520px; padding: 25px; }
+    label { display: block; margin: 15px 0 6px; color: var(--muted); font-size: 13px; }
+    input { width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 7px; font: inherit; }
+    .form-message { display: none; margin-top: 14px; padding: 12px; border-radius: 7px; background: #e7f5ef; color: #25775f; font-size: 13px; }
+    .connection { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; color: var(--muted); font-size: 12px; }
+    .connection::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #2f8f72; }
+    .connection.offline::before { background: #d6922e; }
+    [dir="rtl"] .shell { grid-template-columns: 1fr 236px; }
+    [dir="rtl"] aside { grid-column: 2; grid-row: 1; }
+    [dir="rtl"] main { grid-column: 1; grid-row: 1; }
+    [dir="rtl"] .user { flex-direction: row-reverse; }
+    @media (max-width: 900px) { .shell, [dir="rtl"] .shell { grid-template-columns: 1fr; } [dir="rtl"] aside, [dir="rtl"] main { grid-column: auto; grid-row: auto; } aside { padding: 18px; } .brand { margin-bottom: 18px; } nav { display: flex; gap: 5px; overflow-x: auto; } .status { display: none; } main { padding: 25px 18px; } .metrics, .content { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .metrics, .content, .workflow { grid-template-columns: 1fr; } header { align-items: flex-start; flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <div class="brand"><img class="brand-logo" src="./logo.png" alt="Baru logo" onerror="this.hidden=true; this.nextElementSibling.hidden=false"><span hidden aria-hidden="true">✚</span> Baru EMR</div>
+      <nav aria-label="Primary navigation">
+        <a class="active" href="#dashboard" data-view="dashboard">◼ <span data-i18n="dashboard">Dashboard</span></a>
+        <a href="#appointments" data-view="appointments">◷ <span data-i18n="appointments">Appointments</span></a>
+        <a href="#patients" data-view="patients">♙ <span data-i18n="patients">Patients</span></a>
+        <a href="#encounters" data-view="encounters">▣ <span data-i18n="encounters">Encounters</span></a>
+        <a href="#billing" data-view="billing">▤ <span data-i18n="billing">Billing</span></a>
+        <a href="#reports" data-view="reports">⌁ <span data-i18n="reports">Reports</span></a>
+      </nav>
+      <div class="status"><strong>Workflow preview</strong><br>OpenEMR clinical workflow with Baru visual styling.<br><span class="connection" id="connection-status">Online</span></div>
+    </aside>
+    <main id="dashboard">
+      <header>
+        <div><p class="eyebrow" data-i18n="date">Monday, September 7, 2026</p><h1 data-i18n="greeting">Good morning, Dr. Ahmed</h1><p class="subtitle" data-i18n="overview">Here is the Baru care team overview for today.</p></div>
+        <div class="user"><label for="language" class="sr-only">Language</label><select id="language" class="language-select" aria-label="Language"><option value="en">English</option><option value="ar">العربية</option><option value="ku">کوردی</option></select><span data-i18n="role">Care administrator</span><span class="avatar">DA</span><div class="auth-actions"><button class="secondary" data-view-link="signin" data-i18n="signin">Sign in</button><button data-view-link="signup" data-i18n="signup">Sign up</button></div></div>
+      </header>
+      <section id="dashboard-view" class="view active" data-view-panel="dashboard">
+      <section class="metrics" aria-label="Daily metrics">
+        <div class="card metric"><span data-i18n="visits">Today's visits</span><strong>24</strong><small data-i18n="trend">↑ 8% from last week</small></div>
+        <div class="card metric"><span data-i18n="waiting">Waiting room</span><strong>06</strong><small data-i18n="ready">2 ready for rooming</small></div>
+        <div class="card metric"><span data-i18n="tasks">Open tasks</span><strong>11</strong><small data-i18n="attention">4 need attention</small></div>
+        <div class="card metric"><span data-i18n="messages">Messages</span><strong>08</strong><small data-i18n="unread">3 unread from patients</small></div>
+      </section>
+      <div class="content">
+        <section class="card panel">
+          <h2 data-i18n="workflow">Patient visit workflow</h2>
+          <div class="workflow">
+            <div class="step done"><b>01</b><span data-i18n="checkIn">Check in</span></div>
+            <div class="step done"><b>02</b><span data-i18n="roomPatient">Room patient</span></div>
+            <div class="step"><b>03</b><span data-i18n="clinicalNote">Clinical note</span></div>
+            <div class="step"><b>04</b><span data-i18n="checkout">Checkout</span></div>
+          </div>
+          <h2 data-i18n="nextAppointments">Next appointments</h2>
+          <table>
+            <thead><tr><th data-i18n="time">Time</th><th data-i18n="patient">Patient</th><th data-i18n="visitType">Visit type</th><th data-i18n="status">Status</th></tr></thead>
+            <tbody id="appointments-table">
+              <tr><td>09:30</td><td>Amira Hassan</td><td data-i18n="followup">Follow-up</td><td><span class="pill" data-i18n="checkedIn">Checked in</span></td></tr>
+              <tr><td>10:00</td><td>Omar Farouk</td><td data-i18n="newPatient">New patient</td><td><span class="pill" data-i18n="confirmed">Confirmed</span></td></tr>
+              <tr><td>10:45</td><td>Layla Nasser</td><td data-i18n="wellness">Wellness visit</td><td><span class="pill" data-i18n="confirmed">Confirmed</span></td></tr>
+            </tbody>
+          </table>
+        </section>
+        </section>
+        <section id="appointments-view" class="view" data-view-panel="appointments"><div class="card panel"><h2 data-i18n="appointments">Appointments</h2><div class="notice" data-i18n="appointmentsText">Your appointment calendar is ready. In the full OpenEMR deployment this view is connected to providers, facilities, reminders, and patient records.</div><table><tbody><tr><td>09:30</td><td>Amira Hassan</td><td data-i18n="followup">Follow-up</td><td><span class="pill" data-i18n="checkedIn">Checked in</span></td></tr><tr><td>10:00</td><td>Omar Farouk</td><td data-i18n="newPatient">New patient</td><td><span class="pill" data-i18n="confirmed">Confirmed</span></td></tr></tbody></table></div></section>
+        <section id="patients-view" class="view" data-view-panel="patients"><div class="card panel"><h2 data-i18n="patients">Patients</h2><div class="notice" data-i18n="patientsText">Patient search and registration are available in the OpenEMR application after the PHP/MySQL services are running.</div><table><tbody><tr><td>Amira Hassan</td><td>MRN-10482</td><td data-i18n="active">Active</td></tr><tr><td>Omar Farouk</td><td>MRN-10483</td><td data-i18n="active">Active</td></tr></tbody></table></div></section>
+        <section id="encounters-view" class="view" data-view-panel="encounters"><div class="card panel"><h2 data-i18n="encounters">Encounters</h2><div class="workflow"><div class="step done"><b>01</b><span data-i18n="checkIn">Check in</span></div><div class="step done"><b>02</b><span data-i18n="roomPatient">Room patient</span></div><div class="step"><b>03</b><span data-i18n="clinicalNote">Clinical note</span></div><div class="step"><b>04</b><span data-i18n="checkout">Checkout</span></div></div><div class="notice" data-i18n="encountersText">Select a patient in the full application to document vitals, diagnoses, orders, notes, and sign-off.</div></div></section>
+        <section id="billing-view" class="view" data-view-panel="billing"><div class="card panel"><h2>Billing</h2><div class="notice">Billing queues and claims require the OpenEMR database and configured payer workflows. This preview shows the navigation only.</div></div></section>
+        <section id="reports-view" class="view" data-view-panel="reports"><div class="card panel"><h2>Reports</h2><div class="notice">Operational, clinical, and financial reports become available after OpenEMR is installed and configured.</div></div></section>
+        <section id="signin-view" class="view" data-view-panel="signin"><form class="card form" id="signin-form"><h2 data-i18n="signin">Sign in</h2><p class="subtitle" data-i18n="previewAccess">Preview account access</p><label for="signin-email" data-i18n="email">Email</label><input id="signin-email" type="email" required placeholder="you@example.com"><label for="signin-password" data-i18n="password">Password</label><input id="signin-password" type="password" required placeholder="••••••••"><br><br><button type="submit" data-i18n="signin">Sign in</button><div class="form-message" data-i18n="signinAccepted">Preview sign-in accepted. Real authentication is handled by OpenEMR once its services are deployed.</div></form></section>
+        <section id="signup-view" class="view" data-view-panel="signup"><form class="card form" id="signup-form"><h2 data-i18n="createAccount">Create account</h2><p class="subtitle" data-i18n="previewRegistration">Preview registration</p><label for="signup-name" data-i18n="fullName">Full name</label><input id="signup-name" required placeholder="Your name"><label for="signup-email" data-i18n="email">Email</label><input id="signup-email" type="email" required placeholder="you@example.com"><label for="signup-password" data-i18n="password">Password</label><input id="signup-password" type="password" required placeholder="Create a password"><br><br><button type="submit" data-i18n="createAccount">Create account</button><div class="form-message" data-i18n="accountCreated">Preview account created. Real users and roles must be provisioned in OpenEMR.</div></form></section>
+        <section class="card panel">
+          <h2 data-i18n="teamTasks">Care team tasks</h2>
+          <div class="notice"><strong data-i18n="workflowNote">Workflow note</strong><br><span data-i18n="workflowText">Complete the clinical note before checkout so billing and patient instructions stay in sync.</span></div>
+          <table>
+            <tbody>
+              <tr><td data-i18n="reviewLabs">Review lab results</td><td><span class="pill">4 <span data-i18n="due">due</span></span></td></tr>
+              <tr><td data-i18n="signNotes">Sign encounter notes</td><td><span class="pill">3 <span data-i18n="due">due</span></span></td></tr>
+              <tr><td data-i18n="portalMessages">Respond to portal messages</td><td><span class="pill">3 <span data-i18n="due">due</span></span></td></tr>
+              <tr><td data-i18n="insurance">Verify insurance</td><td><span class="pill">1 <span data-i18n="due">due</span></span></td></tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script>
+    const links = document.querySelectorAll('[data-view], [data-view-link]');
+    const panels = document.querySelectorAll('[data-view-panel]');
+    function showView(view) {
+      panels.forEach((panel) => panel.classList.toggle('active', panel.dataset.viewPanel === view));
+      document.querySelectorAll('[data-view]').forEach((link) => link.classList.toggle('active', link.dataset.view === view));
+      history.replaceState(null, '', `#${view}`);
+    }
+    links.forEach((link) => link.addEventListener('click', (event) => {
+      event.preventDefault();
+      showView(link.dataset.view || link.dataset.viewLink);
+    }));
+    document.querySelectorAll('form').forEach((form) => form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      form.querySelector('.form-message').style.display = 'block';
+    }));
+    const translations = {
+      en: {},
+      ar: { dashboard: 'لوحة التحكم', appointments: 'المواعيد', patients: 'المرضى', encounters: 'الزيارات', billing: 'الفوترة', reports: 'التقارير', date: 'الاثنين، ٧ سبتمبر ٢٠٢٦', greeting: 'صباح الخير، د. أحمد', overview: 'إليك نظرة عامة على فريق بارو للرعاية اليوم.', role: 'مسؤول الرعاية', signin: 'تسجيل الدخول', signup: 'إنشاء حساب', visits: 'زيارات اليوم', trend: '↑ ٨٪ من الأسبوع الماضي', waiting: 'غرفة الانتظار', ready: '٢ جاهزان للدخول', tasks: 'المهام المفتوحة', attention: '٤ تحتاج إلى اهتمام', messages: 'الرسائل', unread: '٣ غير مقروءة من المرضى', workflow: 'مسار زيارة المريض', nextAppointments: 'المواعيد القادمة', teamTasks: 'مهام فريق الرعاية', workflowNote: 'ملاحظة المسار', workflowText: 'أكمل الملاحظة السريرية قبل إنهاء الزيارة للحفاظ على اتساق الفوترة وتعليمات المريض.', followup: 'متابعة', checkedIn: 'تم تسجيل الوصول', newPatient: 'مريض جديد', confirmed: 'مؤكد', active: 'نشط', encounters: 'الزيارات', encountersText: 'اختر مريضًا في التطبيق الكامل لتوثيق العلامات الحيوية والتشخيصات والطلبات والملاحظات والتوقيع.', checkIn: 'تسجيل الوصول', roomPatient: 'إدخال المريض', clinicalNote: 'الملاحظة السريرية', checkout: 'إنهاء الزيارة', previewAccess: 'الوصول إلى حساب تجريبي', email: 'البريد الإلكتروني', password: 'كلمة المرور', previewRegistration: 'تسجيل تجريبي', createAccount: 'إنشاء حساب', fullName: 'الاسم الكامل', signinAccepted: 'تم قبول تسجيل الدخول التجريبي. تتم المصادقة الحقيقية عبر OpenEMR بعد تشغيل الخدمات.', accountCreated: 'تم إنشاء الحساب التجريبي. يجب إنشاء المستخدمين والأدوار الحقيقية في OpenEMR.', time: 'الوقت', patient: 'المريض', visitType: 'نوع الزيارة', status: 'الحالة', wellness: 'زيارة صحة', reviewLabs: 'مراجعة نتائج المختبر', signNotes: 'توقيع ملاحظات الزيارة', portalMessages: 'الرد على رسائل البوابة', insurance: 'التحقق من التأمين', due: 'مستحقة', online: 'متصل', offline: 'وضع عدم الاتصال' },
+      ku: { dashboard: 'بەڕێوەبردن', appointments: 'کاتەکان', patients: 'نەخۆشان', encounters: 'سەردانەکان', billing: 'پارەدان', reports: 'ڕاپۆرتەکان', date: 'دووشەممە، ٧ی ئەیلوولی ٢٠٢٦', greeting: 'بەیانی باش، د. ئەحمەد', overview: 'ئەمە پوختەی تیمی چاودێری باروە بۆ ئەمڕۆ.', role: 'بەڕێوەبەری چاودێری', signin: 'چوونەژوورەوە', signup: 'دروستکردنی هەژمار', visits: 'سەردانەکانی ئەمڕۆ', trend: '↑ ٨٪ لە هەفتەی ڕابردوو', waiting: 'ژووری چاوەڕوانی', ready: '٢ ئامادەن بۆ ژوور', tasks: 'ئەرکە کراوەکان', attention: '٤ پێویستی بە سەرنجدانە', messages: 'نامەکان', unread: '٣ نامەی نەخوێندراوە لە نەخۆشان', workflow: 'ڕەوتی سەردانی نەخۆش', nextAppointments: 'کاتەکانی داهاتوو', teamTasks: 'ئەرکەکانی تیمی چاودێری', workflowNote: 'تێبینی ڕەوت', workflowText: 'تێبینی پزیشکی تەواو بکە پێش داخستنی سەردان بۆ هاوتابوونی پارەدان و ڕێنمایی نەخۆش.', followup: 'بەدواداچوون', checkedIn: 'تۆمارکرا', newPatient: 'نەخۆشی نوێ', confirmed: 'پشتڕاستکراوە', active: 'چالاک', encountersText: 'لە ئەپی تەواودا نەخۆشێک هەڵبژێرە بۆ تۆمارکردنی نیشانە ژیانییەکان و دەستنیشانکردن و داواکاری و تێبینی و واژۆکردن.', checkIn: 'تۆمارکردنی هاتن', roomPatient: 'بردنی نەخۆش بۆ ژوور', clinicalNote: 'تێبینی پزیشکی', checkout: 'داخستنی سەردان', previewAccess: 'چوونەژوورەوەی هەژماری تاقیکردنەوە', email: 'ئیمەیڵ', password: 'وشەی نهێنی', previewRegistration: 'تۆمارکردنی تاقیکردنەوە', createAccount: 'دروستکردنی هەژمار', fullName: 'ناوی تەواو', signinAccepted: 'چوونەژوورەوەی تاقیکردنەوە قبوڵکرا. پشتڕاستکردنەوەی ڕاستەقینە لەلایەن OpenEMR ـەوە دەکرێت.', accountCreated: 'هەژماری تاقیکردنەوە دروستکرا. بەکارهێنەر و ڕۆڵە ڕاستەقینەکان لە OpenEMR دروست دەکرێن.', time: 'کات', patient: 'نەخۆش', visitType: 'جۆری سەردان', status: 'دۆخ', wellness: 'سەردانی تەندروستی', reviewLabs: 'پێداچوونەوە بە ئەنجامەکانی تاقیگە', signNotes: 'واژۆکردنی تێبینی سەردان', portalMessages: 'وەڵامدانەوەی نامەکانی پۆرتاڵ', insurance: 'پشتڕاستکردنەوەی بیمە', due: 'ماوە', online: 'ئۆنلاین', offline: 'دۆخی ئۆفلاین' }
+    };
+    const defaultText = new Map([...document.querySelectorAll('[data-i18n]')].map((element) => [element.dataset.i18n, element.textContent]));
+    function setLanguage(language) {
+      const rtl = language !== 'en';
+      document.documentElement.lang = language;
+      document.documentElement.dir = rtl ? 'rtl' : 'ltr';
+      document.querySelectorAll('[data-i18n]').forEach((element) => {
+        const value = translations[language][element.dataset.i18n] || defaultText.get(element.dataset.i18n);
+        if (value) element.textContent = value;
+      });
+      document.querySelector('.language-select').value = language;
+      localStorage.setItem('baru-preview-language', language);
+    }
+    function updateConnectionStatus() {
+      const status = document.querySelector('#connection-status');
+      const online = navigator.onLine;
+      status.textContent = online ? (translations[document.documentElement.lang]?.online || 'Online') : (translations[document.documentElement.lang]?.offline || 'Offline mode');
+      status.classList.toggle('offline', !online);
+    }
+    window.addEventListener('online', updateConnectionStatus);
+    window.addEventListener('offline', updateConnectionStatus);
+    document.querySelector('.language-select').addEventListener('change', (event) => setLanguage(event.target.value));
+    showView(location.hash.slice(1) || 'dashboard');
+    setLanguage(localStorage.getItem('baru-preview-language') || 'en');
+    updateConnectionStatus();
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      navigator.serviceWorker.register('./sw.js').catch((error) => console.warn('Offline cache unavailable:', error));
+    }
+  </script>
+</body>
+</html>
