@@ -1,0 +1,472 @@
+{
+  "brand": {
+    "figure": "../assets/brand/figure-white.png",
+    "trustStrip": "TabeebX · مرخّصين من وزارة الصحة العراقية",
+    "ritual": "كل ليلة ٨:٣٠",
+    "closingLine": [
+      "لا تصدگنا.",
+      "شوف بعينك."
+    ]
+  },
+  "jobs": [
+    {
+      "id": "01-sat26-teaser-story",
+      "when": "Sat 26 Sep 8:30 PM story · add countdown sticker «موعدنا ٨:٣٠» ending Sun 27 Sep 8:30 PM",
+      "template": "story-teaser",
+      "params": {
+        "kicker": "باچر",
+        "text": "الساعة ٨:٣٠ بالليل...\nعدنا *طلب غريب* منكم."
+      }
+    },
+    {
+      "id": "01b-sun27-morning-teaser-story",
+      "when": "Sun 27 Sep morning · only if Saturday's teaser was missed; same countdown sticker",
+      "template": "story-teaser",
+      "params": {
+        "kicker": "الليلة",
+        "text": "الساعة ٨:٣٠...\nعدنا *طلب غريب* منكم."
+      }
+    },
+    {
+      "id": "02-sun27-launch-reel",
+      "when": "Sun 27 Sep 8:30 PM feed Reel · motion edition of the founder script (use it alone, or cut 02a/02b/90 into the founder video)",
+      "template": "launch-reel",
+      "params": {
+        "series": "شوف بعينك",
+        "hook": "*لا تصدگنا.*",
+        "intro": "آني الدكتور يعقوب.",
+        "card": {
+          "name": "د. يعقوب",
+          "role": "طبيب، ومؤسس TabeebX",
+          "team": "فريق TabeebX · بغداد",
+          "photo": null
+        },
+        "shared": {
+          "title": "كلنا مرّينا بيها:",
+          "queue": "سرة طويلة،",
+          "minutes": "دقايق ويا الدكتور،",
+          "questions": "وترجع للبيت وعندك أسئلة\nما لحگت تسألها.",
+          "respect": "مو لأن الدكتور ما يريد...\nلأن الضغط هواية."
+        },
+        "talk": {
+          "lead": "نگدر نگولك إن",
+          "claim": "خدمتنا أحسن...",
+          "admit": "بس هذا يبقى حچي."
+        },
+        "door": {
+          "lead": "لهذا، من الليلة،",
+          "ritual": "كل ليلة *٨:٣٠*",
+          "open": "راح نفتحلك الباب:",
+          "rows": [
+            "منو دكاترتنا،",
+            "شلون نشتغل،",
+            "وشنو يصير من تدزلنا رسالة"
+          ],
+          "arrive": "لحد ما الدكتور يدگ باب بيتك."
+        },
+        "promise": {
+          "lead": "والأحد الجاي،",
+          "day": "الأحد",
+          "date": "٤",
+          "month": "تشرين الأول",
+          "time": "٨:٣٠ بالليل",
+          "announce": "نعلن وعدنا إلك",
+          "numbers": "*بالأرقام.*",
+          "accountable": "تگدر تحاسبنا عليه."
+        }
+      }
+    },
+    {
+      "id": "02a-sun27-founder-opener",
+      "when": "Sun 27 Sep · first 2.4 s of the founder edit (hook + doorbell)",
+      "template": "reel-opener",
+      "params": {
+        "hook": "*لا تصدگنا.*",
+        "series": "شوف بعينك"
+      }
+    },
+    {
+      "id": "02b-sun27-founder-broll-door",
+      "when": "Sun 27 Sep · B-roll under the founder's 19–30 s voice-over (8:30 ritual → the door → what we'll show)",
+      "template": "launch-reel",
+      "extends": "02-sun27-launch-reel",
+      "range": [
+        19.2,
+        30.2
+      ]
+    },
+    {
+      "id": "02c-sun27-morning-question",
+      "when": "Sun 27 Sep 10:30 AM story · poll sticker: شهادته / سمعته / يسمعني زين / يشرحلي",
+      "template": "story-question",
+      "params": {
+        "question": "شنو أكثر شي يخليك\nتثق بدكتور؟"
+      }
+    },
+    {
+      "id": "02d-sun27-question-box",
+      "when": "Sun 27 Sep 9:00 PM story · question box; the answers become the 4 Oct promise",
+      "template": "story-question",
+      "params": {
+        "label": "سؤال",
+        "question": "شنو أكثر شي يضوّجك\nمن تراجع طبيب؟"
+      }
+    },
+    {
+      "id": "02e-sun27-bacher",
+      "when": "Sun 27 Sep 9:30 PM story",
+      "template": "story-teaser",
+      "params": {
+        "kicker": "باچر",
+        "text": "٨:٣٠: تعرّف على دكتورك...\n*بالاسم.*"
+      }
+    },
+    {
+      "id": "03-mon28-morning-question",
+      "when": "Mon 28 Sep 10:30 AM story · quiz sticker: ١٠ ثواني / دقيقة / أقل من ثانية (correct: أقل من ثانية)",
+      "template": "story-question",
+      "params": {
+        "question": "شگد يحتاج مخك حتى يقرر\nإذا يثق بوجه؟"
+      }
+    },
+    {
+      "id": "03b-mon28-bacher",
+      "when": "Mon 28 Sep 9:30 PM story",
+      "template": "story-teaser",
+      "params": {
+        "kicker": "باچر",
+        "text": "يوم القلب العالمي. ٨:٣٠:\n٤ معلومات عن القلب...\n*وحدة بس صح.*"
+      }
+    },
+    {
+      "id": "04-tue29-heart-carousel",
+      "when": "Tue 29 Sep 8:30 PM feed carousel, 7 slides · reviewing doctor signs off by Mon 28 Sep 6 PM; confirm ٩١١ (or «٩١١ أو ١٢٢»)",
+      "template": "carousel",
+      "params": {
+        "series": "صح لو غلط؟",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "٤ معلومات عن القلب...\nوحدة بس *صح.*",
+            "small": "يوم القلب العالمي · ٢٩ أيلول",
+            "swipe": true
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "١. الجلطة القلبية\nبس للكبار.",
+            "explain": "ممكن تصير بعمر أصغر، خصوصاً ويا التدخين والسكري والضغط والسمنة.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٢. النركيلة أخف\nمن الجگارة.",
+            "explain": "الماي ما يصفّي السموم، والجلسة تطول ساعة وأكثر.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٣. ألم الصدر\nهو العلامة الوحيدة.",
+            "explain": "ممكن الألم يمتد للذراع أو الرگبة أو الفك، ويجي وياه ضيق نفس، تعرّق، أو غثيان.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٤. الضغط العالي\nأغلب الأحيان\nما يبين عليه شي.",
+            "explain": "الطريقة الوحيدة حتى تعرف: تقيسه.",
+            "stamp": "صح"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "إذا هسه تحس\nبألم بالصدر:\nلا تفتح تطبيق،\nولا تدزلنا رسالة.\nاتصل بالطوارئ *٩١١* فوراً،\nولا تسوق بنفسك.",
+            "top": 250
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "وللفحص والمتابعة؟",
+            "body": "قياس الضغط، تحليل السكر والدهون،\nوتخطيط القلب... توصلك للبيت.",
+            "cta": "*دزها لكروب العائلة.*",
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "04b-tue29-morning-question",
+      "when": "Tue 29 Sep 10:30 AM story · poll sticker: إي، أخف / لا، مو أخف",
+      "template": "story-question",
+      "params": {
+        "question": "النركيلة أخف\nمن الجگارة؟",
+        "sub": "الجواب الليلة ٨:٣٠."
+      }
+    },
+    {
+      "id": "04c-tue29-bacher",
+      "when": "Tue 29 Sep 9:30 PM story",
+      "template": "story-teaser",
+      "params": {
+        "kicker": "باچر",
+        "text": "٨:٣٠: شوف بعينك شلون تصير\nزيارة التحليل بالبيت...\n*من الباب للنتيجة.*"
+      }
+    },
+    {
+      "id": "05-wed30-visit-opener",
+      "when": "Wed 30 Sep 8:30 PM Reel · opener before the filmed visit; close with 90-reel-endcard",
+      "template": "reel-opener",
+      "params": {
+        "hook": "شنو يصير بعد ما *تحجز؟*",
+        "series": "شوف بعينك",
+        "label": "فيديو توضيحي · الأشخاص من فريق TabeebX"
+      }
+    },
+    {
+      "id": "05b-wed30-morning-question",
+      "when": "Wed 30 Sep 10:30 AM story · poll sticker: إي، الجنطة حاضرة / بعد",
+      "template": "story-question",
+      "params": {
+        "question": "جاهزين للدوام؟",
+        "icon": "calendar"
+      }
+    },
+    {
+      "id": "05c-wed30-bacher",
+      "when": "Wed 30 Sep 9:30 PM story",
+      "template": "story-teaser",
+      "params": {
+        "kicker": "باچر",
+        "text": "٨:٣٠: *رسالة* لكل واحد\nأهله كبار بالعمر."
+      }
+    },
+    {
+      "id": "06-thu01-morning-question",
+      "when": "Thu 1 Oct 10:30 AM story · poll sticker: هالسنة / من زمان / ما أدري",
+      "template": "story-question",
+      "params": {
+        "question": "آخر مرة أهلك الكبار\nسوّوا فحص عام؟",
+        "icon": "family"
+      }
+    },
+    {
+      "id": "06b-thu01-promise-countdown",
+      "when": "Thu 1 Oct 9:30 PM story · countdown sticker to Sun 4 Oct 8:30 PM",
+      "template": "story-teaser",
+      "params": {
+        "kicker": "الأحد",
+        "text": "٨:٣٠: وعد TabeebX\n*بالأرقام.*"
+      }
+    },
+    {
+      "id": "07-fri02-water-question",
+      "when": "Fri 2 Oct 8:30 PM story (the ritual is kept with a story) · poll sticker: ٨ كلاصات بالضبط / حسب الجسم والجو",
+      "template": "story-question",
+      "params": {
+        "label": "سؤال الجمعة",
+        "question": "شگد لازم نشرب\nماي باليوم؟"
+      }
+    },
+    {
+      "id": "07b-fri02-answer-bacher",
+      "when": "Fri 2 Oct 9:30 PM story · the water answer is reviewed like every health fact",
+      "template": "story-teaser",
+      "params": {
+        "kicker": "الجواب",
+        "text": "حسب جسمك وشغلك والجو،\nوويا حرّ بغداد نحتاج أكثر.\n*لا تنطر العطش.*",
+        "signed": "راجعها طبياً: د. [الاسم]",
+        "note": "باچر اليوم الوطني · ٨:٣٠"
+      }
+    },
+    {
+      "id": "08-sat03-morning-question",
+      "when": "Sat 3 Oct 10:30 AM story · question box; re-share warm answers through the day",
+      "template": "story-question",
+      "params": {
+        "question": "شنو أكثر شي\nتحبه بالعراق؟",
+        "icon": "heart"
+      }
+    },
+    {
+      "id": "08b-sat03-bacher",
+      "when": "Sat 3 Oct 9:01 PM story · countdown sticker to Sun 4 Oct 8:30 PM",
+      "template": "story-teaser",
+      "params": {
+        "kicker": "باچر",
+        "text": "٨:٣٠...\nنرد عليها *بالأرقام.*"
+      }
+    },
+    {
+      "id": "09-sun04-promise-reel",
+      "when": "Sun 4 Oct 8:30 PM Reel/story · fill complaints and numbers on Sat 3 Oct from the baseline week (publish only numbers hit in 19 of 20 cases), then re-render",
+      "template": "promise-reveal",
+      "params": {
+        "series": "وعد TabeebX",
+        "hook": [
+          "وعدنا...",
+          "*بالأرقام.*"
+        ],
+        "labels": [
+          "گلتولنا:",
+          "وعدنا:"
+        ],
+        "promises": [
+          {
+            "complaint": "[شكوى ١ من أجوبتكم]",
+            "promise": "نرد على رسالتك خلال {n} دقيقة، من الساعة [__] للساعة [__]",
+            "n": "__",
+            "unit": "دقيقة"
+          },
+          {
+            "complaint": "[شكوى ٢ من أجوبتكم]",
+            "promise": "تعرف اسم وصورة اللي جايك قبل لا يدگ الباب، بكل زيارة",
+            "n": null,
+            "hero": "بكل زيارة"
+          },
+          {
+            "complaint": "[شكوى ٣ من أجوبتكم]",
+            "promise": "نتصل بيك خلال {n} ساعة بعد الزيارة نتطمن عليك",
+            "n": "٢٤",
+            "unit": "ساعة"
+          }
+        ],
+        "monthly": [
+          "كل أول أحد من الشهر،\nننشر شگد التزمنا.",
+          "الأحد ١ تشرين الثاني",
+          "وإذا قصّرنا، نگولكم...\nونگولكم شنو غيّرنا."
+        ],
+        "closing": "جرّبنا... وحاسبنا."
+      }
+    },
+    {
+      "id": "09b-sun04-promise-carousel",
+      "when": "Sun 4 Oct 8:30 PM feed carousel, 6 slides · pin it and add it to the «وعدنا» highlight",
+      "template": "carousel",
+      "params": {
+        "series": "وعد TabeebX",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "وعدنا...\n*بالأرقام.*",
+            "swipe": true
+          },
+          {
+            "type": "quote",
+            "bg": "navy",
+            "label1": "گلتولنا:",
+            "quote": "[شكوى ١ من أجوبتكم]",
+            "label2": "وعدنا:",
+            "promise": "[الوعد ١ ويا رقمه]"
+          },
+          {
+            "type": "quote",
+            "bg": "navy",
+            "label1": "گلتولنا:",
+            "quote": "[شكوى ٢ من أجوبتكم]",
+            "label2": "وعدنا:",
+            "promise": "[الوعد ٢ ويا رقمه]"
+          },
+          {
+            "type": "quote",
+            "bg": "navy",
+            "label1": "گلتولنا:",
+            "quote": "[شكوى ٣ من أجوبتكم]",
+            "label2": "وعدنا:",
+            "promise": "[الوعد ٣ ويا رقمه]"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "كل أول أحد من الشهر،\nننشر شگد التزمنا.\nوإذا قصّرنا، نگولكم...\nونگولكم شنو غيّرنا."
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "جرّبنا... وحاسبنا.",
+            "cta": "*رابط الواتساب بالبايو.*",
+            "ctaTop": 470,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-nov01-scorecard-template",
+      "when": "Sun 1 Nov and every first Sunday · replace the sample numbers with the month's real results, misses included",
+      "template": "scorecard",
+      "params": {
+        "series": "وعد TabeebX",
+        "hook": [
+          "وعد TabeebX · تشرين الأول",
+          "شگد *التزمنا؟*"
+        ],
+        "verdicts": [
+          "التزمنا",
+          "قصّرنا"
+        ],
+        "fixLabel": "شنو غيّرنا:",
+        "threshold": 0.95,
+        "promises": [
+          {
+            "title": "نرد على رسالتك خلال [__] دقيقة",
+            "hit": 19,
+            "of": 20
+          },
+          {
+            "title": "تعرف منو جايك قبل لا يدگ الباب",
+            "hit": 20,
+            "of": 20
+          },
+          {
+            "title": "نتصل بيك خلال ٢٤ ساعة بعد الزيارة",
+            "hit": 17,
+            "of": 20,
+            "fix": "[شنو غيّرنا حتى ما تتكرر]"
+          }
+        ],
+        "closing": "كل أول أحد من الشهر،\nنحاسب نفسنا گدامكم."
+      },
+      "draftLabel": "نموذج · أرقام تجريبية"
+    },
+    {
+      "id": "90-reel-endcard",
+      "when": "Every Reel · last 3.4 s (tab → figure, closing line, كل ليلة ٨:٣٠, trust strip, doorbell)",
+      "template": "reel-endcard",
+      "params": {}
+    },
+    {
+      "id": "91-highlight-covers",
+      "when": "Profile highlights: شوف بعينك · دكاترتنا · وعدنا · سؤالكم · لأهلك",
+      "template": "highlights",
+      "params": {
+        "covers": [
+          {
+            "name": "شوف بعينك",
+            "icon": "eye"
+          },
+          {
+            "name": "دكاترتنا",
+            "icon": "badge"
+          },
+          {
+            "name": "وعدنا",
+            "icon": "seal"
+          },
+          {
+            "name": "سؤالكم",
+            "icon": "chat"
+          },
+          {
+            "name": "لأهلك",
+            "icon": "family"
+          }
+        ]
+      }
+    }
+  ]
+}
