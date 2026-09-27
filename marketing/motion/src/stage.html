@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TabeebX Motion Stage</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+  /* Studio chrome, only shown with ?studio. The renderer never sees it. */
+  body.studio { background: #0c0d24; font-family: 'Cairo', sans-serif; color: #FFFEFF; display: flex; height: 100vh; overflow: hidden; }
+  .studio #side { width: 300px; flex: none; overflow-y: auto; padding: 18px 14px; border-inline-end: 1px solid #262860; direction: rtl; }
+  .studio #side h1 { font-size: 18px; margin: 0 0 12px; font-weight: 700; }
+  .studio #side button { display: block; width: 100%; text-align: right; font: 500 14px 'Cairo', sans-serif; color: #FFFEFF; background: transparent; border: 1px solid #262860; border-radius: 10px; padding: 8px 12px; margin: 0 0 6px; cursor: pointer; }
+  .studio #side button.on { border-color: #EE396B; background: rgba(238,57,107,.12); }
+  .studio #main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; min-width: 0; padding: 12px; }
+  .studio #frame { position: relative; overflow: hidden; border-radius: 14px; box-shadow: 0 30px 80px -30px #000; }
+  .studio #bar { display: flex; gap: 10px; align-items: center; direction: ltr; width: min(720px, 90%); }
+  .studio #bar input { flex: 1; accent-color: #EE396B; }
+  .studio #bar button { font: 700 14px 'Cairo', sans-serif; background: #EE396B; color: #fff; border: 0; border-radius: 999px; padding: 6px 18px; cursor: pointer; }
+  .studio #bar span { font: 500 13px ui-monospace, monospace; min-width: 90px; text-align: right; }
+</style>
+</head>
+<body>
+<div id="side" hidden></div>
+<div id="main">
+  <div id="frame"><div id="stage"></div></div>
+  <div id="bar" hidden><button id="play">▶</button><input id="scrub" type="range" min="0" max="1000" value="0"><span id="clock">0.00s</span></div>
+</div>
+
+<script src="engine.js"></script>
+<script src="components.js"></script>
+<script src="compositions/story-teaser.js"></script>
+<script src="compositions/launch-reel.js"></script>
+<script src="compositions/bookends.js"></script>
+<script src="compositions/promise-reveal.js"></script>
+<script src="compositions/scorecard.js"></script>
+<script src="compositions/morning-question.js"></script>
+<script src="compositions/carousel.js"></script>
+<script src="compositions/highlights.js"></script>
+<script>
+(function () {
+  'use strict';
+  const TX = window.TX;
+  // Offset of the doorbell's second note; scripts/audio.mjs uses the same value.
+  const BELL = { second: 0.38 };
+  let inst = null;
+
+  async function loadFonts() {
+    const probe = 'گچ لا تصدگنا ٨:٣٠ TabeebX';
+    await Promise.all([
+      document.fonts.load('500 40px Cairo', probe),
+      document.fonts.load('700 40px Cairo', probe),
+    ]);
+  }
+
+  /** Build a job on the stage. Returns what the renderer needs to know. */
+  window.__setup = async (job, brand, opts = {}) => {
+    const tpl = TX.templates[job.template];
+    if (!tpl) throw new Error('Unknown template: ' + job.template);
+    await loadFonts();
+    const stage = document.getElementById('stage');
+    stage.innerHTML = '';
+    const params = job.params || {};
+    const size = typeof tpl.size === 'function' ? tpl.size(params) : tpl.size;
+    const [w, h] = size;
+    stage.style.width = w + 'px';
+    stage.style.height = h + 'px';
+    stage.className = (typeof tpl.light === 'function' ? tpl.light(params) : tpl.light) ? 'light' : '';
+    const ctx = { w, h, L: TX.layout(w, h), brand, params, opts, bell: BELL };
+    inst = tpl.build(stage, params, ctx);
+    if (opts.draft) TX.watermark(stage, opts.draftLabel || 'مسودة · DRAFT');
+    await Promise.all([...stage.querySelectorAll('img')].map((i) => i.decode().catch(() => {})));
+    await document.fonts.ready;
+    inst.render(0);
+    return {
+      w, h,
+      fps: tpl.fps || 30,
+      kind: tpl.kind || 'video',
+      duration: inst.duration != null ? inst.duration : tpl.duration,
+      pages: inst.pages || 1,
+      cues: inst.cues || [],
+      bed: inst.bed || null,
+      cover: inst.cover != null ? inst.cover : null,
+    };
+  };
+  window.__render = (t) => { inst.render(t); };
+
+  // ---------------------------------------------------------- studio mode
+  if (!/[?&]studio/.test(location.search)) return;
+  document.body.classList.add('studio');
+  const side = document.getElementById('side');
+  const bar = document.getElementById('bar');
+  const frame = document.getElementById('frame');
+  const stage = document.getElementById('stage');
+  side.hidden = false; bar.hidden = false;
+  let info = null, t = 0, playing = false, last = 0;
+
+  function fit() {
+    if (!info) return;
+    const main = document.getElementById('main');
+    const s = Math.min((main.clientHeight - 70) / info.h, (main.clientWidth - 24) / info.w);
+    stage.style.transform = `scale(${s})`;
+    frame.style.width = info.w * s + 'px';
+    frame.style.height = info.h * s + 'px';
+  }
+  function show(time) {
+    t = Math.max(0, Math.min(time, info.kind === 'still' ? info.pages - 1 : info.duration));
+    window.__render(t);
+    document.getElementById('scrub').value = info.kind === 'still' ? (t / Math.max(1, info.pages - 1)) * 1000 : (t / info.duration) * 1000;
+    document.getElementById('clock').textContent = info.kind === 'still' ? `page ${t + 1}/${info.pages}` : t.toFixed(2) + 's';
+  }
+  function loop(now) {
+    if (playing && info.kind !== 'still') {
+      const dt = (now - last) / 1000;
+      if (t + dt >= info.duration) { playing = false; document.getElementById('play').textContent = '▶'; }
+      show(t + dt);
+    }
+    last = now;
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+  document.getElementById('play').onclick = () => {
+    if (info.kind === 'still') { show((t + 1) % info.pages); return; }
+    if (t >= info.duration) t = 0;
+    playing = !playing;
+    document.getElementById('play').textContent = playing ? '❚❚' : '▶';
+  };
+  document.getElementById('scrub').oninput = (e) => {
+    playing = false;
+    document.getElementById('play').textContent = '▶';
+    const k = e.target.value / 1000;
+    show(info.kind === 'still' ? Math.round(k * (info.pages - 1)) : k * info.duration);
+  };
+  window.addEventListener('resize', fit);
+
+  fetch('../content/campaign.json').then((r) => r.json()).then((campaign) => {
+    const h1 = document.createElement('h1');
+    h1.textContent = 'TabeebX · شوف بعينك';
+    side.appendChild(h1);
+    campaign.jobs.forEach((job, i) => {
+      const b = document.createElement('button');
+      b.textContent = job.id;
+      b.onclick = async () => {
+        side.querySelectorAll('button').forEach((x) => x.classList.remove('on'));
+        b.classList.add('on');
+        playing = false;
+        info = await window.__setup(job, campaign.brand, { draft: !!job.draft });
+        fit();
+        show(0);
+      };
+      side.appendChild(b);
+      if (i === 0) setTimeout(() => b.click(), 0);
+    });
+  });
+})();
+</script>
+</body>
+</html>
