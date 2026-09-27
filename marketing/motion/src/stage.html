@@ -29,6 +29,7 @@
 
 <script src="engine.js"></script>
 <script src="components.js"></script>
+<script src="art.js"></script>
 <script src="compositions/story-teaser.js"></script>
 <script src="compositions/launch-reel.js"></script>
 <script src="compositions/bookends.js"></script>
@@ -138,6 +139,9 @@
     h1.textContent = 'TabeebX · شوف بعينك';
     side.appendChild(h1);
     campaign.jobs.forEach((job, i) => {
+      // Same "extends" rule as scripts/render.mjs: reuse another job's template and params.
+      const base = job.extends && campaign.jobs.find((x) => x.id === job.extends);
+      if (base) Object.assign(job, { template: base.template, params: { ...base.params, ...(job.params || {}) } });
       const b = document.createElement('button');
       b.textContent = job.id;
       b.onclick = async () => {

@@ -54,6 +54,23 @@ let jobs = campaign.jobs;
 if (targets.length && !targets.includes('all')) jobs = jobs.filter((j) => targets.some((t) => j.id.includes(t)));
 if (!jobs.length) { console.error('No job matches', targets.join(' ')); process.exit(1); }
 
+// Photos of real people live in assets/people/, which is kept out of git. A job
+// whose photo file is missing renders with an empty frame and a DRAFT stamp.
+const missingPhotos = new Set();
+for (const j of jobs) {
+  const walk = (o) => {
+    if (!o || typeof o !== 'object') return;
+    for (const k of Object.keys(o)) {
+      if (k === 'photo' && typeof o[k] === 'string' && !existsSync(path.resolve(root, 'src', o[k]))) {
+        console.warn(`  ⚠ ${j.id}: photo not found (${o[k]}) → empty frame, DRAFT`);
+        o[k] = null;
+        missingPhotos.add(j.id);
+      } else walk(o[k]);
+    }
+  };
+  walk(j.params);
+}
+
 // Copy rules run before anything renders. Unfilled placeholders force a draft stamp.
 const report = lintCampaign(campaign, jobs.map((j) => j.id));
 for (const w of report.warnings) console.warn('  ⚠', w);
@@ -86,7 +103,7 @@ async function renderJob(job) {
   const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
   page.on('pageerror', (e) => console.error(`[${job.id}] page error:`, e.message));
   await page.goto(`${base}/src/stage.html`);
-  const draft = !!(flag('draft') || job.draft || report.placeholders.has(job.id));
+  const draft = !!(flag('draft') || job.draft || report.placeholders.has(job.id) || missingPhotos.has(job.id));
   const info = await page.evaluate(([j, b, o]) => window.__setup(j, b, o), [job, campaign.brand, { draft, draftLabel: job.draftLabel }]);
   const clip = { x: 0, y: 0, width: info.w, height: info.h };
   const started = Date.now();

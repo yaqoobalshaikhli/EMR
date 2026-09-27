@@ -165,3 +165,7 @@ body { overflow: hidden; }
 svg { overflow: visible; }
 
 .dots i { font-style: normal; display: inline-block; }
+
+/* White slides: secondary text in navy instead of white. */
+.light-layer .dim { color: rgba(24, 25, 67, .62); }
+.light-layer .strip { color: rgba(24, 25, 67, .7); }
