@@ -1,2 +1,4 @@
 node_modules/
 out/
+# Photos of real people stay out of this public repo (consent, privacy).
+assets/people/

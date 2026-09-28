@@ -42,8 +42,11 @@ use as the Reel or story cover.
 | `02-sun27-launch-reel` | Sun 27 Sep, 8:30 PM | Reel, 40 s: the founder script, beat by beat |
 | `02a` / `02b` / `90` | Founder edit | Opener (2.4 s), door B-roll (11 s), end card (3.4 s) |
 | `02c` … `08b` | Daily 10:30 AM / 9:00 PM / 9:30 PM | Morning questions (white, room for the poll sticker) and «باچر» teasers |
+| `03a-mon28-doctor-carousel` | Mon 28 Sep, 8:30 PM | 6 slides, «هذا دكتورك»: the founder's photo on an ID badge, credentials, his own words |
 | `04-tue29-heart-carousel` | Tue 29 Sep, 8:30 PM | 7 slides, World Heart Day, «صح لو غلط؟» |
 | `05-wed30-visit-opener` | Wed 30 Sep, 8:30 PM | Opener for the filmed home lab visit, with the demonstration label |
+| `06a-thu01-parents-carousel` | Thu 1 Oct, 8:30 PM | 6 slides, «أهلنا ما يشتكون», with illustrations drawn in code |
+| `08a-sat03-national-day` | Sat 3 Oct, 8:30 PM | Single image: Baghdad on the Tigris at dusk, the flag, «العراق بخير... من أهله بخير.» |
 | `09-sun04-promise-reel` / `09b` | Sun 4 Oct, 8:30 PM | وعد TabeebX: the Reel and the 6-slide carousel |
 | `10-nov01-scorecard-template` | First Sunday of every month | Monthly scorecard, misses included |
 | `91-highlight-covers` | Profile | شوف بعينك · دكاترتنا · وعدنا · سؤالكم · لأهلك |
@@ -107,6 +110,15 @@ pulses: it is the open loop.
 - `assets/fonts/`: Cairo Medium and Bold (Arabic and Latin), SIL Open Font
   License, see `OFL.txt`.
 - The audio is synthesized from scratch, so nothing needs licensing.
+- `assets/people/`: photos of real people, **kept out of git** because this
+  repository is public. Put a consented photo there and point a job's `photo`
+  at it (`"../assets/people/name.jpg"`). If the file is missing, that job
+  renders an empty frame with a DRAFT stamp instead of failing.
+- `src/art.js`: illustrations drawn in code for posts without photos yet (tea
+  held in an older woman's hands, a nurse visiting at home, Baghdad on the
+  Tigris, the flag). The figures are faceless, like the one in the logo, so
+  they never pass for a real patient or nurse. Swap them for consented photos
+  when you have them.
 
 ## How it works
 

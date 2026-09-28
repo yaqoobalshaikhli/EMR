@@ -49,25 +49,28 @@
         </svg>`);
       lanyard.style.transformOrigin = '540px 505px';
       const card = el('div', 'card', s2);
-      px(card, { left: (W - 640) / 2, top: 520, width: 640, height: P.card.photo ? 380 : 330, transformOrigin: '50% -15px', boxShadow: '0 40px 80px -30px rgba(0,0,0,.6)' });
-      const intro = TX.text(s2, P.intro, 'col centered t-hook-s', { top: P.card.photo ? 980 : 930 });
-      const cardBody = el('div', 'abs', card);
-      px(cardBody, { inset: '44px 56px 40px 56px', textAlign: 'right' });
-      if (P.card.photo) {
-        const ph = el('img', 'abs', card);
+      const withPhoto = !!P.card.photo;
+      const cw = withPhoto ? 560 : 640;
+      px(card, { left: (W - cw) / 2, top: 520, width: cw, height: withPhoto ? 700 : 330, overflow: 'hidden', transformOrigin: '50% -15px', boxShadow: '0 40px 80px -30px rgba(0,0,0,.6)' });
+      if (withPhoto) {
+        // A real ID badge: the founder's photo on top, name and role below.
+        const ph = el('img', '', card);
         ph.src = P.card.photo;
-        px(ph, { width: 190, height: 190, borderRadius: '50%', objectFit: 'cover', right: 50, top: 50 });
-        px(cardBody, { right: 270 });
+        ph.alt = '';
+        px(ph, { width: cw, height: 400, objectFit: 'cover', objectPosition: '50% 18%', display: 'block' });
       }
+      const cardBody = el('div', withPhoto ? '' : 'abs', card);
+      px(cardBody, withPhoto ? { padding: '26px 40px 0', textAlign: 'center' } : { inset: '44px 56px 40px 56px', textAlign: 'right' });
       el('div', 't-hook-s', cardBody, P.card.name).style.lineHeight = '1.15';
       const role = el('div', 't-body', cardBody, P.card.role);
       px(role, { color: 'rgba(24,25,67,.72)', marginTop: 6 });
       const rule = el('div', '', cardBody);
-      px(rule, { height: 4, width: 120, background: '#1B9CCE', borderRadius: 4, margin: '22px 0 18px auto' });
+      px(rule, { height: 4, width: 120, background: '#1B9CCE', borderRadius: 4, margin: withPhoto ? '18px auto 14px' : '22px 0 18px auto' });
       const team = el('div', 'center', cardBody);
-      px(team, { justifyContent: 'flex-start', gap: 12, fontSize: 30, fontWeight: 500, color: '#1B9CCE' });
+      px(team, { justifyContent: withPhoto ? 'center' : 'flex-start', gap: 12, fontSize: 30, fontWeight: 500, color: '#1B9CCE' });
       TX.svg(team, TX.icon('badge', '#1B9CCE', 3.4)).setAttribute('width', 40);
       el('span', '', team, P.card.team);
+      const intro = TX.text(s2, P.intro, 'col centered t-hook-s', { top: withPhoto ? 1260 : 930 });
 
       // ------------------------------------------ 3. shared (6.2–14.2)
       const s3 = layer(stage);
@@ -278,7 +281,8 @@
             TX.animWords(intro.words, t, { at: 3.05, stagger: 0.12, dur: 0.6, out: 5.85, outDur: 0.3 });
             const drop = p(t, 2.5, 1.0, E.soft);
             const leave = p(t, 5.8, 0.4, E.inBack);
-            const y = (1 - drop) * -900 - leave * 900;
+            const dist = withPhoto ? 1300 : 900; // start fully above the frame
+            const y = (1 - drop) * -dist - leave * dist;
             const sw = t < 2.5 ? 0 : 6 * Math.exp(-(t - 2.5) / 0.85) * Math.cos((t - 2.5) * 5.4);
             set(card, { y, r: sw });
             set(lanyard, { y, r: sw });

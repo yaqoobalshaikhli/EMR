@@ -39,7 +39,7 @@
           "name": "د. يعقوب",
           "role": "طبيب، ومؤسس TabeebX",
           "team": "فريق TabeebX · بغداد",
-          "photo": null
+          "photo": "../assets/people/yaqoob.jpg"
         },
         "shared": {
           "title": "كلنا مرّينا بيها:",
@@ -127,6 +127,86 @@
       "template": "story-question",
       "params": {
         "question": "شگد يحتاج مخك حتى يقرر\nإذا يثق بوجه؟"
+      }
+    },
+    {
+      "id": "03a-mon28-doctor-carousel",
+      "when": "Mon 28 Sep 8:30 PM feed carousel, 6 slides · the founder as «دكتورك» for now; fill specialty, years, syndicate number (only if you agree to show it), your own words and one true detail",
+      "template": "carousel",
+      "params": {
+        "series": "طبيبك بالاسم",
+        "slides": [
+          {
+            "type": "badge",
+            "bg": "navy",
+            "photo": "../assets/people/yaqoob.jpg",
+            "name": "د. يعقوب",
+            "role": "طبيب · مؤسس TabeebX",
+            "text": "هذا دكتورك."
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "title": "د. يعقوب",
+            "rows": [
+              {
+                "icon": "badge",
+                "text": "[الاختصاص]"
+              },
+              {
+                "icon": "calendar",
+                "text": "[عدد] سنة خبرة"
+              },
+              {
+                "icon": "seal",
+                "text": "رقم نقابة الأطباء: [___]"
+              }
+            ]
+          },
+          {
+            "type": "voice",
+            "bg": "navy",
+            "photo": "../assets/people/yaqoob.jpg",
+            "label": "ليش أسس TabeebX؟",
+            "quote": "[جوابك بكلماتك]"
+          },
+          {
+            "type": "voice",
+            "bg": "navy",
+            "photo": "../assets/people/yaqoob.jpg",
+            "label": "شي ما تعرفه عنه:",
+            "quote": "[تفصيل حقيقي عنك]",
+            "zoom": 1.15,
+            "origin": "50% 24%"
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "title": "شلون يوصلك؟",
+            "rows": [
+              {
+                "icon": "chat",
+                "text": "استشارة أونلاين،"
+              },
+              {
+                "icon": "home",
+                "text": "أو زيارة لبيتك ببغداد."
+              },
+              {
+                "icon": "message",
+                "text": "تحجز برسالة واتساب."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "عندك سؤال لـ د. يعقوب؟",
+            "cta": "*اكتبه بالتعليقات،*\nويجاوبك بنفسه الأحد بالليل.",
+            "ctaTop": 420,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
       }
     },
     {
@@ -254,6 +334,72 @@
       }
     },
     {
+      "id": "06a-thu01-parents-carousel",
+      "when": "Thu 1 Oct 8:30 PM feed carousel, 6 slides · illustrations drawn in code; swap slides 1 and 5 for consented photos when you have them",
+      "template": "carousel",
+      "params": {
+        "series": "لأهلك",
+        "slides": [
+          {
+            "type": "art",
+            "bg": "navy",
+            "art": "istikan",
+            "artTop": 210,
+            "artHeight": 620,
+            "text": "أهلنا ما *يشتكون.*",
+            "textClass": "t-hook",
+            "textTop": 860
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "يگولون «الحمد لله، زينين»...\nحتى ما يشغلون بالك.",
+            "top": 420
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "بس التغييرات الصغيرة تحچي:",
+            "items": [
+              "يتعب أسرع من قبل",
+              "أكله قلّ",
+              "ينسى دواه",
+              "ما يطلع من البيت مثل قبل",
+              "نومه تغيّر"
+            ],
+            "small": "هاي مو تشخيص، بس تستاهل سؤال لدكتور.",
+            "signed": "راجعها طبياً: د. [الاسم]"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "اتصل بيهم اليوم.\nومو بس اسأل «شلونكم؟»...\nاسأل: *«شنو تحتاجون؟»*",
+            "top": 400
+          },
+          {
+            "type": "art",
+            "bg": "navy",
+            "art": "visit",
+            "artTop": 210,
+            "artHeight": 560,
+            "artLeft": 70,
+            "artRight": 70,
+            "text": "وإذا يحتاجون دكتور؟\nالدكتور يجيهم لحد البيت:\nكشف، تحليل، تخطيط قلب،\nعلاج طبيعي.\nبلا سرة ولا طريق.",
+            "textClass": "t-sub",
+            "textTop": 810
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "",
+            "cta": "*دزها لكروب إخوانك.*",
+            "ctaTop": 420,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
       "id": "06b-thu01-promise-countdown",
       "when": "Thu 1 Oct 9:30 PM story · countdown sticker to Sun 4 Oct 8:30 PM",
       "template": "story-teaser",
@@ -289,6 +435,30 @@
       "params": {
         "question": "شنو أكثر شي\nتحبه بالعراق؟",
         "icon": "heart"
+      }
+    },
+    {
+      "id": "08a-sat03-national-day",
+      "when": "Sat 3 Oct 8:30 PM feed single image · illustrated fallback; the plan's version is the real team in pink lanyards",
+      "template": "carousel",
+      "params": {
+        "slides": [
+          {
+            "type": "art",
+            "bg": "navy",
+            "art": "baghdad",
+            "artLeft": 0,
+            "artRight": 0,
+            "artTop": 600,
+            "artHeight": 750,
+            "text": "العراق بخير...\nمن أهله *بخير.*",
+            "textClass": "t-hook",
+            "textTop": 380,
+            "small": "٣ تشرين الأول · اليوم الوطني",
+            "flag": true,
+            "flagTop": 300
+          }
+        ]
       }
     },
     {
