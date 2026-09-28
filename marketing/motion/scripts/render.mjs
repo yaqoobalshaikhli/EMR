@@ -5,6 +5,7 @@
 //   node scripts/render.mjs launch --from 19.2 --to 30.2 --suffix broll
 //   node scripts/render.mjs all --draft          stamp every video "مسودة · DRAFT"
 //   node scripts/render.mjs 92 --alpha           transparent background: -alpha.webm + -greenscreen.mp4
+//   node scripts/render.mjs 93-tabeebx --audio   the soundtrack alone, as a WAV
 //   node scripts/render.mjs --list
 //
 // Videos: 1080×1920 (or the template's size), H.264 High, 30 fps, AAC 48 kHz,
@@ -146,8 +147,22 @@ async function renderJob(job) {
   const name = `${job.id}${suffix}`;
   const frames = Math.round((to - from) * info.fps);
 
+  // A template that writes its own score renders it in the page (src/score.js).
+  let music = null;
+  if (info.score) {
+    const raw = Buffer.from(await page.evaluate(() => window.__score()), 'base64');
+    const f = new Float32Array(raw.buffer.slice(raw.byteOffset, raw.byteOffset + raw.length));
+    music = { L: f.subarray(0, f.length / 2), R: f.subarray(f.length / 2) };
+  }
+  const soundtrack = mix({ from, to, cues: info.cues, bed: info.bed, music });
+  if (flag('audio')) {
+    writeWav(path.join(outDir, `${name}.wav`), soundtrack);
+    console.log(`✓ ${name}.wav  ${(to - from).toFixed(1)}s in ${((Date.now() - started) / 1000).toFixed(1)}s`);
+    await page.close();
+    return;
+  }
   const wav = path.join(tmpDir, `${name}.wav`);
-  writeWav(wav, mix({ from, to, cues: info.cues, bed: info.bed }));
+  writeWav(wav, soundtrack);
 
   // Lossless PNG frames and accurate rounding keep brand hex values within ±1 after encoding.
   const SWS = 'scale=out_color_matrix=bt709:out_range=tv:flags=bicubic+accurate_rnd+full_chroma_int';

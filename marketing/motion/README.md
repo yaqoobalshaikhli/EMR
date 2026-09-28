@@ -27,6 +27,7 @@ npm run render:all                 # everything → out/
 node scripts/render.mjs launch     # only jobs whose id contains "launch"
 node scripts/render.mjs --list     # what each job is and when it posts
 node scripts/render.mjs 92 --alpha # transparent background (see below)
+node scripts/render.mjs 93-tabeebx --audio  # the soundtrack alone, as a WAV
 npm run preview                    # live studio in the browser, scrubbable
 ```
 
@@ -44,7 +45,8 @@ footage. It writes two files from the same frames:
   In CapCut, add it as an overlay, then use Cutout → Chroma key on the green.
 
 White type gets a soft shadow in this mode, so it stays readable on light
-pictures.
+pictures. The 3D film is a set, not an overlay, so its transparent version is
+`93a`: the logo build alone, with no backdrop, floor or type.
 
 ## Launch week in `campaign.json`
 
@@ -64,6 +66,8 @@ pictures.
 | `10-nov01-scorecard-template` | First Sunday of every month | Monthly scorecard, misses included |
 | `91-highlight-covers` | Profile | شوف بعينك · دكاترتنا · وعدنا · سؤالكم · لأهلك |
 | `92-tabeebx-brand-film` | Any time | Brand film, 33 s, no faces. The pink dot of the logo rings as the doorbell, the door opens, the services arrive, and the dot lands as the head of the TabeebX figure in the closing logo. Render it with `--alpha` too |
+| `93-tabeebx-film-3d` | Any time | The brand film in real 3D, 30.5 s, no faces, with its own orchestral score. At night the logo's pink head rings as the doorbell beside a Baghdadi door. The door opens onto light and the camera walks through into a bright studio. The seven services arrive as glossy cards, then the logo builds in 3D and lands on the doorbell |
+| `93a-tabeebx-logo-3d` | Any time | The 3D logo build from `93` on its own, 10.9 s. Render it with `--alpha` to lay it over footage |
 
 ### The founder edit (Sun 27 Sep)
 
@@ -124,7 +128,9 @@ pulses: it is the open loop.
   pink tab and on the end card.
 - `assets/fonts/`: Cairo Medium and Bold (Arabic and Latin), SIL Open Font
   License, see `OFL.txt`.
-- The audio is synthesized from scratch, so nothing needs licensing.
+- The audio is synthesized from scratch, so nothing needs licensing. That
+  includes the score of `93`: strings, felt piano, a heartbeat and impacts,
+  composed in `brand-film-3d.js` with the instruments in `src/score.js`.
 - `assets/people/`: photos of real people, **kept out of git** because this
   repository is public. Put a consented photo there and point a job's `photo`
   at it (`"../assets/people/name.jpg"`). If the file is missing, that job
@@ -143,3 +149,13 @@ template builds its DOM once and exposes `render(t)`, a pure function of time.
 `scripts/render.mjs` steps Chromium frame by frame, captures lossless PNGs and
 pipes them into ffmpeg. It mixes the template's audio cues
 (`scripts/audio.mjs`) onto the same clock, so every chime lands on its frame.
+
+The 3D film (`src/compositions/brand-film-3d.js`) uses three.js, installed by
+`npm install` and served from `node_modules`. It builds the logo by extruding
+the traced vectors in `src/logo.js` and lights it with physically based
+materials, soft shadows, bloom and film grain. Headless Chromium renders WebGL
+in software, so expect about 2 s per frame (30 minutes for the film on four
+cores). Its score is rendered in the page with the Web Audio API
+(`src/score.js`), so music and picture share one clock. A scored film is
+mastered to −14 LUFS, the usual level for social video, with a look-ahead
+limiter at −1.4 dBFS. The other videos are peak-normalised as before.

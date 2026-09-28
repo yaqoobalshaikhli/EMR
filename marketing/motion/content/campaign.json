@@ -689,6 +689,34 @@
         "cta": "رابط الواتساب بالبايو",
         "tagline": "لا تصدگنا. شوف بعينك."
       }
+    },
+    {
+      "id": "93-tabeebx-film-3d",
+      "when": "Evergreen brand film in 3D, 30.5 s: night, the doorbell, the door opening onto light, the services, the logo built in 3D. No faces, no names",
+      "template": "brand-film-3d",
+      "params": {
+        "hook": "منو بالباب؟",
+        "answer": "طبيبك.",
+        "title": "والعيادة *كلها* وياه.",
+        "services": [
+          { "icon": "stethoscope", "text": "طبيب اختصاص" },
+          { "icon": "syringe", "text": "تمريض" },
+          { "icon": "tubes", "text": "تحاليل" },
+          { "icon": "ultrasound", "text": "سونار" },
+          { "icon": "xray", "text": "أشعة" },
+          { "icon": "ecg", "text": "تخطيط قلب" },
+          { "icon": "physio", "text": "علاج طبيعي" }
+        ],
+        "where": "ببيتك، ببغداد.",
+        "relief": "بس *راحة بال.*",
+        "tagline": "لا تصدگنا. شوف بعينك."
+      }
+    },
+    {
+      "id": "93a-tabeebx-logo-3d",
+      "when": "The 3D logo build from 93 on its own, 10.9 s, for laying over footage. Render with --alpha",
+      "extends": "93-tabeebx-film-3d",
+      "range": [19.6, 30.5]
     }
   ]
 }
