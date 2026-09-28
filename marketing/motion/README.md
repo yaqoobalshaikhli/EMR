@@ -26,6 +26,7 @@ npm run check                      # copy rules (see below)
 npm run render:all                 # everything → out/
 node scripts/render.mjs launch     # only jobs whose id contains "launch"
 node scripts/render.mjs --list     # what each job is and when it posts
+node scripts/render.mjs 92 --alpha # transparent background (see below)
 npm run preview                    # live studio in the browser, scrubbable
 ```
 
@@ -33,6 +34,17 @@ Videos are 1080×1920 at 30 fps: H.264 High, AAC 48 kHz, BT.709, faststart.
 Brand hex values survive encoding within ±1. Carousels are 1080×1350 PNG and
 highlight covers are 1080×1080 PNG. Each full video also gets a `-cover.png` to
 use as the Reel or story cover.
+
+`--alpha` renders a video with no background, for laying it over other
+footage. It writes two files from the same frames:
+
+- `-alpha.webm`: VP9 with a real alpha channel, for Premiere, DaVinci, CapCut
+  desktop and the web.
+- `-greenscreen.mp4`: the same animation over chroma green, for phone editors.
+  In CapCut, add it as an overlay, then use Cutout → Chroma key on the green.
+
+White type gets a soft shadow in this mode, so it stays readable on light
+pictures.
 
 ## Launch week in `campaign.json`
 
@@ -51,6 +63,7 @@ use as the Reel or story cover.
 | `09-sun04-promise-reel` / `09b` | Sun 4 Oct, 8:30 PM | وعد TabeebX: the Reel and the 6-slide carousel |
 | `10-nov01-scorecard-template` | First Sunday of every month | Monthly scorecard, misses included |
 | `91-highlight-covers` | Profile | شوف بعينك · دكاترتنا · وعدنا · سؤالكم · لأهلك |
+| `92-tabeebx-brand-film` | Any time | Brand film, 33 s, no faces. The pink dot of the logo rings as the doorbell, the door opens, the services arrive, and the dot lands as the head of the TabeebX figure in the closing logo. Render it with `--alpha` too |
 
 ### The founder edit (Sun 27 Sep)
 
@@ -102,12 +115,13 @@ pulses: it is the open loop.
 
 ## Brand assets
 
-- `assets/brand/figure-white.png`: the white figure inside the pink tab and on
-  the end card. It is currently extracted from `custom/branding/logo.png` (the
-  Baru mark) by `npm run figure`. If TabeebX's figure differs, replace this
-  file with the official white figure (transparent PNG), or run
-  `node scripts/extract-figure.mjs path/to/logo.png`, then re-render. The
-  TabeebX wordmark is never retyped: the templates only place the figure.
+- `src/logo.js` and `assets/brand/tabeebx-logo.svg`: the official TabeebX
+  logo, traced to vectors from the artwork. Each shape is its own path (the
+  pink head, the blue arms, the pink torso, the two blue legs, the seven
+  letters), so the brand film can build the logo piece by piece. The colours
+  are the brand tokens. The wordmark is never retyped.
+- `assets/brand/tabeebx-figure-white.svg`: the same figure in white, inside the
+  pink tab and on the end card.
 - `assets/fonts/`: Cairo Medium and Bold (Arabic and Latin), SIL Open Font
   License, see `OFL.txt`.
 - The audio is synthesized from scratch, so nothing needs licensing.

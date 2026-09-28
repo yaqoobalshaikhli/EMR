@@ -1,6 +1,6 @@
 {
   "brand": {
-    "figure": "../assets/brand/figure-white.png",
+    "figure": "../assets/brand/tabeebx-figure-white.svg",
     "trustStrip": "TabeebX · مرخّصين من وزارة الصحة العراقية",
     "ritual": "كل ليلة ٨:٣٠",
     "closingLine": [
@@ -662,6 +662,32 @@
             "icon": "family"
           }
         ]
+      }
+    },
+    {
+      "id": "92-tabeebx-brand-film",
+      "when": "Evergreen brand film, 33 s: the pink dot, the door, the services, the logo reveal. No faces, no names. Also render with --alpha for a transparent version",
+      "template": "brand-film",
+      "params": {
+        "hook": "منو بالباب؟",
+        "answer": "طبيبك.",
+        "title": "والعيادة *كلها* وياه.",
+        "services": [
+          { "icon": "stethoscope", "text": "طبيب اختصاص" },
+          { "icon": "syringe", "text": "تمريض" },
+          { "icon": "tubes", "text": "تحاليل" },
+          { "icon": "ultrasound", "text": "سونار" },
+          { "icon": "xray", "text": "أشعة" },
+          { "icon": "ecg", "text": "تخطيط قلب" },
+          { "icon": "physio", "text": "علاج طبيعي" }
+        ],
+        "where": "ببيتك، ببغداد.",
+        "pains": ["سرة العيادة.", "زحمة الطريق.", "صالة الانتظار."],
+        "relief": "بس *راحة بال.*",
+        "ask": "دزلنا رسالة...",
+        "arrive": "ونوصل *لبابك.*",
+        "cta": "رابط الواتساب بالبايو",
+        "tagline": "لا تصدگنا. شوف بعينك."
       }
     }
   ]

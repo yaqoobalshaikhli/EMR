@@ -30,9 +30,11 @@
 <script src="engine.js"></script>
 <script src="components.js"></script>
 <script src="art.js"></script>
+<script src="logo.js"></script>
 <script src="compositions/story-teaser.js"></script>
 <script src="compositions/launch-reel.js"></script>
 <script src="compositions/door-reel.js"></script>
+<script src="compositions/brand-film.js"></script>
 <script src="compositions/bookends.js"></script>
 <script src="compositions/promise-reveal.js"></script>
 <script src="compositions/scorecard.js"></script>
@@ -60,6 +62,10 @@
     const tpl = TX.templates[job.template];
     if (!tpl) throw new Error('Unknown template: ' + job.template);
     await loadFonts();
+    // Transparent mode: no page, stage or field background, so frames carry alpha.
+    TX.alpha = !!opts.alpha;
+    document.documentElement.classList.toggle('alpha', TX.alpha);
+    document.body.classList.toggle('alpha', TX.alpha);
     const stage = document.getElementById('stage');
     stage.innerHTML = '';
     const params = job.params || {};

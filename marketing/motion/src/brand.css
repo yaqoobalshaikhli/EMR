@@ -169,3 +169,12 @@ svg { overflow: visible; }
 /* White slides: secondary text in navy instead of white. */
 .light-layer .dim { color: rgba(24, 25, 67, .62); }
 .light-layer .strip { color: rgba(24, 25, 67, .7); }
+
+/* Masked lines: words rise out of their own line and leave the same way.
+   The padding keeps Arabic ascenders and descenders inside the mask. */
+.mask .line { overflow: hidden; padding: .08em .14em .16em; margin: -.08em -.14em -.16em; }
+
+/* Transparent renders sit on unknown footage: no backgrounds, and a soft
+   shadow keeps white type readable on light pictures. */
+html.alpha, body.alpha, body.alpha #stage { background: transparent !important; }
+body.alpha #stage .word { text-shadow: 0 3px 22px rgba(10, 10, 40, .45); }

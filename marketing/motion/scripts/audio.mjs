@@ -161,7 +161,75 @@ function blip() {
   return normalize(b, 0.16);
 }
 
-const SFX = { doorbell, pop, tick, whoosh, blip };
+/** A soft heartbeat thud: pitch falls from ~110 Hz; the octave keeps it audible on phones. */
+function thump() {
+  const b = buffer(0.5);
+  for (let i = 0; i < b.L.length; i++) {
+    const t = i / SR;
+    const ph = TAU * (50 * t + 60 * 0.03 * (1 - Math.exp(-t / 0.03)));
+    const v = (Math.sin(ph) + 0.35 * Math.sin(2 * ph)) * Math.exp(-t / 0.12) * Math.min(1, t / 0.003);
+    b.L[i] = b.R[i] = v;
+  }
+  return normalize(b, 0.5);
+}
+
+/** The logo lands: a deep swept boom with a soft crack, in a little room. */
+function impact() {
+  const b = buffer(2.2);
+  const rnd = noise(23);
+  const mono = new Float32Array(b.L.length);
+  let lp = 0;
+  for (let i = 0; i < mono.length; i++) {
+    const t = i / SR;
+    const ph = TAU * (40 * t + 70 * 0.06 * (1 - Math.exp(-t / 0.06)));
+    const body = (Math.sin(ph) + 0.3 * Math.sin(2 * ph)) * Math.exp(-t / 0.5);
+    lp = lp * 0.88 + rnd() * 0.12;
+    mono[i] = (body + lp * 1.6 * Math.exp(-t / 0.045)) * Math.min(1, t / 0.002);
+  }
+  b.L = reverb(mono, 0.2, 0);
+  b.R = reverb(mono, 0.2, 1.7);
+  return normalize(b, 0.55);
+}
+
+/** Tension into the logo: filtered noise and a tone that both climb, then stop dead. */
+function riser() {
+  const dur = 1.6;
+  const b = buffer(dur);
+  const rnd = noise(31);
+  let z1 = 0, z2 = 0;
+  for (let i = 0; i < b.L.length; i++) {
+    const t = i / SR, k = t / dur;
+    const fc = 400 + 5200 * k * k;
+    const f = 2 * Math.sin((Math.PI * fc) / SR), q = 0.35;
+    const hp = rnd() - z2 - q * z1;
+    z1 += f * hp; z2 += f * z1;
+    const tone = Math.sin(TAU * (180 * t + (600 / (2 * dur)) * t * t));
+    const env = k * k * (k < 0.97 ? 1 : (1 - k) / 0.03);
+    const v = (z1 * 0.8 + tone * 0.22) * env;
+    b.L[i] = v * (1 - 0.2 * k); b.R[i] = v * (0.8 + 0.2 * k);
+  }
+  return normalize(b, 0.18);
+}
+
+/** Light catching the logo: a scatter of high, short, bell-like partials. */
+function shimmer() {
+  const b = buffer(1.6);
+  const rnd = noise(41);
+  const u = () => (rnd() + 1) / 2;
+  const mono = new Float32Array(b.L.length);
+  for (let n = 0; n < 14; n++) {
+    const f = 2200 + u() * 3800, t0 = u() * 0.5, d = 0.15 + u() * 0.35, a = 0.4 + 0.6 * u();
+    for (let i = Math.round(t0 * SR); i < mono.length; i++) {
+      const tt = i / SR - t0;
+      mono[i] += a * Math.sin(TAU * f * tt) * Math.exp(-tt / d) * Math.min(1, tt / 0.002);
+    }
+  }
+  b.L = reverb(mono, 0.35, 0);
+  b.R = reverb(mono, 0.35, 2.3);
+  return normalize(b, 0.12);
+}
+
+const SFX = { doorbell, pop, tick, whoosh, blip, thump, impact, riser, shimmer };
 const cache = {};
 export const sfx = (name) => (cache[name] ||= SFX[name]());
 
