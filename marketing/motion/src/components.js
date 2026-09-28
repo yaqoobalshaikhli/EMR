@@ -33,6 +33,14 @@
     calendar: '<rect x="6" y="9" width="36" height="33" rx="5"/><path d="M6 18h36M15 5v8M33 5v8"/>',
     kit: '<rect x="6" y="15" width="36" height="25" rx="5"/><path d="M17 15v-5h14v5M24 22v11M18.5 27.5h11"/>',
     user: '<circle cx="24" cy="15" r="8"/><path d="M8 42c2-9 8.5-14 16-14s14 5 16 14"/>',
+    // Home services (door-reel): what comes to the door.
+    stethoscope: '<path d="M8 6h6M24 6h6"/><path d="M11 6v10a8 8 0 0 0 16 0V6"/><path d="M19 24v6a9 9 0 0 0 18 0v-5"/><circle cx="37" cy="21" r="4.5"/>',
+    syringe: '<path d="M30.5 10.5l7 7-18 18-7-7z"/><path d="M16 32l-8 8M34 14l6-6M36.5 4.5l7 7M28.3 8.3l11.4 11.4"/><path d="M22 19l2.5 2.5M18 23l2.5 2.5"/>',
+    tubes: '<path d="M10 6h12M13 6v28a3 3 0 0 0 6 0V6"/><path d="M26 12h12M29 12v22a3 3 0 0 0 6 0V12"/><path d="M13 22h6M29 25h6"/><path d="M7 43h34"/>',
+    ultrasound: '<path d="M19 4h10v6H19z"/><path d="M24 10L3 31a30 30 0 0 0 42 0z"/><path d="M11.3 22.7a18 18 0 0 0 25.4 0"/><path d="M17 29a10 10 0 0 0 14 0"/>',
+    xray: '<rect x="7" y="6" width="34" height="36" rx="6"/><path d="M19 18l10 12"/><circle cx="17.3" cy="19.4" r="2.6"/><circle cx="20.7" cy="16.6" r="2.6"/><circle cx="27.3" cy="31.4" r="2.6"/><circle cx="30.7" cy="28.6" r="2.6"/>',
+    ecg: '<rect x="5" y="8" width="38" height="28" rx="5"/><path d="M9 23h8l3-7 5 13 3-6h11"/><path d="M18 43h12M24 36v7"/>',
+    physio: '<circle cx="24" cy="8" r="4"/><path d="M24 14v14"/><path d="M13 11l11 8 11-8"/><path d="M24 28l-8 13"/><path d="M24 28l9 5-2 9"/>',
   };
   TX.icon = (name, color = '#1B9CCE', sw = 3.2) =>
     `<svg viewBox="0 0 48 48" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${(ICONS[name] || ICONS.eye).replace(/class="dot"/g, `fill="${color}" stroke="none"`)}</svg>`;
@@ -76,6 +84,9 @@
   /** Rings that spread from a point when the doorbell sounds: sound made visible. */
   C.rings = (stage, count = 2) => {
     const holder = el('div', 'abs', stage);
+    // Pin the empty holder to the top left: in an RTL stage its static position is
+    // the right edge, which pushed every ring a full frame width off screen.
+    px(holder, { left: 0, top: 0 });
     const rings = [];
     for (let i = 0; i < count * 2; i++) {
       const r = el('div', 'abs', holder);

@@ -43,6 +43,7 @@ use as the Reel or story cover.
 | `02a` / `02b` / `90` | Founder edit | Opener (2.4 s), door B-roll (11 s), end card (3.4 s) |
 | `02c` … `08b` | Daily 10:30 AM / 9:00 PM / 9:30 PM | Morning questions (white, room for the poll sticker) and «باچر» teasers |
 | `03a-mon28-doctor-carousel` | Mon 28 Sep, 8:30 PM | 6 slides, «هذا دكتورك»: the founder's photo on an ID badge, credentials, his own words |
+| `03c-mon28-door-reel` | Mon 28 Sep, 8:30 PM, instead of `03a` | Reel, 28.6 s, «منو بالباب؟»: no faces, no names. The doorbell rings, the door opens and the home services come through it. Evergreen after launch week |
 | `04-tue29-heart-carousel` | Tue 29 Sep, 8:30 PM | 7 slides, World Heart Day, «صح لو غلط؟» |
 | `05-wed30-visit-opener` | Wed 30 Sep, 8:30 PM | Opener for the filmed home lab visit, with the demonstration label |
 | `06a-thu01-parents-carousel` | Thu 1 Oct, 8:30 PM | 6 slides, «أهلنا ما يشتكون», with illustrations drawn in code |

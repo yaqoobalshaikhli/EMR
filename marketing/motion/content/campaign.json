@@ -210,6 +210,32 @@
       }
     },
     {
+      "id": "03c-mon28-door-reel",
+      "when": "Mon 28 Sep 8:30 PM feed Reel · no faces, no names: runs in place of 03a until a doctor is ready to appear, then stays evergreen",
+      "template": "door-reel",
+      "params": {
+        "series": "شوف بعينك",
+        "hook": "*منو بالباب؟*",
+        "answer": "طبيبك.",
+        "title": "والعيادة *كلها* وياه.",
+        "services": [
+          { "icon": "stethoscope", "text": "طبيب اختصاص" },
+          { "icon": "syringe", "text": "تمريض" },
+          { "icon": "tubes", "text": "تحاليل" },
+          { "icon": "ultrasound", "text": "سونار" },
+          { "icon": "xray", "text": "أشعة" },
+          { "icon": "ecg", "text": "تخطيط قلب" },
+          { "icon": "physio", "text": "علاج طبيعي" }
+        ],
+        "where": "ببيتك، ببغداد.",
+        "pains": ["سرة العيادة.", "زحمة الطريق.", "صالة الانتظار."],
+        "relief": "بس *راحة بال.*",
+        "ask": "دزلنا رسالة...",
+        "arrive": "ونوصل *لبابك.*",
+        "cta": "رابط الواتساب بالبايو"
+      }
+    },
+    {
       "id": "03b-mon28-bacher",
       "when": "Mon 28 Sep 9:30 PM story",
       "template": "story-teaser",
