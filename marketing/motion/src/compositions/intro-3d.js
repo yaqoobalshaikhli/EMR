@@ -410,7 +410,7 @@ TX.register('intro-3d', {
       mesh(new THREE.CircleGeometry(0.1, 20), new THREE.MeshBasicMaterial({ color: '#2A2C3F' }), room, [slotX(i), 1.365, 0.2]).rotation.x = -Math.PI / 2;
       return { t, tag, i };
     });
-    const phone = new THREE.Group(); phone.position.copy(ROOM).add(V(1.55, 1.9, 0.5)); phone.rotation.set(-0.08, -0.32, 0); D.add(phone);
+    const phone = new THREE.Group(); phone.position.copy(ROOM).add(V(1.74, 1.9, 0.5)); phone.rotation.set(-0.08, -0.12, 0); D.add(phone);
     mesh(new RoundedBoxGeometry(0.74, 1.48, 0.07, 4, 0.09), glossy('#12132E', { roughness: 0.25 }), phone);
     const screen = mesh(new THREE.PlaneGeometry(0.66, 1.34), new THREE.MeshBasicMaterial({ map: phoneScreen(P), transparent: true, toneMapped: false }), phone, [0, 0, 0.037]);
     mesh(new THREE.BoxGeometry(0.5, 0.05, 0.3), glossy('#E9E1D0'), phone, [0, -0.76, -0.08]);
@@ -481,7 +481,7 @@ TX.register('intro-3d', {
       // ------------------------------------------------------ camera
       let cp, ct;
       if (!inRoom) {
-        const CP = [[0, [0.9, 4.2, 20.5]], [4.4, [0.5, 4.4, 18.6]], [6.4, [0.3, 10.2, 15.6]], [12.4, [0.6, 10.0, 14.8]], [14.0, [5.8, 2.1, 10.2]], [16.6, [4.6, 2.3, 9.4]], [18.0, [2.6, 6.6, 13.8]], [T.push, [2.2, 6.3, 13.2]]];
+        const CP = [[0, [0.9, 4.2, 20.5]], [4.4, [0.5, 4.4, 18.6]], [6.4, [0.3, 10.2, 15.6]], [12.4, [0.6, 10.0, 14.8]], [14.0, [4.2, 2.6, 11.0]], [16.6, [4.6, 2.3, 9.4]], [18.0, [2.6, 6.6, 13.8]], [T.push, [2.2, 6.3, 13.2]]];
         const CT = [[0, [0, 5.4, 0]], [4.4, [0, 5.4, 0]], [6.4, [0, 11.2, 1.8]], [12.4, [0, 11.2, 1.8]], [14.0, [1.2, 1.4, 0.8]], [16.6, [0, 2.0, 0.4]], [18.0, [0, 7.4, 2.2]], [T.push, [0, 7.3, 2.2]]];
         cp = track(t, CP);
         ct = track(t, CT);
@@ -491,8 +491,8 @@ TX.register('intro-3d', {
           ct = [lerp(t0[0], 0, k), lerp(t0[1], 1.8, k), lerp(t0[2], -3, k)];
         }
       } else {
-        cp = track(t, [[T.inside, [40.6, 3.4, 6.4]], [26.0, [40.3, 3.05, 5.7]], [T.report[0], [40.3, 3.0, 5.6]], [T.report[1], [41.2, 2.3, 4.6]], [T.cut, [41.3, 2.25, 4.3]]]);
-        ct = track(t, [[T.inside, [40, 2.35, 0]], [26.0, [40, 2.35, 0.1]], [T.report[0], [40.1, 2.35, 0.1]], [T.report[1], [41.35, 1.85, 0.4]], [T.cut, [41.45, 1.88, 0.45]]]);
+        cp = track(t, [[T.inside, [40.6, 3.4, 6.4]], [26.0, [40.3, 3.05, 5.7]], [T.report[0], [40.3, 3.0, 5.6]], [T.report[1], [41.39, 2.3, 4.6]], [T.cut, [41.49, 2.25, 4.3]]]);
+        ct = track(t, [[T.inside, [40, 2.35, 0]], [26.0, [40, 2.35, 0.1]], [T.report[0], [40.1, 2.35, 0.1]], [T.report[1], [41.54, 1.85, 0.4]], [T.cut, [41.64, 1.88, 0.45]]]);
       }
       camD.position.set(...cp);
       camD.lookAt(...ct);
