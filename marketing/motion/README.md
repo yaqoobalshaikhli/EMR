@@ -68,6 +68,7 @@ pictures. The 3D film is a set, not an overlay, so its transparent version is
 | `92-tabeebx-brand-film` | Any time | Brand film, 33 s, no faces. The pink dot of the logo rings as the doorbell, the door opens, the services arrive, and the dot lands as the head of the TabeebX figure in the closing logo. Render it with `--alpha` too |
 | `93-tabeebx-film-3d` | Any time | The brand film in real 3D, 30.5 s, no faces, with its own orchestral score. At night the logo's pink head rings as the doorbell beside a Baghdadi door. The door opens onto light and the camera walks through into a bright studio. The seven services arrive as glossy cards, then the logo builds in 3D and lands on the doorbell |
 | `93a-tabeebx-logo-3d` | Any time | The 3D logo build from `93` on its own, 10.9 s. Render it with `--alpha` to lay it over footage |
+| `95-what-is-tabeebx-3d` | Pinned intro, after the visit times are confirmed | Video 1 of the scripts, in 3D, 44 s: «شنو هو طبيب اكس؟» answered in three words, «نسمعك. نجيك. نفحصك.», around a Baghdadi house at night. Specialties gather round a speech bubble; the pink head rings the door and a 24-hour dial shows the two visit times; sample tubes and a result on a phone. Script and voice-over: `content/scripts/95-what-is-tabeebx.md` |
 | `94-knee-prp-3d` | After a doctor's review | 3D explainer, 47.5 s, «ركبتك... من جوّه». It goes inside the knee: the cartilage, how it wears, why each extra kilo counts four times, the treatment ladder, PRP from blood tube to ultrasound-guided injection, and the team at home. Script and voice-over: `content/scripts/94-knee-from-inside.md` |
 
 ### The founder edit (Sun 27 Sep)
@@ -151,13 +152,14 @@ template builds its DOM once and exposes `render(t)`, a pure function of time.
 pipes them into ffmpeg. It mixes the template's audio cues
 (`scripts/audio.mjs`) onto the same clock, so every chime lands on its frame.
 
-The 3D films (`src/compositions/brand-film-3d.js` and `knee-3d.js`) use
-three.js, installed by `npm install` and served from `node_modules`. What they
-share lives in `src/three-kit.js`: the renderer and post chain (bloom, SMAA,
-grain), the white studio, the service cards, and the logo, extruded from the
-traced vectors in `src/logo.js` and assembled piece by piece. Headless
+The 3D films (`brand-film-3d.js`, `knee-3d.js` and `intro-3d.js` in
+`src/compositions/`) use three.js, installed by `npm install` and served from
+`node_modules`. What they share lives in `src/three-kit.js`: the renderer and
+post chain (bloom, SMAA, grain), the white studio, the service cards, the
+Baghdadi door, the sample tube, and the logo, extruded from the traced vectors
+in `src/logo.js` and assembled piece by piece. Headless
 Chromium renders WebGL in software, so expect about 2 s per frame: 30 minutes
-for `93` and 50 for `94` on four cores. Each film composes its own score,
+for `93` and about 45–50 for `94` and `95` on four cores. Each film composes its own score,
 rendered in the page with the Web Audio API (`src/score.js`), so music and
 picture share one clock. A scored film is mastered to −14 LUFS, the usual
 level for social video, with a look-ahead limiter at −1.4 dBFS. The other

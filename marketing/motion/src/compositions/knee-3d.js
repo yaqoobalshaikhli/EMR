@@ -17,7 +17,7 @@
  * in bone ivory with the cartilage in the brand blue. */
 import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
-import { W, H, track, glossy, canvasTexture, radial, makeRenderer, makePost, makeStudio, logoRig, makeCards } from '../three-kit.js';
+import { W, H, track, glossy, canvasTexture, radial, lathe, mesh, sparkles, TUBE, buildTube, makeRenderer, makePost, makeStudio, logoRig, makeCards } from '../three-kit.js';
 
 const TX = window.TX;
 const { E, p, env, lerp, clamp, el, set } = TX;
@@ -34,24 +34,7 @@ const walkPeaks = [0, 1, 2, 3, 4].map((n) => T.wear + 0.2 + (n + 0.5) / WALK);
 
 // ------------------------------------------------------------------ helpers
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
-const lathe = (pts, seg = 72) => new THREE.LatheGeometry(pts.map(([r, y]) => new THREE.Vector2(r, y)), seg);
-const mesh = (geo, mat, parent, pos) => { const m = new THREE.Mesh(geo, mat); if (pos) m.position.set(...pos); if (parent) parent.add(m); return m; };
 const glow = (hex, k) => new THREE.Color(hex).multiplyScalar(k);
-/** Additive points whose colours (and so brightness) are set every frame. */
-function sparkles(n, size) {
-  const pos = new Float32Array(n * 3), col = new Float32Array(n * 3);
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
-  const mat = new THREE.PointsMaterial({ size, map: radial('rgba(255,255,255,1)', 'rgba(255,255,255,0)'), vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending });
-  const pts = new THREE.Points(geo, mat);
-  pts.frustumCulled = false;
-  return {
-    pts,
-    put(i, x, y, z, c, k) { pos.set([x, y, z], i * 3); col.set([c.r * k, c.g * k, c.b * k], i * 3); },
-    commit() { geo.attributes.position.needsUpdate = true; geo.attributes.color.needsUpdate = true; },
-  };
-}
 /** White text centred on a canvas, for the faces of the kilo cubes. */
 const kiloFace = (text, bg) => canvasTexture(256, 256, (g, w, h) => {
   g.fillStyle = bg; g.fillRect(0, 0, w, h);
@@ -134,30 +117,6 @@ function buildLadder(steps) {
 }
 
 // --------------------------------------------------------------- the lab
-const TUBE = { r: 0.12, full: 0.9, red: 0.5, band: 0.022 };
-function buildTube(mats) {
-  const g = new THREE.Group();
-  mesh(lathe([[0, 0], [0.07, 0.006], [0.11, 0.035], [0.13, 0.09], [0.132, 0.14], [0.132, 1.1], [0.142, 1.12]], 48), mats.glass, g);
-  const red = mesh(lathe([[0, 0.014], [0.06, 0.02], [0.1, 0.045], [0.118, 0.09], [0.12, 0.13], [0.12, 1.0], [0, 1.0]], 40), mats.blood.clone(), g);
-  const band = mesh(new THREE.CylinderGeometry(0.121, 0.121, TUBE.band, 40), mats.band.clone(), g);
-  const gold = mesh(new THREE.CylinderGeometry(0.12, 0.12, 1, 40), mats.gold.clone(), g);
-  /** sep: 0 = whole blood, 1 = separated; left: how much of the golden layer is still there. */
-  const fill = (sep, left = 1) => {
-    const redTop = lerp(TUBE.full, TUBE.red, sep);
-    red.scale.y = redTop;
-    band.visible = sep > 0.02;
-    band.position.y = redTop + TUBE.band / 2;
-    band.material.opacity = sep;
-    const goldH = (TUBE.full - TUBE.red - TUBE.band) * sep * left;
-    gold.visible = goldH > 0.004;
-    gold.scale.y = Math.max(goldH, 0.001);
-    gold.position.y = redTop + TUBE.band * sep + goldH / 2;
-    gold.material.color.lerpColors(mats.blood.color, mats.gold.color, clamp(sep * 1.4));
-    return { redTop, goldTop: redTop + TUBE.band * sep + goldH, goldH };
-  };
-  fill(0);
-  return { g, fill };
-}
 function buildSyringe(mats) {
   const g = new THREE.Group();
   const white = glossy('#F4F6FA', { roughness: 0.3 });

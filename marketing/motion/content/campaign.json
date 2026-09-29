@@ -752,6 +752,38 @@
         "tagline": "لا تصدگنا. شوف بعينك.",
         "note": "للتوعية. العلاج يحدده الطبيب بعد الفحص."
       }
+    },
+    {
+      "id": "95-what-is-tabeebx-3d",
+      "when": "Video 1 of the scripts, in 3D, 44 s: «شنو هو طبيب اكس؟» answered in three words, نسمعك · نجيك · نفحصك, around a Baghdadi house at night. Script and voice-over: content/scripts/95-what-is-tabeebx.md. No faces, no names",
+      "template": "intro-3d",
+      "params": {
+        "hook": "شنو هو طبيب اكس؟",
+        "hookSub": "بثلاث كلمات...",
+        "words": [
+          { "icon": "chat", "text": "نسمعك" },
+          { "icon": "home", "text": "نجيك" },
+          { "icon": "tubes", "text": "نفحصك" }
+        ],
+        "listen": "*نسمعك.*",
+        "listenSub": "استشارة طبية، بأي اختصاص.",
+        "specialties": ["باطنية", "أطفال", "نسائية", "قلبية", "عظام", "جلدية", "أعصاب", "أنف وأذن"],
+        "come": "*نجيك.*",
+        "comeSub": "زيارة منزلية، بنوعين:",
+        "vip": "*VIP:* من ساعتين لأربع ساعات.",
+        "regular": "~اعتيادية:~ خلال ١٢ لـ ٢٤ ساعة.",
+        "test": "*نفحصك.*",
+        "testSub": "تحاليل بالبيت، بحزم لكل العائلة.",
+        "packages": ["للنساء", "للحوامل", "للأطفال", "لكبار السن", "للأمراض المزمنة"],
+        "count": 631,
+        "countLabel": "تحليل",
+        "resultCard": "نتيجة التحليل",
+        "phoneTitle": "طبيب اكس",
+        "phoneNote": "إذا تحتاج، الطبيب يتصل بيك ويشرحها.",
+        "result": "النتيجة توصلك... ووياها استشارة إذا تحتاج.",
+        "recap": "كل هذا، *وأنت ببيتك.*",
+        "tagline": "لا تصدگنا. شوف بعينك."
+      }
     }
   ]
 }

@@ -13,82 +13,13 @@
  * extruded from the traced vectors in src/logo.js, in the brand colours. The
  * score is composed below and rendered in the page (src/score.js). */
 import * as THREE from 'three';
-import { W, H, track, glossy, radial, buildLogo, makeRenderer, makePost, makeStudio, logoRig, makeCards } from '../three-kit.js';
+import { W, H, track, radial, buildLogo, buildDoor, makeRenderer, makePost, makeStudio, logoRig, makeCards } from '../three-kit.js';
 
 const TX = window.TX;
 const { E, p, env, lerp, clamp, el, set } = TX;
 const S = 0.01; // traced SVG units → scene units
 const NAVY = '#181943';
 const T = { cut: 10.9, lock: 26.3, total: 30.5 };
-
-// ------------------------------------------------------------- the door
-const DOOR = { wo: 2.9, ho: 4.1, wi: 2.5, hi: 3.9, gap: 0.008 };
-function frameShape() {
-  const { wo, ho, wi, hi } = DOOR, ro = wo / 2, ri = wi / 2, s = new THREE.Shape();
-  s.moveTo(-ro, 0); s.lineTo(-ro, ho - ro); s.absarc(0, ho - ro, ro, Math.PI, 0, true); s.lineTo(ro, 0);
-  s.lineTo(ri, 0); s.lineTo(ri, hi - ri); s.absarc(0, hi - ri, ri, 0, Math.PI, false); s.lineTo(-ri, 0); s.lineTo(-ro, 0);
-  return s;
-}
-function leafShape(side) {
-  const { hi, wi, gap } = DOOR, ri = wi / 2, s = new THREE.Shape();
-  const a = Math.acos(gap / ri);
-  if (side < 0) {
-    s.moveTo(-ri, 0.03); s.lineTo(-ri, hi - ri); s.absarc(0, hi - ri, ri, Math.PI, Math.PI - a, true); s.lineTo(-gap, 0.03); s.lineTo(-ri, 0.03);
-  } else {
-    s.moveTo(ri, 0.03); s.lineTo(ri, hi - ri); s.absarc(0, hi - ri, ri, 0, a, false); s.lineTo(gap, 0.03); s.lineTo(ri, 0.03);
-  }
-  return s;
-}
-function buildDoor() {
-  const g = new THREE.Group();
-  const { wo, ho, wi, hi } = DOOR, ri = wi / 2;
-  const frameGeo = new THREE.ExtrudeGeometry(frameShape(), { depth: 0.2, bevelEnabled: true, bevelThickness: 0.03, bevelSize: 0.03, bevelSegments: 3, curveSegments: 48 });
-  frameGeo.translate(0, 0, -0.05);
-  const frame = new THREE.Mesh(frameGeo, new THREE.MeshPhysicalMaterial({ color: '#E9E6DF', roughness: 0.5, clearcoat: 0.3 }));
-  g.add(frame);
-  const leafMat = new THREE.MeshPhysicalMaterial({ color: '#23266B', roughness: 0.5, clearcoat: 0.35, clearcoatRoughness: 0.45 });
-  const studMat = glossy('#1B9CCE', { roughness: 0.25 });
-  const knobMat = glossy('#F4F2EC', { roughness: 0.2 });
-  const studGeo = new THREE.SphereGeometry(0.03, 16, 12), knobGeo = new THREE.SphereGeometry(0.055, 20, 16);
-  const leaves = [-1, 1].map((side) => {
-    const hinge = new THREE.Group();
-    hinge.position.set(side * ri, 0, 0.02);
-    const geo = new THREE.ExtrudeGeometry(leafShape(side), { depth: 0.08, bevelEnabled: true, bevelThickness: 0.012, bevelSize: 0.012, bevelSegments: 2, curveSegments: 32 });
-    geo.translate(-side * ri, 0, 0);
-    hinge.add(new THREE.Mesh(geo, leafMat));
-    const zf = 0.08 + 0.012;
-    for (let c = 0; c < 3; c++) for (let r = 0; r < 6; r++) {
-      const s = new THREE.Mesh(studGeo, studMat);
-      s.position.set(-side * (0.3 + c * 0.3), 0.55 + r * 0.44, zf);
-      hinge.add(s);
-    }
-    const knob = new THREE.Mesh(knobGeo, knobMat);
-    knob.position.set(-side * (ri - 0.15), 1.75, zf + 0.02);
-    hinge.add(knob);
-    g.add(hinge);
-    return hinge;
-  });
-  // The wall around the doorway, and the lit room behind it.
-  const wall = new THREE.Shape();
-  wall.moveTo(-9, 0); wall.lineTo(9, 0); wall.lineTo(9, 10); wall.lineTo(-9, 10); wall.lineTo(-9, 0);
-  const hole = new THREE.Path();
-  const r0 = wo / 2 - 0.01;
-  hole.moveTo(-r0, 0); hole.lineTo(-r0, ho - r0); hole.absarc(0, ho - r0, r0, Math.PI, 0, true); hole.lineTo(r0, 0); hole.lineTo(-r0, 0);
-  wall.holes.push(hole);
-  g.add(new THREE.Mesh(new THREE.ShapeGeometry(wall, 48), new THREE.MeshStandardMaterial({ color: '#15163C', roughness: 0.95 })));
-  const room = new THREE.Mesh(new THREE.PlaneGeometry(9, 9), new THREE.MeshBasicMaterial({ map: radial('#ffffff', '#ffcf94'), color: new THREE.Color(2.1, 1.9, 1.55) }));
-  room.position.set(0, 1.9, -3.4);
-  g.add(room);
-  // Light leaking round the closed leaves: someone is waiting outside.
-  const leakMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(3.2, 2.6, 1.8), transparent: true });
-  const leakV = new THREE.Mesh(new THREE.PlaneGeometry(0.012, hi - 0.1), leakMat);
-  leakV.position.set(0, (hi - 0.1) / 2 + 0.03, 0.125);
-  const leakB = new THREE.Mesh(new THREE.PlaneGeometry(wi - 0.1, 0.05), leakMat);
-  leakB.rotation.x = -Math.PI / 2;
-  leakB.position.set(0, 0.004, 0.14);
-  g.add(leakV, leakB);
-  return { group: g, leaves, leakMat, room };
-}
 
 /** A soft cone of light from the doorway toward the viewer. */
 function buildBeam() {

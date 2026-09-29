@@ -14,7 +14,7 @@ import { SMAAPass } from 'three/addons/postprocessing/SMAAPass.js';
 import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 
 const TX = window.TX;
-const { E, p, lerp, px } = TX;
+const { E, p, lerp, clamp, px } = TX;
 export const W = 1080, H = 1920;
 const S = 0.01; // traced SVG units → scene units
 
@@ -33,6 +33,8 @@ function shapesFromD(d) {
   const data = new SVGLoader().parse(`<svg xmlns="http://www.w3.org/2000/svg"><path d="${d}"/></svg>`);
   return data.paths.flatMap((path) => SVGLoader.createShapes(path));
 }
+export const lathe = (pts, seg = 72) => new THREE.LatheGeometry(pts.map(([r, y]) => new THREE.Vector2(r, y)), seg);
+export const mesh = (geo, mat, parent, pos) => { const m = new THREE.Mesh(geo, mat); if (pos) m.position.set(...pos); if (parent) parent.add(m); return m; };
 export const glossy = (color, o = {}) => new THREE.MeshPhysicalMaterial({ color, roughness: 0.3, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.1, ...o });
 export function canvasTexture(w, h, draw) {
   const c = document.createElement('canvas');
@@ -48,6 +50,22 @@ export const radial = (inner, outer) => canvasTexture(256, 256, (g, w, h) => {
   gr.addColorStop(0, inner); gr.addColorStop(1, outer);
   g.fillStyle = gr; g.fillRect(0, 0, w, h);
 });
+
+/** Additive points whose colours (and so brightness) are set every frame. */
+export function sparkles(n, size) {
+  const pos = new Float32Array(n * 3), col = new Float32Array(n * 3);
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  const mat = new THREE.PointsMaterial({ size, map: radial('rgba(255,255,255,1)', 'rgba(255,255,255,0)'), vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending });
+  const pts = new THREE.Points(geo, mat);
+  pts.frustumCulled = false;
+  return {
+    pts,
+    put(i, x, y, z, c, k) { pos.set([x, y, z], i * 3); col.set([c.r * k, c.g * k, c.b * k], i * 3); },
+    commit() { geo.attributes.position.needsUpdate = true; geo.attributes.color.needsUpdate = true; },
+  };
+}
 
 // -------------------------------------------------------- renderer + post
 /** A WebGL canvas on the stage, with studio reflections to light the materials. */
@@ -225,4 +243,106 @@ export function makeCards(scene, items) {
     cards.forEach((g) => { g.userData.face.material.map = cardLabel(icons[g.userData.i], g.userData.text); g.userData.face.material.needsUpdate = true; });
   });
   return { cards, ready };
+}
+
+// ------------------------------------------------------------- the door
+export const DOOR = { wo: 2.9, ho: 4.1, wi: 2.5, hi: 3.9, gap: 0.008 };
+/** An arch-topped opening of half-width r and height h, standing on y = 0. */
+export function archPath(r, h, path = new THREE.Path()) {
+  path.moveTo(-r, 0); path.lineTo(-r, h - r); path.absarc(0, h - r, r, Math.PI, 0, true); path.lineTo(r, 0); path.lineTo(-r, 0);
+  return path;
+}
+function frameShape() {
+  const { wo, ho, wi, hi } = DOOR, ro = wo / 2, ri = wi / 2, s = new THREE.Shape();
+  s.moveTo(-ro, 0); s.lineTo(-ro, ho - ro); s.absarc(0, ho - ro, ro, Math.PI, 0, true); s.lineTo(ro, 0);
+  s.lineTo(ri, 0); s.lineTo(ri, hi - ri); s.absarc(0, hi - ri, ri, 0, Math.PI, false); s.lineTo(-ri, 0); s.lineTo(-ro, 0);
+  return s;
+}
+function leafShape(side) {
+  const { hi, wi, gap } = DOOR, ri = wi / 2, s = new THREE.Shape();
+  const a = Math.acos(gap / ri);
+  if (side < 0) {
+    s.moveTo(-ri, 0.03); s.lineTo(-ri, hi - ri); s.absarc(0, hi - ri, ri, Math.PI, Math.PI - a, true); s.lineTo(-gap, 0.03); s.lineTo(-ri, 0.03);
+  } else {
+    s.moveTo(ri, 0.03); s.lineTo(ri, hi - ri); s.absarc(0, hi - ri, ri, 0, a, false); s.lineTo(gap, 0.03); s.lineTo(ri, 0.03);
+  }
+  return s;
+}
+/** An arched Baghdadi double door with a lit room behind it. `wall: false` leaves out
+ * the wide wall around the doorway, for a door set into a building. */
+export function buildDoor({ wall = true } = {}) {
+  const g = new THREE.Group();
+  const { wo, ho, wi, hi } = DOOR, ri = wi / 2;
+  const frameGeo = new THREE.ExtrudeGeometry(frameShape(), { depth: 0.2, bevelEnabled: true, bevelThickness: 0.03, bevelSize: 0.03, bevelSegments: 3, curveSegments: 48 });
+  frameGeo.translate(0, 0, -0.05);
+  const frame = new THREE.Mesh(frameGeo, new THREE.MeshPhysicalMaterial({ color: '#E9E6DF', roughness: 0.5, clearcoat: 0.3 }));
+  g.add(frame);
+  const leafMat = new THREE.MeshPhysicalMaterial({ color: '#23266B', roughness: 0.5, clearcoat: 0.35, clearcoatRoughness: 0.45 });
+  const studMat = glossy('#1B9CCE', { roughness: 0.25 });
+  const knobMat = glossy('#F4F2EC', { roughness: 0.2 });
+  const studGeo = new THREE.SphereGeometry(0.03, 16, 12), knobGeo = new THREE.SphereGeometry(0.055, 20, 16);
+  const leaves = [-1, 1].map((side) => {
+    const hinge = new THREE.Group();
+    hinge.position.set(side * ri, 0, 0.02);
+    const geo = new THREE.ExtrudeGeometry(leafShape(side), { depth: 0.08, bevelEnabled: true, bevelThickness: 0.012, bevelSize: 0.012, bevelSegments: 2, curveSegments: 32 });
+    geo.translate(-side * ri, 0, 0);
+    hinge.add(new THREE.Mesh(geo, leafMat));
+    const zf = 0.08 + 0.012;
+    for (let c = 0; c < 3; c++) for (let r = 0; r < 6; r++) {
+      const s = new THREE.Mesh(studGeo, studMat);
+      s.position.set(-side * (0.3 + c * 0.3), 0.55 + r * 0.44, zf);
+      hinge.add(s);
+    }
+    const knob = new THREE.Mesh(knobGeo, knobMat);
+    knob.position.set(-side * (ri - 0.15), 1.75, zf + 0.02);
+    hinge.add(knob);
+    g.add(hinge);
+    return hinge;
+  });
+  // The wall around the doorway, and the lit room behind it.
+  if (wall) {
+    const shape = new THREE.Shape();
+    shape.moveTo(-9, 0); shape.lineTo(9, 0); shape.lineTo(9, 10); shape.lineTo(-9, 10); shape.lineTo(-9, 0);
+    shape.holes.push(archPath(wo / 2 - 0.01, ho));
+    g.add(new THREE.Mesh(new THREE.ShapeGeometry(shape, 48), new THREE.MeshStandardMaterial({ color: '#15163C', roughness: 0.95 })));
+  }
+  const room = new THREE.Mesh(new THREE.PlaneGeometry(9, 9), new THREE.MeshBasicMaterial({ map: radial('#ffffff', '#ffcf94'), color: new THREE.Color(2.1, 1.9, 1.55) }));
+  room.position.set(0, 1.9, -3.4);
+  g.add(room);
+  // Light leaking round the closed leaves: someone is waiting outside.
+  const leakMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(3.2, 2.6, 1.8), transparent: true });
+  const leakV = new THREE.Mesh(new THREE.PlaneGeometry(0.012, hi - 0.1), leakMat);
+  leakV.position.set(0, (hi - 0.1) / 2 + 0.03, 0.125);
+  const leakB = new THREE.Mesh(new THREE.PlaneGeometry(wi - 0.1, 0.05), leakMat);
+  leakB.rotation.x = -Math.PI / 2;
+  leakB.position.set(0, 0.004, 0.14);
+  g.add(leakV, leakB);
+  return { group: g, leaves, leakMat, room };
+}
+
+// ------------------------------------------------------------ lab tubes
+export const TUBE = { r: 0.12, full: 0.9, red: 0.5, band: 0.022 };
+/** A blood-sample tube; `fill(sep, left)` separates it into red cells, a white band and golden plasma. */
+export function buildTube(mats) {
+  const g = new THREE.Group();
+  mesh(lathe([[0, 0], [0.07, 0.006], [0.11, 0.035], [0.13, 0.09], [0.132, 0.14], [0.132, 1.1], [0.142, 1.12]], 48), mats.glass, g);
+  const red = mesh(lathe([[0, 0.014], [0.06, 0.02], [0.1, 0.045], [0.118, 0.09], [0.12, 0.13], [0.12, 1.0], [0, 1.0]], 40), mats.blood.clone(), g);
+  const band = mesh(new THREE.CylinderGeometry(0.121, 0.121, TUBE.band, 40), mats.band.clone(), g);
+  const gold = mesh(new THREE.CylinderGeometry(0.12, 0.12, 1, 40), mats.gold.clone(), g);
+  /** sep: 0 = whole blood, 1 = separated; left: how much of the golden layer is still there. */
+  const fill = (sep, left = 1) => {
+    const redTop = lerp(TUBE.full, TUBE.red, sep);
+    red.scale.y = redTop;
+    band.visible = sep > 0.02;
+    band.position.y = redTop + TUBE.band / 2;
+    band.material.opacity = sep;
+    const goldH = (TUBE.full - TUBE.red - TUBE.band) * sep * left;
+    gold.visible = goldH > 0.004;
+    gold.scale.y = Math.max(goldH, 0.001);
+    gold.position.y = redTop + TUBE.band * sep + goldH / 2;
+    gold.material.color.lerpColors(mats.blood.color, mats.gold.color, clamp(sep * 1.4));
+    return { redTop, goldTop: redTop + TUBE.band * sep + goldH, goldH };
+  };
+  fill(0);
+  return { g, fill };
 }

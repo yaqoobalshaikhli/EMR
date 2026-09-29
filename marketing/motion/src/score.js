@@ -278,6 +278,15 @@
         s.connect(lp); lp.connect(g); w.connect(wg); wg.connect(g);
         out(g, 0.2);
       },
+      /** Glass on glass: a sample tube set into its rack. */
+      clink(t, vol = 0.06) {
+        [[2630, 1, 0.12], [3950, 0.55, 0.08], [5210, 0.3, 0.05]].forEach(([f, a, d]) => {
+          const g = ctx.createGain(); g.gain.setValueAtTime(0, t);
+          g.gain.linearRampToValueAtTime(vol * a, t + 0.002); g.gain.setTargetAtTime(0, t + 0.002, d / 3);
+          osc('sine', f * (1 + rand(-0.01, 0.01)), t, t + d * 3).connect(g);
+          out(g, 0.45, rand(-0.3, 0.3));
+        });
+      },
       /** An ultrasound ping: a short, clean, high blip in the hall. */
       ping(t, vol = 0.06) {
         [[1650, 1], [3300, 0.25]].forEach(([f, a]) => {
