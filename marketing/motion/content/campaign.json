@@ -784,6 +784,66 @@
         "recap": "كل هذا، *وأنت ببيتك.*",
         "tagline": "لا تصدگنا. شوف بعينك."
       }
+    },
+    {
+      "id": "96-tabeebx-characters",
+      "when": "Choice sheet for the TabeebX cast: 3 men and 3 women in 3D, to pick one of each for every future film. Cartoon people from src/characters.js, never real staff or patients",
+      "template": "characters-3d",
+      "params": {
+        "title": "شخصيات *طبيب اكس*",
+        "men": "الرجال: اختار واحد",
+        "women": "النساء: اختار وحدة",
+        "cast": [
+          {
+            "key": "hakeem",
+            "name": "حكيم",
+            "latin": "HAKEEM",
+            "chip": "رقم ١ من الرجال",
+            "role": "طبيب اختصاص",
+            "about": "هادئ ويسمعك للآخر. يشرحلك حالتك بكلام بسيط، بدون مصطلحات تخوّف."
+          },
+          {
+            "key": "ameen",
+            "name": "أمين",
+            "latin": "AMEEN",
+            "chip": "رقم ٢ من الرجال",
+            "role": "طبيب الزيارات المنزلية",
+            "about": "يوصل لباب بيتك بشنطة طبيب اكس. مرتب، مبتسم، ويحترم بيتك وأهلك."
+          },
+          {
+            "key": "salem",
+            "name": "سالم",
+            "latin": "SALEM",
+            "chip": "رقم ٣ من الرجال",
+            "role": "طبيب الخبرة",
+            "about": "خبرة سنين وصبر أكثر. كبار السن يرتاحون وياه من أول سلام."
+          },
+          {
+            "key": "noor",
+            "name": "نور",
+            "latin": "NOOR",
+            "chip": "رقم ١ من النساء",
+            "role": "طبيبة الاستشارات",
+            "about": "دقيقة وحنونة. تتابع كل تفصيل بحالتك، وتطمّنك قبل لا تسأل."
+          },
+          {
+            "key": "amal",
+            "name": "أمل",
+            "latin": "AMAL",
+            "chip": "رقم ٢ من النساء",
+            "role": "ممرضة المتابعة",
+            "about": "تتصل بيك بعد الزيارة وتسأل عليك. المتابعة عدها عادة، مو واجب."
+          },
+          {
+            "key": "sara",
+            "name": "سارة",
+            "latin": "SARA",
+            "chip": "رقم ٣ من النساء",
+            "role": "أخصائية التحاليل",
+            "about": "تسحب العينة بخفة إيد، والنتيجة توصلك واضحة على موبايلك."
+          }
+        ]
+      }
     }
   ]
 }
