@@ -717,6 +717,41 @@
       "when": "The 3D logo build from 93 on its own, 10.9 s, for laying over footage. Render with --alpha",
       "extends": "93-tabeebx-film-3d",
       "range": [19.6, 30.5]
+    },
+    {
+      "id": "94-knee-prp-3d",
+      "when": "3D explainer, 47.5 s: inside the knee, why weight matters, the treatment ladder, PRP step by step, the team at home. Script and voice-over: content/scripts/94-knee-from-inside.md. No faces, no names",
+      "template": "knee-3d",
+      "params": {
+        "hook": "ركبتك تطگ؟",
+        "cartilage": "هذا الغضروف.",
+        "cartilageSub": "وسادة بين عظمتين.",
+        "wear": "ويا الوقت... يخف.",
+        "wearSub": "احتكاك، التهاب، تيبّس.",
+        "weight": "كيلو زايد بجسمك...",
+        "weightX": "= *٤ كيلو* على ركبتك.",
+        "weightSub": "بكل خطوة، تقريباً.",
+        "kilo": "١ كغم",
+        "ladder": "العلاج درجات.",
+        "steps": [
+          { "n": "١", "title": "تغييرات يومية", "sub": "وزن، درج، عكازة" },
+          { "n": "٢", "title": "علاج طبيعي", "sub": "عضلة الفخذ تشيل الحمل" },
+          { "n": "٣", "title": "إبر المفصل", "sub": "اللزوجة والبلازما" },
+          { "n": "٤", "title": "الجراحة", "sub": "آخر حل" }
+        ],
+        "prp": "إبرة البلازما PRP",
+        "prpSub": "من دمك... لركبتك.",
+        "sonar": "بتوجيه السونار.",
+        "prpNote": "النتيجة تدريجية، وتختلف من حالة لحالة.",
+        "home": "فريق كامل... *ببيتك.*",
+        "team": [
+          { "icon": "stethoscope", "text": "طبيب اختصاص" },
+          { "icon": "ultrasound", "text": "طبيب سونار" },
+          { "icon": "tubes", "text": "مختبري" }
+        ],
+        "tagline": "لا تصدگنا. شوف بعينك.",
+        "note": "للتوعية. العلاج يحدده الطبيب بعد الفحص."
+      }
     }
   ]
 }

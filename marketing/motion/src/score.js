@@ -234,6 +234,59 @@
           out(g, 0.75, rand(-0.6, 0.6));
         }
       },
+      /** A joint cracking: two sharp clicks over a small, dull knock. */
+      crack(t, vol = 0.3) {
+        [[0, 1], [0.016, 0.6]].forEach(([dt, a]) => {
+          const n = noise(t + dt, t + dt + 0.03), hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 1400;
+          const g = ctx.createGain(); g.gain.setValueAtTime(vol * a, t + dt); g.gain.setTargetAtTime(0, t + dt, 0.004);
+          n.connect(hp); hp.connect(g);
+          out(g, 0.25);
+        });
+        const s = osc('sine', 190, t, t + 0.3);
+        s.frequency.exponentialRampToValueAtTime(85, t + 0.07);
+        const g = ctx.createGain(); g.gain.setValueAtTime(vol * 0.9, t); g.gain.setTargetAtTime(0, t, 0.03);
+        s.connect(g);
+        out(g, 0.2);
+      },
+      /** Bone on bone: rough, band-passed noise that swells once per step (`rate` per second). */
+      grind(t0, t1, rate, vol = 0.1) {
+        const n = noise(t0, t1), bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 850; bp.Q.value = 2.2;
+        const len = Math.max(2, Math.round((t1 - t0) * 200)), curve = new Float32Array(len);
+        for (let i = 0; i < len; i++) {
+          const tt = (i / (len - 1)) * (t1 - t0);
+          const fade = Math.min(1, tt / 0.4, (t1 - t0 - tt) / 0.4);
+          curve[i] = vol * fade * Math.pow(0.5 - 0.5 * Math.cos(2 * Math.PI * rate * tt), 3);
+        }
+        const g = ctx.createGain(); g.gain.setValueCurveAtTime(curve, t0, t1 - t0);
+        n.connect(bp); bp.connect(g);
+        out(g, 0.3);
+      },
+      /** A centrifuge: a motor whine that spins up, holds, and winds down. */
+      spin(t0, t1, vol = 0.12) {
+        const up = Math.min(0.7, (t1 - t0) / 3);
+        const s = osc('sawtooth', 35, t0, t1 + 0.05), w = osc('sine', 140, t0, t1 + 0.05);
+        [[s, 1], [w, 4]].forEach(([o, m]) => {
+          o.frequency.setValueAtTime(35 * m, t0);
+          o.frequency.exponentialRampToValueAtTime(190 * m, t0 + up);
+          o.frequency.setValueAtTime(190 * m, t1 - up);
+          o.frequency.exponentialRampToValueAtTime(30 * m, t1);
+        });
+        const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 1100;
+        const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t0);
+        g.gain.exponentialRampToValueAtTime(vol, t0 + up); g.gain.setValueAtTime(vol, t1 - up); g.gain.linearRampToValueAtTime(0, t1);
+        const wg = ctx.createGain(); wg.gain.value = 0.25;
+        s.connect(lp); lp.connect(g); w.connect(wg); wg.connect(g);
+        out(g, 0.2);
+      },
+      /** An ultrasound ping: a short, clean, high blip in the hall. */
+      ping(t, vol = 0.06) {
+        [[1650, 1], [3300, 0.25]].forEach(([f, a]) => {
+          const g = ctx.createGain(); g.gain.setValueAtTime(0, t);
+          g.gain.linearRampToValueAtTime(vol * a, t + 0.004); g.gain.setTargetAtTime(0, t + 0.004, 0.07);
+          osc('sine', f, t, t + 0.6).connect(g);
+          out(g, 0.6);
+        });
+      },
       async render() {
         const buf = await ctx.startRendering();
         return { L: buf.getChannelData(0), R: buf.getChannelData(1) };

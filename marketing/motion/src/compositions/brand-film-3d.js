@@ -13,80 +13,13 @@
  * extruded from the traced vectors in src/logo.js, in the brand colours. The
  * score is composed below and rendered in the page (src/score.js). */
 import * as THREE from 'three';
-import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
-import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
-import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
-import { SMAAPass } from 'three/addons/postprocessing/SMAAPass.js';
-import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+import { W, H, track, glossy, radial, buildLogo, makeRenderer, makePost, makeStudio, logoRig, makeCards } from '../three-kit.js';
 
 const TX = window.TX;
-const { E, p, env, lerp, clamp, el, px, set } = TX;
-const W = 1080, H = 1920;
+const { E, p, env, lerp, clamp, el, set } = TX;
 const S = 0.01; // traced SVG units → scene units
 const NAVY = '#181943';
 const T = { cut: 10.9, lock: 26.3, total: 30.5 };
-
-// ------------------------------------------------------------------ helpers
-const V = (x, y, z) => new THREE.Vector3(x, y, z);
-/** Keyframed values: [[t, [a, b, c]], ...], eased between each pair. */
-function track(t, keys, ease = E.inOutSine) {
-  if (t <= keys[0][0]) return keys[0][1];
-  for (let i = 0; i < keys.length - 1; i++) {
-    const [a, va] = keys[i], [b, vb] = keys[i + 1];
-    if (t <= b) { const k = ease((t - a) / (b - a)); return va.map((v, j) => lerp(v, vb[j], k)); }
-  }
-  return keys[keys.length - 1][1];
-}
-function shapesFromD(d) {
-  const data = new SVGLoader().parse(`<svg xmlns="http://www.w3.org/2000/svg"><path d="${d}"/></svg>`);
-  return data.paths.flatMap((path) => SVGLoader.createShapes(path));
-}
-const glossy = (color, o = {}) => new THREE.MeshPhysicalMaterial({ color, roughness: 0.3, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.1, ...o });
-function canvasTexture(w, h, draw) {
-  const c = document.createElement('canvas');
-  c.width = w; c.height = h;
-  draw(c.getContext('2d'), w, h);
-  const tex = new THREE.CanvasTexture(c);
-  tex.colorSpace = THREE.SRGBColorSpace;
-  tex.anisotropy = 4;
-  return tex;
-}
-const radial = (inner, outer) => canvasTexture(256, 256, (g, w, h) => {
-  const gr = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w / 2);
-  gr.addColorStop(0, inner); gr.addColorStop(1, outer);
-  g.fillStyle = gr; g.fillRect(0, 0, w, h);
-});
-
-/** One extruded mesh per logo shape, each pivoting on its own centre. */
-function buildLogo() {
-  const L = TX.logo;
-  const group = new THREE.Group();
-  const parts = {};
-  for (const k of L.order) {
-    const part = L.parts[k];
-    const [bx, by, bw, bh] = part.bbox;
-    const cx = bx + bw / 2, cy = by + bh / 2;
-    const letter = k[0] === 'l';
-    const depth = letter ? 16 : 24;
-    const geo = new THREE.ExtrudeGeometry(shapesFromD(part.d), {
-      depth, bevelEnabled: true, curveSegments: 18, bevelSegments: 4,
-      bevelThickness: letter ? 2.5 : 4, bevelSize: letter ? 1.4 : 2.6,
-    });
-    geo.translate(-cx, -cy, -depth / 2);
-    const mesh = new THREE.Mesh(geo, glossy(part.color, letter ? { clearcoat: 0.6, roughness: 0.38 } : {}));
-    mesh.scale.set(S, -S, S);
-    mesh.castShadow = true;
-    mesh.userData.home = V((cx - 540) * S, -(cy - 521.6) * S, 0);
-    mesh.position.copy(mesh.userData.home);
-    group.add(mesh);
-    parts[k] = mesh;
-  }
-  return { group, parts };
-}
 
 // ------------------------------------------------------------- the door
 const DOOR = { wo: 2.9, ho: 4.1, wi: 2.5, hi: 3.9, gap: 0.008 };
@@ -198,28 +131,6 @@ function buildDust(n) {
   };
 }
 
-// ---------------------------------------------------------- the tiles
-function iconImage(name) {
-  const svg = TX.icon(name, '#1B9CCE', 3).replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" ');
-  const img = new Image();
-  img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
-  return img;
-}
-function tileLabel(img, text) {
-  return canvasTexture(1024, 280, (g, w, h) => {
-    const s = 172, x = w - 40 - s, y = (h - s) / 2;
-    g.fillStyle = 'rgba(27,156,206,.2)';
-    g.beginPath(); g.roundRect(x, y, s, s, 46); g.fill();
-    g.drawImage(img, x + 26, y + 26, s - 52, s - 52);
-    g.fillStyle = '#FFFEFF';
-    g.font = '700 104px Cairo';
-    g.direction = 'rtl';
-    g.textAlign = 'right';
-    g.textBaseline = 'middle';
-    g.fillText(text, x - 44, h / 2 + 8);
-  });
-}
-
 // ------------------------------------------------------------------ score
 /* Night in A minor, home in C major, on the film's own clock (src/score.js).
  * The renderer mixes the doorbell (E5 → C5) on top, so the score keeps the
@@ -299,17 +210,7 @@ TX.register('brand-film-3d', {
     // Transparent mode (render.mjs --alpha) is for the logo build: the studio loses its
     // backdrop, floor and type, so the 3D logo floats over any footage.
     const alpha = !!TX.alpha;
-    const renderer = new THREE.WebGLRenderer({ antialias: false, alpha, preserveDrawingBuffer: true, powerPreference: 'high-performance' });
-    renderer.setClearColor(0x000000, 0);
-    renderer.setPixelRatio(1);
-    renderer.setSize(W, H);
-    renderer.toneMapping = THREE.NeutralToneMapping; // keeps the brand hex values honest
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    const canvas = renderer.domElement;
-    stage.appendChild(canvas);
-    px(canvas, { position: 'absolute', left: 0, top: 0, width: W, height: H });
-    const envTex = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+    const { renderer, envTex } = makeRenderer(stage, { alpha });
 
     // ============================================ scene A: night, the door
     const A = new THREE.Scene();
@@ -341,71 +242,14 @@ TX.register('brand-film-3d', {
     const rings = [0, 1, 2, 3].map(() => { const m = new THREE.Mesh(new THREE.TorusGeometry(1, 0.008, 8, 160), ringMat.clone()); A.add(m); return m; });
 
     // ======================================== scene B: the bright studio
-    const B = new THREE.Scene();
-    B.background = alpha ? null : new THREE.Color('#F2F3F8');
-    B.fog = new THREE.Fog('#F2F3F8', 10, 24);
-    B.environment = envTex;
-    B.environmentIntensity = 0.85;
-    const camB = new THREE.PerspectiveCamera(40, W / H, 0.05, 80);
-    B.add(new THREE.HemisphereLight('#ffffff', '#cfd3e3', 0.85));
-    const keyB = new THREE.DirectionalLight('#ffffff', 3.0);
-    keyB.position.set(-3.5, 7.5, 5); keyB.castShadow = true;
-    keyB.shadow.mapSize.set(2048, 2048);
-    Object.assign(keyB.shadow.camera, { left: -5, right: 5, top: 7, bottom: -3, near: 1, far: 25 });
-    keyB.shadow.bias = -0.0004; keyB.shadow.normalBias = 0.02;
-    B.add(keyB);
-    const fillB = new THREE.DirectionalLight('#dfe8ff', 0.55); fillB.position.set(4, 3, 4); B.add(fillB);
-    const sweep = new THREE.PointLight('#ffffff', 0, 8, 2); B.add(sweep);
-    const floorB = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), new THREE.MeshStandardMaterial({ color: '#F4F5F9', roughness: 0.92 }));
-    floorB.rotation.x = -Math.PI / 2; floorB.receiveShadow = true; floorB.visible = !alpha; B.add(floorB);
-
+    const { scene: B, camera: camB, sweep } = makeStudio(envTex, { alpha });
     // The services: glossy navy cards that stack into depth as each one arrives.
-    const tileGeo = new RoundedBoxGeometry(2.2, 0.62, 0.08, 5, 0.1);
-    const tileMat = glossy('#1E2063', { roughness: 0.34, clearcoat: 0.7, clearcoatRoughness: 0.12, envMapIntensity: 0.35 });
-    const icons = P.services.map((sv) => iconImage(sv.icon));
-    const tiles = P.services.map((sv, i) => {
-      const g = new THREE.Group();
-      const box = new THREE.Mesh(tileGeo, tileMat); box.castShadow = true; g.add(box);
-      const face = new THREE.Mesh(new THREE.PlaneGeometry(2.1, 0.574), new THREE.MeshBasicMaterial({ transparent: true, toneMapped: false }));
-      face.position.z = 0.0412; g.add(face);
-      g.userData = { face, i, text: sv.text };
-      B.add(g);
-      return g;
-    });
-
-    const logo = buildLogo();
-    logo.group.position.set(0, 1.72, 0);
-    logo.group.scale.setScalar(0.46);
-    B.add(logo.group);
-    const LP = logo.parts;
-    const letters = TX.logo.order.filter((k) => k[0] === 'l').map((k) => LP[k]);
-    const flights = {
-      arms: { at: 23.1, from: V(0, 1.3, -1.8), rot: V(-1.1, 0, 0) },
-      torso: { at: 23.45, from: V(0, -1.9, 1.3), rot: V(0.95, 0, 0) },
-      legL: { at: 23.8, from: V(-2.4, -0.7, 0.8), rot: V(0, -1.2, 0) },
-      legR: { at: 23.9, from: V(2.4, -0.7, 0.8), rot: V(0, 1.2, 0) },
-    };
+    const { cards: tiles, ready: labelsDrawn } = makeCards(B, P.services);
+    const rig = logoRig(B, sweep);
+    const LP = rig.parts;
 
     // ============================================== post: bloom, AA, grain
-    const composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(W, H, { type: THREE.HalfFloatType }));
-    const renderPass = new RenderPass(A, camA);
-    const bloom = new UnrealBloomPass(new THREE.Vector2(W / 2, H / 2), 0.4, 0.55, 0.92);
-    const grain = new ShaderPass({
-      uniforms: { tDiffuse: { value: null }, uTime: { value: 0 }, uGrain: { value: 0.03 }, uVig: { value: 0.3 } },
-      vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }',
-      fragmentShader: `uniform sampler2D tDiffuse; uniform float uTime, uGrain, uVig; varying vec2 vUv;
-        float hash(vec2 q){ q = fract(q*vec2(123.34, 456.21)); q += dot(q, q+45.32); return fract(q.x*q.y); }
-        void main(){ vec4 c = texture2D(tDiffuse, vUv);
-          c.rgb += (hash(vUv*vec2(1080.,1920.) + uTime*17.13) - 0.5) * uGrain;
-          vec2 d = (vUv - 0.5) * vec2(0.5625, 1.0);
-          c.rgb *= mix(1.0 - uVig, 1.0, smoothstep(0.62, 0.18, length(d)));
-          gl_FragColor = c; }`,
-    });
-    composer.addPass(renderPass);
-    composer.addPass(bloom);
-    composer.addPass(new OutputPass());
-    composer.addPass(new SMAAPass());
-    composer.addPass(grain);
+    const { composer, renderPass, bloom, grain } = makePost(renderer, A, camA);
 
     // ============================================== type, over the canvas
     const layer = () => el('div', 'layer', stage);
@@ -440,10 +284,7 @@ TX.register('brand-film-3d', {
       cues: [{ t: hits0[0], sfx: 'doorbell' }, { t: T.lock, sfx: 'doorbell' }],
       bed: null,
       score: composeScore,
-      ready: Promise.all(icons.map((i) => i.decode())).then(() => {
-        tiles.forEach((g) => { g.userData.face.material.map = tileLabel(icons[g.userData.i], g.userData.text); g.userData.face.material.needsUpdate = true; });
-        texturesDrawn = true;
-      }),
+      ready: labelsDrawn.then(() => { texturesDrawn = true; }),
       render(t) {
         const inA = t < T.cut;
         renderPass.scene = inA ? A : B;
@@ -523,23 +364,7 @@ TX.register('brand-film-3d', {
           LP.head.visible = t >= 19.3;
           LP.head.position.set(home.x, lerp(home.y + 7, home.y, kd) + Math.sin(t * 1.3) * 0.02 * (1 - p(t, 23, 1)), home.z);
           LP.head.rotation.set(0.12 * (1 - p(t, 23, 2)), (1 - kd) * 4.2 + (0.42 * Math.sin(t * 0.7 - 1.2)) * (1 - p(t, 23, 2.2, E.inOutCubic)), 0);
-          for (const [k, f] of Object.entries(flights)) {
-            const m = LP[k], kk = p(t, f.at, 1.2, E.outExpo);
-            m.visible = t >= f.at;
-            m.position.copy(m.userData.home).addScaledVector(f.from, 1 - kk);
-            m.rotation.set(f.rot.x * (1 - kk), f.rot.y * (1 - kk), 0);
-          }
-          letters.forEach((m, i) => {
-            const at = 25.05 + i * 0.06, kk = p(t, at, 0.9, E.outExpo);
-            m.visible = t >= at;
-            m.position.copy(m.userData.home).add(V(0, -0.9 * (1 - kk), 0.4 * (1 - kk)));
-            m.rotation.set(1.4 * (1 - kk), 0, 0);
-          });
-          const bump = 1 + 0.018 * Math.sin(Math.PI * p(t, T.lock, 0.45, E.linear));
-          logo.group.scale.setScalar(0.46 * bump);
-          const ks = p(t, 26.1, 1.3, E.inOutSine);
-          sweep.position.set(lerp(-3.2, 3.2, ks), 2.4, 1.3);
-          sweep.intensity = 26 * Math.sin(Math.PI * ks);
+          rig.assemble(t, 23.1);
           bloom.strength = 1.8 * (1 - p(t, T.cut, 0.9, E.outCubic));
           bloom.enabled = bloom.strength > 0.002; // skip the pass once the studio is clean
           renderer.toneMappingExposure = 1 + 1.4 * (1 - p(t, T.cut, 0.9, E.outCubic));
