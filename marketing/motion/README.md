@@ -70,7 +70,7 @@ pictures. The 3D film is a set, not an overlay, so its transparent version is
 | `93a-tabeebx-logo-3d` | Any time | The 3D logo build from `93` on its own, 10.9 s. Render it with `--alpha` to lay it over footage |
 | `94-knee-prp-3d` | After a doctor's review | 3D explainer, 47.5 s, «ركبتك... من جوّه». It goes inside the knee: the cartilage, how it wears, why each extra kilo counts four times, the treatment ladder, PRP from blood tube to ultrasound-guided injection, and the team at home. Script and voice-over: `content/scripts/94-knee-from-inside.md` |
 | `95-what-is-tabeebx-3d` | Pinned intro, after the visit times are confirmed | Video 1 of the scripts, in 3D, 44 s: «شنو هو طبيب اكس؟» answered in three words, «نسمعك. نجيك. نفحصك.», around a Baghdadi house at night. Specialties gather round a speech bubble; the pink head rings the door and a 24-hour dial shows the two visit times; sample tubes and a result on a phone. Script and voice-over: `content/scripts/95-what-is-tabeebx.md` |
-| `96-tabeebx-characters` | Internal: pick one man and one woman | The TabeebX cast in 3D, 8 stills at 1080×1920. The three men and the three women line up numbered on pedestals, then each gets a card with name, role and one line on who they are. Men: حكيم (specialist), أمين (home visits), سالم (senior doctor). Women: نور (consultations), أمل (follow-up nurse), سارة (lab tests). Cartoon people from `src/characters.js`, never real staff or patients |
+| `96-tabeebx-characters` | Internal: pick one man and one woman | The TabeebX cast in 3D, 8 stills at 1080×1920. The three men and the three women line up numbered on pedestals, then each gets a card with name, role and one line on who they are. Men: حكيم (specialist), أمين (home visits), سالم (senior doctor). Women: نور (consultations), أمل (follow-up nurse), سارة (lab tests). Real-looking 3D people from `src/cast.js`, never real staff or patients |
 
 ### The founder edit (Sun 27 Sep)
 
@@ -166,8 +166,15 @@ picture share one clock. A scored film is mastered to −14 LUFS, the usual
 level for social video, with a look-ahead limiter at −1.4 dBFS. The other
 videos are peak-normalised as before.
 
-The cast lives in `src/characters.js`: `buildCharacter(ROSTER.noor)` returns a
-posable person built from simple solids. Every joint (shoulder, elbow, hand,
-head) is a group, and held props ride on the hand, so any 3D film can wave,
-walk or point with them. Each one wears the pink lanyard with the TabeebX badge.
+The cast lives in `src/cast.js`: `await loadPerson('noor')` returns a posed,
+dressed person in metres, and `pose(t)` moves them to any moment of their motion
+clip. The bodies, faces and motion are avatars from Microsoft's Rocketbox library
+(MIT licence, `assets/cast/LICENSE`); `src/cast.json` says who wears what and
+`scripts/build-cast.mjs` copies those files into `assets/cast` (about 28 MB).
+At load time `src/cast.js` lays a face from another avatar over each body and
+tones the neck and hands to match, grows a hijab round the head where the roster
+asks for one, turns the field jackets TabeebX navy with TabeebX badges and back
+patch, swaps the hospital ID card on the coats for a TabeebX one, adds a smile,
+and puts the bag, the phone or the sample kit in the hand. The faces are stock
+3D scans of models: never present them as real TabeebX doctors or nurses.
 `96` renders the choice sheet in about 20 s.

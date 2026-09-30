@@ -787,7 +787,7 @@
     },
     {
       "id": "96-tabeebx-characters",
-      "when": "Choice sheet for the TabeebX cast: 3 men and 3 women in 3D, to pick one of each for every future film. Cartoon people from src/characters.js, never real staff or patients",
+      "when": "Choice sheet for the TabeebX cast: 3 men and 3 women in 3D, to pick one of each for every future film. Real-looking stock 3D people from src/cast.js, never real staff or patients",
       "template": "characters-3d",
       "params": {
         "title": "شخصيات *طبيب اكس*",

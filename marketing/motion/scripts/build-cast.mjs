@@ -27,14 +27,15 @@ const conv = (from, to, size, extra = []) => {
   if (existsSync(to) && statSync(to).mtimeMs > statSync(from).mtimeMs) return;
   execFileSync(ffmpeg, ['-hide_banner', '-loglevel', 'error', '-y', '-i', from, '-vf', `scale=${size}:${size}:flags=lanczos`, ...extra, to]);
 };
+// Faces and bodies fill the frame in close-ups, so they keep 2048 px; hair cards and small parts (the stethoscope) need less.
 const textures = (dir, only) => {
   for (const f of readdirSync(dir)) {
     const m = /^(\w+?)_(\w+?)_(color|normal)(?:_\w+)?\.tga$/i.exec(f);
     if (!m || (only && !only(m[2]))) continue;
-    const base = `${m[1]}_${m[2]}_${m[3]}`;
-    if (m[3] === 'normal') conv(path.join(dir, f), path.join(out, 'tex', base + '.jpg'), 1024, ['-q:v', '3']);
-    else if (m[2] === 'opacity') conv(path.join(dir, f), path.join(out, 'tex', base + '.png'), 1024, ['-pix_fmt', 'rgba']);
-    else conv(path.join(dir, f), path.join(out, 'tex', base + '.jpg'), 2048, ['-q:v', '3']);
+    const base = `${m[1]}_${m[2]}_${m[3]}`, main = m[2] === 'head' || m[2] === 'body';
+    if (m[3] === 'normal') conv(path.join(dir, f), path.join(out, 'tex', base + '.jpg'), main ? 1024 : 256, ['-q:v', '3']);
+    else if (m[2] === 'opacity') conv(path.join(dir, f), path.join(out, 'tex', base + '.png'), 512, ['-pix_fmt', 'rgba']);
+    else conv(path.join(dir, f), path.join(out, 'tex', base + '.jpg'), main ? 2048 : 512, ['-q:v', '3']);
   }
 };
 
