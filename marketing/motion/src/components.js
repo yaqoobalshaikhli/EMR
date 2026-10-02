@@ -40,6 +40,7 @@
     ultrasound: '<path d="M19 4h10v6H19z"/><path d="M24 10L3 31a30 30 0 0 0 42 0z"/><path d="M11.3 22.7a18 18 0 0 0 25.4 0"/><path d="M17 29a10 10 0 0 0 14 0"/>',
     xray: '<rect x="7" y="6" width="34" height="36" rx="6"/><path d="M19 18l10 12"/><circle cx="17.3" cy="19.4" r="2.6"/><circle cx="20.7" cy="16.6" r="2.6"/><circle cx="27.3" cy="31.4" r="2.6"/><circle cx="30.7" cy="28.6" r="2.6"/>',
     ecg: '<rect x="5" y="8" width="38" height="28" rx="5"/><path d="M9 23h8l3-7 5 13 3-6h11"/><path d="M18 43h12M24 36v7"/>',
+    pulse: '<path d="M3 26h10l4 -9l6 18l5 -22l5 18l3 -5h9"/>',
     physio: '<circle cx="24" cy="8" r="4"/><path d="M24 14v14"/><path d="M13 11l11 8 11-8"/><path d="M24 28l-8 13"/><path d="M24 28l9 5-2 9"/>',
   };
   TX.icon = (name, color = '#1B9CCE', sw = 3.2) =>

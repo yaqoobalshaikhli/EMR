@@ -7,7 +7,7 @@
   'use strict';
   const TX = window.TX;
   const { E, p, env, set, el, px } = TX;
-  const SERIES_ICON = { 'شوف بعينك': 'eye', 'طبيبك بالاسم': 'badge', 'صح لو غلط؟': 'truefalse', 'لأهلك': 'family', 'سؤالكم': 'chat', 'وعد TabeebX': 'seal' };
+  const SERIES_ICON = { 'شوف بعينك': 'eye', 'طبيبك بالاسم': 'badge', 'صح لو غلط؟': 'truefalse', 'لأهلك': 'family', 'سؤالكم': 'chat', 'وعد TabeebX': 'seal', 'اعرف أرقامك': 'pulse' };
   TX.seriesIcon = (name) => SERIES_ICON[name] || 'eye';
 
   TX.register('reel-opener', {

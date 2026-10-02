@@ -63,6 +63,9 @@ pictures. The 3D film is a set, not an overlay, so its transparent version is
 | `06a-thu01-parents-carousel` | Thu 1 Oct, 8:30 PM | 6 slides, «أهلنا ما يشتكون», with illustrations drawn in code |
 | `08a-sat03-national-day` | Sat 3 Oct, 8:30 PM | Single image: Baghdad on the Tigris at dusk, the flag, «العراق بخير... من أهله بخير.» |
 | `09-sun04-promise-reel` / `09b` | Sun 4 Oct, 8:30 PM | وعد TabeebX: the Reel and the 6-slide carousel |
+| `11-mon05-pressure-carousel` | Mon 5 Oct, 8:30 PM (suggested) | «اعرف أرقامك» 1 of 3, 7 infographic slides: «الضغط العالي ما يوجع.» A grid of 100 people with 46 in pink (unaware), a funnel down to the 21 whose pressure is controlled, a monitor reading «؟؟؟/؟؟», then the visit at home. WHO figures; needs the reviewing doctor's name |
+| `12-tue06-sugar-carousel` | Tue 6 Oct, 8:30 PM (suggested) | «اعرف أرقامك» 2 of 3, 7 slides: «السكري ما يدگ الباب.» A ring at 45% (undiagnosed, IDF Diabetes Atlas 2021), quiet years on a timeline, two blood-sugar numbers still «؟», and the twist «إحنا ندگه.» |
+| `13-wed07-cholesterol-carousel` | Wed 7 Oct, 8:30 PM (suggested) | «اعرف أرقامك» 3 of 3, 8 slides: «الكوليسترول ما يبين بالمراية.» An iceberg, an artery narrowing in three cross-sections, a lipid panel of four «؟», the one who checked beside the one who didn't, and the home test in three steps |
 | `10-nov01-scorecard-template` | First Sunday of every month | Monthly scorecard, misses included |
 | `91-highlight-covers` | Profile | شوف بعينك · دكاترتنا · وعدنا · سؤالكم · لأهلك |
 | `92-tabeebx-brand-film` | Any time | Brand film, 33 s, no faces. The pink dot of the logo rings as the doorbell, the door opens, the services arrive, and the dot lands as the head of the TabeebX figure in the closing logo. Render it with `--alpha` too |

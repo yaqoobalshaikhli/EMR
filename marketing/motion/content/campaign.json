@@ -592,6 +592,320 @@
       }
     },
     {
+      "id": "11-mon05-pressure-carousel",
+      "when": "Mon 5 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 1 of 3 · the reviewing doctor checks the WHO figures (of 100 adults with high blood pressure: 46 unaware, 54 aware, 42 treated, 21 controlled) and signs off; put the source in the caption · if you boost it, rewrite slide 5 so it doesn't suggest the viewer has a condition (Meta's personal-attributes rule)",
+      "template": "carousel",
+      "params": {
+        "series": "اعرف أرقامك",
+        "pulse": true,
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "الضغط العالي\n*ما يوجع.*",
+            "small": "وهنا الخطر.",
+            "swipe": true
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "من كل ١٠٠ شخص عدهم ضغط عالي:",
+            "total": 100,
+            "mark": 46,
+            "text": "*٤٦* ما يدرون أصلاً.",
+            "source": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "title": "ومن نفس الـ١٠٠:",
+            "rows": [
+              {
+                "label": "عدهم ضغط عالي",
+                "value": 100
+              },
+              {
+                "label": "يدرون",
+                "value": 54
+              },
+              {
+                "label": "ياخذون علاج",
+                "value": 42
+              },
+              {
+                "label": "ضغطهم مضبوط",
+                "value": 21,
+                "rest": "٧٩ مو مضبوط"
+              }
+            ],
+            "text": "يعني *٧٩* من كل ١٠٠\nضغطهم مو مضبوط.",
+            "source": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "ما يدگ جرس.\nما يعطي إنذار.\nبس يأذي *القلب والكلى والدماغ*\nبصمت.",
+            "top": 330
+          },
+          {
+            "type": "reading",
+            "bg": "white",
+            "text": "إذا ما تعرف رقمك...\nممكن تكون من *الـ٤٦*."
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "قياسه ياخذ دقيقة،\nوإنت بالبيت:",
+            "rows": [
+              {
+                "icon": "message",
+                "text": "تحجز برسالة واتساب."
+              },
+              {
+                "icon": "home",
+                "text": "الكادر الطبي يجيك للبيت."
+              },
+              {
+                "icon": "ecg",
+                "text": "ضغط، تحاليل، تخطيط قلب."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها للي دايماً يگول:",
+            "cta": "*«آني زين، ما بيه شي.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "12-tue06-sugar-carousel",
+      "when": "Tue 6 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 2 of 3 · the reviewing doctor checks the IDF Diabetes Atlas 2021 figure (240 of 537 million adults with diabetes undiagnosed, 45%) and the symptom and complication lines, then signs off",
+      "template": "carousel",
+      "params": {
+        "series": "اعرف أرقامك",
+        "pulse": true,
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "السكري\n*ما يدگ الباب.*",
+            "small": "يدخل بصمت... ويگعد سنين.",
+            "swipe": true
+          },
+          {
+            "type": "donut",
+            "bg": "white",
+            "title": "من كل اللي عدهم سكري بالعالم:",
+            "value": 45,
+            "center": "٤٥٪",
+            "label": "ما يدرون",
+            "text": "تقريباً *نصهم* ما يدرون.",
+            "source": "المصدر: الاتحاد الدولي للسكري، أطلس ٢٠٢١"
+          },
+          {
+            "type": "timeline",
+            "bg": "white",
+            "title": "ممكن يبقى *سنين*\nبلا أعراض واضحة.",
+            "above": [
+              "سنة",
+              "سنة",
+              "سنة",
+              "سنة",
+              ""
+            ],
+            "points": [
+              "زين",
+              "زين",
+              "زين",
+              "زين",
+              "أول علامة"
+            ],
+            "text": "وبعض الناس يكتشفونه من مضاعفاته:\nبالعيون، أو الكلى، أو الأعصاب.",
+            "source": "المصدر: الاتحاد الدولي للسكري"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "العطش، كثرة التبول، التعب...\nعلامات معروفة.\nبس *مو دايماً تبين.*",
+            "top": 360
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "نتيجة التحليل",
+            "rows": [
+              {
+                "label": "السكر الصائم",
+                "value": "؟"
+              },
+              {
+                "label": "السكر التراكمي",
+                "value": "؟"
+              }
+            ],
+            "text": "*رقمين* بس...\nيحچولك الحقيقة.",
+            "textClass": "t-hook-s"
+          },
+          {
+            "type": "art",
+            "bg": "navy",
+            "art": "visit",
+            "artTop": 210,
+            "artHeight": 460,
+            "artLeft": 90,
+            "artRight": 90,
+            "text": "السكري ما يدگ الباب...\nإحنا *ندگه.*",
+            "textClass": "t-hook-s",
+            "textTop": 700,
+            "small": "سحب الدم بالبيت،\nوالنتيجة توصلك."
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "",
+            "cta": "*منشن* لواحد صارله سنة\nما مسوي تحليل.",
+            "ctaTop": 330,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "13-wed07-cholesterol-carousel",
+      "when": "Wed 7 Oct 8:30 PM feed carousel, 8 infographic slides · series «اعرف أرقامك» 3 of 3 · the reviewing doctor checks the plaque and «no symptoms, only a blood test» lines and signs off",
+      "template": "carousel",
+      "params": {
+        "series": "اعرف أرقامك",
+        "pulse": true,
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "الكوليسترول\n*ما يبين بالمراية.*",
+            "small": "شكلك زين... بس رقمك؟",
+            "swipe": true
+          },
+          {
+            "type": "iceberg",
+            "bg": "navy",
+            "title": "أغلب اللي يهم صحتك...\n*ما يبين.*",
+            "above": "اللي تشوفه:\nشكلك ووزنك.",
+            "chips": [
+              "الكوليسترول",
+              "الضغط",
+              "السكر"
+            ]
+          },
+          {
+            "type": "artery",
+            "bg": "white",
+            "title": "ويا الوقت، يترسب\nبجدران الشرايين...",
+            "labels": [
+              "شريان سليم",
+              "ترسّب",
+              "تضيّق"
+            ],
+            "text": "بلا ألم، وبلا ما تحس."
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "ما إله أعراض.\nالطريقة الوحيدة حتى تعرفه:\n*تحليل دم.*",
+            "top": 380
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "تحليل الدهون",
+            "rows": [
+              {
+                "label": "الكوليسترول الكلي",
+                "value": "؟"
+              },
+              {
+                "label": "الضار (LDL)",
+                "value": "؟"
+              },
+              {
+                "label": "النافع (HDL)",
+                "value": "؟"
+              },
+              {
+                "label": "الدهون الثلاثية",
+                "value": "؟"
+              }
+            ],
+            "text": "تحليل واحد...\n*٤ أرقام* تحچيلك الحقيقة."
+          },
+          {
+            "type": "compare",
+            "bg": "navy",
+            "title": "نفس العمر. نفس الأكل.",
+            "yes": {
+              "title": "اللي فحص:",
+              "items": [
+                "عرف رقمه",
+                "عدّل أكله وحركته",
+                "يتابع ويا دكتوره"
+              ]
+            },
+            "no": {
+              "title": "اللي ما فحص:",
+              "items": [
+                "ما يعرف رقمه",
+                "نفس العادات",
+                "والرقم ممكن يصعد"
+              ]
+            },
+            "text": "الفرق؟ *تحليل واحد.*"
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "numbered": true,
+            "title": "تحليلك بالبيت،\nبثلاث خطوات:",
+            "rows": [
+              {
+                "icon": "message",
+                "text": "تحجز برسالة واتساب."
+              },
+              {
+                "icon": "tubes",
+                "text": "نسحب الدم بالبيت."
+              },
+              {
+                "icon": "phone",
+                "text": "النتيجة توصلك، ووياها\nاستشارة إذا تحتاج."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها للي يگول:",
+            "cta": "*«شكلي زين، شعليّه بالتحليل؟»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
       "id": "10-nov01-scorecard-template",
       "when": "Sun 1 Nov and every first Sunday · replace the sample numbers with the month's real results, misses included",
       "template": "scorecard",
