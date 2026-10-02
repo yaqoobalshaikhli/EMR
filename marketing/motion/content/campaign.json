@@ -593,7 +593,7 @@
     },
     {
       "id": "11-mon05-pressure-carousel",
-      "when": "Mon 5 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 1 of 7 · the reviewing doctor checks the WHO figures (of 100 adults with high blood pressure: 46 unaware, 54 aware, 42 treated, 21 controlled) and signs off; put the source in the caption · if you boost it, rewrite slide 5 so it doesn't suggest the viewer has a condition (Meta's personal-attributes rule)",
+      "when": "Mon 5 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 1 of 7 · the reviewing doctor checks the WHO figures from the Global report on hypertension 2023 (of 100 adults with high blood pressure: 46 unaware, 54 aware, 42 treated, 21 controlled; WHO's current fact sheet gives 44 unaware and 23 controlled) and signs off; put the source in the caption · if you boost it, rewrite slide 5 so it doesn't suggest the viewer has a condition (Meta's personal-attributes rule)",
       "template": "carousel",
       "params": {
         "series": "اعرف أرقامك",
@@ -613,7 +613,7 @@
             "total": 100,
             "mark": 46,
             "text": "*٤٦* ما يدرون أصلاً.",
-            "source": "المصدر: منظمة الصحة العالمية"
+            "source": "المصدر: منظمة الصحة العالمية، تقرير ٢٠٢٣"
           },
           {
             "type": "bars",
@@ -639,7 +639,7 @@
               }
             ],
             "text": "يعني *٧٩* من كل ١٠٠\nضغطهم مو مضبوط.",
-            "source": "المصدر: منظمة الصحة العالمية"
+            "source": "المصدر: منظمة الصحة العالمية، تقرير ٢٠٢٣"
           },
           {
             "type": "statement",
