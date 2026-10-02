@@ -3,8 +3,8 @@
  * trust strip along the bottom, swipe arrow on slide 1 only.
  * Slide types: hook · myth · statement · quote · cta · badge · rows · voice
  * · art · list, and the infographics: pictogram · bars · donut · reading ·
- * timeline · iceberg · report · artery · compare. A single-image post is a
- * carousel with one slide.
+ * timeline · iceberg · report · artery · compare · scale · columns. A
+ * single-image post is a carousel with one slide.
  * `pulse: true` runs one heartbeat line along the bottom of every slide. It
  * meets the edges at the same height, so the slides join into one strip
  * whichever way the app lays them out. */
@@ -184,14 +184,22 @@
 
     // ---------------------------------------------------------- infographics
     // People as a grid of figures, the first `mark` of them pink (read from the right).
+    // `scale` draws fewer, bigger figures; `figure: 'woman'` gives them a long dress.
     pictogram(L, s, ctx, light) {
       const t = TX.text(L, s.title, 'col t-sub', { top: s.top || 270 });
-      const cols = s.cols || 20, total = s.total || 100, rows = Math.ceil(total / cols);
-      const gw = 880, cw = gw / cols, rh = s.rowH || 96, gy = bottom(t) + 36;
+      const cols = s.cols || 20, total = s.total || 100, rows = Math.ceil(total / cols), k = s.scale || 1;
+      const gw = 880, cw = gw / cols, rh = s.rowH || 96 * k, gy = bottom(t) + 36;
       let figs = '';
       for (let i = 0; i < total; i++) {
         const cx = gw - ((i % cols) + 0.5) * cw, y = Math.floor(i / cols) * rh, f = i < s.mark ? PINK : quiet(light, 0.14);
-        figs += `<circle cx="${cx}" cy="${y + 13}" r="12" fill="${f}"/><rect x="${cx - 15}" y="${y + 30}" width="30" height="${rh - 44}" rx="14" fill="${f}"/>`;
+        if (s.figure === 'woman') {
+          // one group per figure, so the rounded outline doesn't darken where it overlaps the fill
+          const c = i < s.mark ? PINK : light ? NAVY : WHITE, o = i < s.mark ? 1 : light ? 0.14 : 0.196;
+          figs += `<g fill="${c}" stroke="${c}" opacity="${o}" stroke-width="${8 * k}" stroke-linejoin="round"><circle cx="${cx}" cy="${y + 13 * k}" r="${12 * k}" stroke="none"/>`
+            + `<path d="M${cx - 9 * k} ${y + 33 * k}H${cx + 9 * k}L${cx + 18 * k} ${y + rh - 18 * k}H${cx - 18 * k}Z"/></g>`;
+          continue;
+        }
+        figs += `<circle cx="${cx}" cy="${y + 13 * k}" r="${12 * k}" fill="${f}"/><rect x="${cx - 15 * k}" y="${y + 30 * k}" width="${30 * k}" height="${rh - 44 * k}" rx="${14 * k}" fill="${f}"/>`;
       }
       TX.svg(L, `<svg class="abs" style="left:100px;top:${gy}px" width="${gw}" height="${rows * rh}">${figs}</svg>`);
       const txt = TX.text(L, s.text, 'col t-hook-s', { top: gy + rows * rh + 30 });
@@ -366,6 +374,77 @@
         });
       });
       TX.text(L, s.text, 'col t-hook-s', { top: top + h + 40 });
+    },
+    // A band of zones read from the right (normal → disease), each with its range
+    // above and its name or number; brackets underneath group zones together.
+    scale(L, s, ctx, light) {
+      const t = TX.text(L, s.title, 'col t-hook-s', { top: s.top || 270 });
+      const x0 = 80, w = 920, gap = 10, n = s.zones.length, zw = (w - gap * (n - 1)) / n, bh = 96;
+      const left = (i) => x0 + w - (i + 1) * zw - i * gap; // zone 0 sits at the right
+      let y = bottom(t) + 50;
+      if (s.unit) {
+        const u = el('div', 'abs t-body dim', L, s.unit);
+        px(u, { right: 80, top: y, fontSize: 30 });
+        y += 56;
+      }
+      const ink = light ? NAVY : WHITE;
+      const fill = (z) => (z.tone === 'pink' ? PINK : z.tone === 'ink' ? ink : BLUE);
+      let g = '';
+      s.zones.forEach((z, i) => {
+        const r = el('div', 'abs', L, z.range);
+        px(r, { left: left(i), width: zw, top: y, textAlign: 'center', fontSize: n > 3 ? 30 : 36, fontWeight: '700', color: z.tone === 'pink' ? PINK : quiet(light, 0.6) });
+        g += `<rect x="${left(i)}" y="${y + 62}" width="${zw}" height="${bh}" rx="24" fill="${fill(z)}"/>`;
+        if (z.inner) {
+          const c = el('div', 'abs center', L, z.inner);
+          px(c, { left: left(i), width: zw, top: y + 62, height: bh, fontSize: 48, fontWeight: '700', color: z.tone === 'ink' && !light ? NAVY : WHITE });
+        }
+      });
+      y += 62 + bh;
+      if (s.zones.some((z) => z.label)) {
+        s.zones.forEach((z, i) => {
+          const b = el('div', 'abs', L, z.label || '');
+          px(b, { left: left(i) - 10, width: zw + 20, top: y + 18, textAlign: 'center', fontSize: 38, fontWeight: '700', lineHeight: '1.3' });
+        });
+        y += 90;
+      }
+      (s.brackets || []).forEach((b) => {
+        const xr = left(b.from) + zw, xl = left(b.to), strong = b.tone === 'strong';
+        g += `<path d="M${xr - 6} ${y + 14}v20H${xl + 6}v-20" fill="none" stroke="${strong ? ink : quiet(light, 0.3)}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`;
+        const tx = el('div', 'abs', L, b.text);
+        px(tx, { left: xl - 40, width: xr - xl + 80, top: y + 50, textAlign: 'center', fontSize: 34, fontWeight: strong ? '700' : '500', lineHeight: '1.3', color: strong ? ink : quiet(light, 0.6) });
+      });
+      if (s.brackets) y += 100;
+      TX.svg(L, `<svg class="abs" style="left:0;top:0" width="1080" height="1350">${g}</svg>`);
+      const txt = TX.text(L, s.text, `col ${s.textClass || 't-sub'}`, { top: y + 40 });
+      source(L, s.source, bottom(txt) + 20);
+    },
+    // Two cards side by side with a list each: one condition, two opposite faces.
+    columns(L, s, ctx, light) {
+      const t = TX.text(L, s.title, 'col t-hook-s', { top: s.top || 270 });
+      const top = bottom(t) + 50;
+      const cards = s.cols.map((col, i) => {
+        const c = el('div', 'abs', L);
+        px(c, { left: i ? 80 : 560, top, width: 440, borderRadius: 40, padding: '36px 36px 14px', boxSizing: 'border-box', background: light ? '#F2F4F9' : WHITE, color: NAVY });
+        const head = el('div', '', c);
+        px(head, { display: 'flex', alignItems: 'center', gap: 16, marginBottom: 26 });
+        const arrow = el('div', 'center', head);
+        px(arrow, { width: 56, height: 56, borderRadius: '50%', background: BLUE, flex: 'none' });
+        TX.svg(arrow, `<svg width="30" height="30" viewBox="0 0 30 30"><path d="${col.icon === 'up' ? 'M15 25V6m-8 8l8 -8l8 8' : 'M15 5v19m-8 -8l8 8l8 -8'}" fill="none" stroke="${WHITE}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>`);
+        const h = el('div', '', head, col.title);
+        px(h, { fontSize: 40, fontWeight: '700', lineHeight: '1.25' });
+        col.items.forEach((it) => {
+          const row = el('div', '', c);
+          px(row, { display: 'flex', alignItems: 'center', gap: 16, marginBottom: 22, fontSize: 36, fontWeight: '500', lineHeight: '1.3' });
+          const dot = el('div', '', row);
+          px(dot, { width: 16, height: 16, borderRadius: '50%', background: BLUE, flex: 'none' });
+          el('div', '', row, it);
+        });
+        return c;
+      });
+      const h = Math.max(...cards.map((c) => c.offsetHeight));
+      cards.forEach((c) => px(c, { height: h }));
+      const txt = TX.text(L, s.text, 'col t-hook-s', { top: top + h + 44 });
+      source(L, s.source, bottom(txt) + 20);
     },
   };
 

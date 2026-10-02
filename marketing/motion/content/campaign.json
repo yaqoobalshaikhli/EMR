@@ -593,7 +593,7 @@
     },
     {
       "id": "11-mon05-pressure-carousel",
-      "when": "Mon 5 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 1 of 3 · the reviewing doctor checks the WHO figures (of 100 adults with high blood pressure: 46 unaware, 54 aware, 42 treated, 21 controlled) and signs off; put the source in the caption · if you boost it, rewrite slide 5 so it doesn't suggest the viewer has a condition (Meta's personal-attributes rule)",
+      "when": "Mon 5 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 1 of 7 · the reviewing doctor checks the WHO figures (of 100 adults with high blood pressure: 46 unaware, 54 aware, 42 treated, 21 controlled) and signs off; put the source in the caption · if you boost it, rewrite slide 5 so it doesn't suggest the viewer has a condition (Meta's personal-attributes rule)",
       "template": "carousel",
       "params": {
         "series": "اعرف أرقامك",
@@ -687,8 +687,8 @@
       }
     },
     {
-      "id": "12-tue06-sugar-carousel",
-      "when": "Tue 6 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 2 of 3 · the reviewing doctor checks the IDF Diabetes Atlas 2021 figure (240 of 537 million adults with diabetes undiagnosed, 45%) and the symptom and complication lines, then signs off",
+      "id": "12-wed07-sugar-carousel",
+      "when": "Wed 7 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 2 of 7 · the reviewing doctor checks the IDF Diabetes Atlas 2021 figure (240 of 537 million adults with diabetes undiagnosed, 45%) and the symptom and complication lines, then signs off",
       "template": "carousel",
       "params": {
         "series": "اعرف أرقامك",
@@ -783,8 +783,8 @@
       }
     },
     {
-      "id": "13-wed07-cholesterol-carousel",
-      "when": "Wed 7 Oct 8:30 PM feed carousel, 8 infographic slides · series «اعرف أرقامك» 3 of 3 · the reviewing doctor checks the plaque and «no symptoms, only a blood test» lines and signs off",
+      "id": "13-fri09-cholesterol-carousel",
+      "when": "Fri 9 Oct 8:30 PM feed carousel, 8 infographic slides · series «اعرف أرقامك» 3 of 7 · the reviewing doctor checks the plaque and «no symptoms, only a blood test» lines and signs off",
       "template": "carousel",
       "params": {
         "series": "اعرف أرقامك",
@@ -896,6 +896,461 @@
             "bg": "navy",
             "lead": "دزها للي يگول:",
             "cta": "*«شكلي زين، شعليّه بالتحليل؟»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "14-sun11-prediabetes-carousel",
+      "when": "Sun 11 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 4 of 7 · the reviewing doctor checks the IDF Diabetes Atlas 2021 figure (541 million adults, 10.6%, with impaired glucose tolerance), the ADA HbA1c bands (under 5.7%, 5.7–6.4%, 6.5% and over) and the Diabetes Prevention Program result (lifestyle change cut new diabetes by 58%), then signs off",
+      "template": "carousel",
+      "params": {
+        "series": "اعرف أرقامك",
+        "pulse": true,
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "السكري يعطيك\n*فرصة وحدة.*",
+            "small": "وأغلب الناس يضيّعوها.",
+            "swipe": true
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "من كل ١٠٠ بالغ بالعالم:",
+            "total": 100,
+            "mark": 11,
+            "rowH": 80,
+            "text": "تقريباً *١١* سكرهم\nبالمنطقة الرمادية.",
+            "source": "المصدر: الاتحاد الدولي للسكري، أطلس ٢٠٢١"
+          },
+          {
+            "type": "scale",
+            "bg": "white",
+            "title": "السكر التراكمي يگلك\nوين إنت:",
+            "zones": [
+              {
+                "range": "أقل من ٥٫٧٪",
+                "label": "طبيعي"
+              },
+              {
+                "range": "٥٫٧ – ٦٫٤٪",
+                "label": "ما قبل السكري",
+                "tone": "pink"
+              },
+              {
+                "range": "٦٫٥٪ وأكثر",
+                "label": "سكري",
+                "tone": "ink"
+              }
+            ],
+            "brackets": [
+              {
+                "from": 1,
+                "to": 1,
+                "text": "هنا بعده يرجع",
+                "tone": "strong"
+              }
+            ],
+            "text": "المنطقة الوسطى\nهي *الفرصة.*",
+            "source": "المصدر: الجمعية الأمريكية للسكري"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "ما قبل السكري\nما يوجع، وما ينحس.\nبس الفرصة *إلها وقت.*",
+            "top": 360
+          },
+          {
+            "type": "donut",
+            "bg": "white",
+            "title": "اللي غيّروا أكلهم وحركتهم:",
+            "value": 58,
+            "center": "٥٨٪",
+            "label": "أقل خطر",
+            "text": "خطر السكري نزل *٥٨٪*.",
+            "source": "المصدر: برنامج الوقاية من السكري، ٢٠٠٢"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "تعرف وين إنت،\nبثلاث خطوات:",
+            "rows": [
+              {
+                "icon": "message",
+                "text": "تحجز برسالة واتساب."
+              },
+              {
+                "icon": "tubes",
+                "text": "نسحب الدم بالبيت."
+              },
+              {
+                "icon": "phone",
+                "text": "النتيجة توصلك، ووياها\nاستشارة إذا تحتاج."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها للي يگول:",
+            "cta": "*«السكري بعيد عني.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "15-tue13-anemia-carousel",
+      "when": "Tue 13 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 5 of 7 · the reviewing doctor checks the WHO anaemia figures (40% of children 6–59 months, 37% of pregnant women, 30% of women 15–49) and the symptom list, then signs off",
+      "template": "carousel",
+      "params": {
+        "series": "اعرف أرقامك",
+        "pulse": true,
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "تعبك مو دايماً\n*من الشغل.*",
+            "small": "أحياناً... من دمك.",
+            "swipe": true
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "title": "فقر الدم بالعالم، من كل ١٠٠:",
+            "rows": [
+              {
+                "label": "أطفال من ٦ أشهر لـ٥ سنين",
+                "value": 40
+              },
+              {
+                "label": "نساء حوامل",
+                "value": 37
+              },
+              {
+                "label": "نساء من ١٥ لـ٤٩ سنة",
+                "value": 30
+              }
+            ],
+            "rowH": 190,
+            "text": "يعني تقريباً *١ من كل ٣* نساء.",
+            "source": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "علامات نحسبها\n«تعب عادي»:",
+            "items": [
+              "تعب ما يروح بالنوم",
+              "دوخة",
+              "شحوب بالوجه",
+              "نهجة ويا الدرج",
+              "برودة باليدين والرجلين"
+            ],
+            "small": "بس ممكن تكون *فقر دم.*"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "تحليل دم بسيط\nيفرّق بين التعب العادي...\nو*فقر الدم.*",
+            "top": 360
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "صورة الدم",
+            "rows": [
+              {
+                "label": "الهيموگلوبين",
+                "value": "؟"
+              },
+              {
+                "label": "مخزون الحديد (الفيريتين)",
+                "value": "؟"
+              }
+            ],
+            "text": "*رقمين* يگولولك\nإذا تعبك من دمك.",
+            "textClass": "t-hook-s"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "تحليلك بالبيت،\nبثلاث خطوات:",
+            "rows": [
+              {
+                "icon": "message",
+                "text": "تحجز برسالة واتساب."
+              },
+              {
+                "icon": "tubes",
+                "text": "نسحب الدم بالبيت."
+              },
+              {
+                "icon": "phone",
+                "text": "النتيجة توصلك، ووياها\nاستشارة إذا تحتاج."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل وحدة دايماً تگول:",
+            "cta": "*«تعبانة... بس عادي.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "16-thu15-kidney-carousel",
+      "when": "Thu 15 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 6 of 7 · the reviewing doctor checks the ISN figure (850 million people, over 10%, with kidney disease), the five CKD stages by GFR (90+, 60–89, 30–59, 15–29, under 15; symptoms usually from stage 4) and «diabetes and high blood pressure are the two main causes», then signs off",
+      "template": "carousel",
+      "params": {
+        "series": "اعرف أرقامك",
+        "pulse": true,
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "الكلى\n*ما تصيح.*",
+            "small": "تشتغل لآخر نفس... وبصمت.",
+            "swipe": true
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "من كل ١٠٠ شخص بالعالم:",
+            "total": 100,
+            "mark": 10,
+            "rowH": 80,
+            "text": "أكثر من *١٠*\nعدهم مرض بالكلى.",
+            "source": "المصدر: الجمعية الدولية لأمراض الكلى"
+          },
+          {
+            "type": "scale",
+            "bg": "white",
+            "title": "مرض الكلى المزمن\nيمشي بخمس مراحل:",
+            "unit": "معدل تصفية الكلى:",
+            "zones": [
+              {
+                "range": "٩٠ وأكثر",
+                "inner": "١"
+              },
+              {
+                "range": "٦٠–٨٩",
+                "inner": "٢"
+              },
+              {
+                "range": "٣٠–٥٩",
+                "inner": "٣"
+              },
+              {
+                "range": "١٥–٢٩",
+                "inner": "٤",
+                "tone": "pink"
+              },
+              {
+                "range": "أقل من ١٥",
+                "inner": "٥",
+                "tone": "pink"
+              }
+            ],
+            "brackets": [
+              {
+                "from": 0,
+                "to": 2,
+                "text": "غالباً بلا أعراض"
+              },
+              {
+                "from": 3,
+                "to": 4,
+                "text": "هنا تبين الأعراض",
+                "tone": "strong"
+              }
+            ],
+            "text": "يعني أغلب الناس\nيعرفون *متأخر.*",
+            "source": "المصدر: المؤسسة الوطنية للكلى"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "أكثر سببين لمرض الكلى:\n*السكري والضغط.*\nوالاثنين ما يوجعون.",
+            "top": 360
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "فحص الكلى",
+            "rows": [
+              {
+                "label": "الكرياتينين",
+                "value": "؟"
+              },
+              {
+                "label": "معدل التصفية",
+                "value": "؟"
+              },
+              {
+                "label": "الزلال بالإدرار",
+                "value": "؟"
+              }
+            ],
+            "text": "تحليل دم وإدرار...\n*٣ أرقام* تحچيلك الحقيقة."
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "فحص الكلى بالبيت،\nبثلاث خطوات:",
+            "rows": [
+              {
+                "icon": "message",
+                "text": "تحجز برسالة واتساب."
+              },
+              {
+                "icon": "tubes",
+                "text": "ناخذ العينات بالبيت."
+              },
+              {
+                "icon": "phone",
+                "text": "النتيجة توصلك، ووياها\nاستشارة إذا تحتاج."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "",
+            "cta": "*منشن* واحد عنده سكر أو ضغط\nوما فاحص كليته.",
+            "ctaTop": 330,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "17-sat17-thyroid-carousel",
+      "when": "Sat 17 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 7 of 7 · the reviewing doctor checks the American Thyroid Association figure (one woman in eight develops a thyroid disorder in her lifetime), the two symptom lists and «most thyroid problems are controlled with treatment», then signs off",
+      "template": "carousel",
+      "params": {
+        "series": "اعرف أرقامك",
+        "pulse": true,
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "الغدة الدرقية\n*ما تعطي إنذار.*",
+            "small": "بس تلعب بطاقتك ووزنك ومزاجك.",
+            "swipe": true
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "من كل ٨ نساء:",
+            "total": 8,
+            "cols": 4,
+            "mark": 1,
+            "scale": 2.2,
+            "figure": "woman",
+            "text": "*وحدة* منهن\nيصيبها خلل بالغدة.",
+            "source": "المصدر: الجمعية الأمريكية للغدة الدرقية"
+          },
+          {
+            "type": "columns",
+            "bg": "navy",
+            "title": "نفس الغدة...\nوعلامات بالعكس:",
+            "cols": [
+              {
+                "title": "خمول الغدة",
+                "icon": "down",
+                "items": [
+                  "تعب ونعاس",
+                  "زيادة وزن",
+                  "برد بلا سبب",
+                  "تساقط شعر"
+                ]
+              },
+              {
+                "title": "فرط نشاطها",
+                "icon": "up",
+                "items": [
+                  "خفقان بالقلب",
+                  "نزول وزن",
+                  "حر وتعرّق",
+                  "رجفة باليد"
+                ]
+              }
+            ],
+            "text": "ونحسبها *ضغط حياة.*"
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "فحص الغدة",
+            "rows": [
+              {
+                "label": "TSH",
+                "value": "؟"
+              },
+              {
+                "label": "FT4",
+                "value": "؟"
+              }
+            ],
+            "text": "*رقمين* بس...\nيكشفون الغدة.",
+            "textClass": "t-hook-s"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "أغلب مشاكل الغدة\nتنضبط بالعلاج...\nبس لازم *تنكشف أول.*",
+            "top": 360
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "numbered": true,
+            "title": "فحص الغدة بالبيت،\nبثلاث خطوات:",
+            "rows": [
+              {
+                "icon": "message",
+                "text": "تحجز برسالة واتساب."
+              },
+              {
+                "icon": "tubes",
+                "text": "نسحب الدم بالبيت."
+              },
+              {
+                "icon": "phone",
+                "text": "النتيجة توصلك، ووياها\nاستشارة إذا تحتاج."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل وحدة تگول:",
+            "cta": "*«تعبانة وما أعرف ليش.»*",
             "ctaTop": 410,
             "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
