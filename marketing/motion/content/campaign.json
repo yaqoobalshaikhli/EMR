@@ -1362,7 +1362,7 @@
     },
     {
       "id": "18-thu08-breast-cancer-carousel",
-      "when": "Thu 8 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · every figure is from WHO or its cancer agency IARC: Iraq 2022 (GLOBOCAN 2022: 8,184 new cases, the most common cancer in Iraqi women; 22 a day is 8,184 ÷ 365), lifetime risk 1 woman in 20 (IARC, Nature Medicine 2025), the WHO fact-sheet signs and «most breast lumps are not cancer», and 5-year survival for women diagnosed 2017–2021 (WHO/IARC estimates 2026: high-income 87.3%, Eastern Mediterranean 61.0%, low-income 41.9%) · the reviewing doctor signs off, and someone confirms that breast ultrasound at home is offered and whether a woman doctor can make the visit",
+      "when": "Thu 8 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · every figure is from WHO or its cancer agency IARC: Iraq 2022 (GLOBOCAN 2022: 8,184 new cases, the most common cancer in Iraqi women; 22 a day is 8,184 ÷ 365), lifetime risk 1 woman in 20 (IARC, Nature Medicine 2025), the WHO fact-sheet signs and «most breast lumps are not cancer», and 5-year survival for women diagnosed 2017–2021 (WHO/IARC estimates 2026: high-income 87.3%, Eastern Mediterranean 61.0%, low-income 41.9%) · the offer is the genetic-tendency blood test (BRCA) for women with a family history, after an assessment by a doctor (USPSTF: testing for women whose history points to BRCA risk, not routine testing); WHO: most women diagnosed have no known family history · no tumour markers: ASCO says CA 15-3, CA 27.29 and CEA are not for screening or diagnosis · TabeebX has no home breast ultrasound and no women doctors yet, so the post promises neither · the reviewing doctor signs off",
       "template": "carousel",
       "params": {
         "series": "أكتوبر الوردي",
@@ -1465,8 +1465,8 @@
                 "text": "أي تغيير؟ راجعي طبيب بسرعة،\nحتى لو ما يوجع."
               },
               {
-                "icon": "ultrasound",
-                "text": "فحص وسونار بالبيت،\nتحجزين برسالة واتساب."
+                "icon": "tubes",
+                "text": "عدكم بالعائلة؟ اسألي طبيبنا\nعن تحليل الاستعداد الوراثي،\nوالسحب بالبيت."
               }
             ]
           },
