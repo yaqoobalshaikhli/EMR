@@ -42,6 +42,11 @@
     ecg: '<rect x="5" y="8" width="38" height="28" rx="5"/><path d="M9 23h8l3-7 5 13 3-6h11"/><path d="M18 43h12M24 36v7"/>',
     pulse: '<path d="M3 26h10l4 -9l6 18l5 -22l5 18l3 -5h9"/>',
     ribbon: '<path d="M20.2 19.6C17.9 15.9 17.2 13.8 17.2 12.2 17.2 8.6 20.2 6 24 6s6.8 2.6 6.8 6.2c0 1.6-.7 3.7-3 7.4"/><path d="M20.2 19.6L32.8 41.6M27.8 19.6L15.2 41.6"/>',
+    // Hormones series (gym): the gym, and the specialties that follow a user.
+    dumbbell: '<path d="M14 24h20"/><rect x="7" y="14" width="7" height="20" rx="2.5"/><rect x="34" y="14" width="7" height="20" rx="2.5"/><path d="M3 19.5v9M45 19.5v9"/>',
+    brain: '<path d="M24 10v29"/><path d="M24 13a6 6 0 0 0-10.5-2.5A6 6 0 0 0 8 19a6 6 0 0 0 1.5 10A6.5 6.5 0 0 0 17 37a5 5 0 0 0 7 2"/><path d="M24 13a6 6 0 0 1 10.5-2.5A6 6 0 0 1 40 19a6 6 0 0 1-1.5 10A6.5 6.5 0 0 1 31 37a5 5 0 0 1-7 2"/><path d="M15 21c2.5 0 4 1.5 4 4M33 21c-2.5 0-4 1.5-4 4"/>',
+    scalpel: '<path d="M5 43l17-17"/><path d="M22 26L40 6c3 7-2 15-13 20z"/>',
+    bone: '<path d="M17.5 30.5l13-13"/><circle cx="12.5" cy="30.5" r="4.5"/><circle cx="17.5" cy="35.5" r="4.5"/><circle cx="30.5" cy="12.5" r="4.5"/><circle cx="35.5" cy="17.5" r="4.5"/>',
     physio: '<circle cx="24" cy="8" r="4"/><path d="M24 14v14"/><path d="M13 11l11 8 11-8"/><path d="M24 28l-8 13"/><path d="M24 28l9 5-2 9"/>',
   };
   TX.icon = (name, color = '#1B9CCE', sw = 3.2) =>

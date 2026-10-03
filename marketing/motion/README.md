@@ -84,6 +84,14 @@ pictures. The 3D film is a set, not an overlay, so its transparent version is
 | `26-thu22-mammogram-carousel` | Thu 22 Oct, 8:30 PM | «أكتوبر الوردي» 8 of 10, 8 slides: «فوق الخمسين؟ هذا فحصچ.» Mammography every 2 years at 50–69 (WHO 2014); the doctor points her to a radiology centre |
 | `27-sat24-men-carousel` | Sat 24 Oct, 8:30 PM | «أكتوبر الوردي» 9 of 10, 8 slides, to men: «سرطان الثدي... يصيب الرجال هم.» Up to 1 case in 100, the signs, and BRCA2 risk in men. WHO, NCI |
 | `28-mon26-mothers-carousel` | Mon 26 Oct, 8:30 PM | «أكتوبر الوردي» 10 of 10, 8 slides: «أمچ ما راح تشتكي.» Questions for a daughter to ask her mother |
+| `29-tue27-hormones-overview-carousel` | Tue 27 Oct, 8:30 PM | «هرمونات بلا طبيب» 1 of 8, to men, 8 slides: «العضلات تبين. الضرر ما يبين.» Baghdad bodybuilders who used hormones (PubMed 2012), the FDA and NHS list of harms, a Danish cohort with nearly 3 times the death rate (JAMA 2024), and the four specialties that follow a user |
+| `30-thu29-hormones-heart-carousel` | Thu 29 Oct, 8:30 PM | «هرمونات بلا طبيب» 2 of 8: the heart and the blood. Pressure, cholesterol, thick blood and clots, a weaker heart muscle. FDA, NHS, PubMed |
+| `31-sat31-hormones-manhood-carousel` | Sat 31 Oct, 8:30 PM | «هرمونات بلا طبيب» 3 of 8: «الإبرة تكبّر العضلة... وتصغّر الخصية.» Testicles, sperm, erections, a Baghdad hormone study (PubMed 2024), and 27 in 100 former users still low years later (PubMed 2016) |
+| `32-mon02-hormones-stopping-carousel` | Mon 2 Nov, 8:30 PM | «هرمونات بلا طبيب» 4 of 8: stopping suddenly or tapering alone. FDA withdrawal symptoms; the doctor plans the stop. No doses or protocols |
+| `33-wed04-hormones-mind-carousel` | Wed 4 Nov, 8:30 PM | «هرمونات بلا طبيب» 5 of 8: aggression, mood, 3 in 10 users dependent (PubMed 2009), depression after stopping, and psychiatry |
+| `34-fri06-hormones-chest-carousel` | Fri 6 Nov, 8:30 PM | «هرمونات بلا طبيب» 6 of 8: gynaecomastia and general surgery. NHS |
+| `35-sun08-hormones-tendons-carousel` | Sun 8 Nov, 8:30 PM | «هرمونات بلا طبيب» 7 of 8: torn tendons, 22 vs 6 in 100 bodybuilders (PubMed 2015), growth in teenagers (NHS), and orthopaedics |
+| `36-tue10-hormones-peptides-carousel` | Tue 10 Nov, 8:30 PM | «هرمونات بلا طبيب» 8 of 8: peptides, SARMs and growth hormone. FDA, PubMed |
 | `97-pink-october-wordmark` | Any time in October | «أكتوبر الوردي» in Cairo Black with the ribbon, in pink, white and navy. Render with `--alpha` for transparent PNGs |
 | `10-nov01-scorecard-template` | First Sunday of every month | Monthly scorecard, misses included |
 | `91-highlight-covers` | Profile | شوف بعينك · دكاترتنا · وعدنا · سؤالكم · لأهلك |

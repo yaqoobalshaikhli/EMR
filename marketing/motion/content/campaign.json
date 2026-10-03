@@ -2656,6 +2656,870 @@
       }
     },
     {
+      "id": "29-tue27-hormones-overview-carousel",
+      "when": "Tue 27 Oct 8:30 PM feed carousel, 8 infographic slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · opens the series: a PubMed study of 172 bodybuilders in Baghdad (Habeeb et al., Am J Mens Health 2012): of those who used anabolic steroids, two fifths were 19 or younger, one quarter were pushed by their coach, more than one third took tablets and injections together; FDA (2016 testosterone labelling) and NHS lists of harms; NHS: sharing needles spreads hepatitis B and C and HIV; Danish cohort of 1,189 men caught using steroids in gyms, mortality hazard ratio 2.81 vs controls (Windfeld-Mathiasen et al., JAMA 2024); why four specialties follow a user · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "العضلات تبين.\n*الضرر ما يبين.*",
+            "small": "شنو تسوي بجسمك من جوّه؟",
+            "swipe": true
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "لاعبين ببغداد استخدموا هرمونات",
+            "rows": [
+              {
+                "label": "عمره ١٩ أو أصغر",
+                "value": "٢ من ٥"
+              },
+              {
+                "label": "بدا لأن مدربه شجّعه",
+                "value": "١ من ٤"
+              },
+              {
+                "label": "حبوب وإبر سوية",
+                "value": "أكثر من ١ من ٣"
+              }
+            ],
+            "text": "مو قصة بعيدة...\n*هذا جيمنا.*",
+            "textClass": "t-hook-s",
+            "source": "المصدر: دراسة على ١٧٢ لاعب كمال أجسام ببغداد، ٢٠١٢ (PubMed)"
+          },
+          {
+            "type": "iceberg",
+            "bg": "navy",
+            "title": "اللي تشوفه بالمراية...\nواللي جوّه.",
+            "above": "عضلات أكبر",
+            "chips": [
+              "القلب",
+              "الكبد",
+              "الخصيتين",
+              "المزاج"
+            ]
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "بلا طبيب، الهرمونات ممكن تسبب:",
+            "items": [
+              "جلطة قلبية أو دماغية",
+              "أذى بالكبد",
+              "ضمور الخصيتين وعقم",
+              "عدوانية واكتئاب",
+              "التهاب كبد أو إيدز من مشاركة الإبر"
+            ],
+            "small": "والإدمان عليها *وارد.*",
+            "signed": "المصدر: إدارة الغذاء والدواء الأمريكية (FDA)، والخدمة الصحية البريطانية (NHS)"
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "دراسة دنماركية، ٢٠٢٤",
+            "rows": [
+              {
+                "label": "رجال انمسكوا يستخدمون",
+                "value": "١٬١٨٩"
+              },
+              {
+                "label": "مدة المتابعة",
+                "value": "١١ سنة"
+              },
+              {
+                "label": "خطر الوفاة مقارنة بغيرهم",
+                "value": "٢٫٨ ضعف"
+              }
+            ],
+            "text": "خطر الوفاة\n*قريب ٣ أضعاف.*",
+            "textClass": "t-hook-s",
+            "source": "المصدر: Windfeld-Mathiasen وآخرون، مجلة JAMA ٢٠٢٤ (PubMed)"
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "title": "ليش أكثر من اختصاص؟",
+            "rows": [
+              {
+                "icon": "tubes",
+                "text": "الغدد: الهرمونات، والإيقاف بأمان."
+              },
+              {
+                "icon": "scalpel",
+                "text": "الجراحة العامة: تكبّر الصدر."
+              },
+              {
+                "icon": "bone",
+                "text": "العظام: الأوتار والمفاصل."
+              },
+              {
+                "icon": "brain",
+                "text": "النفسية: المزاج والإدمان."
+              }
+            ]
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "من وين تبدي؟",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "احچي ويا طبيب مختص،\nبخصوصية وبلا محاسبة."
+              },
+              {
+                "icon": "tubes",
+                "text": "تحاليل بالبيت: هرمونات،\nدهون، كبد، ودم."
+              },
+              {
+                "icon": "ecg",
+                "text": "تخطيط قلب بالبيت."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«هذا كورس خفيف.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "30-thu29-hormones-heart-carousel",
+      "when": "Thu 29 Oct 8:30 PM feed carousel, 8 infographic slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · the heart and the blood: NHS (high blood pressure, high cholesterol, blood clots, heart attack and stroke); FDA 2016 labelling (heart attack, heart failure, stroke); PubMed: lower LV systolic function and more coronary plaque in long-term users (Baggish et al., Circulation 2017), some cardiac changes persist after stopping, erythrocytosis thickens the blood and raises the risk of clots · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "العضلة تكبر...\n*والقلب يتعب.*",
+            "small": "وإنت ما تحس بشي.",
+            "swipe": true
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "الهرمونات بالقلب والدم:",
+            "items": [
+              "ترفع الضغط",
+              "ترفع الكوليسترول",
+              "تثخّن الدم وتقرّب الجلطة",
+              "تضعف عضلة القلب"
+            ],
+            "small": "وأخطرها: *جلطة قلبية أو دماغية.*",
+            "signed": "المصدر: إدارة الغذاء والدواء الأمريكية (FDA)، والخدمة الصحية البريطانية (NHS)"
+          },
+          {
+            "type": "artery",
+            "bg": "white",
+            "title": "الدهون تترسب بالشريان\nشوية شوية:",
+            "labels": [
+              "طبيعي",
+              "ترسبات",
+              "تضيّق"
+            ],
+            "text": "وكل هذا يصير\n*بلا ألم.*",
+            "source": "المصدر: Baggish وآخرون، مجلة Circulation ٢٠١٧ (PubMed)"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "اللي يستخدمونها لسنين،\nعضلة القلب عدهم\n*تضخ أضعف.*",
+            "top": 360
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "وحتى بعد ما توگف،\nبعض التغييرات بالقلب\n*ممكن تبقى.*",
+            "top": 360
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "تعرف أرقامك؟",
+            "rows": [
+              {
+                "label": "ضغطك",
+                "value": "؟"
+              },
+              {
+                "label": "الكوليسترول",
+                "value": "؟"
+              },
+              {
+                "label": "الهيموگلوبين",
+                "value": "؟"
+              },
+              {
+                "label": "تخطيط القلب",
+                "value": "؟"
+              }
+            ],
+            "text": "إذا ما تعرفها...\n*إنت تلعب بالعمى.*",
+            "textClass": "t-hook-s"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "افحص قلبك\nمن البيت:",
+            "rows": [
+              {
+                "icon": "ecg",
+                "text": "تخطيط قلب بالبيت."
+              },
+              {
+                "icon": "tubes",
+                "text": "تحاليل دهون ودم بالبيت."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "طبيب مختص يقرأ النتائج\nوياك، بخصوصية."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«آني رياضي، قلبي قوي.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "31-sat31-hormones-manhood-carousel",
+      "when": "Sat 31 Oct 8:30 PM feed carousel, 8 infographic slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · manhood: NHS (reduced sperm count, infertility, shrunken testicles, erectile dysfunction, breast development); FDA (male infertility, hypogonadotropic hypogonadism); PubMed study of 60 Baghdad bodybuilders, 30 users vs 30 non-users (Steroids 2024): lower testosterone and FSH, higher prolactin and ALT in users; Rasmussen et al., PLoS One 2016: 27% of former users still had testosterone below the reference range a mean 2.5 years after stopping; PubMed reviews: sperm can take months, sometimes more than a year, to return · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "الإبرة تكبّر العضلة...\n*وتصغّر الخصية.*",
+            "small": "وهذا مو كلشي.",
+            "swipe": true
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "جسمك يشوف\nهرمون من برّه...\n*فيوگف يصنع هرمونه.*",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "بالرجولة، الهرمونات ممكن تسبب:",
+            "items": [
+              "ضمور الخصيتين",
+              "قلة النطف أو انعدامها",
+              "عقم",
+              "ضعف انتصاب",
+              "تكبّر الصدر"
+            ],
+            "small": "والعضلة الكبيرة *ما تعوّض هذا.*",
+            "signed": "المصدر: الخدمة الصحية البريطانية (NHS)"
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "لاعبين ببغداد يستخدمون هرمونات",
+            "rows": [
+              {
+                "label": "هرمون الذكورة",
+                "value": "أوطأ"
+              },
+              {
+                "label": "هرمون FSH",
+                "value": "أوطأ"
+              },
+              {
+                "label": "البرولاكتين",
+                "value": "أعلى"
+              },
+              {
+                "label": "إنزيم الكبد ALT",
+                "value": "أعلى"
+              }
+            ],
+            "text": "مقارنة بلاعبين\n*ما يستخدمون.*",
+            "textClass": "t-hook-s",
+            "source": "المصدر: دراسة على ٦٠ لاعب ببغداد، مجلة Steroids ٢٠٢٤ (PubMed)"
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "من كل ١٠٠ رجّال وگف الهرمونات\nمن سنتين ونص بالمعدل:",
+            "total": 100,
+            "cols": 20,
+            "mark": 27,
+            "rowH": 72,
+            "text": "*٢٧* منهم\nبعده هرمونهم واطي.",
+            "source": "المصدر: Rasmussen وآخرون، مجلة PLoS One ٢٠١٦ (PubMed)"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "وبعد الإيقاف،\nالنطف ممكن تحتاج\n*أشهر حتى ترجع،*\nوأحياناً أكثر من سنة.",
+            "top": 330
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "افحص\nقبل لا تتأخر:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "طبيب غدد يقيّم هرموناتك."
+              },
+              {
+                "icon": "tubes",
+                "text": "تحليل هرمونات بالبيت."
+              },
+              {
+                "icon": "chat",
+                "text": "ناوي تتزوج أو تنجب؟\nگوله من أول زيارة."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«بعد الكورس كلشي يرجع.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "32-mon02-hormones-stopping-carousel",
+      "when": "Mon 2 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · stopping, suddenly or with a do-it-yourself taper: FDA 2016 labelling (withdrawal symptoms lasting weeks or months: depressed mood, fatigue, irritability, insomnia, loss of appetite, decreased libido, hypogonadotropic hypogonadism); NHS (withdrawal symptoms if you suddenly stop); Anawalt, J Clin Endocrinol Metab 2019 (PubMed): the doctor chooses among supervised ways to stop and treats depression and anxiety · the post gives no taper, no PCT and no drug names · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "توگفها فجأة؟\n*جسمك ما يرجع فجأة.*",
+            "small": "الإيقاف قرار صح. بس مو وحدك.",
+            "swipe": true
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "جسمك طفّى\nمصنع هرمونه...\nومن توگف، يبقى فترة\n*بلا هرمون كافي.*",
+            "top": 320
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "أعراض الإيقاف\nتدوم أسابيع أو أشهر:",
+            "items": [
+              "اكتئاب",
+              "تعب وخمول",
+              "عصبية",
+              "قلة نوم وشهية",
+              "ضعف الرغبة الجنسية"
+            ],
+            "small": "وهنا كثير يرجعون للإبرة... *والدائرة تبدي.*",
+            "signed": "المصدر: إدارة الغذاء والدواء الأمريكية (FDA)"
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "تنزيل الجرعة،\nوأدوية ما بعد الكورس...\n*مو وصفة من النت.*\nالطبيب يقرر بتحاليلك.",
+            "top": 320
+          },
+          {
+            "type": "compare",
+            "bg": "navy",
+            "title": "نفس الكورس.\nنهاية غير.",
+            "yes": {
+              "title": "ويا طبيب:",
+              "items": [
+                "فحوصات قبل وبعد",
+                "خطة تناسبه",
+                "متابعة للمزاج"
+              ]
+            },
+            "no": {
+              "title": "بلا طبيب:",
+              "items": [
+                "يجرب على نفسه",
+                "أدوية بلا وصفة",
+                "أعراض بلا تفسير"
+              ]
+            },
+            "text": "الفرق؟ *طبيب يتابعك.*"
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "قبل وبعد الإيقاف، الطبيب يشوف:",
+            "rows": [
+              {
+                "label": "هرمون الذكورة",
+                "value": "؟"
+              },
+              {
+                "label": "LH / FSH",
+                "value": "؟"
+              },
+              {
+                "label": "الهيموگلوبين",
+                "value": "؟"
+              },
+              {
+                "label": "الدهون والكبد",
+                "value": "؟"
+              }
+            ],
+            "text": "الأرقام تگول\n*شوكت وشلون.*",
+            "textClass": "t-hook-s"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "وگفها ويانا:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "طبيب غدد يرتب الإيقاف."
+              },
+              {
+                "icon": "tubes",
+                "text": "تحاليل بالبيت قبل وبعد."
+              },
+              {
+                "icon": "brain",
+                "text": "طبيب نفسي إذا المزاج نزل."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«أوگفها مرة وحدة وخلصت.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "33-wed04-hormones-mind-carousel",
+      "when": "Wed 4 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · the mind: NHS (aggressive behaviour, mood swings, paranoia, manic behaviour, hallucinations and delusions; steroids are addictive: craving, needing more, withdrawal); Kanayama et al., Addiction 2009 (PubMed): about 30% of users develop dependence (197 of 653 across 8 studies); meta-analysis of experimental studies (PubMed): steroid administration raised self-reported aggression in healthy men; Anawalt 2019: severe depression and suicidality during withdrawal, treated with medicine and therapy · slide 6 follows safe-messaging practice: no method, no detail, a route to help · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "العصبية اللي صارت بيك...\n*مو بس ضغط شغل.*",
+            "small": "الهرمونات تلعب بالراس هم.",
+            "swipe": true
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "الهرمونات ممكن تسبب:",
+            "items": [
+              "عدوانية وعصبية",
+              "تقلّب مزاج",
+              "شك بالناس",
+              "هوس، وأحياناً هلاوس"
+            ],
+            "small": "وأهلك يحسون بيها *قبلك.*",
+            "signed": "المصدر: الخدمة الصحية البريطانية (NHS)"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "حتى بالتجارب العلمية،\nالهرمونات *زادت العدوانية*\nعند رجال أصحاء.",
+            "top": 360
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "من كل ١٠ يستخدمون هرمونات:",
+            "total": 10,
+            "cols": 10,
+            "mark": 3,
+            "scale": 1.6,
+            "text": "*٣* يصير عندهم\nإدمان عليها.",
+            "source": "المصدر: Kanayama وآخرون، مجلة Addiction ٢٠٠٩ (PubMed)"
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "علامات الإدمان:",
+            "items": [
+              "تحتاج جرعة أكبر لنفس النتيجة",
+              "ما تگدر توگف رغم الأضرار",
+              "أعراض قوية من توگف"
+            ],
+            "small": "وهذا مرض يتعالج، *مو ضعف.*",
+            "signed": "المصدر: الخدمة الصحية البريطانية (NHS)، ودراسة Kanayama وآخرين (PubMed)"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "الاكتئاب بعد الإيقاف\nممكن يوصل لأفكار\nبأذية النفس.\nإذا وصلت هنا،\n*لا تبقى وحدك.*",
+            "top": 290
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "الراس\nهم يتعالج:",
+            "rows": [
+              {
+                "icon": "brain",
+                "text": "طبيب نفسي، بخصوصية."
+              },
+              {
+                "icon": "chat",
+                "text": "علاج نفسي أو دوائي\nحسب حالتك."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "ويا متابعة طبيب الغدد."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لصديقك اللي تغيّر، وگله:",
+            "cta": "*«آني وياك.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "34-fri06-hormones-chest-carousel",
+      "when": "Fri 6 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · gynaecomastia and general surgery: NHS (anabolic steroids cause gynaecomastia through the testosterone–oestrogen balance; see a doctor for a lump, pain, nipple discharge or skin changes; stopping the cause, prescribed tablets, and surgery in selected cases) · a lump in a man's chest is not always gynaecomastia, so a doctor sees it (male breast cancer is rare: the Pink October post of 24 Oct) · TabeebX does no breast ultrasound · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "الهرمون اللي أخذته\nللعضلة...\n*ممكن يكبّر صدرك.*",
+            "small": "اسمها: التثدي.",
+            "swipe": true
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "بعض الهرمونات\nيتحول جزء منها\nلهرمون أنثوي...\n*وهذا يكبّر نسيج الصدر.*",
+            "top": 310
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "راجع طبيب إذا لاحظت:",
+            "items": [
+              "كتلة أو تورّم تحت الحلمة",
+              "ألم أو حساسية بالصدر",
+              "إفرازات من الحلمة",
+              "تغيّر بجلد الصدر"
+            ],
+            "small": "ومو دايماً شحم *يروح بالتمرين.*",
+            "signed": "المصدر: الخدمة الصحية البريطانية (NHS)"
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "مو كل كتلة\nبصدر الرجّال تثدي.\n*الطبيب لازم يشوفها.*",
+            "top": 380
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "العلاج حسب الحالة:",
+            "items": [
+              "إيقاف السبب، ويا متابعة",
+              "أدوية بوصفة طبيب",
+              "وأحياناً عملية"
+            ],
+            "small": "والقرار *للطبيب،* مو للجيم.",
+            "signed": "المصدر: الخدمة الصحية البريطانية (NHS)"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "الجرّاح يشيل النسيج...\nوطبيب الغدد\n*يعالج السبب.*",
+            "top": 380
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "صدرك\nبإيد مختص:",
+            "rows": [
+              {
+                "icon": "scalpel",
+                "text": "طبيب جراحة عامة يقيّم الصدر."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "طبيب غدد يعالج السبب."
+              },
+              {
+                "icon": "tubes",
+                "text": "تحاليل هرمونات بالبيت."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«هذا شحم، يروح بالتمرين.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "35-sun08-hormones-tendons-carousel",
+      "when": "Sun 8 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · tendons and bones, orthopaedics: Kanayama et al., Am J Sports Med 2015 (PubMed): of 142 male bodybuilders, 22% of long-term steroid users vs 6% of non-users reported a tendon rupture, and upper-body ruptures occurred only among users; pectoralis major, distal biceps and triceps ruptures are the ones described in strength athletes; NHS: in teenagers before their growth spurt, steroids can cause premature ageing of the bones and restricted growth · home physiotherapy is a TabeebX service · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "العضلة تكبر بسرعة...\n*والوتر ما يلحگ.*",
+            "small": "والنتيجة؟ وتر مگطوع.",
+            "swipe": true
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "title": "من كل ١٠٠ لاعب كمال أجسام،\nكم واحد انگطع عنده وتر؟",
+            "rows": [
+              {
+                "label": "ما يستخدمون هرمونات",
+                "value": 6
+              },
+              {
+                "label": "يستخدمون من سنين",
+                "value": 22
+              }
+            ],
+            "rowH": 170,
+            "text": "وتمزقات الجزء العلوي\n*بس عند المستخدمين.*",
+            "source": "المصدر: Kanayama وآخرون، ٢٠١٥ (PubMed)"
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "أكثر الأوتار اللي تنگطع:",
+            "items": [
+              "وتر عضلة الصدر",
+              "وتر البايسبس",
+              "وتر الترايسبس"
+            ],
+            "signed": "المصدر: دراسات منشورة على PubMed"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "تمزّق الوتر\nممكن يحتاج عملية،\nوشهور حتى ترجع\n*للحديد.*",
+            "top": 330
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "وإذا عمرك تحت العشرين؟\nالهرمونات ممكن\n*توگف طولك.*",
+            "top": 380
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "ألم مفاجئ\nويا صوت طگة؟\n*لا تكمل التمرين،*\nوراجع طبيب عظام.",
+            "top": 330
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "عضلاتك تحتاج\nأوتار سليمة:",
+            "rows": [
+              {
+                "icon": "bone",
+                "text": "طبيب عظام يفحص الإصابة."
+              },
+              {
+                "icon": "physio",
+                "text": "علاج طبيعي بالبيت."
+              },
+              {
+                "icon": "tubes",
+                "text": "تحاليل الهرمونات\nحتى تعرف السبب."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«هذا بس شد عضلي.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "36-tue10-hormones-peptides-carousel",
+      "when": "Tue 10 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · peptides, growth hormone and SARMs: FDA placed BPC-157, TB-500 (thymosin beta-4 fragment) and CJC-1295 in category 2 of bulk substances for compounding, \"may present significant safety risks\": risk of an immune reaction, peptide impurities that are hard to detect, too little safety information for humans, and for CJC-1295 serious adverse events including a raised heart rate; FDA on SARMs: unapproved drugs sold as supplements, liver injury up to acute liver failure, heart attack and stroke, psychosis and hallucinations, sleep problems, sexual problems, infertility and testicular shrinkage; PubMed reviews on growth hormone misuse: diabetes, fluid retention, joint and muscle pain, carpal tunnel syndrome, high blood pressure · no peptide is named on the slides · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "مكتوب عليه\n«للبحث فقط»...\n*وإنت تزرقه بجسمك؟*",
+            "small": "الببتيدات، هرمون النمو، والسارمز.",
+            "swipe": true
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "الـFDA حطّت ببتيدات\nمشهورة بالجيم\nبقائمة *«خطر محتمل»...*\nوما عدها بيانات أمان\nكافية للبشر.",
+            "top": 280
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "ليش الببتيدات خطرة؟",
+            "items": [
+              "الجسم ممكن يعمل مناعة ضدها",
+              "شوائب صعب تنكشف",
+              "مصدر وجرعة ما معروفة",
+              "وبعضها سرّع ضربات القلب"
+            ],
+            "small": "وإبرة بلا طبيب... *مو تجربة آمنة.*",
+            "signed": "المصدر: إدارة الغذاء والدواء الأمريكية (FDA)"
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "السارمز تنباع\nكمكمل غذائي...\nبس هي أدوية\n*ما معتمدة.*",
+            "top": 330
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "السارمز، حسب الـFDA:",
+            "items": [
+              "أذى بالكبد، وصل لفشل كبدي",
+              "خطر جلطة قلبية ودماغية",
+              "ضمور الخصيتين وعقم",
+              "هلاوس وأرق"
+            ],
+            "small": "وناس رقدوا بالمستشفى *بسببها.*",
+            "signed": "المصدر: إدارة الغذاء والدواء الأمريكية (FDA)"
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "هرمون النمو بلا طبيب\nممكن يسبب:",
+            "items": [
+              "سكري",
+              "احتباس سوائل وضغط عالي",
+              "آلام مفاصل وعضلات",
+              "تنميل وألم باليد"
+            ],
+            "small": "وبعض أضراره *ما ترجع.*",
+            "signed": "المصدر: مراجعات منشورة على PubMed"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "قبل الإبرة\nالجاية:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "طبيب غدد يقيّم اللي أخذته."
+              },
+              {
+                "icon": "tubes",
+                "text": "تحاليل كبد وسكر\nوهرمونات بالبيت."
+              },
+              {
+                "icon": "kit",
+                "text": "جيب العلبة ويّاك للطبيب."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«هذا ببتيد، مو هرمون.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
       "id": "97-pink-october-wordmark",
       "when": "Any time in October · «أكتوبر الوردي» lettering in Cairo Black with the ribbon, three colours (pink, white, navy). Render with --alpha for transparent PNGs to lay over photos, stories and slides",
       "template": "wordmark",
