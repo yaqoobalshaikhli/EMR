@@ -1361,6 +1361,130 @@
       }
     },
     {
+      "id": "18-thu08-breast-cancer-carousel",
+      "when": "Thu 8 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · every figure is from WHO or its cancer agency IARC: Iraq 2022 (GLOBOCAN 2022: 8,184 new cases, the most common cancer in Iraqi women; 22 a day is 8,184 ÷ 365), lifetime risk 1 woman in 20 (IARC, Nature Medicine 2025), the WHO fact-sheet signs and «most breast lumps are not cancer», and 5-year survival for women diagnosed 2017–2021 (WHO/IARC estimates 2026: high-income 87.3%, Eastern Mediterranean 61.0%, low-income 41.9%) · the reviewing doctor signs off, and someone confirms that breast ultrasound at home is offered and whether a woman doctor can make the visit",
+      "template": "carousel",
+      "params": {
+        "series": "أكتوبر الوردي",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "كل يوم بالعراق\n*٢٢ امرأة*\nيطلعلهن سرطان ثدي.",
+            "small": "أكثر سرطان يصيب النساء عدنا.",
+            "swipe": true
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "سرطان الثدي بالعراق، ٢٠٢٢",
+            "rows": [
+              {
+                "label": "حالات جديدة بالسنة",
+                "value": "٨٬١٨٤"
+              },
+              {
+                "label": "يعني كل يوم",
+                "value": "٢٢"
+              },
+              {
+                "label": "بين سرطانات النساء",
+                "value": "الأول"
+              }
+            ],
+            "text": "مو رقم بعيد...\n*هاي جاراتنا وأهلنا.*",
+            "textClass": "t-hook-s",
+            "source": "المصدر: الوكالة الدولية لأبحاث السرطان، منظمة الصحة العالمية"
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "بالعالم، من كل ٢٠ امرأة:",
+            "total": 20,
+            "cols": 10,
+            "mark": 1,
+            "scale": 1.5,
+            "figure": "woman",
+            "text": "*وحدة* منهن يطلعلها\nسرطان ثدي بحياتها.",
+            "source": "المصدر: الوكالة الدولية لأبحاث السرطان، ٢٠٢٥"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "أول علامة ممكن تكون\nكتلة صغيرة...\n*وغالباً ما توجع.*",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "علامات لازم تنفحص:",
+            "items": [
+              "كتلة أو تثخّن، حتى لو ما توجع",
+              "تغيّر بحجم أو شكل الثدي",
+              "تنقّر أو احمرار بالجلد",
+              "تغيّر بالحلمة أو الجلد حواليها",
+              "إفرازات غريبة أو دم من الحلمة"
+            ],
+            "small": "أغلب الكتل *مو سرطان*... بس الفحص هو اللي يگول.",
+            "signed": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "title": "من كل ١٠٠ امرأة تنصاب،\nكم وحدة تعيش ٥ سنين؟",
+            "rows": [
+              {
+                "label": "الدول عالية الدخل",
+                "value": 87
+              },
+              {
+                "label": "منطقتنا، شرق المتوسط",
+                "value": 61
+              },
+              {
+                "label": "الدول منخفضة الدخل",
+                "value": 42
+              }
+            ],
+            "rowH": 170,
+            "text": "والفرق يبدأ من *وقت الاكتشاف.*",
+            "source": "المصدر: منظمة الصحة العالمية، تقديرات ٢٠٢٦"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "ثلاث خطوات\nتفرق:",
+            "rows": [
+              {
+                "icon": "eye",
+                "text": "اعرفي شكلچ الطبيعي،\nحتى تنتبهين لأي تغيير."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "أي تغيير؟ راجعي طبيب بسرعة،\nحتى لو ما يوجع."
+              },
+              {
+                "icon": "ultrasound",
+                "text": "فحص وسونار بالبيت،\nتحجزين برسالة واتساب."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لكل وحدة تگول:",
+            "cta": "*«ما عدنا بالعائلة.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
       "id": "10-nov01-scorecard-template",
       "when": "Sun 1 Nov and every first Sunday · replace the sample numbers with the month's real results, misses included",
       "template": "scorecard",
