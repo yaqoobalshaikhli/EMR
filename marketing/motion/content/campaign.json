@@ -2975,7 +2975,7 @@
             "mark": 27,
             "rowH": 72,
             "text": "*٢٧* منهم\nبعده هرمونهم واطي.",
-            "source": "المصدر: Rasmussen وآخرون، مجلة PLoS One ٢٠١٦ (PubMed)"
+            "source": "المصدر: Rasmussen وآخرون، ٢٠١٦ (PubMed)"
           },
           {
             "type": "statement",
@@ -3510,6 +3510,192 @@
             "bg": "navy",
             "lead": "دزها لكل واحد يگول:",
             "cta": "*«هذا ببتيد، مو هرمون.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "37-thu12-hormones-liver-kidney-carousel",
+      "when": "Thu 12 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · the liver and the kidneys: most steroid tablets are 17-alpha-alkylated so they survive the liver, which raises their liver toxicity: cholestasis and jaundice, peliosis hepatis, liver tumours (PubMed reviews, e.g. AAS-induced liver injury: an update, 2022); injectables have caused cholestatic hepatitis too; symptoms are jaundice, itching, dark urine, nausea and fatigue, and the cholestasis can last months after stopping; FDA 2016 labelling and NHS (liver or kidney problems or failure); Herlitz et al., JASN 2010 (PubMed 19917783): focal segmental glomerulosclerosis in 10 bodybuilders using steroids, and the 7 who stopped stabilised or improved while one who resumed relapsed; Iraqi Kurdistan 2011–2019 (BMC Nephrology 2020, PubMed 32375656): 26% of about 25,000 regular gym-goers reported steroid use, and injecting veterinary vitamin D for muscle shape carried a high risk of end-stage kidney disease · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "الكبد ما يشتكي...\n*لحد ما يصفر وجهك.*",
+            "small": "والكلى هم تدفع الثمن.",
+            "swipe": true
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "أغلب الحبوب الهرمونية\nمصنوعة حتى تعبر الكبد...\n*وهنا تأذيه.*",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "بالكبد، ممكن تسبب:",
+            "items": [
+              "يرقان: اصفرار الجلد والعيون",
+              "ركود الصفراء بالكبد",
+              "تجمعات دم بالكبد",
+              "أورام بالكبد"
+            ],
+            "small": "والإبر هم *مو بريئة.*",
+            "signed": "المصدر: مراجعات منشورة على PubMed"
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "راجع طبيب فوراً:",
+            "items": [
+              "اصفرار العيون أو الجلد",
+              "بول غامق",
+              "حكة بكل الجسم",
+              "غثيان وتعب"
+            ],
+            "small": "وحتى بعد الإيقاف، *ممكن تدوم أشهر.*",
+            "signed": "المصدر: مراجعات منشورة على PubMed"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "والكلى؟\nالهرمونات ارتبطت\nبتلف *مصافي الكلى*\nعند لاعبين كمال أجسام.",
+            "top": 300
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "إقليم كردستان، ٢٠١١–٢٠١٩",
+            "rows": [
+              {
+                "label": "لاعبين منتظمين بالجيم",
+                "value": "٢٥ ألف"
+              },
+              {
+                "label": "گالوا يستخدمون هرمونات",
+                "value": "٢٦ من ١٠٠"
+              }
+            ],
+            "text": "وإبر فيتامين د البيطري للعضلة...\n*خطر فشل كلوي.*",
+            "source": "المصدر: دراسة بإقليم كردستان، ٢٠٢٠ (PubMed)"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "افحص كبدك\nوكلاك:",
+            "rows": [
+              {
+                "icon": "tubes",
+                "text": "تحاليل كبد وكلى بالبيت."
+              },
+              {
+                "icon": "pulse",
+                "text": "ضغطك يتقاس بالبيت هم."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "طبيب باطنية يقرأ\nالنتائج وياك."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«آني آخذ حبوب بس، مو إبر.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "38-sat14-hormones-myths-carousel",
+      "when": "Sat 14 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · closes the series with five gym beliefs checked: tablets are linked most with liver injury and injectables have harms too (PubMed); WHO Task Force on Methods for the Regulation of Male Fertility, Lancet 1990: testosterone given weekly as a male contraceptive stopped sperm completely in 157 of 271 men (65%) within 6 months (no dose on the slides); FDA category 2 peptides; NHS: sharing a needle even once can pass on hepatitis C, and anyone who ever shared should be tested; a doctor can plan the stop and follow hormones and mood (Anawalt, J Clin Endocrinol Metab 2019) · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "صح لو غلط؟\n*٥ أفكار*\nبكل جيم.",
+            "small": "كلها نسمعها بين الأجهزة.",
+            "swipe": true
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "١. الحبوب أخف\nمن الإبر.",
+            "explain": "الحبوب أكثر شي مرتبطة بأذى الكبد. والإبر هم إلها أضرارها.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٢. الكورس الخفيف\nما يأثر.",
+            "explain": "منظمة الصحة العالمية جربت التستوستيرون كمانع حمل للرجال: ٦٥ من ١٠٠ انعدمت نطفهم خلال ٦ أشهر.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٣. الببتيد مو هرمون،\nفما بيه خطر.",
+            "explain": "الـFDA حطّت ببتيدات مشهورة بقائمة «خطر محتمل»، وما عدها بيانات أمان كافية للبشر.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٤. مشاركة الإبرة\nمرة وحدة ما تضر.",
+            "explain": "مرة وحدة تكفي تنقل التهاب الكبد. واللي شارك ولو مرة، لازم يفحص.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٥. الطبيب يگدر\nيساعدك توگف.",
+            "explain": "يرتب الإيقاف حسب تحاليلك، ويتابع هرموناتك ومزاجك.",
+            "stamp": "صح"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "الصح هو:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "احچي ويا طبيب، بخصوصية."
+              },
+              {
+                "icon": "tubes",
+                "text": "افحص قبل وبعد، بالبيت."
+              },
+              {
+                "icon": "chat",
+                "text": "لا توگف وحدك،\nولا تكمل وحدك."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«كلهم ياخذون، ليش آني لا؟»*",
             "ctaTop": 410,
             "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
