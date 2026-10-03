@@ -44,6 +44,9 @@ footage. It writes two files from the same frames:
 - `-greenscreen.mp4`: the same animation over chroma green, for phone editors.
   In CapCut, add it as an overlay, then use Cutout → Chroma key on the green.
 
+On a still (a carousel, the wordmark), `--alpha` writes PNGs with a
+transparent background instead, named `<job>-alpha-01.png` and so on.
+
 White type gets a soft shadow in this mode, so it stays readable on light
 pictures. The 3D film is a set, not an overlay, so its transparent version is
 `93a`: the logo build alone, with no backdrop, floor or type.
@@ -64,13 +67,24 @@ pictures. The 3D film is a set, not an overlay, so its transparent version is
 | `08a-sat03-national-day` | Sat 3 Oct, 8:30 PM | Single image: Baghdad on the Tigris at dusk, the flag, «العراق بخير... من أهله بخير.» |
 | `09-sun04-promise-reel` / `09b` | Sun 4 Oct, 8:30 PM | وعد TabeebX: the Reel and the 6-slide carousel |
 | `11-mon05-pressure-carousel` | Mon 5 Oct, 8:30 PM | «اعرف أرقامك» 1 of 7, 7 infographic slides: «الضغط العالي ما يوجع.» A grid of 100 people with 46 in pink (unaware), a funnel down to the 21 whose pressure is controlled, a monitor reading «؟؟؟/؟؟», then the visit at home. WHO figures; needs the reviewing doctor's name |
+| `19-tue06-every-minute-carousel` | Tue 6 Oct, 8:30 PM | «أكتوبر الوردي» 1 of 10, 8 slides: «كل دقيقة بالعالم ٤ نساء يطلعلهن سرطان ثدي.» The world in 2022 (2.3 million diagnosed, 670,000 deaths), 2050 (+38% cases, +68% deaths) and lifetime odds in rich vs poor countries. WHO and IARC |
 | `12-wed07-sugar-carousel` | Wed 7 Oct, 8:30 PM | «اعرف أرقامك» 2 of 7, 7 slides: «السكري ما يدگ الباب.» A ring at 45% (undiagnosed, IDF Diabetes Atlas 2021), quiet years on a timeline, two blood-sugar numbers still «؟», and the twist «إحنا ندگه.» |
 | `18-thu08-breast-cancer-carousel` | Thu 8 Oct, 8:30 PM | «أكتوبر الوردي», Breast Cancer Awareness Month, 8 slides: «كل يوم بالعراق ٢٢ امرأة يطلعلهن سرطان ثدي.» Iraq's 2022 count (8,184 new cases, the most common cancer in Iraqi women), one woman in twenty over a lifetime, the WHO warning signs, and 5-year survival by region. WHO and IARC figures only |
 | `13-fri09-cholesterol-carousel` | Fri 9 Oct, 8:30 PM | «اعرف أرقامك» 3 of 7, 8 slides: «الكوليسترول ما يبين بالمراية.» An iceberg, an artery narrowing in three cross-sections, a lipid panel of four «؟», the one who checked beside the one who didn't, and the home test in three steps |
+| `20-sat10-brca-carousel` | Sat 10 Oct, 8:30 PM | «أكتوبر الوردي» 2 of 10, 8 slides: what BRCA1 and BRCA2 are (a drawn DNA strand), breast and ovarian risk with a harmful change, and what a positive, negative or unclear result means. NCI |
 | `14-sun11-prediabetes-carousel` | Sun 11 Oct, 8:30 PM | «اعرف أرقامك» 4 of 7, 7 slides: «السكري يعطيك فرصة وحدة.» 11 of 100 adults in pink (impaired glucose tolerance, IDF 2021), the blood-sugar band from normal to diabetes with the middle zone «هنا بعده يرجع», and a ring at 58% (the Diabetes Prevention Program) |
+| `21-mon12-family-tree-carousel` | Mon 12 Oct, 8:30 PM | «أكتوبر الوردي» 3 of 10, 8 slides: «شجرة عائلتچ تحچي.» Who should ask about the genetic test, the 50% chance of passing a change on, from the mother or the father. NCI, USPSTF |
 | `15-tue13-anemia-carousel` | Tue 13 Oct, 8:30 PM | «اعرف أرقامك» 5 of 7, 7 slides: «تعبك مو دايماً من الشغل.» WHO anaemia bars (children 40, pregnant women 37, women 30 in 100), the signs we call «تعب عادي», and a blood picture of two «؟» |
+| `22-wed14-myths-carousel` | Wed 14 Oct, 8:30 PM | «أكتوبر الوردي» 4 of 10, 8 slides: «صح لو غلط؟» Five beliefs, including «a blood test finds it early» (no: ASCO). WHO |
 | `16-thu15-kidney-carousel` | Thu 15 Oct, 8:30 PM | «اعرف أرقامك» 6 of 7, 7 slides: «الكلى ما تصيح.» Over 10 in 100 (ISN), the five stages by filtration rate with symptoms only in the last two, diabetes and blood pressure as the two main causes, and a kidney panel of three «؟» |
+| `23-fri16-signs-carousel` | Fri 16 Oct, 8:30 PM | «أكتوبر الوردي» 5 of 10, 8 slides: «مو كل علامة كتلة.» The WHO signs, sorted into what you see and what you feel; most lumps are not cancer |
 | `17-sat17-thyroid-carousel` | Sat 17 Oct, 8:30 PM | «اعرف أرقامك» 7 of 7, 7 slides: «الغدة الدرقية ما تعطي إنذار.» One woman in eight in pink (American Thyroid Association), an underactive and an overactive thyroid side by side, and TSH and FT4 still «؟» |
+| `24-sun18-risk-factors-carousel` | Sun 18 Oct, 8:30 PM | «أكتوبر الوردي» 6 of 10, 8 slides: «بعض أسباب الخطر بإيدچ.» WHO risk factors, fixed and changeable |
+| `25-tue20-time-carousel` | Tue 20 Oct, 8:30 PM | «أكتوبر الوردي» 7 of 10, 8 slides: «أخطر شي بعد الكتلة... الانتظار.» The stages and the WHO Global Breast Cancer Initiative targets (60% found early, diagnosis within 60 days, 2.5 million lives by 2040) |
+| `26-thu22-mammogram-carousel` | Thu 22 Oct, 8:30 PM | «أكتوبر الوردي» 8 of 10, 8 slides: «فوق الخمسين؟ هذا فحصچ.» Mammography every 2 years at 50–69 (WHO 2014); the doctor points her to a radiology centre |
+| `27-sat24-men-carousel` | Sat 24 Oct, 8:30 PM | «أكتوبر الوردي» 9 of 10, 8 slides, to men: «سرطان الثدي... يصيب الرجال هم.» Up to 1 case in 100, the signs, and BRCA2 risk in men. WHO, NCI |
+| `28-mon26-mothers-carousel` | Mon 26 Oct, 8:30 PM | «أكتوبر الوردي» 10 of 10, 8 slides: «أمچ ما راح تشتكي.» Questions for a daughter to ask her mother |
+| `97-pink-october-wordmark` | Any time in October | «أكتوبر الوردي» in Cairo Black with the ribbon, in pink, white and navy. Render with `--alpha` for transparent PNGs |
 | `10-nov01-scorecard-template` | First Sunday of every month | Monthly scorecard, misses included |
 | `91-highlight-covers` | Profile | شوف بعينك · دكاترتنا · وعدنا · سؤالكم · لأهلك |
 | `92-tabeebx-brand-film` | Any time | Brand film, 33 s, no faces. The pink dot of the logo rings as the doorbell, the door opens, the services arrive, and the dot lands as the head of the TabeebX figure in the closing logo. Render it with `--alpha` too |
@@ -137,7 +151,7 @@ pulses: it is the open loop.
   are the brand tokens. The wordmark is never retyped.
 - `assets/brand/tabeebx-figure-white.svg`: the same figure in white, inside the
   pink tab and on the end card.
-- `assets/fonts/`: Cairo Medium and Bold (Arabic and Latin), SIL Open Font
+- `assets/fonts/`: Cairo Medium, Bold and Black (Arabic and Latin), SIL Open Font
   License, see `OFL.txt`.
 - The audio is synthesized from scratch, so nothing needs licensing. That
   includes the score of `93`: strings, felt piano, a heartbeat and impacts,
@@ -148,7 +162,7 @@ pulses: it is the open loop.
   renders an empty frame with a DRAFT stamp instead of failing.
 - `src/art.js`: illustrations drawn in code for posts without photos yet (tea
   held in an older woman's hands, a nurse visiting at home, Baghdad on the
-  Tigris, the flag). The figures are faceless, like the one in the logo, so
+  Tigris, the flag, a DNA strand with BRCA1 and BRCA2 marked). The figures are faceless, like the one in the logo, so
   they never pass for a real patient or nurse. Swap them for consented photos
   when you have them.
 

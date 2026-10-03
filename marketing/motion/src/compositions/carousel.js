@@ -42,12 +42,18 @@
     return img;
   }
 
-  function chrome(layer, ctx, light, series, strip) {
+  function chrome(layer, ctx, light, series, strip, pillStyle) {
     const tab = TX.C.tab(layer, ctx);
     tab.render(9, 0);
     if (series) {
       const pill = TX.C.pill(layer, ctx, series, TX.seriesIcon(series));
-      if (light) px(pill.el, { background: '#181943', color: '#FFFEFF' });
+      if (pillStyle === 'bold') {
+        // no capsule: the series name in heavy pink, its icon drawn thicker to match
+        pill.el.classList.add('pill-bold');
+        const ic = pill.el.querySelector('svg');
+        ic.setAttribute('stroke', PINK);
+        ic.setAttribute('stroke-width', '4');
+      } else if (light) px(pill.el, { background: '#181943', color: '#FFFEFF' });
     }
     const s = TX.C.strip(layer, ctx, strip);
     if (light) s.el.style.color = 'rgba(24,25,67,.7)';
@@ -171,8 +177,9 @@
         TX.words(el('div', 't-sub', row), it);
         y += 86;
       });
-      if (s.small) TX.text(L, s.small, 'col t-body dim', { top: y + 24 });
-      if (s.signed) TX.text(L, s.signed, 'col t-strip dim', { top: y + 100 });
+      const sm = s.small && TX.text(L, s.small, 'col t-body dim', { top: y + 24 });
+      // under a two-line caveat, the name moves down with it
+      if (s.signed) TX.text(L, s.signed, 'col t-strip dim', { top: sm ? Math.max(y + 100, bottom(sm) + 16) : y + 100 });
     },
     cta(L, s) {
       TX.text(L, s.lead, 'col t-sub', { top: 300 });
@@ -214,12 +221,14 @@
         const head = el('div', 'abs', L);
         px(head, { left: x0, width: w, top: y, height: 62, display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontWeight: '700', fontSize: 42, lineHeight: '1.3' });
         TX.words(el('div', '', head), r.label);
-        const v = el('div', '', head, TX.ar(r.value));
+        const v = el('div', '', head, r.display || TX.ar(r.value)); // `display` for a range or a % beside the bar
         px(v, { fontSize: 50, color: BLUE });
-        const fill = (r.value / 100) * w;
+        const fill = (r.value / 100) * w, high = ((r.max || 0) / 100) * w;
+        // `max` makes the bar a range: solid to the low end, pale up to the high end
         TX.svg(L, `<svg class="abs" style="left:${x0}px;top:${y + 72}px" width="${w}" height="40">
           <rect width="${w}" height="40" rx="20" fill="${quiet(light, 0.08)}"/>
           ${r.rest ? `<rect width="${w - fill + 40}" height="40" rx="20" fill="${PINK}"/>` : ''}
+          ${r.max ? `<rect x="${w - high}" width="${high}" height="40" rx="20" fill="${BLUE}" opacity=".35"/>` : ''}
           <rect x="${w - fill}" width="${fill}" height="40" rx="20" fill="${r.value === 100 ? (light ? NAVY : WHITE) : BLUE}"/>
         </svg>`);
         if (r.rest) {
@@ -396,7 +405,8 @@
         g += `<rect x="${left(i)}" y="${y + 62}" width="${zw}" height="${bh}" rx="24" fill="${fill(z)}"/>`;
         if (z.inner) {
           const c = el('div', 'abs center', L, z.inner);
-          px(c, { left: left(i), width: zw, top: y + 62, height: bh, fontSize: 48, fontWeight: '700', color: z.tone === 'ink' && !light ? NAVY : WHITE });
+          // above the band, which is drawn later in one svg
+          px(c, { left: left(i), width: zw, top: y + 62, height: bh, fontSize: 48, fontWeight: '700', color: z.tone === 'ink' && !light ? NAVY : WHITE, zIndex: '1' });
         }
       });
       y += 62 + bh;
@@ -427,9 +437,11 @@
         px(c, { left: i ? 80 : 560, top, width: 440, borderRadius: 40, padding: '36px 36px 14px', boxSizing: 'border-box', background: light ? '#F2F4F9' : WHITE, color: NAVY });
         const head = el('div', '', c);
         px(head, { display: 'flex', alignItems: 'center', gap: 16, marginBottom: 26 });
-        const arrow = el('div', 'center', head);
-        px(arrow, { width: 56, height: 56, borderRadius: '50%', background: BLUE, flex: 'none' });
-        TX.svg(arrow, `<svg width="30" height="30" viewBox="0 0 30 30"><path d="${col.icon === 'up' ? 'M15 25V6m-8 8l8 -8l8 8' : 'M15 5v19m-8 -8l8 8l8 -8'}" fill="none" stroke="${WHITE}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>`);
+        if (col.icon) { // an arrow for two opposite faces; leave it out for a plain comparison
+          const arrow = el('div', 'center', head);
+          px(arrow, { width: 56, height: 56, borderRadius: '50%', background: BLUE, flex: 'none' });
+          TX.svg(arrow, `<svg width="30" height="30" viewBox="0 0 30 30"><path d="${col.icon === 'up' ? 'M15 25V6m-8 8l8 -8l8 8' : 'M15 5v19m-8 -8l8 8l8 -8'}" fill="none" stroke="${WHITE}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>`);
+        }
         const h = el('div', '', head, col.title);
         px(h, { fontSize: 40, fontWeight: '700', lineHeight: '1.25' });
         col.items.forEach((it) => {
@@ -462,7 +474,7 @@
         }
         if (P.pulse) pulse(L);
         SLIDES[s.type](L, s, ctx, light, P);
-        chrome(L, ctx, light, s.series === false ? null : P.series, ctx.brand.trustStrip);
+        chrome(L, ctx, light, s.series === false ? null : P.series, ctx.brand.trustStrip, P.pillStyle);
         return L;
       });
       return {

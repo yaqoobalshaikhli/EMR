@@ -1366,6 +1366,7 @@
       "template": "carousel",
       "params": {
         "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
         "slides": [
           {
             "type": "hook",
@@ -1481,6 +1482,1190 @@
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
           }
+        ]
+      }
+    },
+    {
+      "id": "19-tue06-every-minute-carousel",
+      "when": "Tue 6 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · the world picture: 2.3 million women diagnosed and 670,000 deaths in 2022 (WHO), 4 diagnosed and 1 death every minute and the 2050 projection, +38% cases (3.2 million) and +68% deaths (1.1 million) (IARC, Nature Medicine, Feb 2025); lifetime odds in very-high vs low human-development countries, 1 in 12 vs 1 in 27 diagnosed and 1 in 71 vs 1 in 48 die (IARC 2025); WHO: most women diagnosed have no known family history · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "كل دقيقة بالعالم\n*٤ نساء*\nيطلعلهن سرطان ثدي.",
+            "small": "ووحدة تتوفى منه.",
+            "swipe": true
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "سرطان الثدي بالعالم، ٢٠٢٢",
+            "rows": [
+              {
+                "label": "حالات جديدة",
+                "value": "٢٫٣ مليون"
+              },
+              {
+                "label": "وفيات",
+                "value": "٦٧٠ ألف"
+              },
+              {
+                "label": "كل دقيقة",
+                "value": "٤ حالات"
+              }
+            ],
+            "text": "وأغلبهن *ما عدهن*\nتاريخ عائلي معروف.",
+            "textClass": "t-hook-s",
+            "source": "المصدر: منظمة الصحة العالمية، الوكالة الدولية لأبحاث السرطان"
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "title": "إذا ما تغيّر شي، بسنة ٢٠٥٠:",
+            "rows": [
+              {
+                "label": "الحالات الجديدة تزيد",
+                "value": 38,
+                "display": "٣٨٪"
+              },
+              {
+                "label": "الوفيات تزيد",
+                "value": 68,
+                "display": "٦٨٪"
+              }
+            ],
+            "rowH": 170,
+            "text": "*٣٫٢ مليون* حالة بالسنة،\nو١٫١ مليون وفاة.",
+            "source": "المصدر: الوكالة الدولية لأبحاث السرطان، ٢٠٢٥"
+          },
+          {
+            "type": "columns",
+            "bg": "white",
+            "title": "بحياة المرأة:",
+            "cols": [
+              {
+                "title": "الدول الأكثر تقدماً",
+                "items": [
+                  "تنصاب ١ من ١٢",
+                  "تتوفى ١ من ٧١"
+                ]
+              },
+              {
+                "title": "الدول الأقل تقدماً",
+                "items": [
+                  "تنصاب ١ من ٢٧",
+                  "تتوفى ١ من ٤٨"
+                ]
+              }
+            ],
+            "text": "إصابات أقل...\nبس *وفيات أكثر.*",
+            "source": "المصدر: الوكالة الدولية لأبحاث السرطان، ٢٠٢٥"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "الفرق مو بالمرض...\n*الفرق بوقت الاكتشاف*\nوالعلاج.",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "شتسوين من اليوم؟",
+            "items": [
+              "اعرفي شكل ثديچ الطبيعي",
+              "أي تغيير؟ راجعي طبيب بسرعة",
+              "اسألي أهلچ عن تاريخ العائلة",
+              "فوق الخمسين؟ سوي ماموگرام",
+              "حافظي على وزنچ وحركتچ"
+            ],
+            "small": "ولا تنتظرين *الألم* حتى تتحركين.",
+            "signed": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "من البيت،\nبثلاث خطوات:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "احچي ويا طبيبنا عن\nتاريخ عائلتچ."
+              },
+              {
+                "icon": "tubes",
+                "text": "إذا يحتاج، تحليل الاستعداد\nالوراثي... والسحب بالبيت."
+              },
+              {
+                "icon": "phone",
+                "text": "الطبيب يشرحلچ النتيجة\nوالخطوة الجاية."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لكل وحدة تگول:",
+            "cta": "*«هالأرقام بعيدة عنّا.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "20-sat10-brca-carousel",
+      "when": "Sat 10 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · what BRCA1 and BRCA2 are and what the test means (NCI fact sheet): genes that help repair damaged DNA; a harmful change raises the risk; breast cancer in more than 60% of women with a harmful BRCA1/2 change vs about 13% of women in general (US); ovarian cancer 39–58% (BRCA1) and 13–29% (BRCA2) vs 1.1%; positive, negative and uncertain results; the test shows a tendency, not a cancer · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "بجسمچ جينين\n*يحمونچ*\nمن السرطان.",
+            "small": "شنو همّه؟ وشوكت تفحصيهم؟",
+            "swipe": true
+          },
+          {
+            "type": "art",
+            "bg": "navy",
+            "art": "dna",
+            "artTop": 230,
+            "artHeight": 560,
+            "text": "اسمهم *BRCA*،\nوشغلتهم يصلّحون\nالتلف بالخلايا.",
+            "textTop": 850
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "إذا انولدتي ويا تغيير\nبواحد منهم...\n*التصليح يضعف،*\nوالخطر يزيد.",
+            "top": 330
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "top": 320,
+            "title": "من كل ١٠٠ امرأة، كم وحدة\nيطلعلها سرطان ثدي بحياتها؟",
+            "rows": [
+              {
+                "label": "عامة النساء",
+                "value": 13
+              },
+              {
+                "label": "ويا تغيير بجين BRCA",
+                "value": 60,
+                "display": "أكثر من ٦٠"
+              }
+            ],
+            "rowH": 170,
+            "text": "يعني الخطر *أكثر من ٤ أضعاف.*",
+            "source": "المصدر: المعهد الوطني للسرطان، أمريكا"
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "title": "وسرطان المبيض، من كل ١٠٠ امرأة:",
+            "rows": [
+              {
+                "label": "BRCA1",
+                "value": 39,
+                "max": 58,
+                "display": "٣٩–٥٨"
+              },
+              {
+                "label": "BRCA2",
+                "value": 13,
+                "max": 29,
+                "display": "١٣–٢٩"
+              },
+              {
+                "label": "عامة النساء",
+                "value": 1,
+                "display": "١"
+              }
+            ],
+            "rowH": 150,
+            "text": "الخطر مو بس على الثدي...\n*المبيض هم.*",
+            "source": "المصدر: المعهد الوطني للسرطان، أمريكا"
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "نتيجة التحليل شتعني؟",
+            "items": [
+              "إيجابية: خطر أعلى، مو سرطان",
+              "سلبية: ما لگوا تغيير، والخطر مو صفر",
+              "غير واضحة: تغيير بعده ما مفهوم"
+            ],
+            "small": "التحليل يبيّن *الاستعداد،* مو المرض.\nوالطبيب يرتب الخطوة الجاية.",
+            "signed": "المصدر: المعهد الوطني للسرطان، أمريكا"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "التحليل ويانا:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "استشارة طبيب يقيّم\nتاريخ عائلتچ."
+              },
+              {
+                "icon": "tubes",
+                "text": "إذا يحتاج، سحب الدم\nبالبيت."
+              },
+              {
+                "icon": "phone",
+                "text": "الطبيب يشرحلچ النتيجة\nوالخطوة الجاية."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لكل وحدة تسأل:",
+            "cta": "*«إذا وراثي، شنسوي؟»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "21-mon12-family-tree-carousel",
+      "when": "Mon 12 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · who should ask about genetic testing (NCI): a relative with a known BRCA change; breast cancer at 50 or younger; ovarian, male breast, pancreatic, or metastatic or high-risk prostate cancer in the family; each child of a carrier has a 50% chance of inheriting the change, from the mother or the father (NCI); USPSTF: test women whose family history points to risk, not everyone · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "شجرة عائلتچ\n*تحچي.*",
+            "small": "بس لازم أحد يسمعها.",
+            "swipe": true
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "اسألي عن التحليل\nإذا بيچ أو بالعائلة:",
+            "items": [
+              "قريبة عدها تغيير بجين BRCA",
+              "سرطان ثدي قبل عمر الخمسين",
+              "سرطان مبيض أو بنكرياس",
+              "رجّال صابه سرطان ثدي",
+              "سرطان بروستات متقدم"
+            ],
+            "small": "الطبيب يقيّم، *مو كل وحدة* تحتاجه.",
+            "signed": "المصدر: المعهد الوطني للسرطان، أمريكا"
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "إذا الأم أو الأب عنده التغيير:",
+            "total": 10,
+            "cols": 10,
+            "mark": 5,
+            "scale": 1.6,
+            "text": "كل طفل عنده\n*فرصة ٥٠٪*\nيورثه.",
+            "source": "المصدر: المعهد الوطني للسرطان، أمريكا"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "التغيير ينتقل من الأم...\n*أو من الأب.*\nفاسألي أهل أبوچ هم.",
+            "top": 360
+          },
+          {
+            "type": "compare",
+            "bg": "navy",
+            "title": "نفس العائلة،\nنفس الجينات.",
+            "yes": {
+              "title": "اللي سألت:",
+              "items": [
+                "عرفت تاريخ العائلة",
+                "حچت ويا طبيب",
+                "تعرف شنو تراقب"
+              ]
+            },
+            "no": {
+              "title": "اللي ما سألت:",
+              "items": [
+                "ما تعرف التاريخ",
+                "ما فحصت",
+                "تنتظر علامة"
+              ]
+            },
+            "text": "المعرفة *تحميچ.*"
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "title": "اسألي أهلچ:",
+            "rows": [
+              {
+                "icon": "family",
+                "text": "منو صابه سرطان؟ وأي نوع؟"
+              },
+              {
+                "icon": "calendar",
+                "text": "بأي عمر صابه؟"
+              },
+              {
+                "icon": "user",
+                "text": "من جهة الأم، لو الأب؟"
+              },
+              {
+                "icon": "tubes",
+                "text": "أحد سوّى تحليل وراثي؟"
+              }
+            ]
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "بعدها، ويانا:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "گولي لطبيبنا\nشنو عرفتي."
+              },
+              {
+                "icon": "tubes",
+                "text": "إذا يحتاج، تحليل الاستعداد\nالوراثي... والسحب بالبيت."
+              },
+              {
+                "icon": "family",
+                "text": "ونتيجتچ تفيد\nأخواتچ وبناتچ هم."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها بگروب العائلة، واكتبي:",
+            "cta": "*«خلّينا نعرف تاريخنا.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "22-wed14-myths-carousel",
+      "when": "Wed 14 Oct 8:30 PM feed carousel, 8 slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · five beliefs checked against WHO: most women diagnosed have no known family history; a lump is often painless; most breast lumps are not cancer; men get breast cancer too, 0.5–1% of cases; ASCO: no blood test (CA 15-3, CA 27.29, CEA) is for screening or early diagnosis, and the BRCA test shows a tendency, not a cancer · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "صح لو غلط؟\n*٥ أفكار*\nعن سرطان الثدي.",
+            "small": "كلها نسمعها كل يوم.",
+            "swipe": true
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "١. ما عدنا بالعائلة،\nيعني ما يصيبني.",
+            "explain": "أغلب النساء اللي ينصابن ما عدهن تاريخ عائلي معروف.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٢. إذا ما يوجع،\nمو سرطان.",
+            "explain": "الكتلة غالباً ما توجع. أي تغيير ينفحص، حتى لو ما يوجع.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٣. كل كتلة\nبالثدي سرطان.",
+            "explain": "أغلب الكتل مو سرطان. بس الفحص هو اللي يگول.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٤. الرجال هم\nممكن يصيبهم.",
+            "explain": "نادر: حالة أو أقل من كل ١٠٠ حالة. وأي كتلة بصدر الرجّال تنفحص.",
+            "stamp": "صح"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٥. تحليل دم يكشف\nسرطان الثدي مبكراً.",
+            "explain": "ماكو تحليل دم معتمد للكشف المبكر. التحليل الوراثي يبيّن الاستعداد بس.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "الصح هو:",
+            "rows": [
+              {
+                "icon": "eye",
+                "text": "اعرفي شكلچ الطبيعي."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "أي تغيير، راجعي طبيب\nحتى لو ما يوجع."
+              },
+              {
+                "icon": "tubes",
+                "text": "عدكم تاريخ عائلي؟ اسألي\nعن تحليل الاستعداد الوراثي."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لكل وحدة تگول:",
+            "cta": "*«إذا ما يوجع، مو مشكلة.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "23-fri16-signs-carousel",
+      "when": "Fri 16 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · the WHO warning signs sorted into what you see and what you feel; most breast lumps are not cancer (WHO); breast awareness: know your normal and see a doctor about any new change; what a doctor may do next (clinical exam, imaging at a radiology centre, a biopsy if needed: WHO) · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "مو كل علامة\n*كتلة.*",
+            "small": "تعرفين شنو تراقبين؟",
+            "swipe": true
+          },
+          {
+            "type": "columns",
+            "bg": "white",
+            "title": "شنو تراقبين؟",
+            "cols": [
+              {
+                "title": "تشوفينه",
+                "items": [
+                  "تغيّر بالحجم أو الشكل",
+                  "تنقّر أو احمرار بالجلد",
+                  "تغيّر بالحلمة",
+                  "إفرازات أو دم"
+                ]
+              },
+              {
+                "title": "تحسّين بيه",
+                "items": [
+                  "كتلة",
+                  "تثخّن بمكان معيّن"
+                ]
+              }
+            ],
+            "text": "والكتلة غالباً\n*ما توجع.*",
+            "source": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "title": "اعرفي طبيعتچ:",
+            "rows": [
+              {
+                "icon": "eye",
+                "text": "اعرفي شكل ثديچ\nوملمسه الطبيعي."
+              },
+              {
+                "icon": "calendar",
+                "text": "لاحظي أي تغيير\nيبقى بعد الدورة."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "تغيير جديد؟\nراجعي طبيب."
+              }
+            ]
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "لاحظتي تغيير؟\n*لا تنتظرين*\nيروح وحده.",
+            "top": 360
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "والخبر الزين:\n*أغلب الكتل*\nمو سرطان.",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "عند الطبيب، ممكن:",
+            "items": [
+              "فحص سريري",
+              "سونار أو ماموگرام بمركز أشعة",
+              "وإذا يحتاج، خزعة صغيرة"
+            ],
+            "small": "كل خطوة *تطمّنچ* أكثر.",
+            "signed": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "ويانا:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "احچي ويا طبيبنا عن\nالتغيير اللي لاحظتيه."
+              },
+              {
+                "icon": "steps",
+                "text": "يوجهچ للفحص المناسب\nبمركز متخصص."
+              },
+              {
+                "icon": "tubes",
+                "text": "عدكم تاريخ عائلي؟ تحليل\nالاستعداد الوراثي بالبيت."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لكل وحدة تگول:",
+            "cta": "*«شي صغير، ما يحتاج.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "24-sun18-risk-factors-carousel",
+      "when": "Sun 18 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · WHO risk factors, sorted into fixed and changeable: female sex is the strongest, then increasing age; family history and genes, age at first period, chest radiation; obesity, tobacco, harmful alcohol use, postmenopausal hormone therapy; WHO: lowering risk does not remove it, so checks still matter · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "بعض أسباب الخطر\n*بإيدچ.*",
+            "small": "وبعضها لا. خلّي نفرزها.",
+            "swipe": true
+          },
+          {
+            "type": "columns",
+            "bg": "white",
+            "title": "أسباب الخطر:",
+            "cols": [
+              {
+                "title": "ما تتغيّر",
+                "items": [
+                  "كونچ امرأة",
+                  "العمر",
+                  "العائلة والجينات",
+                  "عمر أول دورة",
+                  "أشعة على الصدر"
+                ]
+              },
+              {
+                "title": "تگدرين تغيّريها",
+                "items": [
+                  "الوزن الزايد",
+                  "التدخين والنركيلة",
+                  "الكحول",
+                  "هرمونات سن اليأس"
+                ]
+              }
+            ],
+            "text": "اللي يتغيّر، *نشتغل عليه.*",
+            "source": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "أقوى سبب؟\n*كونچ امرأة.*\nوبعده العمر.",
+            "top": 360
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "title": "اللي بإيدچ:",
+            "rows": [
+              {
+                "icon": "steps",
+                "text": "حركة، ووزن صحي."
+              },
+              {
+                "icon": "heart",
+                "text": "بلا تدخين، ولا نركيلة."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "هرمونات بعد سن اليأس؟\nبس ويا طبيب يتابع."
+              }
+            ]
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "بس حتى لو سوّيتي\nكلشي صح...\n*الفحص يبقى ضروري.*",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "احچي ويا طبيب إذا:",
+            "items": [
+              "عدكم سرطان ثدي أو مبيض بالعائلة",
+              "أخذتي أشعة على الصدر قبل",
+              "تاخذين هرمونات بعد سن اليأس",
+              "عمرچ فوق الخمسين"
+            ],
+            "small": "الطبيب يحدد *شنو يناسبچ* من فحص.",
+            "signed": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "ويانا:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "طبيبنا يقيّم الخطر عدچ."
+              },
+              {
+                "icon": "tubes",
+                "text": "عدكم تاريخ عائلي؟ تحليل\nالاستعداد الوراثي بالبيت."
+              },
+              {
+                "icon": "calendar",
+                "text": "الطبيب يگلچ شوكت\nوشلون تفحصين."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لكل وحدة تگول:",
+            "cta": "*«ما بيدنا شي.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "25-tue20-time-carousel",
+      "when": "Tue 20 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · why time matters, from the WHO Global Breast Cancer Initiative: at least 60% of cancers found at stage I or II, diagnosis within 60 days of first presentation, at least 80% completing treatment, mortality down 2.5% a year, 2.5 million lives saved by 2040; WHO: small cancers that have not spread are treated more successfully; most lumps are not cancer · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "أخطر شي بعد الكتلة...\n*الانتظار.*",
+            "small": "ليش منظمة الصحة تعدّ الأيام؟",
+            "swipe": true
+          },
+          {
+            "type": "scale",
+            "bg": "white",
+            "title": "مراحل سرطان الثدي:",
+            "zones": [
+              {
+                "inner": "١"
+              },
+              {
+                "inner": "٢"
+              },
+              {
+                "inner": "٣",
+                "tone": "ink"
+              },
+              {
+                "inner": "٤",
+                "tone": "ink"
+              }
+            ],
+            "brackets": [
+              {
+                "from": 0,
+                "to": 1,
+                "text": "مبكر: العلاج أنجح",
+                "tone": "strong"
+              },
+              {
+                "from": 2,
+                "to": 3,
+                "text": "متأخر: أصعب"
+              }
+            ],
+            "text": "هدف منظمة الصحة العالمية:\n*٦٠٪ من الحالات* تنلگى\nبالمرحلة الأولى أو الثانية.",
+            "source": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "الكتلة الصغيرة\nاللي ما انتشرت...\n*علاجها أنجح.*",
+            "top": 360
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "أهداف منظمة الصحة العالمية",
+            "rows": [
+              {
+                "label": "تنلگى بوقت مبكر",
+                "value": "٦٠٪"
+              },
+              {
+                "label": "التشخيص من أول مراجعة",
+                "value": "٦٠ يوم"
+              },
+              {
+                "label": "يكملن العلاج",
+                "value": "٨٠٪"
+              }
+            ],
+            "text": "*٢٫٥ مليون حياة*\nممكن تنقذ لحد ٢٠٤٠.",
+            "textClass": "t-hook-s",
+            "source": "المصدر: منظمة الصحة العالمية، المبادرة العالمية لسرطان الثدي"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "والعدّاد ما يشتغل...\n*إلا من تراجعين.*",
+            "top": 400
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "لاحظتي تغيير؟ هيچ تمشين:",
+            "items": [
+              "سجلي شنو لاحظتي ومن شوكت",
+              "راجعي طبيب خلال أيام، مو أشهر",
+              "كمّلي الفحوصات اللي يطلبها",
+              "لا توقفين بنص الطريق"
+            ],
+            "small": "أغلب الكتل مو سرطان...\n*بس الجواب يجي بالفحص.*",
+            "signed": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "نقصّر الطريق:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "استشارة طبيب\nبلا طابور عيادة."
+              },
+              {
+                "icon": "steps",
+                "text": "يوجهچ للفحص\nالمناسب بسرعة."
+              },
+              {
+                "icon": "tubes",
+                "text": "التحاليل اللي يطلبها،\nالسحب بالبيت."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لكل وحدة تگول:",
+            "cta": "*«خلّي أشوف إذا يروح وحده.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "26-thu22-mammogram-carousel",
+      "when": "Thu 22 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · mammography by age, from the WHO position paper (2014): organized screening every 2 years for women aged 50–69 in well-resourced settings; outside that range it is the doctor's call; a strong family history may start checks earlier; a recall for a second look is not a diagnosis · TabeebX does not do mammograms: the doctor points her to a radiology centre · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "فوق الخمسين؟\n*هذا فحصچ.*",
+            "small": "كل سنتين، حتى لو ما بيچ شي.",
+            "swipe": true
+          },
+          {
+            "type": "scale",
+            "bg": "white",
+            "title": "الماموگرام حسب العمر:",
+            "zones": [
+              {
+                "inner": "تحت ٥٠",
+                "label": "حسب الطبيب"
+              },
+              {
+                "inner": "٥٠–٦٩",
+                "label": "كل سنتين",
+                "tone": "pink"
+              },
+              {
+                "inner": "٧٠ وفوگ",
+                "label": "حسب الطبيب"
+              }
+            ],
+            "text": "هذا الفحص المنظّم اللي تنصح بيه\nمنظمة الصحة العالمية.",
+            "source": "المصدر: منظمة الصحة العالمية، ٢٠١٤"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "الماموگرام يلگى تغيير\n*أصغر من اللي تحسين بيه*\nبإيدچ.",
+            "top": 360
+          },
+          {
+            "type": "columns",
+            "bg": "white",
+            "title": "الماموگرام:",
+            "cols": [
+              {
+                "title": "شنو هو؟",
+                "items": [
+                  "أشعة خفيفة للثدي",
+                  "ياخذ دقائق",
+                  "بمركز أشعة"
+                ]
+              },
+              {
+                "title": "شنو يبيّن؟",
+                "items": [
+                  "تغييرات صغيرة",
+                  "قبل لا تنحس باليد"
+                ]
+              }
+            ],
+            "text": "وإذا طلبوا فحص ثاني؟\n*مو يعني سرطان.*"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "عدكم تاريخ عائلي قوي؟\nالطبيب ممكن يبدي\n*الفحص أبچر.*",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "قبل الماموگرام:",
+            "items": [
+              "احجزي بعد الدورة بأسبوع",
+              "بلا مزيل عرق أو بودرة",
+              "جيبي صورچ القديمة إذا عدچ",
+              "گولي إذا حامل أو ترضعين"
+            ],
+            "small": "ممكن يزعج شوية... *بس ثواني.*"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "ويانا:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "استشارة طبيب يحدد\nإذا تحتاجين."
+              },
+              {
+                "icon": "steps",
+                "text": "يوجهچ لمركز أشعة\nمتخصص."
+              },
+              {
+                "icon": "tubes",
+                "text": "عدكم تاريخ عائلي؟ تحليل\nالاستعداد الوراثي بالبيت."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لأمچ وخالتچ، واسأليهن:",
+            "cta": "*«سويتي ماموگرام؟»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "27-sat24-men-carousel",
+      "when": "Sat 24 Oct 8:30 PM feed carousel, 8 infographic slides, addressed to men · series «أكتوبر الوردي», Breast Cancer Awareness Month · men are 0.5–1% of breast cancer cases (WHO); men carry and pass on BRCA changes (NCI); with a harmful BRCA2 change, prostate cancer 19–61% by age 80 vs 10.6% (shown as 11), and breast cancer 1.8–7.1% by 70 vs 0.1% (NCI) · signs listed are the WHO signs as they show in men · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "سرطان الثدي...\n*يصيب الرجال هم.*",
+            "small": "نادر، بس موجود.",
+            "swipe": true
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "من كل ١٠٠ حالة سرطان ثدي:",
+            "total": 100,
+            "cols": 20,
+            "mark": 1,
+            "text": "لحد *وحدة* منها رجّال.",
+            "source": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "لاحظ:",
+            "items": [
+              "كتلة تحت الحلمة، غالباً ما توجع",
+              "تغيّر بالحلمة أو الجلد حواليها",
+              "إفرازات أو دم من الحلمة",
+              "تنقّر أو احمرار بالجلد"
+            ],
+            "small": "لاحظت شي؟ *لا تستحي.* راجع طبيب."
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "والرجّال هم يحمل\nتغيير *BRCA*...\nويورثه لولده وبناته.",
+            "top": 360
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "title": "من كل ١٠٠ رجّال، كم واحد\nيصيبه سرطان البروستات لعمر ٨٠؟",
+            "rows": [
+              {
+                "label": "عامة الرجال",
+                "value": 11
+              },
+              {
+                "label": "BRCA2",
+                "value": 19,
+                "max": 61,
+                "display": "١٩–٦١"
+              }
+            ],
+            "rowH": 170,
+            "text": "ويا تغيير الجين،\n*الخطر يتضاعف.*",
+            "source": "المصدر: المعهد الوطني للسرطان، أمريكا"
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "سرطان الثدي، لعمر ٧٠",
+            "rows": [
+              {
+                "label": "عامة الرجال",
+                "value": "٠٫١٪"
+              },
+              {
+                "label": "BRCA2",
+                "value": "١٫٨–٧٫١٪"
+              }
+            ],
+            "text": "يعني *أضعاف مضاعفة.*",
+            "textClass": "t-hook-s",
+            "source": "المصدر: المعهد الوطني للسرطان، أمريكا"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "شتسوي؟",
+            "rows": [
+              {
+                "icon": "eye",
+                "text": "أي كتلة أو تغيير بالصدر،\nلا تهمله."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "راجع طبيب،\nحتى لو تستحي."
+              },
+              {
+                "icon": "tubes",
+                "text": "سرطان ثدي أو مبيض بالعائلة؟\nاسأل عن تحليل الاستعداد."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل رجّال يگول:",
+            "cta": "*«هذا مرض نسوان.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "28-mon26-mothers-carousel",
+      "when": "Mon 26 Oct 8:30 PM feed carousel, 8 slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · a daughter checking on her mother: risk rises with age, after female sex the strongest factor (WHO); gentle questions to ask; the mother's health history is the daughter's family history too · home consult and home blood draw only · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "template": "carousel",
+      "params": {
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "أمچ\n*ما راح تشتكي.*",
+            "small": "لازم أنتِ تسألين.",
+            "swipe": true
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "الخطر يزيد\n*ويا العمر.*\nوأمچ صارت بعمر الفحص.",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "اسأليها بهدوء:",
+            "items": [
+              "شلونچ، صدگ؟",
+              "حاسة بأي تغيير بصدرچ؟",
+              "شوكت آخر ماموگرام؟",
+              "منو بأهلچ صابه سرطان؟"
+            ],
+            "small": "سؤال واحد *ممكن يفرق.*"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "گالت «ماكو شي»؟\n*اسأليها مرة ثانية.*",
+            "top": 400
+          },
+          {
+            "type": "compare",
+            "bg": "navy",
+            "title": "نفس العمر. نفس البيت.",
+            "yes": {
+              "title": "اللي سألوها:",
+              "items": [
+                "حچت عن التغيير",
+                "راجعت طبيب",
+                "تعرف وين صايرة"
+              ]
+            },
+            "no": {
+              "title": "اللي محد سألها:",
+              "items": [
+                "ما تريد تقلقكم",
+                "تأجل المراجعة",
+                "تنتظر الألم"
+              ]
+            },
+            "text": "*سؤالچ* يفتح الباب."
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "وتاريخ أمچ الصحي...\n*يفيدچ أنتِ هم.*",
+            "top": 400
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "من البيت:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "استشارة طبيب لأمچ\nبالبيت."
+              },
+              {
+                "icon": "tubes",
+                "text": "التحاليل اللي يطلبها،\nالسحب بالبيت."
+              },
+              {
+                "icon": "family",
+                "text": "الطبيب يشرح النتيجة\nإلها وإلچ."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "اتصلي بأمچ هسه، واسأليها:",
+            "cta": "*«شلونچ... صدگ؟»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "97-pink-october-wordmark",
+      "when": "Any time in October · «أكتوبر الوردي» lettering in Cairo Black with the ribbon, three colours (pink, white, navy). Render with --alpha for transparent PNGs to lay over photos, stories and slides",
+      "template": "wordmark",
+      "params": {
+        "text": "أكتوبر الوردي",
+        "icon": "ribbon",
+        "colors": [
+          "#EE396B",
+          "#FFFEFF",
+          "#181943"
         ]
       }
     },
