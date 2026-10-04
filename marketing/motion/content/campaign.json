@@ -1362,7 +1362,7 @@
     },
     {
       "id": "18-thu08-breast-cancer-carousel",
-      "when": "Thu 8 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · every figure is from WHO or its cancer agency IARC: Iraq 2022 (GLOBOCAN 2022: 8,184 new cases, the most common cancer in Iraqi women; 22 a day is 8,184 ÷ 365), lifetime risk 1 woman in 20 (IARC, Nature Medicine 2025), the WHO fact-sheet signs and «most breast lumps are not cancer», and 5-year survival for women diagnosed 2017–2021 (WHO/IARC estimates 2026: high-income 87.3%, Eastern Mediterranean 61.0%, low-income 41.9%) · the offer is the genetic-tendency blood test (BRCA) for women with a family history, after an assessment by a doctor (USPSTF: testing for women whose history points to BRCA risk, not routine testing); WHO: most women diagnosed have no known family history · no tumour markers: ASCO says CA 15-3, CA 27.29 and CEA are not for screening or diagnosis · TabeebX has no home breast ultrasound and no women doctors yet, so the post promises neither · the reviewing doctor signs off",
+      "when": "Thu 8 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · every figure is from WHO or its cancer agency IARC: Iraq 2022 (GLOBOCAN 2022: 8,184 new cases, the most common cancer in Iraqi women; 22 a day is 8,184 ÷ 365), lifetime risk 1 woman in 20 (IARC, Nature Medicine 2025), the WHO fact-sheet signs and «most breast lumps are not cancer», and 5-year survival for women diagnosed 2017–2021 (WHO/IARC estimates 2026: high-income 87.3%, Eastern Mediterranean 61.0%, low-income 41.9%) · the offer is the genetic-tendency blood test (BRCA) for women with a family history, after an assessment by a doctor (USPSTF: testing for women whose history points to BRCA risk, not routine testing); WHO: most women diagnosed have no known family history · no tumour markers: ASCO says CA 15-3, CA 27.29 and CEA are not for screening or diagnosis · TabeebX has no home breast ultrasound and no women doctors yet, so the post promises neither · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "أكتوبر الوردي",
@@ -1477,7 +1477,6 @@
             "lead": "دزيها لكل وحدة تگول:",
             "cta": "*«ما عدنا بالعائلة.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -1487,7 +1486,7 @@
     },
     {
       "id": "19-tue06-every-minute-carousel",
-      "when": "Tue 6 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · the world picture: 2.3 million women diagnosed and 670,000 deaths in 2022 (WHO), 4 diagnosed and 1 death every minute and the 2050 projection, +38% cases (3.2 million) and +68% deaths (1.1 million) (IARC, Nature Medicine, Feb 2025); lifetime odds in very-high vs low human-development countries, 1 in 12 vs 1 in 27 diagnosed and 1 in 71 vs 1 in 48 die (IARC 2025); WHO: most women diagnosed have no known family history · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "when": "Tue 6 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · the world picture: 2.3 million women diagnosed and 670,000 deaths in 2022 (WHO), 4 diagnosed and 1 death every minute and the 2050 projection, +38% cases (3.2 million) and +68% deaths (1.1 million) (IARC, Nature Medicine, Feb 2025); lifetime odds in very-high vs low human-development countries, 1 in 12 vs 1 in 27 diagnosed and 1 in 71 vs 1 in 48 die (IARC 2025); WHO: most women diagnosed have no known family history · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "أكتوبر الوردي",
@@ -1611,7 +1610,6 @@
             "lead": "دزيها لكل وحدة تگول:",
             "cta": "*«هالأرقام بعيدة عنّا.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -1621,7 +1619,7 @@
     },
     {
       "id": "20-sat10-brca-carousel",
-      "when": "Sat 10 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · what BRCA1 and BRCA2 are and what the test means (NCI fact sheet): genes that help repair damaged DNA; a harmful change raises the risk; breast cancer in more than 60% of women with a harmful BRCA1/2 change vs about 13% of women in general (US); ovarian cancer 39–58% (BRCA1) and 13–29% (BRCA2) vs 1.1%; positive, negative and uncertain results; the test shows a tendency, not a cancer · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "when": "Sat 10 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · what BRCA1 and BRCA2 are and what the test means (NCI fact sheet): genes that help repair damaged DNA; a harmful change raises the risk; breast cancer in more than 60% of women with a harmful BRCA1/2 change vs about 13% of women in general (US); ovarian cancer 39–58% (BRCA1) and 13–29% (BRCA2) vs 1.1%; positive, negative and uncertain results; the test shows a tendency, not a cancer · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "أكتوبر الوردي",
@@ -1734,7 +1732,6 @@
             "lead": "دزيها لكل وحدة تسأل:",
             "cta": "*«إذا وراثي، شنسوي؟»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -1744,7 +1741,7 @@
     },
     {
       "id": "21-mon12-family-tree-carousel",
-      "when": "Mon 12 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · who should ask about genetic testing (NCI): a relative with a known BRCA change; breast cancer at 50 or younger; ovarian, male breast, pancreatic, or metastatic or high-risk prostate cancer in the family; each child of a carrier has a 50% chance of inheriting the change, from the mother or the father (NCI); USPSTF: test women whose family history points to risk, not everyone · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "when": "Mon 12 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · who should ask about genetic testing (NCI): a relative with a known BRCA change; breast cancer at 50 or younger; ovarian, male breast, pancreatic, or metastatic or high-risk prostate cancer in the family; each child of a carrier has a 50% chance of inheriting the change, from the mother or the father (NCI); USPSTF: test women whose family history points to risk, not everyone · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "أكتوبر الوردي",
@@ -1859,7 +1856,6 @@
             "lead": "دزيها بگروب العائلة، واكتبي:",
             "cta": "*«خلّينا نعرف تاريخنا.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -1869,7 +1865,7 @@
     },
     {
       "id": "22-wed14-myths-carousel",
-      "when": "Wed 14 Oct 8:30 PM feed carousel, 8 slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · five beliefs checked against WHO: most women diagnosed have no known family history; a lump is often painless; most breast lumps are not cancer; men get breast cancer too, 0.5–1% of cases; ASCO: no blood test (CA 15-3, CA 27.29, CEA) is for screening or early diagnosis, and the BRCA test shows a tendency, not a cancer · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "when": "Wed 14 Oct 8:30 PM feed carousel, 8 slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · five beliefs checked against WHO: most women diagnosed have no known family history; a lump is often painless; most breast lumps are not cancer; men get breast cancer too, 0.5–1% of cases; ASCO: no blood test (CA 15-3, CA 27.29, CEA) is for screening or early diagnosis, and the BRCA test shows a tendency, not a cancer · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "أكتوبر الوردي",
@@ -1943,7 +1939,6 @@
             "lead": "دزيها لكل وحدة تگول:",
             "cta": "*«إذا ما يوجع، مو مشكلة.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -1953,7 +1948,7 @@
     },
     {
       "id": "23-fri16-signs-carousel",
-      "when": "Fri 16 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · the WHO warning signs sorted into what you see and what you feel; most breast lumps are not cancer (WHO); breast awareness: know your normal and see a doctor about any new change; what a doctor may do next (clinical exam, imaging at a radiology centre, a biopsy if needed: WHO) · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "when": "Fri 16 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · the WHO warning signs sorted into what you see and what you feel; most breast lumps are not cancer (WHO); breast awareness: know your normal and see a doctor about any new change; what a doctor may do next (clinical exam, imaging at a radiology centre, a biopsy if needed: WHO) · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "أكتوبر الوردي",
@@ -2060,7 +2055,6 @@
             "lead": "دزيها لكل وحدة تگول:",
             "cta": "*«شي صغير، ما يحتاج.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -2070,7 +2064,7 @@
     },
     {
       "id": "24-sun18-risk-factors-carousel",
-      "when": "Sun 18 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · WHO risk factors, sorted into fixed and changeable: female sex is the strongest, then increasing age; family history and genes, age at first period, chest radiation; obesity, tobacco, harmful alcohol use, postmenopausal hormone therapy; WHO: lowering risk does not remove it, so checks still matter · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "when": "Sun 18 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · WHO risk factors, sorted into fixed and changeable: female sex is the strongest, then increasing age; family history and genes, age at first period, chest radiation; obesity, tobacco, harmful alcohol use, postmenopausal hormone therapy; WHO: lowering risk does not remove it, so checks still matter · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "أكتوبر الوردي",
@@ -2181,7 +2175,6 @@
             "lead": "دزيها لكل وحدة تگول:",
             "cta": "*«ما بيدنا شي.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -2191,7 +2184,7 @@
     },
     {
       "id": "25-tue20-time-carousel",
-      "when": "Tue 20 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · why time matters, from the WHO Global Breast Cancer Initiative: at least 60% of cancers found at stage I or II, diagnosis within 60 days of first presentation, at least 80% completing treatment, mortality down 2.5% a year, 2.5 million lives saved by 2040; WHO: small cancers that have not spread are treated more successfully; most lumps are not cancer · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "when": "Tue 20 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · why time matters, from the WHO Global Breast Cancer Initiative: at least 60% of cancers found at stage I or II, diagnosis within 60 days of first presentation, at least 80% completing treatment, mortality down 2.5% a year, 2.5 million lives saved by 2040; WHO: small cancers that have not spread are treated more successfully; most lumps are not cancer · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "أكتوبر الوردي",
@@ -2313,7 +2306,6 @@
             "lead": "دزيها لكل وحدة تگول:",
             "cta": "*«خلّي أشوف إذا يروح وحده.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -2323,7 +2315,7 @@
     },
     {
       "id": "26-thu22-mammogram-carousel",
-      "when": "Thu 22 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · mammography by age, from the WHO position paper (2014): organized screening every 2 years for women aged 50–69 in well-resourced settings; outside that range it is the doctor's call; a strong family history may start checks earlier; a recall for a second look is not a diagnosis · TabeebX does not do mammograms: the doctor points her to a radiology centre · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "when": "Thu 22 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · mammography by age, from the WHO position paper (2014): organized screening every 2 years for women aged 50–69 in well-resourced settings; outside that range it is the doctor's call; a strong family history may start checks earlier; a recall for a second look is not a diagnosis · TabeebX does not do mammograms: the doctor points her to a radiology centre · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "أكتوبر الوردي",
@@ -2431,7 +2423,6 @@
             "lead": "دزيها لأمچ وخالتچ، واسأليهن:",
             "cta": "*«سويتي ماموگرام؟»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -2441,7 +2432,7 @@
     },
     {
       "id": "27-sat24-men-carousel",
-      "when": "Sat 24 Oct 8:30 PM feed carousel, 8 infographic slides, addressed to men · series «أكتوبر الوردي», Breast Cancer Awareness Month · men are 0.5–1% of breast cancer cases (WHO); men carry and pass on BRCA changes (NCI); with a harmful BRCA2 change, prostate cancer 19–61% by age 80 vs 10.6% (shown as 11), and breast cancer 1.8–7.1% by 70 vs 0.1% (NCI) · signs listed are the WHO signs as they show in men · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "when": "Sat 24 Oct 8:30 PM feed carousel, 8 infographic slides, addressed to men · series «أكتوبر الوردي», Breast Cancer Awareness Month · men are 0.5–1% of breast cancer cases (WHO); men carry and pass on BRCA changes (NCI); with a harmful BRCA2 change, prostate cancer 19–61% by age 80 vs 10.6% (shown as 11), and breast cancer 1.8–7.1% by 70 vs 0.1% (NCI) · signs listed are the WHO signs as they show in men · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "أكتوبر الوردي",
@@ -2546,7 +2537,6 @@
             "lead": "دزها لكل رجّال يگول:",
             "cta": "*«هذا مرض نسوان.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -2556,7 +2546,7 @@
     },
     {
       "id": "28-mon26-mothers-carousel",
-      "when": "Mon 26 Oct 8:30 PM feed carousel, 8 slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · a daughter checking on her mother: risk rises with age, after female sex the strongest factor (WHO); gentle questions to ask; the mother's health history is the daughter's family history too · home consult and home blood draw only · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · the reviewing doctor signs off",
+      "when": "Mon 26 Oct 8:30 PM feed carousel, 8 slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · a daughter checking on her mother: risk rises with age, after female sex the strongest factor (WHO); gentle questions to ask; the mother's health history is the daughter's family history too · home consult and home blood draw only · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "أكتوبر الوردي",
@@ -2647,7 +2637,6 @@
             "lead": "اتصلي بأمچ هسه، واسأليها:",
             "cta": "*«شلونچ... صدگ؟»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -2657,7 +2646,7 @@
     },
     {
       "id": "29-tue27-hormones-overview-carousel",
-      "when": "Tue 27 Oct 8:30 PM feed carousel, 8 infographic slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · opens the series: a PubMed study of 172 bodybuilders in Baghdad (Habeeb et al., Am J Mens Health 2012): of those who used anabolic steroids, two fifths were 19 or younger, one quarter were pushed by their coach, more than one third took tablets and injections together; FDA (2016 testosterone labelling) and NHS lists of harms; NHS: sharing needles spreads hepatitis B and C and HIV; Danish cohort of 1,189 men caught using steroids in gyms, mortality hazard ratio 2.81 vs controls (Windfeld-Mathiasen et al., JAMA 2024); why four specialties follow a user · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "when": "Tue 27 Oct 8:30 PM feed carousel, 8 infographic slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · opens the series: a PubMed study of 172 bodybuilders in Baghdad (Habeeb et al., Am J Mens Health 2012): of those who used anabolic steroids, two fifths were 19 or younger, one quarter were pushed by their coach, more than one third took tablets and injections together; FDA (2016 testosterone labelling) and NHS lists of harms; NHS: sharing needles spreads hepatitis B and C and HIV; Danish cohort of 1,189 men caught using steroids in gyms, mortality hazard ratio 2.81 vs controls (Windfeld-Mathiasen et al., JAMA 2024); why four specialties follow a user · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "هرمونات بلا طبيب",
@@ -2788,7 +2777,6 @@
             "lead": "دزها لكل واحد يگول:",
             "cta": "*«هذا كورس خفيف.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -2798,7 +2786,7 @@
     },
     {
       "id": "30-thu29-hormones-heart-carousel",
-      "when": "Thu 29 Oct 8:30 PM feed carousel, 8 infographic slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · the heart and the blood: NHS (high blood pressure, high cholesterol, blood clots, heart attack and stroke); FDA 2016 labelling (heart attack, heart failure, stroke); PubMed: lower LV systolic function and more coronary plaque in long-term users (Baggish et al., Circulation 2017), some cardiac changes persist after stopping, erythrocytosis thickens the blood and raises the risk of clots · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "when": "Thu 29 Oct 8:30 PM feed carousel, 8 infographic slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · the heart and the blood: NHS (high blood pressure, high cholesterol, blood clots, heart attack and stroke); FDA 2016 labelling (heart attack, heart failure, stroke); PubMed: lower LV systolic function and more coronary plaque in long-term users (Baggish et al., Circulation 2017), some cardiac changes persist after stopping, erythrocytosis thickens the blood and raises the risk of clots · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "هرمونات بلا طبيب",
@@ -2898,7 +2886,6 @@
             "lead": "دزها لكل واحد يگول:",
             "cta": "*«آني رياضي، قلبي قوي.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -2908,7 +2895,7 @@
     },
     {
       "id": "31-sat31-hormones-manhood-carousel",
-      "when": "Sat 31 Oct 8:30 PM feed carousel, 8 infographic slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · manhood: NHS (reduced sperm count, infertility, shrunken testicles, erectile dysfunction, breast development); FDA (male infertility, hypogonadotropic hypogonadism); PubMed study of 60 Baghdad bodybuilders, 30 users vs 30 non-users (Steroids 2024): lower testosterone and FSH, higher prolactin and ALT in users; Rasmussen et al., PLoS One 2016: 27% of former users still had testosterone below the reference range a mean 2.5 years after stopping; PubMed reviews: sperm can take months, sometimes more than a year, to return · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "when": "Sat 31 Oct 8:30 PM feed carousel, 8 infographic slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · manhood: NHS (reduced sperm count, infertility, shrunken testicles, erectile dysfunction, breast development); FDA (male infertility, hypogonadotropic hypogonadism); PubMed study of 60 Baghdad bodybuilders, 30 users vs 30 non-users (Steroids 2024): lower testosterone and FSH, higher prolactin and ALT in users; Rasmussen et al., PLoS One 2016: 27% of former users still had testosterone below the reference range a mean 2.5 years after stopping; PubMed reviews: sperm can take months, sometimes more than a year, to return · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "هرمونات بلا طبيب",
@@ -3009,7 +2996,6 @@
             "lead": "دزها لكل واحد يگول:",
             "cta": "*«بعد الكورس كلشي يرجع.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -3019,7 +3005,7 @@
     },
     {
       "id": "32-mon02-hormones-stopping-carousel",
-      "when": "Mon 2 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · stopping, suddenly or with a do-it-yourself taper: FDA 2016 labelling (withdrawal symptoms lasting weeks or months: depressed mood, fatigue, irritability, insomnia, loss of appetite, decreased libido, hypogonadotropic hypogonadism); NHS (withdrawal symptoms if you suddenly stop); Anawalt, J Clin Endocrinol Metab 2019 (PubMed): the doctor chooses among supervised ways to stop and treats depression and anxiety · the post gives no taper, no PCT and no drug names · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "when": "Mon 2 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · stopping, suddenly or with a do-it-yourself taper: FDA 2016 labelling (withdrawal symptoms lasting weeks or months: depressed mood, fatigue, irritability, insomnia, loss of appetite, decreased libido, hypogonadotropic hypogonadism); NHS (withdrawal symptoms if you suddenly stop); Anawalt, J Clin Endocrinol Metab 2019 (PubMed): the doctor chooses among supervised ways to stop and treats depression and anxiety · the post gives no taper, no PCT and no drug names · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "هرمونات بلا طبيب",
@@ -3130,7 +3116,6 @@
             "lead": "دزها لكل واحد يگول:",
             "cta": "*«أوگفها مرة وحدة وخلصت.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -3140,7 +3125,7 @@
     },
     {
       "id": "33-wed04-hormones-mind-carousel",
-      "when": "Wed 4 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · the mind: NHS (aggressive behaviour, mood swings, paranoia, manic behaviour, hallucinations and delusions; steroids are addictive: craving, needing more, withdrawal); Kanayama et al., Addiction 2009 (PubMed): about 30% of users develop dependence (197 of 653 across 8 studies); meta-analysis of experimental studies (PubMed): steroid administration raised self-reported aggression in healthy men; Anawalt 2019: severe depression and suicidality during withdrawal, treated with medicine and therapy · slide 6 follows safe-messaging practice: no method, no detail, a route to help · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "when": "Wed 4 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · the mind: NHS (aggressive behaviour, mood swings, paranoia, manic behaviour, hallucinations and delusions; steroids are addictive: craving, needing more, withdrawal); Kanayama et al., Addiction 2009 (PubMed): about 30% of users develop dependence (197 of 653 across 8 studies); meta-analysis of experimental studies (PubMed): steroid administration raised self-reported aggression in healthy men; Anawalt 2019: severe depression and suicidality during withdrawal, treated with medicine and therapy · slide 6 follows safe-messaging practice: no method, no detail, a route to help · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "هرمونات بلا طبيب",
@@ -3226,7 +3211,6 @@
             "lead": "دزها لصديقك اللي تغيّر، وگله:",
             "cta": "*«آني وياك.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -3236,7 +3220,7 @@
     },
     {
       "id": "34-fri06-hormones-chest-carousel",
-      "when": "Fri 6 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · gynaecomastia and general surgery: NHS (anabolic steroids cause gynaecomastia through the testosterone–oestrogen balance; see a doctor for a lump, pain, nipple discharge or skin changes; stopping the cause, prescribed tablets, and surgery in selected cases) · a lump in a man's chest is not always gynaecomastia, so a doctor sees it (male breast cancer is rare: the Pink October post of 24 Oct) · TabeebX does no breast ultrasound · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "when": "Fri 6 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · gynaecomastia and general surgery: NHS (anabolic steroids cause gynaecomastia through the testosterone–oestrogen balance; see a doctor for a lump, pain, nipple discharge or skin changes; stopping the cause, prescribed tablets, and surgery in selected cases) · a lump in a man's chest is not always gynaecomastia, so a doctor sees it (male breast cancer is rare: the Pink October post of 24 Oct) · TabeebX does no breast ultrasound · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "هرمونات بلا طبيب",
@@ -3317,7 +3301,6 @@
             "lead": "دزها لكل واحد يگول:",
             "cta": "*«هذا شحم، يروح بالتمرين.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -3327,7 +3310,7 @@
     },
     {
       "id": "35-sun08-hormones-tendons-carousel",
-      "when": "Sun 8 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · tendons and bones, orthopaedics: Kanayama et al., Am J Sports Med 2015 (PubMed): of 142 male bodybuilders, 22% of long-term steroid users vs 6% of non-users reported a tendon rupture, and upper-body ruptures occurred only among users; pectoralis major, distal biceps and triceps ruptures are the ones described in strength athletes; NHS: in teenagers before their growth spurt, steroids can cause premature ageing of the bones and restricted growth · home physiotherapy is a TabeebX service · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "when": "Sun 8 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · tendons and bones, orthopaedics: Kanayama et al., Am J Sports Med 2015 (PubMed): of 142 male bodybuilders, 22% of long-term steroid users vs 6% of non-users reported a tendon rupture, and upper-body ruptures occurred only among users; pectoralis major, distal biceps and triceps ruptures are the ones described in strength athletes; NHS: in teenagers before their growth spurt, steroids can cause premature ageing of the bones and restricted growth · home physiotherapy is a TabeebX service · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "هرمونات بلا طبيب",
@@ -3412,7 +3395,6 @@
             "lead": "دزها لكل واحد يگول:",
             "cta": "*«هذا بس شد عضلي.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -3422,7 +3404,7 @@
     },
     {
       "id": "36-tue10-hormones-peptides-carousel",
-      "when": "Tue 10 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · peptides, growth hormone and SARMs: FDA placed BPC-157, TB-500 (thymosin beta-4 fragment) and CJC-1295 in category 2 of bulk substances for compounding, \"may present significant safety risks\": risk of an immune reaction, peptide impurities that are hard to detect, too little safety information for humans, and for CJC-1295 serious adverse events including a raised heart rate; FDA on SARMs: unapproved drugs sold as supplements, liver injury up to acute liver failure, heart attack and stroke, psychosis and hallucinations, sleep problems, sexual problems, infertility and testicular shrinkage; PubMed reviews on growth hormone misuse: diabetes, fluid retention, joint and muscle pain, carpal tunnel syndrome, high blood pressure · no peptide is named on the slides · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "when": "Tue 10 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · peptides, growth hormone and SARMs: FDA placed BPC-157, TB-500 (thymosin beta-4 fragment) and CJC-1295 in category 2 of bulk substances for compounding, \"may present significant safety risks\": risk of an immune reaction, peptide impurities that are hard to detect, too little safety information for humans, and for CJC-1295 serious adverse events including a raised heart rate; FDA on SARMs: unapproved drugs sold as supplements, liver injury up to acute liver failure, heart attack and stroke, psychosis and hallucinations, sleep problems, sexual problems, infertility and testicular shrinkage; PubMed reviews on growth hormone misuse: diabetes, fluid retention, joint and muscle pain, carpal tunnel syndrome, high blood pressure · no peptide is named on the slides · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "هرمونات بلا طبيب",
@@ -3511,7 +3493,6 @@
             "lead": "دزها لكل واحد يگول:",
             "cta": "*«هذا ببتيد، مو هرمون.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -3521,7 +3502,7 @@
     },
     {
       "id": "37-thu12-hormones-liver-kidney-carousel",
-      "when": "Thu 12 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · the liver and the kidneys: most steroid tablets are 17-alpha-alkylated so they survive the liver, which raises their liver toxicity: cholestasis and jaundice, peliosis hepatis, liver tumours (PubMed reviews, e.g. AAS-induced liver injury: an update, 2022); injectables have caused cholestatic hepatitis too; symptoms are jaundice, itching, dark urine, nausea and fatigue, and the cholestasis can last months after stopping; FDA 2016 labelling and NHS (liver or kidney problems or failure); Herlitz et al., JASN 2010 (PubMed 19917783): focal segmental glomerulosclerosis in 10 bodybuilders using steroids, and the 7 who stopped stabilised or improved while one who resumed relapsed; Iraqi Kurdistan 2011–2019 (BMC Nephrology 2020, PubMed 32375656): 26% of about 25,000 regular gym-goers reported steroid use, and injecting veterinary vitamin D for muscle shape carried a high risk of end-stage kidney disease · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "when": "Thu 12 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · the liver and the kidneys: most steroid tablets are 17-alpha-alkylated so they survive the liver, which raises their liver toxicity: cholestasis and jaundice, peliosis hepatis, liver tumours (PubMed reviews, e.g. AAS-induced liver injury: an update, 2022); injectables have caused cholestatic hepatitis too; symptoms are jaundice, itching, dark urine, nausea and fatigue, and the cholestasis can last months after stopping; FDA 2016 labelling and NHS (liver or kidney problems or failure); Herlitz et al., JASN 2010 (PubMed 19917783): focal segmental glomerulosclerosis in 10 bodybuilders using steroids, and the 7 who stopped stabilised or improved while one who resumed relapsed; Iraqi Kurdistan 2011–2019 (BMC Nephrology 2020, PubMed 32375656): 26% of about 25,000 regular gym-goers reported steroid use, and injecting veterinary vitamin D for muscle shape carried a high risk of end-stage kidney disease · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "هرمونات بلا طبيب",
@@ -3614,7 +3595,6 @@
             "lead": "دزها لكل واحد يگول:",
             "cta": "*«آني آخذ حبوب بس، مو إبر.»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."
@@ -3624,7 +3604,7 @@
     },
     {
       "id": "38-sat14-hormones-myths-carousel",
-      "when": "Sat 14 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · closes the series with five gym beliefs checked: tablets are linked most with liver injury and injectables have harms too (PubMed); WHO Task Force on Methods for the Regulation of Male Fertility, Lancet 1990: testosterone given weekly as a male contraceptive stopped sperm completely in 157 of 271 men (65%) within 6 months (no dose on the slides); FDA category 2 peptides; NHS: sharing a needle even once can pass on hepatitis C, and anyone who ever shared should be tested; a doctor can plan the stop and follow hormones and mood (Anawalt, J Clin Endocrinol Metab 2019) · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · the reviewing doctor signs off",
+      "when": "Sat 14 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · closes the series with five gym beliefs checked: tablets are linked most with liver injury and injectables have harms too (PubMed); WHO Task Force on Methods for the Regulation of Male Fertility, Lancet 1990: testosterone given weekly as a male contraceptive stopped sperm completely in 157 of 271 men (65%) within 6 months (no dose on the slides); FDA category 2 peptides; NHS: sharing a needle even once can pass on hepatitis C, and anyone who ever shared should be tested; a doctor can plan the stop and follow hormones and mood (Anawalt, J Clin Endocrinol Metab 2019) · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",
       "params": {
         "series": "هرمونات بلا طبيب",
@@ -3697,7 +3677,6 @@
             "lead": "دزها لكل واحد يگول:",
             "cta": "*«كلهم ياخذون، ليش آني لا؟»*",
             "ctaTop": 410,
-            "signed": "راجعها طبياً: د. [الاسم]",
             "body": "رابط الواتساب بالبايو.",
             "bodyTop": 620,
             "closing": "لا تصدگنا. شوف بعينك."

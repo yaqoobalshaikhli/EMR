@@ -147,7 +147,7 @@ are warnings.
 - **Warning:** «أفضل», «أسرع», «موثوق» with nothing to prove them.
 - **Warning:** another dialect's word where an Iraqi one exists (بكرة → باچر, هيك → هيچ, …).
 - **Warning:** fear phrasing, hooks over 5 words, frames over 20 words.
-- **DRAFT stamp:** placeholders such as `[الاسم]` or `__`. For example, «راجعها طبياً: د. [الاسم]» keeps a medical post stamped until the reviewing doctor is named.
+- **DRAFT stamp:** placeholders such as `[الاسم]` or `__`. For example, «راجعها طبياً: د. [الاسم]» keeps a medical post stamped until the reviewing doctor is named. The «أكتوبر الوردي» and «هرمونات بلا طبيب» carousels (`18` to `38`) are final without a reviewer line; add one back with a real name only.
 
 Markup in copy: `*pink*`, `~blue~`, `\n` for a line break. A trailing `...`
 pulses: it is the open loop.
