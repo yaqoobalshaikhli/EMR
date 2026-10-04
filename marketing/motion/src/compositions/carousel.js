@@ -13,19 +13,77 @@
   const TX = window.TX;
   const { el, px } = TX;
   const NAVY = '#181943', PINK = '#EE396B', BLUE = '#1B9CCE', WHITE = '#FFFEFF';
+  const DEEP = '#C11F4D'; // the brand pink, darker: small print on white in the pink theme
   // Infographics keep their content above this line: the heartbeat runs below it.
   const PULSE_Y = 1196;
 
-  function pulse(L) {
+  /* Colours by role. `brand` is the campaign's navy, white, blue and a little
+   * pink. `theme: 'pink'` is Pink October in pink and white only: a navy slide
+   * turns pink with white type, a white slide keeps white with pink type, and a
+   * highlighted phrase sits in a chip of the other colour (brand.css). It covers
+   * hook, myth, statement, rows, list, cta, pictogram, bars, report and columns;
+   * the other slide types still draw in the brand colours. */
+  const THEMES = {
+    brand: {
+      ink: (light) => (light ? NAVY : WHITE),
+      soft: () => 'rgba(24,25,67,.78)',
+      data: () => BLUE,
+      mark: () => PINK,
+      quiet: (light, a) => (light ? `rgba(24,25,67,${a})` : `rgba(255,254,255,${a * 1.4})`),
+      paper: (light) => (light ? '#F2F4F9' : WHITE),
+      card: NAVY,
+      label: () => PINK,
+      strip: (light) => (light ? 'rgba(24,25,67,.7)' : null),
+      step: (light, numbered) => [numbered ? (light ? '#E3F0F8' : '#2F3056') : light ? 'rgba(27,156,206,.12)' : 'rgba(255,254,255,.1)', BLUE],
+      badge: (light) => [light ? NAVY : WHITE, light ? WHITE : NAVY],
+      thread: () => 'rgba(27,156,206,.55)',
+    },
+    pink: {
+      ink: (light) => (light ? PINK : WHITE),
+      soft: () => DEEP,
+      data: (light) => (light ? PINK : WHITE),
+      mark: (light) => (light ? PINK : WHITE),
+      quiet: (light, a) => (light ? `rgba(238,57,107,${a})` : `rgba(255,254,255,${a * 1.4})`),
+      paper: (light) => (light ? '#FDEDF2' : WHITE),
+      card: PINK,
+      label: (light) => (light ? PINK : WHITE),
+      strip: (light) => (light ? DEEP : 'rgba(255,254,255,.92)'),
+      step: (light) => [light ? '#FDEDF2' : WHITE, PINK],
+      badge: (light) => [light ? PINK : DEEP, WHITE],
+      thread: (light) => (light ? 'rgba(238,57,107,.4)' : 'rgba(255,254,255,.6)'),
+    },
+  };
+  let T = THEMES.brand; // set per carousel in build()
+
+  /** Pink theme: each highlighted phrase becomes one chip, spaces included. */
+  function chips(L) {
+    const hot = (n) => !!n && n.nodeType === 1 && n.classList.contains('word')
+      && [...n.childNodes].every((c) => c.nodeType === 1 && c.classList.contains('pink'));
+    L.querySelectorAll('.line').forEach((line) => {
+      const nodes = [...line.childNodes];
+      let chip = null;
+      nodes.forEach((n, i) => {
+        if (hot(n)) {
+          if (!chip) chip = line.insertBefore(el('span', 'chip'), n);
+          chip.appendChild(n);
+        } else if (chip && n.nodeType === 3 && hot(nodes[i + 1])) chip.appendChild(n);
+        else chip = null;
+      });
+      // a highlight inside a word: just that part
+      line.querySelectorAll('.word > .pink').forEach((p) => { if (!p.closest('.chip')) p.classList.add('chip'); });
+    });
+  }
+
+  function pulse(L, light) {
     TX.svg(L, `<svg class="abs" style="left:0;top:0" width="1080" height="1350" viewBox="0 0 1080 1350">
-      <path d="M0 ${PULSE_Y}H468q16 -26 32 0h22l9 12l16 -92l16 112l10 -32h30q28 -44 56 0H1080" fill="none" stroke="${BLUE}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M0 ${PULSE_Y}H468q16 -26 32 0h22l9 12l16 -92l16 112l10 -32h30q28 -44 56 0H1080" fill="none" stroke="${T.data(light)}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>`);
   }
   /** The source of a figure, small and dim, under the chart. */
   const source = (L, text, top) => text && TX.text(L, text, 'col t-strip dim', { top });
   const bottom = (b) => b.el.offsetTop + b.el.offsetHeight;
   /** Colours for the quiet parts of a chart on a white or a navy slide. */
-  const quiet = (light, a) => (light ? `rgba(24,25,67,${a})` : `rgba(255,254,255,${a * 1.4})`);
+  const quiet = (light, a) => T.quiet(light, a);
 
   /** A real photo, or, when the file is missing, a plain placeholder frame. */
   function photo(parent, src, size, position) {
@@ -51,12 +109,13 @@
         // no capsule: the series name in heavy pink, its icon drawn thicker to match
         pill.el.classList.add('pill-bold');
         const ic = pill.el.querySelector('svg');
-        ic.setAttribute('stroke', PINK);
+        ic.setAttribute('stroke', T.label(light));
         ic.setAttribute('stroke-width', '4');
       } else if (light) px(pill.el, { background: '#181943', color: '#FFFEFF' });
     }
     const s = TX.C.strip(layer, ctx, strip);
-    if (light) s.el.style.color = 'rgba(24,25,67,.7)';
+    const sc = T.strip(light);
+    if (sc) s.el.style.color = sc;
   }
 
   const SLIDES = {
@@ -77,7 +136,7 @@
       const c = TX.text(L, s.claim, 'col t-hook-s', { top: 290 });
       const ex = TX.text(L, s.explain, 'col t-body', { top: 0 });
       px(ex.el, { top: Math.max(600, c.el.offsetTop + c.el.offsetHeight + 50) });
-      ex.el.style.color = 'rgba(24,25,67,.78)';
+      ex.el.style.color = T.soft();
       const st = el('div', 'abs center', L, s.stamp);
       px(st, { left: 110, top: 880, height: 190, padding: '0 56px 12px', border: '12px solid #EE396B', borderRadius: 36, color: '#EE396B', fontSize: 120, fontWeight: 700, transform: 'rotate(-9deg)' });
     },
@@ -124,18 +183,19 @@
         const row = el('div', 'abs', L);
         px(row, { right: 80, left: 80, top: y, display: 'flex', alignItems: 'center', gap: 28 });
         const ic = el('div', 'center', row);
-        const box = s.numbered ? (light ? '#E3F0F8' : '#2F3056') : light ? 'rgba(27,156,206,.12)' : 'rgba(255,254,255,.1)';
+        const [box, stroke] = T.step(light, s.numbered);
         px(ic, { width: 104, height: 104, borderRadius: 30, background: box, flex: 'none', position: 'relative' });
-        TX.svg(ic, TX.icon(r.icon, '#1B9CCE', 3)).setAttribute('width', 60);
+        TX.svg(ic, TX.icon(r.icon, stroke, 3)).setAttribute('width', 60);
         if (s.numbered) {
+          const [bg, fg] = T.badge(light);
           const n = el('div', 'abs center', ic, TX.ar(i + 1));
-          px(n, { right: -12, top: -12, width: 44, height: 44, borderRadius: '50%', background: light ? NAVY : WHITE, color: light ? WHITE : NAVY, fontSize: 26, fontWeight: '700' });
+          px(n, { right: -12, top: -12, width: 44, height: 44, borderRadius: '50%', background: bg, color: fg, fontSize: 26, fontWeight: '700' });
         }
         TX.words(el('div', s.rowClass || 't-sub', row), r.text);
         centers.push(y + row.offsetHeight / 2);
         y += Math.max(140, row.offsetHeight + 36);
       });
-      if (line && centers.length > 1) px(line, { left: 946, width: 4, top: centers[0], height: centers[centers.length - 1] - centers[0], background: 'rgba(27,156,206,.55)' });
+      if (line && centers.length > 1) px(line, { left: 946, width: 4, top: centers[0], height: centers[centers.length - 1] - centers[0], background: T.thread(light) });
       if (s.note) TX.text(L, s.note, 'col t-body dim', { top: y + 24 });
     },
     // A close crop of the doctor, a question, and the answer in their own words.
@@ -166,14 +226,14 @@
       }
     },
     // A title, a short list with blue dots, a caveat and the reviewer's name.
-    list(L, s) {
+    list(L, s, ctx, light) {
       const t = TX.text(L, s.title, 'col t-hook-s', { top: 270 });
       let y = t.el.offsetTop + t.el.offsetHeight + 40;
       s.items.forEach((it) => {
         const row = el('div', 'abs', L);
         px(row, { right: 80, left: 80, top: y, display: 'flex', alignItems: 'center', gap: 22 });
         const dot = el('div', '', row);
-        px(dot, { width: 20, height: 20, borderRadius: '50%', background: '#1B9CCE', flex: 'none' });
+        px(dot, { width: 20, height: 20, borderRadius: '50%', background: T.data(light), flex: 'none' });
         TX.words(el('div', 't-sub', row), it);
         y += 86;
       });
@@ -198,10 +258,10 @@
       const gw = 880, cw = gw / cols, rh = s.rowH || 96 * k, gy = bottom(t) + 36;
       let figs = '';
       for (let i = 0; i < total; i++) {
-        const cx = gw - ((i % cols) + 0.5) * cw, y = Math.floor(i / cols) * rh, f = i < s.mark ? PINK : quiet(light, 0.14);
+        const cx = gw - ((i % cols) + 0.5) * cw, y = Math.floor(i / cols) * rh, f = i < s.mark ? T.mark(light) : quiet(light, 0.14);
         if (s.figure === 'woman') {
           // one group per figure, so the rounded outline doesn't darken where it overlaps the fill
-          const c = i < s.mark ? PINK : light ? NAVY : WHITE, o = i < s.mark ? 1 : light ? 0.14 : 0.196;
+          const c = i < s.mark ? T.mark(light) : T.ink(light), o = i < s.mark ? 1 : light ? 0.14 : 0.196;
           figs += `<g fill="${c}" stroke="${c}" opacity="${o}" stroke-width="${8 * k}" stroke-linejoin="round"><circle cx="${cx}" cy="${y + 13 * k}" r="${12 * k}" stroke="none"/>`
             + `<path d="M${cx - 9 * k} ${y + 33 * k}H${cx + 9 * k}L${cx + 18 * k} ${y + rh - 18 * k}H${cx - 18 * k}Z"/></g>`;
           continue;
@@ -222,14 +282,14 @@
         px(head, { left: x0, width: w, top: y, height: 62, display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontWeight: '700', fontSize: 42, lineHeight: '1.3' });
         TX.words(el('div', '', head), r.label);
         const v = el('div', '', head, r.display || TX.ar(r.value)); // `display` for a range or a % beside the bar
-        px(v, { fontSize: 50, color: BLUE });
+        px(v, { fontSize: 50, color: T.data(light) });
         const fill = (r.value / 100) * w, high = ((r.max || 0) / 100) * w;
         // `max` makes the bar a range: solid to the low end, pale up to the high end
         TX.svg(L, `<svg class="abs" style="left:${x0}px;top:${y + 72}px" width="${w}" height="40">
           <rect width="${w}" height="40" rx="20" fill="${quiet(light, 0.08)}"/>
           ${r.rest ? `<rect width="${w - fill + 40}" height="40" rx="20" fill="${PINK}"/>` : ''}
-          ${r.max ? `<rect x="${w - high}" width="${high}" height="40" rx="20" fill="${BLUE}" opacity=".35"/>` : ''}
-          <rect x="${w - fill}" width="${fill}" height="40" rx="20" fill="${r.value === 100 ? (light ? NAVY : WHITE) : BLUE}"/>
+          ${r.max ? `<rect x="${w - high}" width="${high}" height="40" rx="20" fill="${T.data(light)}" opacity=".35"/>` : ''}
+          <rect x="${w - fill}" width="${fill}" height="40" rx="20" fill="${r.value === 100 ? T.ink(light) : T.data(light)}"/>
         </svg>`);
         if (r.rest) {
           const lab = el('div', 'abs center', L, r.rest);
@@ -329,17 +389,17 @@
     report(L, s, ctx, light) {
       const top = s.top || 260;
       const card = el('div', 'card', L);
-      px(card, { left: 120, width: 840, top, padding: '34px 48px 22px', boxSizing: 'border-box', background: light ? '#F2F4F9' : WHITE, boxShadow: light ? 'none' : '0 40px 80px -40px rgba(0,0,0,.6)' });
+      px(card, { left: 120, width: 840, top, padding: '34px 48px 22px', boxSizing: 'border-box', background: T.paper(light), boxShadow: light ? 'none' : '0 40px 80px -40px rgba(0,0,0,.6)' });
       const head = el('div', '', card);
-      px(head, { display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: 18, borderBottom: `5px solid ${BLUE}` });
+      px(head, { display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: 18, borderBottom: `5px solid ${T.data(true)}` });
       el('div', 't-sub', head, s.title).style.fontSize = '46px';
       s.rows.forEach((r, i) => {
         const row = el('div', '', card);
-        px(row, { display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: 112, borderBottom: i < s.rows.length - 1 ? '2px solid rgba(24,25,67,.1)' : 'none' });
+        px(row, { display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: 112, borderBottom: i < s.rows.length - 1 ? `2px solid ${quiet(true, 0.1)}` : 'none' });
         const lab = el('div', '', row, r.label);
         px(lab, { fontSize: 40, fontWeight: '700' });
         const v = el('div', '', row, r.value);
-        px(v, { fontSize: 64, fontWeight: '700', color: BLUE, minWidth: 120, textAlign: 'left' });
+        px(v, { fontSize: 64, fontWeight: '700', color: T.data(true), minWidth: 120, textAlign: 'left' });
       });
       const txt = TX.text(L, s.text, `col ${s.textClass || 't-sub'}`, { top: top + card.offsetHeight + 56 });
       source(L, s.source, bottom(txt) + 20);
@@ -434,12 +494,12 @@
       const top = bottom(t) + 50;
       const cards = s.cols.map((col, i) => {
         const c = el('div', 'abs', L);
-        px(c, { left: i ? 80 : 560, top, width: 440, borderRadius: 40, padding: '36px 36px 14px', boxSizing: 'border-box', background: light ? '#F2F4F9' : WHITE, color: NAVY });
+        px(c, { left: i ? 80 : 560, top, width: 440, borderRadius: 40, padding: '36px 36px 14px', boxSizing: 'border-box', background: T.paper(light), color: T.card });
         const head = el('div', '', c);
         px(head, { display: 'flex', alignItems: 'center', gap: 16, marginBottom: 26 });
         if (col.icon) { // an arrow for two opposite faces; leave it out for a plain comparison
           const arrow = el('div', 'center', head);
-          px(arrow, { width: 56, height: 56, borderRadius: '50%', background: BLUE, flex: 'none' });
+          px(arrow, { width: 56, height: 56, borderRadius: '50%', background: T.data(true), flex: 'none' });
           TX.svg(arrow, `<svg width="30" height="30" viewBox="0 0 30 30"><path d="${col.icon === 'up' ? 'M15 25V6m-8 8l8 -8l8 8' : 'M15 5v19m-8 -8l8 8l8 -8'}" fill="none" stroke="${WHITE}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>`);
         }
         const h = el('div', '', head, col.title);
@@ -448,7 +508,7 @@
           const row = el('div', '', c);
           px(row, { display: 'flex', alignItems: 'center', gap: 16, marginBottom: 22, fontSize: 36, fontWeight: '500', lineHeight: '1.3' });
           const dot = el('div', '', row);
-          px(dot, { width: 16, height: 16, borderRadius: '50%', background: BLUE, flex: 'none' });
+          px(dot, { width: 16, height: 16, borderRadius: '50%', background: T.data(true), flex: 'none' });
           el('div', '', row, it);
         });
         return c;
@@ -464,17 +524,21 @@
     size: [1080, 1350],
     kind: 'still',
     build(stage, P, ctx) {
+      const pink = P.theme === 'pink';
+      T = pink ? THEMES.pink : THEMES.brand;
       const layers = P.slides.map((s) => {
         const L = el('div', 'layer', stage);
         const light = s.bg === 'white';
-        if (light) { L.style.background = '#FFFEFF'; L.style.color = '#181943'; L.classList.add('light-layer'); }
+        if (pink) L.classList.add('theme-pink');
+        if (light) { L.style.background = '#FFFEFF'; L.style.color = T.ink(true); L.classList.add('light-layer'); }
         else {
-          const f = TX.field(L);
+          const f = TX.field(L, { pink });
           f.render(3);
         }
-        if (P.pulse) pulse(L);
+        if (P.pulse) pulse(L, light);
         SLIDES[s.type](L, s, ctx, light, P);
         chrome(L, ctx, light, s.series === false ? null : P.series, ctx.brand.trustStrip, P.pillStyle);
+        if (pink) chips(L);
         return L;
       });
       return {

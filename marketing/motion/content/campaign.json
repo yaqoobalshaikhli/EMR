@@ -1618,6 +1618,14 @@
       }
     },
     {
+      "id": "19p-tue06-every-minute-pink-carousel",
+      "when": "Tue 6 Oct 8:30 PM · carousel 19 in Pink October's pink-and-white look (theme: pink): the navy slides turn pink with white type, the white slides keep white with pink type, a highlighted phrase sits in a chip of the other colour, and «أكتوبر الوردي» keeps its transparent background · a sample for the founder to choose between this and the navy look",
+      "extends": "19-tue06-every-minute-carousel",
+      "params": {
+        "theme": "pink"
+      }
+    },
+    {
       "id": "20-sat10-brca-carousel",
       "when": "Sat 10 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · what BRCA1 and BRCA2 are and what the test means (NCI fact sheet): genes that help repair damaged DNA; a harmful change raises the risk; breast cancer in more than 60% of women with a harmful BRCA1/2 change vs about 13% of women in general (US); ovarian cancer 39–58% (BRCA1) and 13–29% (BRCA2) vs 1.1%; positive, negative and uncertain results; the test shows a tendency, not a cancer · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
       "template": "carousel",

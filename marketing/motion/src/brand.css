@@ -44,6 +44,7 @@
   --navy-hi: #22245a;
   --navy-lo: #111233;
   --pink: #EE396B;
+  --pink-deep: #C11F4D;
   --blue: #1B9CCE;
   --white: #FFFEFF;
   --white-70: rgba(255, 254, 255, .72);
@@ -184,6 +185,23 @@ svg { overflow: visible; }
 /* White slides: secondary text in navy instead of white. */
 .light-layer .dim { color: rgba(24, 25, 67, .62); }
 .light-layer .strip { color: rgba(24, 25, 67, .7); }
+
+/* Pink October in pink and white only (carousel `theme: 'pink'`). Pink slides:
+   white type. White slides: pink type, the small print in a deeper pink so it
+   stays readable. No blue and no navy anywhere. */
+.theme-pink .dim { color: rgba(255, 254, 255, .92); }
+.theme-pink.light-layer .dim, .theme-pink .card .dim { color: var(--pink-deep); }
+.theme-pink .card { color: var(--pink); }
+.theme-pink .blue { color: inherit; }
+/* «أكتوبر الوردي» keeps no capsule: white letters on pink, pink on white. */
+.theme-pink .pill.pill-bold { color: var(--white); }
+.theme-pink.light-layer .pill.pill-bold { color: var(--pink); }
+/* The logo tile keeps its pink and gets a white rim on a pink slide. */
+.theme-pink:not(.light-layer) .tab { box-shadow: 0 0 0 7px var(--white), 0 18px 40px -18px rgba(0, 0, 0, .35); }
+/* A highlighted phrase sits in a chip of the other colour. */
+.theme-pink .chip { display: inline-block; border-radius: .18em; padding: 0 .16em; background: var(--white); color: var(--pink); }
+.theme-pink.light-layer .chip { background: var(--pink); color: var(--white); }
+.theme-pink .chip .pink { color: inherit; }
 
 /* Masked lines: words rise out of their own line and leave the same way.
    The padding keeps Arabic ascenders and descenders inside the mask. */
