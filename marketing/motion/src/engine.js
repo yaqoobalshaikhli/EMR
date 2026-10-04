@@ -198,6 +198,8 @@
     return {
       el: e,
       render(t) {
+        // Transparent renders (render --alpha) keep only what's drawn on top of the field.
+        if (TX.alpha) { e.style.background = 'none'; return; }
         const x = 50 + 22 * Math.sin(t * 0.19 + 0.6);
         const y = 34 + 12 * Math.cos(t * 0.15);
         e.style.background = light

@@ -1,0 +1,19 @@
+{
+  "about": "The TabeebX cast. Bodies, faces and motion come from the Microsoft Rocketbox avatar library (MIT licence); src/cast.js dresses them for TabeebX. scripts/build-cast.mjs copies what is listed here into assets/cast.",
+  "people": {
+    "hakeem": { "sex": "m", "body": "Professions/Medical_Male_01", "head": "m022", "keepHair": true, "clip": "m_gestic_talk_neutral_01", "t": 3.1, "turn": -0.28, "smile": 0.35 },
+    "ameen": { "sex": "m", "body": "Professions/Medical_Male_02", "head": "m204", "hideHair": true, "uniform": "field", "clip": "m_hold_bag_idle", "t": 1.0, "turn": -0.2, "prop": "bag", "smile": 0.3 },
+    "salem": { "sex": "m", "body": "Professions/Medical_Male_03", "clip": "m_wave_01", "t": 1.2, "turn": -0.25, "smile": 0.45 },
+    "noor": { "sex": "f", "body": "Professions/Medical_Female_02", "head": "f202", "hijab": "#1a2352", "clip": "f_gestic_talk_neutral_01", "t": 2.0, "turn": -0.3, "smile": 0.35 },
+    "amal": { "sex": "f", "body": "Professions/Medical_Female_01", "head": "f201", "hijab": "#e3a3b8", "clip": "f_cell_phone_textmessage", "t": 2.0, "turn": 0.25, "prop": "phone", "smile": 0.35 },
+    "sara": { "sex": "f", "body": "Professions/Medical_Female_03", "head": "f005", "uniform": "field", "clip": "f_hold_bag_idle_01", "t": 1.0, "turn": 0.2, "prop": "kit", "smile": 0.35 }
+  },
+  "heads": { "m022": "Adults/Male_Adult_17", "m204": "Adults/Male_Adult_15", "f202": "Adults/Female_Adult_06", "f201": "Adults/Female_Adult_10", "f005": "Adults/Female_Adult_05" },
+  "clips": [
+    "m_idle_neutral_01", "f_idle_neutral_01",
+    "m_wave_01", "f_wave_01",
+    "m_gestic_talk_neutral_01", "f_gestic_talk_neutral_01",
+    "m_hold_bag_idle", "f_hold_bag_idle_01",
+    "m_cell_phone_textmessage", "f_cell_phone_textmessage"
+  ]
+}

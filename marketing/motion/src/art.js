@@ -123,6 +123,37 @@
     <rect x="730" y="412" width="20" height="4" rx="2" fill="#1B9CCE"/>
   </svg>`;
 
+  /** A strand of DNA with two genes marked, BRCA1 and BRCA2: the genes that
+   * help a cell repair damage. Drawn for the genetic-test posts. */
+  A.dna = () => {
+    const x0 = 70, x1 = 830, cy = 360, amp = 118, period = 300;
+    const y = (x, s) => cy + s * amp * Math.sin((2 * Math.PI * (x - x0)) / period);
+    const strand = (s) => {
+      let d = '';
+      for (let x = x0; x <= x1; x += 6) d += `${x === x0 ? 'M' : 'L'}${x} ${y(x, s).toFixed(1)}`;
+      return d;
+    };
+    const genes = [['BRCA1', 214, 298], ['BRCA2', 560, 644]];
+    let rungs = '';
+    for (let x = x0 + 12; x < x1; x += 22) {
+      const inGene = genes.some(([, a, b]) => x >= a && x <= b);
+      rungs += `<line x1="${x}" y1="${y(x, 1).toFixed(1)}" x2="${x}" y2="${y(x, -1).toFixed(1)}" stroke="${inGene ? '#1B9CCE' : 'rgba(255,254,255,.28)'}" stroke-width="${inGene ? 12 : 7}" stroke-linecap="round"/>`;
+    }
+    const tags = genes.map(([name, a, b]) => {
+      const mx = (a + b) / 2;
+      return `<path d="M${mx} 168 V${cy - amp - 18}" stroke="#FFFEFF" stroke-width="4" stroke-dasharray="2 12" stroke-linecap="round"/>
+        <rect x="${mx - 105}" y="96" width="210" height="72" rx="36" fill="#FFFEFF"/>
+        <text x="${mx}" y="146" text-anchor="middle" font-family="Cairo" font-weight="700" font-size="40" fill="#181943" direction="ltr">${name}</text>`;
+    }).join('');
+    return `<svg viewBox="0 0 900 620" width="100%" height="100%">
+      <rect x="0" y="0" width="900" height="620" rx="44" fill="#20225A"/>
+      ${rungs}
+      <path d="${strand(-1)}" fill="none" stroke="#1B9CCE" stroke-width="16" stroke-linecap="round" opacity=".9"/>
+      <path d="${strand(1)}" fill="none" stroke="#FFFEFF" stroke-width="16" stroke-linecap="round"/>
+      ${tags}
+    </svg>`;
+  };
+
   /** Baghdad at dusk on the Tigris: Baghdad Tower, the suspension bridge,
    * palms and shanasheel houses. No monuments with political meaning. */
   A.baghdad = () => {

@@ -2,3 +2,5 @@ node_modules/
 out/
 # Photos of real people stay out of this public repo (consent, privacy).
 assets/people/
+# Microsoft Rocketbox source avatars (MIT), linked locally for scripts/build-cast.mjs.
+.cast-src
