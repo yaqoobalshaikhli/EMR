@@ -21,12 +21,15 @@
    * pink. `theme: 'pink'` is Pink October in pink and white only: a navy slide
    * turns pink with white type, a white slide keeps white with pink type, and a
    * highlighted phrase sits in a chip of the other colour (brand.css). It covers
-   * hook, myth, statement, rows, list, cta, pictogram, bars, report and columns;
-   * the other slide types still draw in the brand colours. */
+   * every slide type Pink October uses: hook, myth, statement, rows, list, cta,
+   * art (the DNA strand), pictogram, bars, report, compare, scale and columns.
+   * The others (quote, badge, voice, donut, reading, timeline, iceberg, artery)
+   * still draw in the brand colours. */
   const THEMES = {
     brand: {
       ink: (light) => (light ? NAVY : WHITE),
       soft: () => 'rgba(24,25,67,.78)',
+      faint: () => 'rgba(255,254,255,.75)',
       data: () => BLUE,
       mark: () => PINK,
       quiet: (light, a) => (light ? `rgba(24,25,67,${a})` : `rgba(255,254,255,${a * 1.4})`),
@@ -37,10 +40,14 @@
       step: (light, numbered) => [numbered ? (light ? '#E3F0F8' : '#2F3056') : light ? 'rgba(27,156,206,.12)' : 'rgba(255,254,255,.1)', BLUE],
       badge: (light) => [light ? NAVY : WHITE, light ? WHITE : NAVY],
       thread: () => 'rgba(27,156,206,.55)',
+      // a scale zone's [fill, number] by its tone
+      zone: (tone, light) => (tone === 'pink' ? [PINK, WHITE] : tone === 'ink' ? [light ? NAVY : WHITE, light ? WHITE : NAVY] : [BLUE, WHITE]),
+      art: undefined, // the drawings' own colours
     },
     pink: {
       ink: (light) => (light ? PINK : WHITE),
       soft: () => DEEP,
+      faint: () => 'rgba(255,254,255,.92)',
       data: (light) => (light ? PINK : WHITE),
       mark: (light) => (light ? PINK : WHITE),
       quiet: (light, a) => (light ? `rgba(238,57,107,${a})` : `rgba(255,254,255,${a * 1.4})`),
@@ -51,6 +58,9 @@
       step: (light) => [light ? '#FDEDF2' : WHITE, PINK],
       badge: (light) => [light ? PINK : DEEP, WHITE],
       thread: (light) => (light ? 'rgba(238,57,107,.4)' : 'rgba(255,254,255,.6)'),
+      // pale for an ordinary zone, the brand pink for the one that matters, deep for the late ones
+      zone: (tone, light) => (tone === 'pink' ? (light ? [PINK, WHITE] : [WHITE, PINK]) : tone === 'ink' ? [DEEP, WHITE] : light ? ['#FCE1E9', DEEP] : ['rgba(255,254,255,.3)', WHITE]),
+      art: { panel: DEEP, strand: WHITE, strand2: '#FFB3C8', gene: WHITE, rung: 'rgba(255,254,255,.3)', tagText: PINK },
     },
   };
   let T = THEMES.brand; // set per carousel in build()
@@ -71,6 +81,19 @@
       });
       // a highlight inside a word: just that part
       line.querySelectorAll('.word > .pink').forEach((p) => { if (!p.closest('.chip')) p.classList.add('chip'); });
+    });
+  }
+
+  /** `hookPop`: the cover's keyword line (the highlighted one) in Cairo Black,
+   *  as big as the column allows up to 150 px, so it is read first in the feed. */
+  function pop(block) {
+    if (T === THEMES.pink) chips(block); // the chip's padding counts in the fit
+    const room = block.clientWidth;
+    block.querySelectorAll('.line').forEach((line) => {
+      const words = [...line.querySelectorAll('.word')];
+      if (!words.length || !words.every((w) => w.querySelector('.pink'))) return;
+      px(line, { fontSize: 150, fontWeight: '900', lineHeight: '1.25', width: 'max-content' });
+      if (line.offsetWidth > room) line.style.fontSize = `${Math.floor((150 * room) / line.offsetWidth)}px`;
     });
   }
 
@@ -122,6 +145,7 @@
     hook(L, s, ctx, light, P) {
       const h = TX.text(L, s.text, 'col t-hook', { top: 330 });
       h.el.style.fontSize = '84px';
+      if (P.hookPop) pop(h.el);
       if (s.small) {
         const sm = TX.text(L, s.small, 'col t-sub dim', { top: 0 });
         L.style.display = '';
@@ -213,7 +237,7 @@
     art(L, s) {
       const box = el('div', 'abs', L);
       px(box, { left: s.artLeft == null ? 90 : s.artLeft, right: s.artRight == null ? 90 : s.artRight, top: s.artTop == null ? 210 : s.artTop, height: s.artHeight || 620 });
-      box.innerHTML = TX.art[s.art]();
+      box.innerHTML = TX.art[s.art](T.art);
       const t = TX.text(L, s.text, `col ${s.textClass || 't-hook-s'}`, { top: s.textTop == null ? 870 : s.textTop });
       if (s.small) {
         const sm = TX.text(L, s.small, 'col t-sub dim', { top: 0 });
@@ -430,14 +454,14 @@
       const top = bottom(t) + 50, h = s.h || 480;
       [[s.yes, 560, true], [s.no, 80, false]].forEach(([side, left, yes]) => {
         const c = el('div', 'abs', L);
-        px(c, { left, top, width: 440, height: h, borderRadius: 40, padding: '40px 36px', boxSizing: 'border-box', background: yes ? WHITE : 'transparent', color: yes ? NAVY : WHITE, border: yes ? 'none' : '4px dashed rgba(255,254,255,.4)' });
+        px(c, { left, top, width: 440, height: h, borderRadius: 40, padding: '40px 36px', boxSizing: 'border-box', background: yes ? WHITE : 'transparent', color: yes ? T.card : WHITE, border: yes ? 'none' : '4px dashed rgba(255,254,255,.4)' });
         const head = el('div', '', c, side.title);
         px(head, { fontSize: 46, fontWeight: '700', marginBottom: 30 });
         side.items.forEach((it) => {
           const row = el('div', '', c);
-          px(row, { display: 'flex', alignItems: 'center', gap: 18, marginBottom: 26, fontSize: 36, fontWeight: '500', lineHeight: '1.3', color: yes ? NAVY : 'rgba(255,254,255,.75)' });
+          px(row, { display: 'flex', alignItems: 'center', gap: 18, marginBottom: 26, fontSize: 36, fontWeight: '500', lineHeight: '1.3', color: yes ? T.card : T.faint() });
           const mark = el('div', 'center', row, yes ? '' : '؟');
-          px(mark, { width: 44, height: 44, borderRadius: '50%', flex: 'none', background: yes ? BLUE : 'rgba(255,254,255,.14)', color: WHITE, fontSize: 30, fontWeight: '700' });
+          px(mark, { width: 44, height: 44, borderRadius: '50%', flex: 'none', background: yes ? T.data(true) : 'rgba(255,254,255,.14)', color: WHITE, fontSize: 30, fontWeight: '700' });
           if (yes) TX.svg(mark, `<svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 13l5 6l11 -12" fill="none" stroke="${WHITE}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>`);
           el('div', '', row, it);
         });
@@ -456,17 +480,17 @@
         px(u, { right: 80, top: y, fontSize: 30 });
         y += 56;
       }
-      const ink = light ? NAVY : WHITE;
-      const fill = (z) => (z.tone === 'pink' ? PINK : z.tone === 'ink' ? ink : BLUE);
+      const ink = T.ink(light);
       let g = '';
       s.zones.forEach((z, i) => {
+        const [fill, num] = T.zone(z.tone, light);
         const r = el('div', 'abs', L, z.range);
-        px(r, { left: left(i), width: zw, top: y, textAlign: 'center', fontSize: n > 3 ? 30 : 36, fontWeight: '700', color: z.tone === 'pink' ? PINK : quiet(light, 0.6) });
-        g += `<rect x="${left(i)}" y="${y + 62}" width="${zw}" height="${bh}" rx="24" fill="${fill(z)}"/>`;
+        px(r, { left: left(i), width: zw, top: y, textAlign: 'center', fontSize: n > 3 ? 30 : 36, fontWeight: '700', color: z.tone === 'pink' ? T.mark(light) : quiet(light, 0.6) });
+        g += `<rect x="${left(i)}" y="${y + 62}" width="${zw}" height="${bh}" rx="24" fill="${fill}"/>`;
         if (z.inner) {
           const c = el('div', 'abs center', L, z.inner);
           // above the band, which is drawn later in one svg
-          px(c, { left: left(i), width: zw, top: y + 62, height: bh, fontSize: 48, fontWeight: '700', color: z.tone === 'ink' && !light ? NAVY : WHITE, zIndex: '1' });
+          px(c, { left: left(i), width: zw, top: y + 62, height: bh, fontSize: 48, fontWeight: '700', color: num, zIndex: '1' });
         }
       });
       y += 62 + bh;

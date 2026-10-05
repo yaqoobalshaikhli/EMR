@@ -68,7 +68,6 @@ pictures. The 3D film is a set, not an overlay, so its transparent version is
 | `09-sun04-promise-reel` / `09b` | Sun 4 Oct, 8:30 PM | وعد TabeebX: the Reel and the 6-slide carousel |
 | `11-mon05-pressure-carousel` | Mon 5 Oct, 8:30 PM | «اعرف أرقامك» 1 of 7, 7 infographic slides: «الضغط العالي ما يوجع.» A grid of 100 people with 46 in pink (unaware), a funnel down to the 21 whose pressure is controlled, a monitor reading «؟؟؟/؟؟», then the visit at home. WHO figures; needs the reviewing doctor's name |
 | `19-tue06-every-minute-carousel` | Tue 6 Oct, 8:30 PM | «أكتوبر الوردي» 1 of 10, 8 slides: «كل دقيقة بالعالم ٤ نساء يطلعلهن سرطان ثدي.» The world in 2022 (2.3 million diagnosed, 670,000 deaths), 2050 (+38% cases, +68% deaths) and lifetime odds in rich vs poor countries. WHO and IARC |
-| `19p-tue06-every-minute-pink-carousel` | Tue 6 Oct, 8:30 PM, instead of `19` if chosen | The same carousel in Pink October's pink-and-white theme (`"theme": "pink"`): no navy and no blue |
 | `12-wed07-sugar-carousel` | Wed 7 Oct, 8:30 PM | «اعرف أرقامك» 2 of 7, 7 slides: «السكري ما يدگ الباب.» A ring at 45% (undiagnosed, IDF Diabetes Atlas 2021), quiet years on a timeline, two blood-sugar numbers still «؟», and the twist «إحنا ندگه.» |
 | `18-thu08-breast-cancer-carousel` | Thu 8 Oct, 8:30 PM | «أكتوبر الوردي», Breast Cancer Awareness Month, 8 slides: «كل يوم بالعراق ٢٢ امرأة يطلعلهن سرطان ثدي.» Iraq's 2022 count (8,184 new cases, the most common cancer in Iraqi women), one woman in twenty over a lifetime, the WHO warning signs, and 5-year survival by region. WHO and IARC figures only |
 | `13-fri09-cholesterol-carousel` | Fri 9 Oct, 8:30 PM | «اعرف أرقامك» 3 of 7, 8 slides: «الكوليسترول ما يبين بالمراية.» An iceberg, an artery narrowing in three cross-sections, a lipid panel of four «؟», the one who checked beside the one who didn't, and the home test in three steps |
@@ -153,13 +152,16 @@ are warnings.
 Markup in copy: `*pink*`, `~blue~`, `\n` for a line break. A trailing `...`
 pulses: it is the open loop.
 
-`"theme": "pink"` on a carousel draws it in pink and white only, for Pink
-October: a navy slide turns pink with white type, a white slide keeps white with
-pink type and its small print in a deeper pink, and each `*pink*` phrase sits in
-a chip of the other colour. The «أكتوبر الوردي» lettering keeps its transparent
-background, white on pink and pink on white. It covers the slide types Pink
-October uses except `art`, `compare` and `scale`, which still draw in the
-brand colours.
+`"theme": "pink"` on a carousel draws it in pink and white only; the eleven
+«أكتوبر الوردي» carousels (`18` to `28`) use it. A navy slide turns pink with
+white type, a white slide keeps white with pink type and its small print in a
+deeper pink, and each `*pink*` phrase sits in a chip of the other colour. The
+«أكتوبر الوردي» lettering keeps its transparent background, white on pink and
+pink on white. It covers every slide type Pink October uses, the DNA drawing
+included; the «هرمونات بلا طبيب» carousels keep the navy look.
+
+`"hookPop": true` sets the cover's highlighted line, its keyword, in Cairo Black
+as big as the column allows, up to 150 px. Carousels `18` to `38` use it.
 
 ## Brand assets
 

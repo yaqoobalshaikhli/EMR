@@ -59,9 +59,11 @@
 
   async function loadFonts() {
     const probe = 'گچ لا تصدگنا ٨:٣٠ TabeebX';
+    // Black (900) too: layouts that measure text in it (the carousel's hookPop) must see the real face.
     await Promise.all([
       document.fonts.load('500 40px Cairo', probe),
       document.fonts.load('700 40px Cairo', probe),
+      document.fonts.load('900 40px Cairo', probe),
     ]);
   }
 
