@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TabeebX Motion Stage</title>
 <link rel="stylesheet" href="brand.css">
+<!-- three.js for the 3D templates, served from node_modules by the render server. -->
+<script type="importmap">{ "imports": { "three": "../node_modules/three/build/three.module.js", "three/addons/": "../node_modules/three/examples/jsm/" } }</script>
 <style>
   /* Studio chrome, only shown with ?studio. The renderer never sees it. */
   body.studio { background: #0c0d24; font-family: 'Cairo', sans-serif; color: #FFFEFF; display: flex; height: 100vh; overflow: hidden; }
@@ -30,14 +32,23 @@
 <script src="engine.js"></script>
 <script src="components.js"></script>
 <script src="art.js"></script>
+<script src="logo.js"></script>
+<script src="score.js"></script>
 <script src="compositions/story-teaser.js"></script>
 <script src="compositions/launch-reel.js"></script>
+<script src="compositions/door-reel.js"></script>
+<script src="compositions/brand-film.js"></script>
 <script src="compositions/bookends.js"></script>
 <script src="compositions/promise-reveal.js"></script>
 <script src="compositions/scorecard.js"></script>
 <script src="compositions/morning-question.js"></script>
 <script src="compositions/carousel.js"></script>
 <script src="compositions/highlights.js"></script>
+<script src="compositions/wordmark.js"></script>
+<script type="module" src="compositions/brand-film-3d.js"></script>
+<script type="module" src="compositions/knee-3d.js"></script>
+<script type="module" src="compositions/intro-3d.js"></script>
+<script type="module" src="compositions/characters-3d.js"></script>
 <script>
 (function () {
   'use strict';
@@ -48,9 +59,11 @@
 
   async function loadFonts() {
     const probe = 'گچ لا تصدگنا ٨:٣٠ TabeebX';
+    // Black (900) too: layouts that measure text in it (the carousel's hookPop) must see the real face.
     await Promise.all([
       document.fonts.load('500 40px Cairo', probe),
       document.fonts.load('700 40px Cairo', probe),
+      document.fonts.load('900 40px Cairo', probe),
     ]);
   }
 
@@ -59,6 +72,10 @@
     const tpl = TX.templates[job.template];
     if (!tpl) throw new Error('Unknown template: ' + job.template);
     await loadFonts();
+    // Transparent mode: no page, stage or field background, so frames carry alpha.
+    TX.alpha = !!opts.alpha;
+    document.documentElement.classList.toggle('alpha', TX.alpha);
+    document.body.classList.toggle('alpha', TX.alpha);
     const stage = document.getElementById('stage');
     stage.innerHTML = '';
     const params = job.params || {};
@@ -69,6 +86,7 @@
     stage.className = (typeof tpl.light === 'function' ? tpl.light(params) : tpl.light) ? 'light' : '';
     const ctx = { w, h, L: TX.layout(w, h), brand, params, opts, bell: BELL };
     inst = tpl.build(stage, params, ctx);
+    if (inst.ready) await inst.ready; // textures and images a template loads itself
     if (opts.draft) TX.watermark(stage, opts.draftLabel || 'مسودة · DRAFT');
     await Promise.all([...stage.querySelectorAll('img')].map((i) => i.decode().catch(() => {})));
     await document.fonts.ready;
@@ -82,9 +100,21 @@
       cues: inst.cues || [],
       bed: inst.bed || null,
       cover: inst.cover != null ? inst.cover : null,
+      score: !!inst.score,
     };
   };
   window.__render = (t) => { inst.render(t); };
+  // A template that composes its own music (src/score.js) renders it here:
+  // 48 kHz float32, all of L then all of R, as base64 for the trip to Node.
+  window.__score = async () => {
+    const { L, R } = await inst.score();
+    const bytes = new Uint8Array(L.length * 8);
+    bytes.set(new Uint8Array(L.buffer, L.byteOffset, L.length * 4), 0);
+    bytes.set(new Uint8Array(R.buffer, R.byteOffset, R.length * 4), L.length * 4);
+    let s = '';
+    for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+    return btoa(s);
+  };
 
   // ---------------------------------------------------------- studio mode
   if (!/[?&]studio/.test(location.search)) return;

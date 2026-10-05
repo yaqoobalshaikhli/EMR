@@ -4,6 +4,8 @@
 //   node scripts/render.mjs launch               jobs whose id contains "launch"
 //   node scripts/render.mjs launch --from 19.2 --to 30.2 --suffix broll
 //   node scripts/render.mjs all --draft          stamp every video "مسودة · DRAFT"
+//   node scripts/render.mjs 92 --alpha           transparent background: -alpha.webm + -greenscreen.mp4
+//   node scripts/render.mjs 93-tabeebx --audio   the soundtrack alone, as a WAV
 //   node scripts/render.mjs --list
 //
 // Videos: 1080×1920 (or the template's size), H.264 High, 30 fps, AAC 48 kHz,
@@ -33,6 +35,9 @@ const flag = (name, def = null) => {
 const valueFlags = new Set(['from', 'to', 'suffix', 'jobs', 'out', 'crf', 'frames']);
 const targets = argv.filter((a, i) => !a.startsWith('--') && !(i > 0 && valueFlags.has(argv[i - 1].slice(2))));
 const outDir = path.resolve(root, flag('out', 'out'));
+const alpha = !!flag('alpha');
+// Chroma green for phone editors (CapCut → Cutout → Chroma key) that can't read alpha.
+const GREEN = '0x00B140';
 const parallel = Number(flag('jobs', 2));
 const crf = String(flag('crf', 16));
 
@@ -103,8 +108,11 @@ async function renderJob(job) {
   const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
   page.on('pageerror', (e) => console.error(`[${job.id}] page error:`, e.message));
   await page.goto(`${base}/src/stage.html`);
+  const cdp = await page.context().newCDPSession(page);
+  // Transparent mode: no default white page behind the stage, so PNG frames keep their alpha.
+  if (alpha) await cdp.send('Emulation.setDefaultBackgroundColorOverride', { color: { r: 0, g: 0, b: 0, a: 0 } });
   const draft = !!(flag('draft') || job.draft || report.placeholders.has(job.id) || missingPhotos.has(job.id));
-  const info = await page.evaluate(([j, b, o]) => window.__setup(j, b, o), [job, campaign.brand, { draft, draftLabel: job.draftLabel }]);
+  const info = await page.evaluate(([j, b, o]) => window.__setup(j, b, o), [job, campaign.brand, { draft, draftLabel: job.draftLabel, alpha }]);
   const clip = { x: 0, y: 0, width: info.w, height: info.h };
   const started = Date.now();
 
@@ -113,7 +121,7 @@ async function renderJob(job) {
     mkdirSync(dir, { recursive: true });
     for (let i = 0; i < info.pages; i++) {
       await page.evaluate((t) => window.__render(t), i);
-      await page.screenshot({ path: path.join(dir, `${job.id}-${String(i + 1).padStart(2, '0')}.png`), clip, type: 'png' });
+      await page.screenshot({ path: path.join(dir, `${job.id}${alpha ? '-alpha' : ''}-${String(i + 1).padStart(2, '0')}.png`), clip, type: 'png', omitBackground: alpha });
     }
     console.log(`✓ ${job.id}: ${info.pages} PNG${draft ? ' (draft)' : ''} in ${((Date.now() - started) / 1000).toFixed(1)}s`);
     await page.close();
@@ -126,7 +134,7 @@ async function renderJob(job) {
     mkdirSync(dir, { recursive: true });
     for (const tt of String(flag('frames')).split(',').map(Number)) {
       await page.evaluate((x) => window.__render(x), tt);
-      await page.screenshot({ path: path.join(dir, `${job.id}@${tt.toFixed(2)}.png`), clip, type: 'png' });
+      await page.screenshot({ path: path.join(dir, `${job.id}${alpha ? '-alpha' : ''}@${tt.toFixed(2)}.png`), clip, type: 'png', omitBackground: alpha });
     }
     console.log(`✓ ${job.id}: frames → ${path.relative(root, dir)}`);
     await page.close();
@@ -139,27 +147,44 @@ async function renderJob(job) {
   const name = `${job.id}${suffix}`;
   const frames = Math.round((to - from) * info.fps);
 
+  // A template that writes its own score renders it in the page (src/score.js).
+  let music = null;
+  if (info.score) {
+    const raw = Buffer.from(await page.evaluate(() => window.__score()), 'base64');
+    const f = new Float32Array(raw.buffer.slice(raw.byteOffset, raw.byteOffset + raw.length));
+    music = { L: f.subarray(0, f.length / 2), R: f.subarray(f.length / 2) };
+  }
+  const soundtrack = mix({ from, to, cues: info.cues, bed: info.bed, music });
+  if (flag('audio')) {
+    writeWav(path.join(outDir, `${name}.wav`), soundtrack);
+    console.log(`✓ ${name}.wav  ${(to - from).toFixed(1)}s in ${((Date.now() - started) / 1000).toFixed(1)}s`);
+    await page.close();
+    return;
+  }
   const wav = path.join(tmpDir, `${name}.wav`);
-  writeWav(wav, mix({ from, to, cues: info.cues, bed: info.bed }));
+  writeWav(wav, soundtrack);
 
-  const out = path.join(outDir, `${name}.mp4`);
-  const ff = spawn(FFMPEG, [
-    '-hide_banner', '-loglevel', 'error', '-y',
-    '-f', 'image2pipe', '-framerate', String(info.fps), '-c:v', 'png', '-i', '-',
-    '-i', wav,
-    '-map', '0:v', '-map', '1:a',
-    // Lossless PNG frames and accurate rounding keep brand hex values within ±1 after encoding.
-    '-vf', 'scale=out_color_matrix=bt709:out_range=tv:flags=bicubic+accurate_rnd+full_chroma_int,format=yuv420p',
-    '-c:v', 'libx264', '-preset', 'slow', '-crf', crf, '-profile:v', 'high', '-level', '4.2',
-    '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv',
-    '-r', String(info.fps), '-g', String(info.fps * 2),
-    '-c:a', 'aac', '-b:a', '192k', '-ar', '48000',
-    '-shortest', '-movflags', '+faststart', out,
-  ], { stdio: ['pipe', 'inherit', 'inherit'] });
+  // Lossless PNG frames and accurate rounding keep brand hex values within ±1 after encoding.
+  const SWS = 'scale=out_color_matrix=bt709:out_range=tv:flags=bicubic+accurate_rnd+full_chroma_int';
+  const TAGS = ['-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv'];
+  const h264 = ['-c:v', 'libx264', '-preset', 'slow', '-crf', crf, '-profile:v', 'high', '-level', '4.2', ...TAGS,
+    '-r', String(info.fps), '-g', String(info.fps * 2), '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest', '-movflags', '+faststart'];
+  const input = ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'image2pipe', '-framerate', String(info.fps), '-c:v', 'png', '-i', '-', '-i', wav];
+  const outs = alpha
+    ? [path.join(outDir, `${name}-alpha.webm`), path.join(outDir, `${name}-greenscreen.mp4`)]
+    : [path.join(outDir, `${name}.mp4`)];
+  const args = alpha
+    ? [...input,
+      // One pass, two files: VP9 with a real alpha channel, and the same frames over chroma green.
+      '-filter_complex', `[0:v]split=2[a][b];[a]${SWS},format=yuva420p[va];color=c=${GREEN}:s=${info.w}x${info.h}:r=${info.fps}[bg];[bg][b]overlay=shortest=1,${SWS},format=yuv420p[vg]`,
+      '-map', '[va]', '-map', '1:a', '-c:v', 'libvpx-vp9', '-pix_fmt', 'yuva420p', '-b:v', '0', '-crf', '30', '-deadline', 'good', '-cpu-used', '4', '-row-mt', '1',
+      '-auto-alt-ref', '0', ...TAGS, '-c:a', 'libopus', '-b:a', '160k', '-ar', '48000', '-shortest', outs[0],
+      '-map', '[vg]', '-map', '1:a', ...h264, outs[1]]
+    : [...input, '-map', '0:v', '-map', '1:a', '-vf', `${SWS},format=yuv420p`, ...h264, outs[0]];
+  const ff = spawn(FFMPEG, args, { stdio: ['pipe', 'inherit', 'inherit'] });
   const done = once(ff, 'exit');
 
   // Lossless PNG straight from the compositor; optimizeForSpeed trades file size for time.
-  const cdp = await page.context().newCDPSession(page);
   const shot = { format: 'png', optimizeForSpeed: true, clip: { ...clip, scale: 1 } };
   for (let f = 0; f < frames; f++) {
     const t = from + f / info.fps;
@@ -174,9 +199,9 @@ async function renderJob(job) {
 
   if (info.cover != null && !suffix && !job.range) {
     await page.evaluate((x) => window.__render(x), info.cover);
-    await page.screenshot({ path: path.join(outDir, `${name}-cover.png`), clip, type: 'png' });
+    await page.screenshot({ path: path.join(outDir, `${name}${alpha ? '-alpha' : ''}-cover.png`), clip, type: 'png', omitBackground: alpha });
   }
-  console.log(`✓ ${name}.mp4  ${(to - from).toFixed(1)}s ${info.w}×${info.h}${draft ? ' (draft)' : ''} in ${((Date.now() - started) / 1000).toFixed(1)}s`);
+  console.log(`✓ ${outs.map((o) => path.basename(o)).join(' + ')}  ${(to - from).toFixed(1)}s ${info.w}×${info.h}${draft ? ' (draft)' : ''} in ${((Date.now() - started) / 1000).toFixed(1)}s`);
   await page.close();
 }
 

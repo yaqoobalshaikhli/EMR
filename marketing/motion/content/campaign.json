@@ -1,6 +1,6 @@
 {
   "brand": {
-    "figure": "../assets/brand/figure-white.png",
+    "figure": "../assets/brand/tabeebx-figure-white.svg",
     "trustStrip": "TabeebX · مرخّصين من وزارة الصحة العراقية",
     "ritual": "كل ليلة ٨:٣٠",
     "closingLine": [
@@ -207,6 +207,32 @@
             "closing": "لا تصدگنا. شوف بعينك."
           }
         ]
+      }
+    },
+    {
+      "id": "03c-mon28-door-reel",
+      "when": "Mon 28 Sep 8:30 PM feed Reel · no faces, no names: runs in place of 03a until a doctor is ready to appear, then stays evergreen",
+      "template": "door-reel",
+      "params": {
+        "series": "شوف بعينك",
+        "hook": "*منو بالباب؟*",
+        "answer": "طبيبك.",
+        "title": "والعيادة *كلها* وياه.",
+        "services": [
+          { "icon": "stethoscope", "text": "طبيب اختصاص" },
+          { "icon": "syringe", "text": "تمريض" },
+          { "icon": "tubes", "text": "تحاليل" },
+          { "icon": "ultrasound", "text": "سونار" },
+          { "icon": "xray", "text": "أشعة" },
+          { "icon": "ecg", "text": "تخطيط قلب" },
+          { "icon": "physio", "text": "علاج طبيعي" }
+        ],
+        "where": "ببيتك، ببغداد.",
+        "pains": ["سرة العيادة.", "زحمة الطريق.", "صالة الانتظار."],
+        "relief": "بس *راحة بال.*",
+        "ask": "دزلنا رسالة...",
+        "arrive": "ونوصل *لبابك.*",
+        "cta": "رابط الواتساب بالبايو"
       }
     },
     {
@@ -566,6 +592,3145 @@
       }
     },
     {
+      "id": "11-mon05-pressure-carousel",
+      "when": "Mon 5 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 1 of 7 · the reviewing doctor checks the WHO figures from the Global report on hypertension 2023 (of 100 adults with high blood pressure: 46 unaware, 54 aware, 42 treated, 21 controlled; WHO's current fact sheet gives 44 unaware and 23 controlled) and signs off; put the source in the caption · if you boost it, rewrite slide 5 so it doesn't suggest the viewer has a condition (Meta's personal-attributes rule)",
+      "template": "carousel",
+      "params": {
+        "series": "اعرف أرقامك",
+        "pulse": true,
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "الضغط العالي\n*ما يوجع.*",
+            "small": "وهنا الخطر.",
+            "swipe": true
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "من كل ١٠٠ شخص عدهم ضغط عالي:",
+            "total": 100,
+            "mark": 46,
+            "text": "*٤٦* ما يدرون أصلاً.",
+            "source": "المصدر: منظمة الصحة العالمية، تقرير ٢٠٢٣"
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "title": "ومن نفس الـ١٠٠:",
+            "rows": [
+              {
+                "label": "عدهم ضغط عالي",
+                "value": 100
+              },
+              {
+                "label": "يدرون",
+                "value": 54
+              },
+              {
+                "label": "ياخذون علاج",
+                "value": 42
+              },
+              {
+                "label": "ضغطهم مضبوط",
+                "value": 21,
+                "rest": "٧٩ مو مضبوط"
+              }
+            ],
+            "text": "يعني *٧٩* من كل ١٠٠\nضغطهم مو مضبوط.",
+            "source": "المصدر: منظمة الصحة العالمية، تقرير ٢٠٢٣"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "ما يدگ جرس.\nما يعطي إنذار.\nبس يأذي *القلب والكلى والدماغ*\nبصمت.",
+            "top": 330
+          },
+          {
+            "type": "reading",
+            "bg": "white",
+            "text": "إذا ما تعرف رقمك...\nممكن تكون من *الـ٤٦*."
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "قياسه ياخذ دقيقة،\nوإنت بالبيت:",
+            "rows": [
+              {
+                "icon": "message",
+                "text": "تحجز برسالة واتساب."
+              },
+              {
+                "icon": "home",
+                "text": "الكادر الطبي يجيك للبيت."
+              },
+              {
+                "icon": "ecg",
+                "text": "ضغط، تحاليل، تخطيط قلب."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها للي دايماً يگول:",
+            "cta": "*«آني زين، ما بيه شي.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "12-wed07-sugar-carousel",
+      "when": "Wed 7 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 2 of 7 · the reviewing doctor checks the IDF Diabetes Atlas 2021 figure (240 of 537 million adults with diabetes undiagnosed, 45%) and the symptom and complication lines, then signs off",
+      "template": "carousel",
+      "params": {
+        "series": "اعرف أرقامك",
+        "pulse": true,
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "السكري\n*ما يدگ الباب.*",
+            "small": "يدخل بصمت... ويگعد سنين.",
+            "swipe": true
+          },
+          {
+            "type": "donut",
+            "bg": "white",
+            "title": "من كل اللي عدهم سكري بالعالم:",
+            "value": 45,
+            "center": "٤٥٪",
+            "label": "ما يدرون",
+            "text": "تقريباً *نصهم* ما يدرون.",
+            "source": "المصدر: الاتحاد الدولي للسكري، أطلس ٢٠٢١"
+          },
+          {
+            "type": "timeline",
+            "bg": "white",
+            "title": "ممكن يبقى *سنين*\nبلا أعراض واضحة.",
+            "above": [
+              "سنة",
+              "سنة",
+              "سنة",
+              "سنة",
+              ""
+            ],
+            "points": [
+              "زين",
+              "زين",
+              "زين",
+              "زين",
+              "أول علامة"
+            ],
+            "text": "وبعض الناس يكتشفونه من مضاعفاته:\nبالعيون، أو الكلى، أو الأعصاب.",
+            "source": "المصدر: الاتحاد الدولي للسكري"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "العطش، كثرة التبول، التعب...\nعلامات معروفة.\nبس *مو دايماً تبين.*",
+            "top": 360
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "نتيجة التحليل",
+            "rows": [
+              {
+                "label": "السكر الصائم",
+                "value": "؟"
+              },
+              {
+                "label": "السكر التراكمي",
+                "value": "؟"
+              }
+            ],
+            "text": "*رقمين* بس...\nيحچولك الحقيقة.",
+            "textClass": "t-hook-s"
+          },
+          {
+            "type": "art",
+            "bg": "navy",
+            "art": "visit",
+            "artTop": 210,
+            "artHeight": 460,
+            "artLeft": 90,
+            "artRight": 90,
+            "text": "السكري ما يدگ الباب...\nإحنا *ندگه.*",
+            "textClass": "t-hook-s",
+            "textTop": 700,
+            "small": "سحب الدم بالبيت،\nوالنتيجة توصلك."
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "",
+            "cta": "*منشن* لواحد صارله سنة\nما مسوي تحليل.",
+            "ctaTop": 330,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "13-fri09-cholesterol-carousel",
+      "when": "Fri 9 Oct 8:30 PM feed carousel, 8 infographic slides · series «اعرف أرقامك» 3 of 7 · the reviewing doctor checks the plaque and «no symptoms, only a blood test» lines and signs off",
+      "template": "carousel",
+      "params": {
+        "series": "اعرف أرقامك",
+        "pulse": true,
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "الكوليسترول\n*ما يبين بالمراية.*",
+            "small": "شكلك زين... بس رقمك؟",
+            "swipe": true
+          },
+          {
+            "type": "iceberg",
+            "bg": "navy",
+            "title": "أغلب اللي يهم صحتك...\n*ما يبين.*",
+            "above": "اللي تشوفه:\nشكلك ووزنك.",
+            "chips": [
+              "الكوليسترول",
+              "الضغط",
+              "السكر"
+            ]
+          },
+          {
+            "type": "artery",
+            "bg": "white",
+            "title": "ويا الوقت، يترسب\nبجدران الشرايين...",
+            "labels": [
+              "شريان سليم",
+              "ترسّب",
+              "تضيّق"
+            ],
+            "text": "بلا ألم، وبلا ما تحس."
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "ما إله أعراض.\nالطريقة الوحيدة حتى تعرفه:\n*تحليل دم.*",
+            "top": 380
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "تحليل الدهون",
+            "rows": [
+              {
+                "label": "الكوليسترول الكلي",
+                "value": "؟"
+              },
+              {
+                "label": "الضار (LDL)",
+                "value": "؟"
+              },
+              {
+                "label": "النافع (HDL)",
+                "value": "؟"
+              },
+              {
+                "label": "الدهون الثلاثية",
+                "value": "؟"
+              }
+            ],
+            "text": "تحليل واحد...\n*٤ أرقام* تحچيلك الحقيقة."
+          },
+          {
+            "type": "compare",
+            "bg": "navy",
+            "title": "نفس العمر. نفس الأكل.",
+            "yes": {
+              "title": "اللي فحص:",
+              "items": [
+                "عرف رقمه",
+                "عدّل أكله وحركته",
+                "يتابع ويا دكتوره"
+              ]
+            },
+            "no": {
+              "title": "اللي ما فحص:",
+              "items": [
+                "ما يعرف رقمه",
+                "نفس العادات",
+                "والرقم ممكن يصعد"
+              ]
+            },
+            "text": "الفرق؟ *تحليل واحد.*"
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "numbered": true,
+            "title": "تحليلك بالبيت،\nبثلاث خطوات:",
+            "rows": [
+              {
+                "icon": "message",
+                "text": "تحجز برسالة واتساب."
+              },
+              {
+                "icon": "tubes",
+                "text": "نسحب الدم بالبيت."
+              },
+              {
+                "icon": "phone",
+                "text": "النتيجة توصلك، ووياها\nاستشارة إذا تحتاج."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها للي يگول:",
+            "cta": "*«شكلي زين، شعليّه بالتحليل؟»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "14-sun11-prediabetes-carousel",
+      "when": "Sun 11 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 4 of 7 · the reviewing doctor checks the IDF Diabetes Atlas 2021 figure (541 million adults, 10.6%, with impaired glucose tolerance), the ADA HbA1c bands (under 5.7%, 5.7–6.4%, 6.5% and over) and the Diabetes Prevention Program result (lifestyle change cut new diabetes by 58%), then signs off",
+      "template": "carousel",
+      "params": {
+        "series": "اعرف أرقامك",
+        "pulse": true,
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "السكري يعطيك\n*فرصة وحدة.*",
+            "small": "وأغلب الناس يضيّعوها.",
+            "swipe": true
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "من كل ١٠٠ بالغ بالعالم:",
+            "total": 100,
+            "mark": 11,
+            "rowH": 80,
+            "text": "تقريباً *١١* سكرهم\nبالمنطقة الرمادية.",
+            "source": "المصدر: الاتحاد الدولي للسكري، أطلس ٢٠٢١"
+          },
+          {
+            "type": "scale",
+            "bg": "white",
+            "title": "السكر التراكمي يگلك\nوين إنت:",
+            "zones": [
+              {
+                "range": "أقل من ٥٫٧٪",
+                "label": "طبيعي"
+              },
+              {
+                "range": "٥٫٧ – ٦٫٤٪",
+                "label": "ما قبل السكري",
+                "tone": "pink"
+              },
+              {
+                "range": "٦٫٥٪ وأكثر",
+                "label": "سكري",
+                "tone": "ink"
+              }
+            ],
+            "brackets": [
+              {
+                "from": 1,
+                "to": 1,
+                "text": "هنا بعده يرجع",
+                "tone": "strong"
+              }
+            ],
+            "text": "المنطقة الوسطى\nهي *الفرصة.*",
+            "source": "المصدر: الجمعية الأمريكية للسكري"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "ما قبل السكري\nما يوجع، وما ينحس.\nبس الفرصة *إلها وقت.*",
+            "top": 360
+          },
+          {
+            "type": "donut",
+            "bg": "white",
+            "title": "اللي غيّروا أكلهم وحركتهم:",
+            "value": 58,
+            "center": "٥٨٪",
+            "label": "أقل خطر",
+            "text": "خطر السكري نزل *٥٨٪*.",
+            "source": "المصدر: برنامج الوقاية من السكري، ٢٠٠٢"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "تعرف وين إنت،\nبثلاث خطوات:",
+            "rows": [
+              {
+                "icon": "message",
+                "text": "تحجز برسالة واتساب."
+              },
+              {
+                "icon": "tubes",
+                "text": "نسحب الدم بالبيت."
+              },
+              {
+                "icon": "phone",
+                "text": "النتيجة توصلك، ووياها\nاستشارة إذا تحتاج."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها للي يگول:",
+            "cta": "*«السكري بعيد عني.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "15-tue13-anemia-carousel",
+      "when": "Tue 13 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 5 of 7 · the reviewing doctor checks the WHO anaemia figures (40% of children 6–59 months, 37% of pregnant women, 30% of women 15–49) and the symptom list, then signs off",
+      "template": "carousel",
+      "params": {
+        "series": "اعرف أرقامك",
+        "pulse": true,
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "تعبك مو دايماً\n*من الشغل.*",
+            "small": "أحياناً... من دمك.",
+            "swipe": true
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "title": "فقر الدم بالعالم، من كل ١٠٠:",
+            "rows": [
+              {
+                "label": "أطفال من ٦ أشهر لـ٥ سنين",
+                "value": 40
+              },
+              {
+                "label": "نساء حوامل",
+                "value": 37
+              },
+              {
+                "label": "نساء من ١٥ لـ٤٩ سنة",
+                "value": 30
+              }
+            ],
+            "rowH": 190,
+            "text": "يعني تقريباً *١ من كل ٣* نساء.",
+            "source": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "علامات نحسبها\n«تعب عادي»:",
+            "items": [
+              "تعب ما يروح بالنوم",
+              "دوخة",
+              "شحوب بالوجه",
+              "نهجة ويا الدرج",
+              "برودة باليدين والرجلين"
+            ],
+            "small": "بس ممكن تكون *فقر دم.*"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "تحليل دم بسيط\nيفرّق بين التعب العادي...\nو*فقر الدم.*",
+            "top": 360
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "صورة الدم",
+            "rows": [
+              {
+                "label": "الهيموگلوبين",
+                "value": "؟"
+              },
+              {
+                "label": "مخزون الحديد (الفيريتين)",
+                "value": "؟"
+              }
+            ],
+            "text": "*رقمين* يگولولك\nإذا تعبك من دمك.",
+            "textClass": "t-hook-s"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "تحليلك بالبيت،\nبثلاث خطوات:",
+            "rows": [
+              {
+                "icon": "message",
+                "text": "تحجز برسالة واتساب."
+              },
+              {
+                "icon": "tubes",
+                "text": "نسحب الدم بالبيت."
+              },
+              {
+                "icon": "phone",
+                "text": "النتيجة توصلك، ووياها\nاستشارة إذا تحتاج."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل وحدة دايماً تگول:",
+            "cta": "*«تعبانة... بس عادي.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "16-thu15-kidney-carousel",
+      "when": "Thu 15 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 6 of 7 · the reviewing doctor checks the ISN figure (850 million people, over 10%, with kidney disease), the five CKD stages by GFR (90+, 60–89, 30–59, 15–29, under 15; symptoms usually from stage 4) and «diabetes and high blood pressure are the two main causes», then signs off",
+      "template": "carousel",
+      "params": {
+        "series": "اعرف أرقامك",
+        "pulse": true,
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "الكلى\n*ما تصيح.*",
+            "small": "تشتغل لآخر نفس... وبصمت.",
+            "swipe": true
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "من كل ١٠٠ شخص بالعالم:",
+            "total": 100,
+            "mark": 10,
+            "rowH": 80,
+            "text": "أكثر من *١٠*\nعدهم مرض بالكلى.",
+            "source": "المصدر: الجمعية الدولية لأمراض الكلى"
+          },
+          {
+            "type": "scale",
+            "bg": "white",
+            "title": "مرض الكلى المزمن\nيمشي بخمس مراحل:",
+            "unit": "معدل تصفية الكلى:",
+            "zones": [
+              {
+                "range": "٩٠ وأكثر",
+                "inner": "١"
+              },
+              {
+                "range": "٦٠–٨٩",
+                "inner": "٢"
+              },
+              {
+                "range": "٣٠–٥٩",
+                "inner": "٣"
+              },
+              {
+                "range": "١٥–٢٩",
+                "inner": "٤",
+                "tone": "pink"
+              },
+              {
+                "range": "أقل من ١٥",
+                "inner": "٥",
+                "tone": "pink"
+              }
+            ],
+            "brackets": [
+              {
+                "from": 0,
+                "to": 2,
+                "text": "غالباً بلا أعراض"
+              },
+              {
+                "from": 3,
+                "to": 4,
+                "text": "هنا تبين الأعراض",
+                "tone": "strong"
+              }
+            ],
+            "text": "يعني أغلب الناس\nيعرفون *متأخر.*",
+            "source": "المصدر: المؤسسة الوطنية للكلى"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "أكثر سببين لمرض الكلى:\n*السكري والضغط.*\nوالاثنين ما يوجعون.",
+            "top": 360
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "فحص الكلى",
+            "rows": [
+              {
+                "label": "الكرياتينين",
+                "value": "؟"
+              },
+              {
+                "label": "معدل التصفية",
+                "value": "؟"
+              },
+              {
+                "label": "الزلال بالإدرار",
+                "value": "؟"
+              }
+            ],
+            "text": "تحليل دم وإدرار...\n*٣ أرقام* تحچيلك الحقيقة."
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "فحص الكلى بالبيت،\nبثلاث خطوات:",
+            "rows": [
+              {
+                "icon": "message",
+                "text": "تحجز برسالة واتساب."
+              },
+              {
+                "icon": "tubes",
+                "text": "ناخذ العينات بالبيت."
+              },
+              {
+                "icon": "phone",
+                "text": "النتيجة توصلك، ووياها\nاستشارة إذا تحتاج."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "",
+            "cta": "*منشن* واحد عنده سكر أو ضغط\nوما فاحص كليته.",
+            "ctaTop": 330,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "17-sat17-thyroid-carousel",
+      "when": "Sat 17 Oct 8:30 PM feed carousel, 7 infographic slides · series «اعرف أرقامك» 7 of 7 · the reviewing doctor checks the American Thyroid Association figure (one woman in eight develops a thyroid disorder in her lifetime), the two symptom lists and «most thyroid problems are controlled with treatment», then signs off",
+      "template": "carousel",
+      "params": {
+        "series": "اعرف أرقامك",
+        "pulse": true,
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "الغدة الدرقية\n*ما تعطي إنذار.*",
+            "small": "بس تلعب بطاقتك ووزنك ومزاجك.",
+            "swipe": true
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "من كل ٨ نساء:",
+            "total": 8,
+            "cols": 4,
+            "mark": 1,
+            "scale": 2.2,
+            "figure": "woman",
+            "text": "*وحدة* منهن\nيصيبها خلل بالغدة.",
+            "source": "المصدر: الجمعية الأمريكية للغدة الدرقية"
+          },
+          {
+            "type": "columns",
+            "bg": "navy",
+            "title": "نفس الغدة...\nوعلامات بالعكس:",
+            "cols": [
+              {
+                "title": "خمول الغدة",
+                "icon": "down",
+                "items": [
+                  "تعب ونعاس",
+                  "زيادة وزن",
+                  "برد بلا سبب",
+                  "تساقط شعر"
+                ]
+              },
+              {
+                "title": "فرط نشاطها",
+                "icon": "up",
+                "items": [
+                  "خفقان بالقلب",
+                  "نزول وزن",
+                  "حر وتعرّق",
+                  "رجفة باليد"
+                ]
+              }
+            ],
+            "text": "ونحسبها *ضغط حياة.*"
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "فحص الغدة",
+            "rows": [
+              {
+                "label": "TSH",
+                "value": "؟"
+              },
+              {
+                "label": "FT4",
+                "value": "؟"
+              }
+            ],
+            "text": "*رقمين* بس...\nيكشفون الغدة.",
+            "textClass": "t-hook-s"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "أغلب مشاكل الغدة\nتنضبط بالعلاج...\nبس لازم *تنكشف أول.*",
+            "top": 360
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "numbered": true,
+            "title": "فحص الغدة بالبيت،\nبثلاث خطوات:",
+            "rows": [
+              {
+                "icon": "message",
+                "text": "تحجز برسالة واتساب."
+              },
+              {
+                "icon": "tubes",
+                "text": "نسحب الدم بالبيت."
+              },
+              {
+                "icon": "phone",
+                "text": "النتيجة توصلك، ووياها\nاستشارة إذا تحتاج."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل وحدة تگول:",
+            "cta": "*«تعبانة وما أعرف ليش.»*",
+            "ctaTop": 410,
+            "signed": "راجعها طبياً: د. [الاسم]",
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "18-thu08-breast-cancer-carousel",
+      "when": "Thu 8 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · every figure is from WHO or its cancer agency IARC: Iraq 2022 (GLOBOCAN 2022: 8,184 new cases, the most common cancer in Iraqi women; 22 a day is 8,184 ÷ 365), lifetime risk 1 woman in 20 (IARC, Nature Medicine 2025), the WHO fact-sheet signs and «most breast lumps are not cancer», and 5-year survival for women diagnosed 2017–2021 (WHO/IARC estimates 2026: high-income 87.3%, Eastern Mediterranean 61.0%, low-income 41.9%) · the offer is the genetic-tendency blood test (BRCA) for women with a family history, after an assessment by a doctor (USPSTF: testing for women whose history points to BRCA risk, not routine testing); WHO: most women diagnosed have no known family history · no tumour markers: ASCO says CA 15-3, CA 27.29 and CEA are not for screening or diagnosis · TabeebX has no home breast ultrasound and no women doctors yet, so the post promises neither · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "theme": "pink",
+        "hookPop": true,
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "كل يوم بالعراق\n*٢٢ امرأة*\nيطلعلهن سرطان ثدي.",
+            "small": "أكثر سرطان يصيب النساء عدنا.",
+            "swipe": true
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "سرطان الثدي بالعراق، ٢٠٢٢",
+            "rows": [
+              {
+                "label": "حالات جديدة بالسنة",
+                "value": "٨٬١٨٤"
+              },
+              {
+                "label": "يعني كل يوم",
+                "value": "٢٢"
+              },
+              {
+                "label": "بين سرطانات النساء",
+                "value": "الأول"
+              }
+            ],
+            "text": "مو رقم بعيد...\n*هاي جاراتنا وأهلنا.*",
+            "textClass": "t-hook-s",
+            "source": "المصدر: الوكالة الدولية لأبحاث السرطان، منظمة الصحة العالمية"
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "بالعالم، من كل ٢٠ امرأة:",
+            "total": 20,
+            "cols": 10,
+            "mark": 1,
+            "scale": 1.5,
+            "figure": "woman",
+            "text": "*وحدة* منهن يطلعلها\nسرطان ثدي بحياتها.",
+            "source": "المصدر: الوكالة الدولية لأبحاث السرطان، ٢٠٢٥"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "أول علامة ممكن تكون\nكتلة صغيرة...\n*وغالباً ما توجع.*",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "علامات لازم تنفحص:",
+            "items": [
+              "كتلة أو تثخّن، حتى لو ما توجع",
+              "تغيّر بحجم أو شكل الثدي",
+              "تنقّر أو احمرار بالجلد",
+              "تغيّر بالحلمة أو الجلد حواليها",
+              "إفرازات غريبة أو دم من الحلمة"
+            ],
+            "small": "أغلب الكتل *مو سرطان*... بس الفحص هو اللي يگول.",
+            "signed": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "title": "من كل ١٠٠ امرأة تنصاب،\nكم وحدة تعيش ٥ سنين؟",
+            "rows": [
+              {
+                "label": "الدول عالية الدخل",
+                "value": 87
+              },
+              {
+                "label": "منطقتنا، شرق المتوسط",
+                "value": 61
+              },
+              {
+                "label": "الدول منخفضة الدخل",
+                "value": 42
+              }
+            ],
+            "rowH": 170,
+            "text": "والفرق يبدأ من *وقت الاكتشاف.*",
+            "source": "المصدر: منظمة الصحة العالمية، تقديرات ٢٠٢٦"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "ثلاث خطوات\nتفرق:",
+            "rows": [
+              {
+                "icon": "eye",
+                "text": "اعرفي شكلچ الطبيعي،\nحتى تنتبهين لأي تغيير."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "أي تغيير؟ راجعي طبيب بسرعة،\nحتى لو ما يوجع."
+              },
+              {
+                "icon": "tubes",
+                "text": "عدكم بالعائلة؟ اسألي طبيبنا\nعن تحليل الاستعداد الوراثي،\nوالسحب بالبيت."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لكل وحدة تگول:",
+            "cta": "*«ما عدنا بالعائلة.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "19-tue06-every-minute-carousel",
+      "when": "Tue 6 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · the world picture: 2.3 million women diagnosed and 670,000 deaths in 2022 (WHO), 4 diagnosed and 1 death every minute and the 2050 projection, +38% cases (3.2 million) and +68% deaths (1.1 million) (IARC, Nature Medicine, Feb 2025); lifetime odds in very-high vs low human-development countries, 1 in 12 vs 1 in 27 diagnosed and 1 in 71 vs 1 in 48 die (IARC 2025); WHO: most women diagnosed have no known family history · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "theme": "pink",
+        "hookPop": true,
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "كل دقيقة بالعالم\n*٤ نساء*\nيطلعلهن سرطان ثدي.",
+            "small": "ووحدة تتوفى منه.",
+            "swipe": true
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "سرطان الثدي بالعالم، ٢٠٢٢",
+            "rows": [
+              {
+                "label": "حالات جديدة",
+                "value": "٢٫٣ مليون"
+              },
+              {
+                "label": "وفيات",
+                "value": "٦٧٠ ألف"
+              },
+              {
+                "label": "كل دقيقة",
+                "value": "٤ حالات"
+              }
+            ],
+            "text": "وأغلبهن *ما عدهن*\nتاريخ عائلي معروف.",
+            "textClass": "t-hook-s",
+            "source": "المصدر: منظمة الصحة العالمية، الوكالة الدولية لأبحاث السرطان"
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "title": "إذا ما تغيّر شي، بسنة ٢٠٥٠:",
+            "rows": [
+              {
+                "label": "الحالات الجديدة تزيد",
+                "value": 38,
+                "display": "٣٨٪"
+              },
+              {
+                "label": "الوفيات تزيد",
+                "value": 68,
+                "display": "٦٨٪"
+              }
+            ],
+            "rowH": 170,
+            "text": "*٣٫٢ مليون* حالة بالسنة،\nو١٫١ مليون وفاة.",
+            "source": "المصدر: الوكالة الدولية لأبحاث السرطان، ٢٠٢٥"
+          },
+          {
+            "type": "columns",
+            "bg": "white",
+            "title": "بحياة المرأة:",
+            "cols": [
+              {
+                "title": "الدول الأكثر تقدماً",
+                "items": [
+                  "تنصاب ١ من ١٢",
+                  "تتوفى ١ من ٧١"
+                ]
+              },
+              {
+                "title": "الدول الأقل تقدماً",
+                "items": [
+                  "تنصاب ١ من ٢٧",
+                  "تتوفى ١ من ٤٨"
+                ]
+              }
+            ],
+            "text": "إصابات أقل...\nبس *وفيات أكثر.*",
+            "source": "المصدر: الوكالة الدولية لأبحاث السرطان، ٢٠٢٥"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "الفرق مو بالمرض...\n*الفرق بوقت الاكتشاف*\nوالعلاج.",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "شتسوين من اليوم؟",
+            "items": [
+              "اعرفي شكل ثديچ الطبيعي",
+              "أي تغيير؟ راجعي طبيب بسرعة",
+              "اسألي أهلچ عن تاريخ العائلة",
+              "فوق الخمسين؟ سوي ماموگرام",
+              "حافظي على وزنچ وحركتچ"
+            ],
+            "small": "ولا تنتظرين *الألم* حتى تتحركين.",
+            "signed": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "من البيت،\nبثلاث خطوات:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "احچي ويا طبيبنا عن\nتاريخ عائلتچ."
+              },
+              {
+                "icon": "tubes",
+                "text": "إذا يحتاج، تحليل الاستعداد\nالوراثي... والسحب بالبيت."
+              },
+              {
+                "icon": "phone",
+                "text": "الطبيب يشرحلچ النتيجة\nوالخطوة الجاية."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لكل وحدة تگول:",
+            "cta": "*«هالأرقام بعيدة عنّا.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "20-sat10-brca-carousel",
+      "when": "Sat 10 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · what BRCA1 and BRCA2 are and what the test means (NCI fact sheet): genes that help repair damaged DNA; a harmful change raises the risk; breast cancer in more than 60% of women with a harmful BRCA1/2 change vs about 13% of women in general (US); ovarian cancer 39–58% (BRCA1) and 13–29% (BRCA2) vs 1.1%; positive, negative and uncertain results; the test shows a tendency, not a cancer · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "theme": "pink",
+        "hookPop": true,
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "بجسمچ جينين\n*يحمونچ*\nمن السرطان.",
+            "small": "شنو همّه؟ وشوكت تفحصيهم؟",
+            "swipe": true
+          },
+          {
+            "type": "art",
+            "bg": "navy",
+            "art": "dna",
+            "artTop": 230,
+            "artHeight": 560,
+            "text": "اسمهم *BRCA*،\nوشغلتهم يصلّحون\nالتلف بالخلايا.",
+            "textTop": 850
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "إذا انولدتي ويا تغيير\nبواحد منهم...\n*التصليح يضعف،*\nوالخطر يزيد.",
+            "top": 330
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "top": 320,
+            "title": "من كل ١٠٠ امرأة، كم وحدة\nيطلعلها سرطان ثدي بحياتها؟",
+            "rows": [
+              {
+                "label": "عامة النساء",
+                "value": 13
+              },
+              {
+                "label": "ويا تغيير بجين BRCA",
+                "value": 60,
+                "display": "أكثر من ٦٠"
+              }
+            ],
+            "rowH": 170,
+            "text": "يعني الخطر *أكثر من ٤ أضعاف.*",
+            "source": "المصدر: المعهد الوطني للسرطان، أمريكا"
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "title": "وسرطان المبيض، من كل ١٠٠ امرأة:",
+            "rows": [
+              {
+                "label": "BRCA1",
+                "value": 39,
+                "max": 58,
+                "display": "٣٩–٥٨"
+              },
+              {
+                "label": "BRCA2",
+                "value": 13,
+                "max": 29,
+                "display": "١٣–٢٩"
+              },
+              {
+                "label": "عامة النساء",
+                "value": 1,
+                "display": "١"
+              }
+            ],
+            "rowH": 150,
+            "text": "الخطر مو بس على الثدي...\n*المبيض هم.*",
+            "source": "المصدر: المعهد الوطني للسرطان، أمريكا"
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "نتيجة التحليل شتعني؟",
+            "items": [
+              "إيجابية: خطر أعلى، مو سرطان",
+              "سلبية: ما لگوا تغيير، والخطر مو صفر",
+              "غير واضحة: تغيير بعده ما مفهوم"
+            ],
+            "small": "التحليل يبيّن *الاستعداد،* مو المرض.\nوالطبيب يرتب الخطوة الجاية.",
+            "signed": "المصدر: المعهد الوطني للسرطان، أمريكا"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "التحليل ويانا:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "استشارة طبيب يقيّم\nتاريخ عائلتچ."
+              },
+              {
+                "icon": "tubes",
+                "text": "إذا يحتاج، سحب الدم\nبالبيت."
+              },
+              {
+                "icon": "phone",
+                "text": "الطبيب يشرحلچ النتيجة\nوالخطوة الجاية."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لكل وحدة تسأل:",
+            "cta": "*«إذا وراثي، شنسوي؟»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "21-mon12-family-tree-carousel",
+      "when": "Mon 12 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · who should ask about genetic testing (NCI): a relative with a known BRCA change; breast cancer at 50 or younger; ovarian, male breast, pancreatic, or metastatic or high-risk prostate cancer in the family; each child of a carrier has a 50% chance of inheriting the change, from the mother or the father (NCI); USPSTF: test women whose family history points to risk, not everyone · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "theme": "pink",
+        "hookPop": true,
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "شجرة عائلتچ\n*تحچي.*",
+            "small": "بس لازم أحد يسمعها.",
+            "swipe": true
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "اسألي عن التحليل\nإذا بيچ أو بالعائلة:",
+            "items": [
+              "قريبة عدها تغيير بجين BRCA",
+              "سرطان ثدي قبل عمر الخمسين",
+              "سرطان مبيض أو بنكرياس",
+              "رجّال صابه سرطان ثدي",
+              "سرطان بروستات متقدم"
+            ],
+            "small": "الطبيب يقيّم، *مو كل وحدة* تحتاجه.",
+            "signed": "المصدر: المعهد الوطني للسرطان، أمريكا"
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "إذا الأم أو الأب عنده التغيير:",
+            "total": 10,
+            "cols": 10,
+            "mark": 5,
+            "scale": 1.6,
+            "text": "كل طفل عنده\n*فرصة ٥٠٪*\nيورثه.",
+            "source": "المصدر: المعهد الوطني للسرطان، أمريكا"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "التغيير ينتقل من الأم...\n*أو من الأب.*\nفاسألي أهل أبوچ هم.",
+            "top": 360
+          },
+          {
+            "type": "compare",
+            "bg": "navy",
+            "title": "نفس العائلة،\nنفس الجينات.",
+            "yes": {
+              "title": "اللي سألت:",
+              "items": [
+                "عرفت تاريخ العائلة",
+                "حچت ويا طبيب",
+                "تعرف شنو تراقب"
+              ]
+            },
+            "no": {
+              "title": "اللي ما سألت:",
+              "items": [
+                "ما تعرف التاريخ",
+                "ما فحصت",
+                "تنتظر علامة"
+              ]
+            },
+            "text": "المعرفة *تحميچ.*"
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "title": "اسألي أهلچ:",
+            "rows": [
+              {
+                "icon": "family",
+                "text": "منو صابه سرطان؟ وأي نوع؟"
+              },
+              {
+                "icon": "calendar",
+                "text": "بأي عمر صابه؟"
+              },
+              {
+                "icon": "user",
+                "text": "من جهة الأم، لو الأب؟"
+              },
+              {
+                "icon": "tubes",
+                "text": "أحد سوّى تحليل وراثي؟"
+              }
+            ]
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "بعدها، ويانا:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "گولي لطبيبنا\nشنو عرفتي."
+              },
+              {
+                "icon": "tubes",
+                "text": "إذا يحتاج، تحليل الاستعداد\nالوراثي... والسحب بالبيت."
+              },
+              {
+                "icon": "family",
+                "text": "ونتيجتچ تفيد\nأخواتچ وبناتچ هم."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها بگروب العائلة، واكتبي:",
+            "cta": "*«خلّينا نعرف تاريخنا.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "22-wed14-myths-carousel",
+      "when": "Wed 14 Oct 8:30 PM feed carousel, 8 slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · five beliefs checked against WHO: most women diagnosed have no known family history; a lump is often painless; most breast lumps are not cancer; men get breast cancer too, 0.5–1% of cases; ASCO: no blood test (CA 15-3, CA 27.29, CEA) is for screening or early diagnosis, and the BRCA test shows a tendency, not a cancer · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "theme": "pink",
+        "hookPop": true,
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "صح لو غلط؟\n*٥ أفكار*\nعن سرطان الثدي.",
+            "small": "كلها نسمعها كل يوم.",
+            "swipe": true
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "١. ما عدنا بالعائلة،\nيعني ما يصيبني.",
+            "explain": "أغلب النساء اللي ينصابن ما عدهن تاريخ عائلي معروف.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٢. إذا ما يوجع،\nمو سرطان.",
+            "explain": "الكتلة غالباً ما توجع. أي تغيير ينفحص، حتى لو ما يوجع.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٣. كل كتلة\nبالثدي سرطان.",
+            "explain": "أغلب الكتل مو سرطان. بس الفحص هو اللي يگول.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٤. الرجال هم\nممكن يصيبهم.",
+            "explain": "نادر: حالة أو أقل من كل ١٠٠ حالة. وأي كتلة بصدر الرجّال تنفحص.",
+            "stamp": "صح"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٥. تحليل دم يكشف\nسرطان الثدي مبكراً.",
+            "explain": "ماكو تحليل دم معتمد للكشف المبكر. التحليل الوراثي يبيّن الاستعداد بس.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "الصح هو:",
+            "rows": [
+              {
+                "icon": "eye",
+                "text": "اعرفي شكلچ الطبيعي."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "أي تغيير، راجعي طبيب\nحتى لو ما يوجع."
+              },
+              {
+                "icon": "tubes",
+                "text": "عدكم تاريخ عائلي؟ اسألي\nعن تحليل الاستعداد الوراثي."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لكل وحدة تگول:",
+            "cta": "*«إذا ما يوجع، مو مشكلة.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "23-fri16-signs-carousel",
+      "when": "Fri 16 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · the WHO warning signs sorted into what you see and what you feel; most breast lumps are not cancer (WHO); breast awareness: know your normal and see a doctor about any new change; what a doctor may do next (clinical exam, imaging at a radiology centre, a biopsy if needed: WHO) · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "theme": "pink",
+        "hookPop": true,
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "مو كل علامة\n*كتلة.*",
+            "small": "تعرفين شنو تراقبين؟",
+            "swipe": true
+          },
+          {
+            "type": "columns",
+            "bg": "white",
+            "title": "شنو تراقبين؟",
+            "cols": [
+              {
+                "title": "تشوفينه",
+                "items": [
+                  "تغيّر بالحجم أو الشكل",
+                  "تنقّر أو احمرار بالجلد",
+                  "تغيّر بالحلمة",
+                  "إفرازات أو دم"
+                ]
+              },
+              {
+                "title": "تحسّين بيه",
+                "items": [
+                  "كتلة",
+                  "تثخّن بمكان معيّن"
+                ]
+              }
+            ],
+            "text": "والكتلة غالباً\n*ما توجع.*",
+            "source": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "title": "اعرفي طبيعتچ:",
+            "rows": [
+              {
+                "icon": "eye",
+                "text": "اعرفي شكل ثديچ\nوملمسه الطبيعي."
+              },
+              {
+                "icon": "calendar",
+                "text": "لاحظي أي تغيير\nيبقى بعد الدورة."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "تغيير جديد؟\nراجعي طبيب."
+              }
+            ]
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "لاحظتي تغيير؟\n*لا تنتظرين*\nيروح وحده.",
+            "top": 360
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "والخبر الزين:\n*أغلب الكتل*\nمو سرطان.",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "عند الطبيب، ممكن:",
+            "items": [
+              "فحص سريري",
+              "سونار أو ماموگرام بمركز أشعة",
+              "وإذا يحتاج، خزعة صغيرة"
+            ],
+            "small": "كل خطوة *تطمّنچ* أكثر.",
+            "signed": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "ويانا:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "احچي ويا طبيبنا عن\nالتغيير اللي لاحظتيه."
+              },
+              {
+                "icon": "steps",
+                "text": "يوجهچ للفحص المناسب\nبمركز متخصص."
+              },
+              {
+                "icon": "tubes",
+                "text": "عدكم تاريخ عائلي؟ تحليل\nالاستعداد الوراثي بالبيت."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لكل وحدة تگول:",
+            "cta": "*«شي صغير، ما يحتاج.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "24-sun18-risk-factors-carousel",
+      "when": "Sun 18 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · WHO risk factors, sorted into fixed and changeable: female sex is the strongest, then increasing age; family history and genes, age at first period, chest radiation; obesity, tobacco, harmful alcohol use, postmenopausal hormone therapy; WHO: lowering risk does not remove it, so checks still matter · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "theme": "pink",
+        "hookPop": true,
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "بعض أسباب الخطر\n*بإيدچ.*",
+            "small": "وبعضها لا. خلّي نفرزها.",
+            "swipe": true
+          },
+          {
+            "type": "columns",
+            "bg": "white",
+            "title": "أسباب الخطر:",
+            "cols": [
+              {
+                "title": "ما تتغيّر",
+                "items": [
+                  "كونچ امرأة",
+                  "العمر",
+                  "العائلة والجينات",
+                  "عمر أول دورة",
+                  "أشعة على الصدر"
+                ]
+              },
+              {
+                "title": "تگدرين تغيّريها",
+                "items": [
+                  "الوزن الزايد",
+                  "التدخين والنركيلة",
+                  "الكحول",
+                  "هرمونات سن اليأس"
+                ]
+              }
+            ],
+            "text": "اللي يتغيّر، *نشتغل عليه.*",
+            "source": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "أقوى سبب؟\n*كونچ امرأة.*\nوبعده العمر.",
+            "top": 360
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "title": "اللي بإيدچ:",
+            "rows": [
+              {
+                "icon": "steps",
+                "text": "حركة، ووزن صحي."
+              },
+              {
+                "icon": "heart",
+                "text": "بلا تدخين، ولا نركيلة."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "هرمونات بعد سن اليأس؟\nبس ويا طبيب يتابع."
+              }
+            ]
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "بس حتى لو سوّيتي\nكلشي صح...\n*الفحص يبقى ضروري.*",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "احچي ويا طبيب إذا:",
+            "items": [
+              "عدكم سرطان ثدي أو مبيض بالعائلة",
+              "أخذتي أشعة على الصدر قبل",
+              "تاخذين هرمونات بعد سن اليأس",
+              "عمرچ فوق الخمسين"
+            ],
+            "small": "الطبيب يحدد *شنو يناسبچ* من فحص.",
+            "signed": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "ويانا:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "طبيبنا يقيّم الخطر عدچ."
+              },
+              {
+                "icon": "tubes",
+                "text": "عدكم تاريخ عائلي؟ تحليل\nالاستعداد الوراثي بالبيت."
+              },
+              {
+                "icon": "calendar",
+                "text": "الطبيب يگلچ شوكت\nوشلون تفحصين."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لكل وحدة تگول:",
+            "cta": "*«ما بيدنا شي.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "25-tue20-time-carousel",
+      "when": "Tue 20 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · why time matters, from the WHO Global Breast Cancer Initiative: at least 60% of cancers found at stage I or II, diagnosis within 60 days of first presentation, at least 80% completing treatment, mortality down 2.5% a year, 2.5 million lives saved by 2040; WHO: small cancers that have not spread are treated more successfully; most lumps are not cancer · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "theme": "pink",
+        "hookPop": true,
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "أخطر شي بعد الكتلة...\n*الانتظار.*",
+            "small": "ليش منظمة الصحة تعدّ الأيام؟",
+            "swipe": true
+          },
+          {
+            "type": "scale",
+            "bg": "white",
+            "title": "مراحل سرطان الثدي:",
+            "zones": [
+              {
+                "inner": "١"
+              },
+              {
+                "inner": "٢"
+              },
+              {
+                "inner": "٣",
+                "tone": "ink"
+              },
+              {
+                "inner": "٤",
+                "tone": "ink"
+              }
+            ],
+            "brackets": [
+              {
+                "from": 0,
+                "to": 1,
+                "text": "مبكر: العلاج أنجح",
+                "tone": "strong"
+              },
+              {
+                "from": 2,
+                "to": 3,
+                "text": "متأخر: أصعب"
+              }
+            ],
+            "text": "هدف منظمة الصحة العالمية:\n*٦٠٪ من الحالات* تنلگى\nبالمرحلة الأولى أو الثانية.",
+            "source": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "الكتلة الصغيرة\nاللي ما انتشرت...\n*علاجها أنجح.*",
+            "top": 360
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "أهداف منظمة الصحة العالمية",
+            "rows": [
+              {
+                "label": "تنلگى بوقت مبكر",
+                "value": "٦٠٪"
+              },
+              {
+                "label": "التشخيص من أول مراجعة",
+                "value": "٦٠ يوم"
+              },
+              {
+                "label": "يكملن العلاج",
+                "value": "٨٠٪"
+              }
+            ],
+            "text": "*٢٫٥ مليون حياة*\nممكن تنقذ لحد ٢٠٤٠.",
+            "textClass": "t-hook-s",
+            "source": "المصدر: منظمة الصحة العالمية، المبادرة العالمية لسرطان الثدي"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "والعدّاد ما يشتغل...\n*إلا من تراجعين.*",
+            "top": 400
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "لاحظتي تغيير؟ هيچ تمشين:",
+            "items": [
+              "سجلي شنو لاحظتي ومن شوكت",
+              "راجعي طبيب خلال أيام، مو أشهر",
+              "كمّلي الفحوصات اللي يطلبها",
+              "لا توقفين بنص الطريق"
+            ],
+            "small": "أغلب الكتل مو سرطان...\n*بس الجواب يجي بالفحص.*",
+            "signed": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "نقصّر الطريق:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "استشارة طبيب\nبلا طابور عيادة."
+              },
+              {
+                "icon": "steps",
+                "text": "يوجهچ للفحص\nالمناسب بسرعة."
+              },
+              {
+                "icon": "tubes",
+                "text": "التحاليل اللي يطلبها،\nالسحب بالبيت."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لكل وحدة تگول:",
+            "cta": "*«خلّي أشوف إذا يروح وحده.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "26-thu22-mammogram-carousel",
+      "when": "Thu 22 Oct 8:30 PM feed carousel, 8 infographic slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · mammography by age, from the WHO position paper (2014): organized screening every 2 years for women aged 50–69 in well-resourced settings; outside that range it is the doctor's call; a strong family history may start checks earlier; a recall for a second look is not a diagnosis · TabeebX does not do mammograms: the doctor points her to a radiology centre · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "theme": "pink",
+        "hookPop": true,
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "فوق الخمسين؟\n*هذا فحصچ.*",
+            "small": "كل سنتين، حتى لو ما بيچ شي.",
+            "swipe": true
+          },
+          {
+            "type": "scale",
+            "bg": "white",
+            "title": "الماموگرام حسب العمر:",
+            "zones": [
+              {
+                "inner": "تحت ٥٠",
+                "label": "حسب الطبيب"
+              },
+              {
+                "inner": "٥٠–٦٩",
+                "label": "كل سنتين",
+                "tone": "pink"
+              },
+              {
+                "inner": "٧٠ وفوگ",
+                "label": "حسب الطبيب"
+              }
+            ],
+            "text": "هذا الفحص المنظّم اللي تنصح بيه\nمنظمة الصحة العالمية.",
+            "source": "المصدر: منظمة الصحة العالمية، ٢٠١٤"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "الماموگرام يلگى تغيير\n*أصغر من اللي تحسين بيه*\nبإيدچ.",
+            "top": 360
+          },
+          {
+            "type": "columns",
+            "bg": "white",
+            "title": "الماموگرام:",
+            "cols": [
+              {
+                "title": "شنو هو؟",
+                "items": [
+                  "أشعة خفيفة للثدي",
+                  "ياخذ دقائق",
+                  "بمركز أشعة"
+                ]
+              },
+              {
+                "title": "شنو يبيّن؟",
+                "items": [
+                  "تغييرات صغيرة",
+                  "قبل لا تنحس باليد"
+                ]
+              }
+            ],
+            "text": "وإذا طلبوا فحص ثاني؟\n*مو يعني سرطان.*"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "عدكم تاريخ عائلي قوي؟\nالطبيب ممكن يبدي\n*الفحص أبچر.*",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "قبل الماموگرام:",
+            "items": [
+              "احجزي بعد الدورة بأسبوع",
+              "بلا مزيل عرق أو بودرة",
+              "جيبي صورچ القديمة إذا عدچ",
+              "گولي إذا حامل أو ترضعين"
+            ],
+            "small": "ممكن يزعج شوية... *بس ثواني.*"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "ويانا:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "استشارة طبيب يحدد\nإذا تحتاجين."
+              },
+              {
+                "icon": "steps",
+                "text": "يوجهچ لمركز أشعة\nمتخصص."
+              },
+              {
+                "icon": "tubes",
+                "text": "عدكم تاريخ عائلي؟ تحليل\nالاستعداد الوراثي بالبيت."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزيها لأمچ وخالتچ، واسأليهن:",
+            "cta": "*«سويتي ماموگرام؟»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "27-sat24-men-carousel",
+      "when": "Sat 24 Oct 8:30 PM feed carousel, 8 infographic slides, addressed to men · series «أكتوبر الوردي», Breast Cancer Awareness Month · men are 0.5–1% of breast cancer cases (WHO); men carry and pass on BRCA changes (NCI); with a harmful BRCA2 change, prostate cancer 19–61% by age 80 vs 10.6% (shown as 11), and breast cancer 1.8–7.1% by 70 vs 0.1% (NCI) · signs listed are the WHO signs as they show in men · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "theme": "pink",
+        "hookPop": true,
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "سرطان الثدي...\n*يصيب الرجال هم.*",
+            "small": "نادر، بس موجود.",
+            "swipe": true
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "من كل ١٠٠ حالة سرطان ثدي:",
+            "total": 100,
+            "cols": 20,
+            "mark": 1,
+            "text": "لحد *وحدة* منها رجّال.",
+            "source": "المصدر: منظمة الصحة العالمية"
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "لاحظ:",
+            "items": [
+              "كتلة تحت الحلمة، غالباً ما توجع",
+              "تغيّر بالحلمة أو الجلد حواليها",
+              "إفرازات أو دم من الحلمة",
+              "تنقّر أو احمرار بالجلد"
+            ],
+            "small": "لاحظت شي؟ *لا تستحي.* راجع طبيب."
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "والرجّال هم يحمل\nتغيير *BRCA*...\nويورثه لولده وبناته.",
+            "top": 360
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "title": "من كل ١٠٠ رجّال، كم واحد\nيصيبه سرطان البروستات لعمر ٨٠؟",
+            "rows": [
+              {
+                "label": "عامة الرجال",
+                "value": 11
+              },
+              {
+                "label": "BRCA2",
+                "value": 19,
+                "max": 61,
+                "display": "١٩–٦١"
+              }
+            ],
+            "rowH": 170,
+            "text": "ويا تغيير الجين،\n*الخطر يتضاعف.*",
+            "source": "المصدر: المعهد الوطني للسرطان، أمريكا"
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "سرطان الثدي، لعمر ٧٠",
+            "rows": [
+              {
+                "label": "عامة الرجال",
+                "value": "٠٫١٪"
+              },
+              {
+                "label": "BRCA2",
+                "value": "١٫٨–٧٫١٪"
+              }
+            ],
+            "text": "يعني *أضعاف مضاعفة.*",
+            "textClass": "t-hook-s",
+            "source": "المصدر: المعهد الوطني للسرطان، أمريكا"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "شتسوي؟",
+            "rows": [
+              {
+                "icon": "eye",
+                "text": "أي كتلة أو تغيير بالصدر،\nلا تهمله."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "راجع طبيب،\nحتى لو تستحي."
+              },
+              {
+                "icon": "tubes",
+                "text": "سرطان ثدي أو مبيض بالعائلة؟\nاسأل عن تحليل الاستعداد."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل رجّال يگول:",
+            "cta": "*«هذا مرض نسوان.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "28-mon26-mothers-carousel",
+      "when": "Mon 26 Oct 8:30 PM feed carousel, 8 slides · series «أكتوبر الوردي», Breast Cancer Awareness Month · a daughter checking on her mother: risk rises with age, after female sex the strongest factor (WHO); gentle questions to ask; the mother's health history is the daughter's family history too · home consult and home blood draw only · the offer is a doctor's consult and, when the doctor finds a family history that calls for it, the genetic-tendency blood test (BRCA) drawn at home; no home breast ultrasound and no women doctors are promised; no tumour markers (ASCO) · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "theme": "pink",
+        "hookPop": true,
+        "series": "أكتوبر الوردي",
+        "pillStyle": "bold",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "أمچ\n*ما راح تشتكي.*",
+            "small": "لازم أنتِ تسألين.",
+            "swipe": true
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "الخطر يزيد\n*ويا العمر.*\nوأمچ صارت بعمر الفحص.",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "اسأليها بهدوء:",
+            "items": [
+              "شلونچ، صدگ؟",
+              "حاسة بأي تغيير بصدرچ؟",
+              "شوكت آخر ماموگرام؟",
+              "منو بأهلچ صابه سرطان؟"
+            ],
+            "small": "سؤال واحد *ممكن يفرق.*"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "گالت «ماكو شي»؟\n*اسأليها مرة ثانية.*",
+            "top": 400
+          },
+          {
+            "type": "compare",
+            "bg": "navy",
+            "title": "نفس العمر. نفس البيت.",
+            "yes": {
+              "title": "اللي سألوها:",
+              "items": [
+                "حچت عن التغيير",
+                "راجعت طبيب",
+                "تعرف وين صايرة"
+              ]
+            },
+            "no": {
+              "title": "اللي محد سألها:",
+              "items": [
+                "ما تريد تقلقكم",
+                "تأجل المراجعة",
+                "تنتظر الألم"
+              ]
+            },
+            "text": "*سؤالچ* يفتح الباب."
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "وتاريخ أمچ الصحي...\n*يفيدچ أنتِ هم.*",
+            "top": 400
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "من البيت:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "استشارة طبيب لأمچ\nبالبيت."
+              },
+              {
+                "icon": "tubes",
+                "text": "التحاليل اللي يطلبها،\nالسحب بالبيت."
+              },
+              {
+                "icon": "family",
+                "text": "الطبيب يشرح النتيجة\nإلها وإلچ."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "اتصلي بأمچ هسه، واسأليها:",
+            "cta": "*«شلونچ... صدگ؟»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "29-tue27-hormones-overview-carousel",
+      "when": "Tue 27 Oct 8:30 PM feed carousel, 8 infographic slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · opens the series: a PubMed study of 172 bodybuilders in Baghdad (Habeeb et al., Am J Mens Health 2012): of those who used anabolic steroids, two fifths were 19 or younger, one quarter were pushed by their coach, more than one third took tablets and injections together; FDA (2016 testosterone labelling) and NHS lists of harms; NHS: sharing needles spreads hepatitis B and C and HIV; Danish cohort of 1,189 men caught using steroids in gyms, mortality hazard ratio 2.81 vs controls (Windfeld-Mathiasen et al., JAMA 2024); why four specialties follow a user · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "hookPop": true,
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "العضلات تبين.\n*الضرر ما يبين.*",
+            "small": "شنو تسوي بجسمك من جوّه؟",
+            "swipe": true
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "لاعبين ببغداد استخدموا هرمونات",
+            "rows": [
+              {
+                "label": "عمره ١٩ أو أصغر",
+                "value": "٢ من ٥"
+              },
+              {
+                "label": "بدا لأن مدربه شجّعه",
+                "value": "١ من ٤"
+              },
+              {
+                "label": "حبوب وإبر سوية",
+                "value": "أكثر من ١ من ٣"
+              }
+            ],
+            "text": "مو قصة بعيدة...\n*هذا جيمنا.*",
+            "textClass": "t-hook-s",
+            "source": "المصدر: دراسة على ١٧٢ لاعب كمال أجسام ببغداد، ٢٠١٢ (PubMed)"
+          },
+          {
+            "type": "iceberg",
+            "bg": "navy",
+            "title": "اللي تشوفه بالمراية...\nواللي جوّه.",
+            "above": "عضلات أكبر",
+            "chips": [
+              "القلب",
+              "الكبد",
+              "الخصيتين",
+              "المزاج"
+            ]
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "بلا طبيب، الهرمونات ممكن تسبب:",
+            "items": [
+              "جلطة قلبية أو دماغية",
+              "أذى بالكبد",
+              "ضمور الخصيتين وعقم",
+              "عدوانية واكتئاب",
+              "التهاب كبد أو إيدز من مشاركة الإبر"
+            ],
+            "small": "والإدمان عليها *وارد.*",
+            "signed": "المصدر: إدارة الغذاء والدواء الأمريكية (FDA)، والخدمة الصحية البريطانية (NHS)"
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "دراسة دنماركية، ٢٠٢٤",
+            "rows": [
+              {
+                "label": "رجال انمسكوا يستخدمون",
+                "value": "١٬١٨٩"
+              },
+              {
+                "label": "مدة المتابعة",
+                "value": "١١ سنة"
+              },
+              {
+                "label": "خطر الوفاة مقارنة بغيرهم",
+                "value": "٢٫٨ ضعف"
+              }
+            ],
+            "text": "خطر الوفاة\n*قريب ٣ أضعاف.*",
+            "textClass": "t-hook-s",
+            "source": "المصدر: Windfeld-Mathiasen وآخرون، مجلة JAMA ٢٠٢٤ (PubMed)"
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "title": "ليش أكثر من اختصاص؟",
+            "rows": [
+              {
+                "icon": "tubes",
+                "text": "الغدد: الهرمونات، والإيقاف بأمان."
+              },
+              {
+                "icon": "scalpel",
+                "text": "الجراحة العامة: تكبّر الصدر."
+              },
+              {
+                "icon": "bone",
+                "text": "العظام: الأوتار والمفاصل."
+              },
+              {
+                "icon": "brain",
+                "text": "النفسية: المزاج والإدمان."
+              }
+            ]
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "من وين تبدي؟",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "احچي ويا طبيب مختص،\nبخصوصية وبلا محاسبة."
+              },
+              {
+                "icon": "tubes",
+                "text": "تحاليل بالبيت: هرمونات،\nدهون، كبد، ودم."
+              },
+              {
+                "icon": "ecg",
+                "text": "تخطيط قلب بالبيت."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«هذا كورس خفيف.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "30-thu29-hormones-heart-carousel",
+      "when": "Thu 29 Oct 8:30 PM feed carousel, 8 infographic slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · the heart and the blood: NHS (high blood pressure, high cholesterol, blood clots, heart attack and stroke); FDA 2016 labelling (heart attack, heart failure, stroke); PubMed: lower LV systolic function and more coronary plaque in long-term users (Baggish et al., Circulation 2017), some cardiac changes persist after stopping, erythrocytosis thickens the blood and raises the risk of clots · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "hookPop": true,
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "العضلة تكبر...\n*والقلب يتعب.*",
+            "small": "وإنت ما تحس بشي.",
+            "swipe": true
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "الهرمونات بالقلب والدم:",
+            "items": [
+              "ترفع الضغط",
+              "ترفع الكوليسترول",
+              "تثخّن الدم وتقرّب الجلطة",
+              "تضعف عضلة القلب"
+            ],
+            "small": "وأخطرها: *جلطة قلبية أو دماغية.*",
+            "signed": "المصدر: إدارة الغذاء والدواء الأمريكية (FDA)، والخدمة الصحية البريطانية (NHS)"
+          },
+          {
+            "type": "artery",
+            "bg": "white",
+            "title": "الدهون تترسب بالشريان\nشوية شوية:",
+            "labels": [
+              "طبيعي",
+              "ترسبات",
+              "تضيّق"
+            ],
+            "text": "وكل هذا يصير\n*بلا ألم.*",
+            "source": "المصدر: Baggish وآخرون، مجلة Circulation ٢٠١٧ (PubMed)"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "اللي يستخدمونها لسنين،\nعضلة القلب عدهم\n*تضخ أضعف.*",
+            "top": 360
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "وحتى بعد ما توگف،\nبعض التغييرات بالقلب\n*ممكن تبقى.*",
+            "top": 360
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "تعرف أرقامك؟",
+            "rows": [
+              {
+                "label": "ضغطك",
+                "value": "؟"
+              },
+              {
+                "label": "الكوليسترول",
+                "value": "؟"
+              },
+              {
+                "label": "الهيموگلوبين",
+                "value": "؟"
+              },
+              {
+                "label": "تخطيط القلب",
+                "value": "؟"
+              }
+            ],
+            "text": "إذا ما تعرفها...\n*إنت تلعب بالعمى.*",
+            "textClass": "t-hook-s"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "افحص قلبك\nمن البيت:",
+            "rows": [
+              {
+                "icon": "ecg",
+                "text": "تخطيط قلب بالبيت."
+              },
+              {
+                "icon": "tubes",
+                "text": "تحاليل دهون ودم بالبيت."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "طبيب مختص يقرأ النتائج\nوياك، بخصوصية."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«آني رياضي، قلبي قوي.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "31-sat31-hormones-manhood-carousel",
+      "when": "Sat 31 Oct 8:30 PM feed carousel, 8 infographic slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · manhood: NHS (reduced sperm count, infertility, shrunken testicles, erectile dysfunction, breast development); FDA (male infertility, hypogonadotropic hypogonadism); PubMed study of 60 Baghdad bodybuilders, 30 users vs 30 non-users (Steroids 2024): lower testosterone and FSH, higher prolactin and ALT in users; Rasmussen et al., PLoS One 2016: 27% of former users still had testosterone below the reference range a mean 2.5 years after stopping; PubMed reviews: sperm can take months, sometimes more than a year, to return · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "hookPop": true,
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "الإبرة تكبّر العضلة...\n*وتصغّر الخصية.*",
+            "small": "وهذا مو كلشي.",
+            "swipe": true
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "جسمك يشوف\nهرمون من برّه...\n*فيوگف يصنع هرمونه.*",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "بالرجولة، الهرمونات ممكن تسبب:",
+            "items": [
+              "ضمور الخصيتين",
+              "قلة النطف أو انعدامها",
+              "عقم",
+              "ضعف انتصاب",
+              "تكبّر الصدر"
+            ],
+            "small": "والعضلة الكبيرة *ما تعوّض هذا.*",
+            "signed": "المصدر: الخدمة الصحية البريطانية (NHS)"
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "لاعبين ببغداد يستخدمون هرمونات",
+            "rows": [
+              {
+                "label": "هرمون الذكورة",
+                "value": "أوطأ"
+              },
+              {
+                "label": "هرمون FSH",
+                "value": "أوطأ"
+              },
+              {
+                "label": "البرولاكتين",
+                "value": "أعلى"
+              },
+              {
+                "label": "إنزيم الكبد ALT",
+                "value": "أعلى"
+              }
+            ],
+            "text": "مقارنة بلاعبين\n*ما يستخدمون.*",
+            "textClass": "t-hook-s",
+            "source": "المصدر: دراسة على ٦٠ لاعب ببغداد، مجلة Steroids ٢٠٢٤ (PubMed)"
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "من كل ١٠٠ رجّال وگف الهرمونات\nمن سنتين ونص بالمعدل:",
+            "total": 100,
+            "cols": 20,
+            "mark": 27,
+            "rowH": 72,
+            "text": "*٢٧* منهم\nبعده هرمونهم واطي.",
+            "source": "المصدر: Rasmussen وآخرون، ٢٠١٦ (PubMed)"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "وبعد الإيقاف،\nالنطف ممكن تحتاج\n*أشهر حتى ترجع،*\nوأحياناً أكثر من سنة.",
+            "top": 330
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "افحص\nقبل لا تتأخر:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "طبيب غدد يقيّم هرموناتك."
+              },
+              {
+                "icon": "tubes",
+                "text": "تحليل هرمونات بالبيت."
+              },
+              {
+                "icon": "chat",
+                "text": "ناوي تتزوج أو تنجب؟\nگوله من أول زيارة."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«بعد الكورس كلشي يرجع.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "32-mon02-hormones-stopping-carousel",
+      "when": "Mon 2 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · stopping, suddenly or with a do-it-yourself taper: FDA 2016 labelling (withdrawal symptoms lasting weeks or months: depressed mood, fatigue, irritability, insomnia, loss of appetite, decreased libido, hypogonadotropic hypogonadism); NHS (withdrawal symptoms if you suddenly stop); Anawalt, J Clin Endocrinol Metab 2019 (PubMed): the doctor chooses among supervised ways to stop and treats depression and anxiety · the post gives no taper, no PCT and no drug names · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "hookPop": true,
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "توگفها فجأة؟\n*جسمك ما يرجع فجأة.*",
+            "small": "الإيقاف قرار صح. بس مو وحدك.",
+            "swipe": true
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "جسمك طفّى\nمصنع هرمونه...\nومن توگف، يبقى فترة\n*بلا هرمون كافي.*",
+            "top": 320
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "أعراض الإيقاف\nتدوم أسابيع أو أشهر:",
+            "items": [
+              "اكتئاب",
+              "تعب وخمول",
+              "عصبية",
+              "قلة نوم وشهية",
+              "ضعف الرغبة الجنسية"
+            ],
+            "small": "وهنا كثير يرجعون للإبرة... *والدائرة تبدي.*",
+            "signed": "المصدر: إدارة الغذاء والدواء الأمريكية (FDA)"
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "تنزيل الجرعة،\nوأدوية ما بعد الكورس...\n*مو وصفة من النت.*\nالطبيب يقرر بتحاليلك.",
+            "top": 320
+          },
+          {
+            "type": "compare",
+            "bg": "navy",
+            "title": "نفس الكورس.\nنهاية غير.",
+            "yes": {
+              "title": "ويا طبيب:",
+              "items": [
+                "فحوصات قبل وبعد",
+                "خطة تناسبه",
+                "متابعة للمزاج"
+              ]
+            },
+            "no": {
+              "title": "بلا طبيب:",
+              "items": [
+                "يجرب على نفسه",
+                "أدوية بلا وصفة",
+                "أعراض بلا تفسير"
+              ]
+            },
+            "text": "الفرق؟ *طبيب يتابعك.*"
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "قبل وبعد الإيقاف، الطبيب يشوف:",
+            "rows": [
+              {
+                "label": "هرمون الذكورة",
+                "value": "؟"
+              },
+              {
+                "label": "LH / FSH",
+                "value": "؟"
+              },
+              {
+                "label": "الهيموگلوبين",
+                "value": "؟"
+              },
+              {
+                "label": "الدهون والكبد",
+                "value": "؟"
+              }
+            ],
+            "text": "الأرقام تگول\n*شوكت وشلون.*",
+            "textClass": "t-hook-s"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "وگفها ويانا:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "طبيب غدد يرتب الإيقاف."
+              },
+              {
+                "icon": "tubes",
+                "text": "تحاليل بالبيت قبل وبعد."
+              },
+              {
+                "icon": "brain",
+                "text": "طبيب نفسي إذا المزاج نزل."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«أوگفها مرة وحدة وخلصت.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "33-wed04-hormones-mind-carousel",
+      "when": "Wed 4 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · the mind: NHS (aggressive behaviour, mood swings, paranoia, manic behaviour, hallucinations and delusions; steroids are addictive: craving, needing more, withdrawal); Kanayama et al., Addiction 2009 (PubMed): about 30% of users develop dependence (197 of 653 across 8 studies); meta-analysis of experimental studies (PubMed): steroid administration raised self-reported aggression in healthy men; Anawalt 2019: severe depression and suicidality during withdrawal, treated with medicine and therapy · slide 6 follows safe-messaging practice: no method, no detail, a route to help · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "hookPop": true,
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "العصبية اللي صارت بيك...\n*مو بس ضغط شغل.*",
+            "small": "الهرمونات تلعب بالراس هم.",
+            "swipe": true
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "الهرمونات ممكن تسبب:",
+            "items": [
+              "عدوانية وعصبية",
+              "تقلّب مزاج",
+              "شك بالناس",
+              "هوس، وأحياناً هلاوس"
+            ],
+            "small": "وأهلك يحسون بيها *قبلك.*",
+            "signed": "المصدر: الخدمة الصحية البريطانية (NHS)"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "حتى بالتجارب العلمية،\nالهرمونات *زادت العدوانية*\nعند رجال أصحاء.",
+            "top": 360
+          },
+          {
+            "type": "pictogram",
+            "bg": "white",
+            "title": "من كل ١٠ يستخدمون هرمونات:",
+            "total": 10,
+            "cols": 10,
+            "mark": 3,
+            "scale": 1.6,
+            "text": "*٣* يصير عندهم\nإدمان عليها.",
+            "source": "المصدر: Kanayama وآخرون، مجلة Addiction ٢٠٠٩ (PubMed)"
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "علامات الإدمان:",
+            "items": [
+              "تحتاج جرعة أكبر لنفس النتيجة",
+              "ما تگدر توگف رغم الأضرار",
+              "أعراض قوية من توگف"
+            ],
+            "small": "وهذا مرض يتعالج، *مو ضعف.*",
+            "signed": "المصدر: الخدمة الصحية البريطانية (NHS)، ودراسة Kanayama وآخرين (PubMed)"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "الاكتئاب بعد الإيقاف\nممكن يوصل لأفكار\nبأذية النفس.\nإذا وصلت هنا،\n*لا تبقى وحدك.*",
+            "top": 290
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "الراس\nهم يتعالج:",
+            "rows": [
+              {
+                "icon": "brain",
+                "text": "طبيب نفسي، بخصوصية."
+              },
+              {
+                "icon": "chat",
+                "text": "علاج نفسي أو دوائي\nحسب حالتك."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "ويا متابعة طبيب الغدد."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لصديقك اللي تغيّر، وگله:",
+            "cta": "*«آني وياك.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "34-fri06-hormones-chest-carousel",
+      "when": "Fri 6 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · gynaecomastia and general surgery: NHS (anabolic steroids cause gynaecomastia through the testosterone–oestrogen balance; see a doctor for a lump, pain, nipple discharge or skin changes; stopping the cause, prescribed tablets, and surgery in selected cases) · a lump in a man's chest is not always gynaecomastia, so a doctor sees it (male breast cancer is rare: the Pink October post of 24 Oct) · TabeebX does no breast ultrasound · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "hookPop": true,
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "الهرمون اللي أخذته\nللعضلة...\n*ممكن يكبّر صدرك.*",
+            "small": "اسمها: التثدي.",
+            "swipe": true
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "بعض الهرمونات\nيتحول جزء منها\nلهرمون أنثوي...\n*وهذا يكبّر نسيج الصدر.*",
+            "top": 310
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "راجع طبيب إذا لاحظت:",
+            "items": [
+              "كتلة أو تورّم تحت الحلمة",
+              "ألم أو حساسية بالصدر",
+              "إفرازات من الحلمة",
+              "تغيّر بجلد الصدر"
+            ],
+            "small": "ومو دايماً شحم *يروح بالتمرين.*",
+            "signed": "المصدر: الخدمة الصحية البريطانية (NHS)"
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "مو كل كتلة\nبصدر الرجّال تثدي.\n*الطبيب لازم يشوفها.*",
+            "top": 380
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "العلاج حسب الحالة:",
+            "items": [
+              "إيقاف السبب، ويا متابعة",
+              "أدوية بوصفة طبيب",
+              "وأحياناً عملية"
+            ],
+            "small": "والقرار *للطبيب،* مو للجيم.",
+            "signed": "المصدر: الخدمة الصحية البريطانية (NHS)"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "الجرّاح يشيل النسيج...\nوطبيب الغدد\n*يعالج السبب.*",
+            "top": 380
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "صدرك\nبإيد مختص:",
+            "rows": [
+              {
+                "icon": "scalpel",
+                "text": "طبيب جراحة عامة يقيّم الصدر."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "طبيب غدد يعالج السبب."
+              },
+              {
+                "icon": "tubes",
+                "text": "تحاليل هرمونات بالبيت."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«هذا شحم، يروح بالتمرين.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "35-sun08-hormones-tendons-carousel",
+      "when": "Sun 8 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · tendons and bones, orthopaedics: Kanayama et al., Am J Sports Med 2015 (PubMed): of 142 male bodybuilders, 22% of long-term steroid users vs 6% of non-users reported a tendon rupture, and upper-body ruptures occurred only among users; pectoralis major, distal biceps and triceps ruptures are the ones described in strength athletes; NHS: in teenagers before their growth spurt, steroids can cause premature ageing of the bones and restricted growth · home physiotherapy is a TabeebX service · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "hookPop": true,
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "العضلة تكبر بسرعة...\n*والوتر ما يلحگ.*",
+            "small": "والنتيجة؟ وتر مگطوع.",
+            "swipe": true
+          },
+          {
+            "type": "bars",
+            "bg": "white",
+            "title": "من كل ١٠٠ لاعب كمال أجسام،\nكم واحد انگطع عنده وتر؟",
+            "rows": [
+              {
+                "label": "ما يستخدمون هرمونات",
+                "value": 6
+              },
+              {
+                "label": "يستخدمون من سنين",
+                "value": 22
+              }
+            ],
+            "rowH": 170,
+            "text": "وتمزقات الجزء العلوي\n*بس عند المستخدمين.*",
+            "source": "المصدر: Kanayama وآخرون، ٢٠١٥ (PubMed)"
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "أكثر الأوتار اللي تنگطع:",
+            "items": [
+              "وتر عضلة الصدر",
+              "وتر البايسبس",
+              "وتر الترايسبس"
+            ],
+            "signed": "المصدر: دراسات منشورة على PubMed"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "تمزّق الوتر\nممكن يحتاج عملية،\nوشهور حتى ترجع\n*للحديد.*",
+            "top": 330
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "وإذا عمرك تحت العشرين؟\nالهرمونات ممكن\n*توگف طولك.*",
+            "top": 380
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "ألم مفاجئ\nويا صوت طگة؟\n*لا تكمل التمرين،*\nوراجع طبيب عظام.",
+            "top": 330
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "عضلاتك تحتاج\nأوتار سليمة:",
+            "rows": [
+              {
+                "icon": "bone",
+                "text": "طبيب عظام يفحص الإصابة."
+              },
+              {
+                "icon": "physio",
+                "text": "علاج طبيعي بالبيت."
+              },
+              {
+                "icon": "tubes",
+                "text": "تحاليل الهرمونات\nحتى تعرف السبب."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«هذا بس شد عضلي.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "36-tue10-hormones-peptides-carousel",
+      "when": "Tue 10 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · peptides, growth hormone and SARMs: FDA placed BPC-157, TB-500 (thymosin beta-4 fragment) and CJC-1295 in category 2 of bulk substances for compounding, \"may present significant safety risks\": risk of an immune reaction, peptide impurities that are hard to detect, too little safety information for humans, and for CJC-1295 serious adverse events including a raised heart rate; FDA on SARMs: unapproved drugs sold as supplements, liver injury up to acute liver failure, heart attack and stroke, psychosis and hallucinations, sleep problems, sexual problems, infertility and testicular shrinkage; PubMed reviews on growth hormone misuse: diabetes, fluid retention, joint and muscle pain, carpal tunnel syndrome, high blood pressure · no peptide is named on the slides · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "hookPop": true,
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "مكتوب عليه\n«للبحث فقط»...\n*وإنت تزرقه بجسمك؟*",
+            "small": "الببتيدات، هرمون النمو، والسارمز.",
+            "swipe": true
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "الـFDA حطّت ببتيدات\nمشهورة بالجيم\nبقائمة *«خطر محتمل»...*\nوما عدها بيانات أمان\nكافية للبشر.",
+            "top": 280
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "ليش الببتيدات خطرة؟",
+            "items": [
+              "الجسم ممكن يعمل مناعة ضدها",
+              "شوائب صعب تنكشف",
+              "مصدر وجرعة ما معروفة",
+              "وبعضها سرّع ضربات القلب"
+            ],
+            "small": "وإبرة بلا طبيب... *مو تجربة آمنة.*",
+            "signed": "المصدر: إدارة الغذاء والدواء الأمريكية (FDA)"
+          },
+          {
+            "type": "statement",
+            "bg": "white",
+            "text": "السارمز تنباع\nكمكمل غذائي...\nبس هي أدوية\n*ما معتمدة.*",
+            "top": 330
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "السارمز، حسب الـFDA:",
+            "items": [
+              "أذى بالكبد، وصل لفشل كبدي",
+              "خطر جلطة قلبية ودماغية",
+              "ضمور الخصيتين وعقم",
+              "هلاوس وأرق"
+            ],
+            "small": "وناس رقدوا بالمستشفى *بسببها.*",
+            "signed": "المصدر: إدارة الغذاء والدواء الأمريكية (FDA)"
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "هرمون النمو بلا طبيب\nممكن يسبب:",
+            "items": [
+              "سكري",
+              "احتباس سوائل وضغط عالي",
+              "آلام مفاصل وعضلات",
+              "تنميل وألم باليد"
+            ],
+            "small": "وبعض أضراره *ما ترجع.*",
+            "signed": "المصدر: مراجعات منشورة على PubMed"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "قبل الإبرة\nالجاية:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "طبيب غدد يقيّم اللي أخذته."
+              },
+              {
+                "icon": "tubes",
+                "text": "تحاليل كبد وسكر\nوهرمونات بالبيت."
+              },
+              {
+                "icon": "kit",
+                "text": "جيب العلبة ويّاك للطبيب."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«هذا ببتيد، مو هرمون.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "37-thu12-hormones-liver-kidney-carousel",
+      "when": "Thu 12 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · the liver and the kidneys: most steroid tablets are 17-alpha-alkylated so they survive the liver, which raises their liver toxicity: cholestasis and jaundice, peliosis hepatis, liver tumours (PubMed reviews, e.g. AAS-induced liver injury: an update, 2022); injectables have caused cholestatic hepatitis too; symptoms are jaundice, itching, dark urine, nausea and fatigue, and the cholestasis can last months after stopping; FDA 2016 labelling and NHS (liver or kidney problems or failure); Herlitz et al., JASN 2010 (PubMed 19917783): focal segmental glomerulosclerosis in 10 bodybuilders using steroids, and the 7 who stopped stabilised or improved while one who resumed relapsed; Iraqi Kurdistan 2011–2019 (BMC Nephrology 2020, PubMed 32375656): 26% of about 25,000 regular gym-goers reported steroid use, and injecting veterinary vitamin D for muscle shape carried a high risk of end-stage kidney disease · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "hookPop": true,
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "الكبد ما يشتكي...\n*لحد ما يصفر وجهك.*",
+            "small": "والكلى هم تدفع الثمن.",
+            "swipe": true
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "أغلب الحبوب الهرمونية\nمصنوعة حتى تعبر الكبد...\n*وهنا تأذيه.*",
+            "top": 360
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "بالكبد، ممكن تسبب:",
+            "items": [
+              "يرقان: اصفرار الجلد والعيون",
+              "ركود الصفراء بالكبد",
+              "تجمعات دم بالكبد",
+              "أورام بالكبد"
+            ],
+            "small": "والإبر هم *مو بريئة.*",
+            "signed": "المصدر: مراجعات منشورة على PubMed"
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "راجع طبيب فوراً:",
+            "items": [
+              "اصفرار العيون أو الجلد",
+              "بول غامق",
+              "حكة بكل الجسم",
+              "غثيان وتعب"
+            ],
+            "small": "وحتى بعد الإيقاف، *ممكن تدوم أشهر.*",
+            "signed": "المصدر: مراجعات منشورة على PubMed"
+          },
+          {
+            "type": "statement",
+            "bg": "navy",
+            "text": "والكلى؟\nالهرمونات ارتبطت\nبتلف *مصافي الكلى*\nعند لاعبين كمال أجسام.",
+            "top": 300
+          },
+          {
+            "type": "report",
+            "bg": "white",
+            "title": "إقليم كردستان، ٢٠١١–٢٠١٩",
+            "rows": [
+              {
+                "label": "لاعبين منتظمين بالجيم",
+                "value": "٢٥ ألف"
+              },
+              {
+                "label": "گالوا يستخدمون هرمونات",
+                "value": "٢٦ من ١٠٠"
+              }
+            ],
+            "text": "وإبر فيتامين د البيطري للعضلة...\n*خطر فشل كلوي.*",
+            "source": "المصدر: دراسة بإقليم كردستان، ٢٠٢٠ (PubMed)"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "افحص كبدك\nوكلاك:",
+            "rows": [
+              {
+                "icon": "tubes",
+                "text": "تحاليل كبد وكلى بالبيت."
+              },
+              {
+                "icon": "pulse",
+                "text": "ضغطك يتقاس بالبيت هم."
+              },
+              {
+                "icon": "stethoscope",
+                "text": "طبيب باطنية يقرأ\nالنتائج وياك."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«آني آخذ حبوب بس، مو إبر.»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "38-sat14-hormones-myths-carousel",
+      "when": "Sat 14 Nov 8:30 PM feed carousel, 8 slides · series «هرمونات بلا طبيب» (hormones without a doctor), written to men · closes the series with five gym beliefs checked: tablets are linked most with liver injury and injectables have harms too (PubMed); WHO Task Force on Methods for the Regulation of Male Fertility, Lancet 1990: testosterone given weekly as a male contraceptive stopped sperm completely in 157 of 271 men (65%) within 6 months (no dose on the slides); FDA category 2 peptides; NHS: sharing a needle even once can pass on hepatitis C, and anyone who ever shared should be tested; a doctor can plan the stop and follow hormones and mood (Anawalt, J Clin Endocrinol Metab 2019) · no doses, no cycle, taper or post-cycle protocol, no product named as better or safer: the post sends him to a doctor, it never tells him how to use or stop · stopping is presented as the right decision, made with a doctor · the offer is a consult with the right specialist (endocrinology, general surgery, orthopaedics, psychiatry), home blood tests and a home ECG; no home breast ultrasound and no semen test promised · sources are the FDA, the NHS and PubMed only · final: the last slide carries no reviewer line, since no name was given",
+      "template": "carousel",
+      "params": {
+        "hookPop": true,
+        "series": "هرمونات بلا طبيب",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "صح لو غلط؟\n*٥ أفكار*\nبكل جيم.",
+            "small": "كلها نسمعها بين الأجهزة.",
+            "swipe": true
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "١. الحبوب أخف\nمن الإبر.",
+            "explain": "الحبوب أكثر شي مرتبطة بأذى الكبد. والإبر هم إلها أضرارها.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٢. الكورس الخفيف\nما يأثر.",
+            "explain": "منظمة الصحة العالمية جربت التستوستيرون كمانع حمل للرجال: ٦٥ من ١٠٠ انعدمت نطفهم خلال ٦ أشهر.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٣. الببتيد مو هرمون،\nفما بيه خطر.",
+            "explain": "الـFDA حطّت ببتيدات مشهورة بقائمة «خطر محتمل»، وما عدها بيانات أمان كافية للبشر.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٤. مشاركة الإبرة\nمرة وحدة ما تضر.",
+            "explain": "مرة وحدة تكفي تنقل التهاب الكبد. واللي شارك ولو مرة، لازم يفحص.",
+            "stamp": "غلط"
+          },
+          {
+            "type": "myth",
+            "bg": "white",
+            "claim": "٥. الطبيب يگدر\nيساعدك توگف.",
+            "explain": "يرتب الإيقاف حسب تحاليلك، ويتابع هرموناتك ومزاجك.",
+            "stamp": "صح"
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "الصح هو:",
+            "rows": [
+              {
+                "icon": "stethoscope",
+                "text": "احچي ويا طبيب، بخصوصية."
+              },
+              {
+                "icon": "tubes",
+                "text": "افحص قبل وبعد، بالبيت."
+              },
+              {
+                "icon": "chat",
+                "text": "لا توگف وحدك،\nولا تكمل وحدك."
+              }
+            ]
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "دزها لكل واحد يگول:",
+            "cta": "*«كلهم ياخذون، ليش آني لا؟»*",
+            "ctaTop": 410,
+            "body": "رابط الواتساب بالبايو.",
+            "bodyTop": 620,
+            "closing": "لا تصدگنا. شوف بعينك."
+          }
+        ]
+      }
+    },
+    {
+      "id": "97-pink-october-wordmark",
+      "when": "Any time in October · «أكتوبر الوردي» lettering in Cairo Black with the ribbon, three colours (pink, white, navy). Render with --alpha for transparent PNGs to lay over photos, stories and slides",
+      "template": "wordmark",
+      "params": {
+        "text": "أكتوبر الوردي",
+        "icon": "ribbon",
+        "colors": [
+          "#EE396B",
+          "#FFFEFF",
+          "#181943"
+        ]
+      }
+    },
+    {
       "id": "10-nov01-scorecard-template",
       "when": "Sun 1 Nov and every first Sunday · replace the sample numbers with the month's real results, misses included",
       "template": "scorecard",
@@ -634,6 +3799,187 @@
           {
             "name": "لأهلك",
             "icon": "family"
+          }
+        ]
+      }
+    },
+    {
+      "id": "92-tabeebx-brand-film",
+      "when": "Evergreen brand film, 33 s: the pink dot, the door, the services, the logo reveal. No faces, no names. Also render with --alpha for a transparent version",
+      "template": "brand-film",
+      "params": {
+        "hook": "منو بالباب؟",
+        "answer": "طبيبك.",
+        "title": "والعيادة *كلها* وياه.",
+        "services": [
+          { "icon": "stethoscope", "text": "طبيب اختصاص" },
+          { "icon": "syringe", "text": "تمريض" },
+          { "icon": "tubes", "text": "تحاليل" },
+          { "icon": "ultrasound", "text": "سونار" },
+          { "icon": "xray", "text": "أشعة" },
+          { "icon": "ecg", "text": "تخطيط قلب" },
+          { "icon": "physio", "text": "علاج طبيعي" }
+        ],
+        "where": "ببيتك، ببغداد.",
+        "pains": ["سرة العيادة.", "زحمة الطريق.", "صالة الانتظار."],
+        "relief": "بس *راحة بال.*",
+        "ask": "دزلنا رسالة...",
+        "arrive": "ونوصل *لبابك.*",
+        "cta": "رابط الواتساب بالبايو",
+        "tagline": "لا تصدگنا. شوف بعينك."
+      }
+    },
+    {
+      "id": "93-tabeebx-film-3d",
+      "when": "Evergreen brand film in 3D, 30.5 s: night, the doorbell, the door opening onto light, the services, the logo built in 3D. No faces, no names",
+      "template": "brand-film-3d",
+      "params": {
+        "hook": "منو بالباب؟",
+        "answer": "طبيبك.",
+        "title": "والعيادة *كلها* وياه.",
+        "services": [
+          { "icon": "stethoscope", "text": "طبيب اختصاص" },
+          { "icon": "syringe", "text": "تمريض" },
+          { "icon": "tubes", "text": "تحاليل" },
+          { "icon": "ultrasound", "text": "سونار" },
+          { "icon": "xray", "text": "أشعة" },
+          { "icon": "ecg", "text": "تخطيط قلب" },
+          { "icon": "physio", "text": "علاج طبيعي" }
+        ],
+        "where": "ببيتك، ببغداد.",
+        "relief": "بس *راحة بال.*",
+        "tagline": "لا تصدگنا. شوف بعينك."
+      }
+    },
+    {
+      "id": "93a-tabeebx-logo-3d",
+      "when": "The 3D logo build from 93 on its own, 10.9 s, for laying over footage. Render with --alpha",
+      "extends": "93-tabeebx-film-3d",
+      "range": [19.6, 30.5]
+    },
+    {
+      "id": "94-knee-prp-3d",
+      "when": "3D explainer, 47.5 s: inside the knee, why weight matters, the treatment ladder, PRP step by step, the team at home. Script and voice-over: content/scripts/94-knee-from-inside.md. No faces, no names",
+      "template": "knee-3d",
+      "params": {
+        "hook": "ركبتك تطگ؟",
+        "cartilage": "هذا الغضروف.",
+        "cartilageSub": "وسادة بين عظمتين.",
+        "wear": "ويا الوقت... يخف.",
+        "wearSub": "احتكاك، التهاب، تيبّس.",
+        "weight": "كيلو زايد بجسمك...",
+        "weightX": "= *٤ كيلو* على ركبتك.",
+        "weightSub": "بكل خطوة، تقريباً.",
+        "kilo": "١ كغم",
+        "ladder": "العلاج درجات.",
+        "steps": [
+          { "n": "١", "title": "تغييرات يومية", "sub": "وزن، درج، عكازة" },
+          { "n": "٢", "title": "علاج طبيعي", "sub": "عضلة الفخذ تشيل الحمل" },
+          { "n": "٣", "title": "إبر المفصل", "sub": "اللزوجة والبلازما" },
+          { "n": "٤", "title": "الجراحة", "sub": "آخر حل" }
+        ],
+        "prp": "إبرة البلازما PRP",
+        "prpSub": "من دمك... لركبتك.",
+        "sonar": "بتوجيه السونار.",
+        "prpNote": "النتيجة تدريجية، وتختلف من حالة لحالة.",
+        "home": "فريق كامل... *ببيتك.*",
+        "team": [
+          { "icon": "stethoscope", "text": "طبيب اختصاص" },
+          { "icon": "ultrasound", "text": "طبيب سونار" },
+          { "icon": "tubes", "text": "مختبري" }
+        ],
+        "tagline": "لا تصدگنا. شوف بعينك.",
+        "note": "للتوعية. العلاج يحدده الطبيب بعد الفحص."
+      }
+    },
+    {
+      "id": "95-what-is-tabeebx-3d",
+      "when": "Video 1 of the scripts, in 3D, 44 s: «شنو هو طبيب اكس؟» answered in three words, نسمعك · نجيك · نفحصك, around a Baghdadi house at night. Script and voice-over: content/scripts/95-what-is-tabeebx.md. No faces, no names",
+      "template": "intro-3d",
+      "params": {
+        "hook": "شنو هو طبيب اكس؟",
+        "hookSub": "بثلاث كلمات...",
+        "words": [
+          { "icon": "chat", "text": "نسمعك" },
+          { "icon": "home", "text": "نجيك" },
+          { "icon": "tubes", "text": "نفحصك" }
+        ],
+        "listen": "*نسمعك.*",
+        "listenSub": "استشارة طبية، بأي اختصاص.",
+        "specialties": ["باطنية", "أطفال", "نسائية", "قلبية", "عظام", "جلدية", "أعصاب", "أنف وأذن"],
+        "come": "*نجيك.*",
+        "comeSub": "زيارة منزلية، بنوعين:",
+        "vip": "*VIP:* من ساعتين لأربع ساعات.",
+        "regular": "~اعتيادية:~ خلال ١٢ لـ ٢٤ ساعة.",
+        "test": "*نفحصك.*",
+        "testSub": "تحاليل بالبيت، بحزم لكل العائلة.",
+        "packages": ["للنساء", "للحوامل", "للأطفال", "لكبار السن", "للأمراض المزمنة"],
+        "count": 631,
+        "countLabel": "تحليل",
+        "resultCard": "نتيجة التحليل",
+        "phoneTitle": "طبيب اكس",
+        "phoneNote": "إذا تحتاج، الطبيب يتصل بيك ويشرحها.",
+        "result": "النتيجة توصلك... ووياها استشارة إذا تحتاج.",
+        "recap": "كل هذا، *وأنت ببيتك.*",
+        "tagline": "لا تصدگنا. شوف بعينك."
+      }
+    },
+    {
+      "id": "96-tabeebx-characters",
+      "when": "Choice sheet for the TabeebX cast: 3 men and 3 women in 3D, to pick one of each for every future film. Real-looking stock 3D people from src/cast.js, never real staff or patients",
+      "template": "characters-3d",
+      "params": {
+        "title": "شخصيات *طبيب اكس*",
+        "men": "الرجال: اختار واحد",
+        "women": "النساء: اختار وحدة",
+        "cast": [
+          {
+            "key": "hakeem",
+            "name": "حكيم",
+            "latin": "HAKEEM",
+            "chip": "رقم ١ من الرجال",
+            "role": "طبيب اختصاص",
+            "about": "هادئ ويسمعك للآخر. يشرحلك حالتك بكلام بسيط، بدون مصطلحات تخوّف."
+          },
+          {
+            "key": "ameen",
+            "name": "أمين",
+            "latin": "AMEEN",
+            "chip": "رقم ٢ من الرجال",
+            "role": "طبيب الزيارات المنزلية",
+            "about": "يوصل لباب بيتك بشنطة طبيب اكس. مرتب، مبتسم، ويحترم بيتك وأهلك."
+          },
+          {
+            "key": "salem",
+            "name": "سالم",
+            "latin": "SALEM",
+            "chip": "رقم ٣ من الرجال",
+            "role": "طبيب الخبرة",
+            "about": "خبرة سنين وصبر أكثر. كبار السن يرتاحون وياه من أول سلام."
+          },
+          {
+            "key": "noor",
+            "name": "نور",
+            "latin": "NOOR",
+            "chip": "رقم ١ من النساء",
+            "role": "طبيبة الاستشارات",
+            "about": "دقيقة وحنونة. تتابع كل تفصيل بحالتك، وتطمّنك قبل لا تسأل."
+          },
+          {
+            "key": "amal",
+            "name": "أمل",
+            "latin": "AMAL",
+            "chip": "رقم ٢ من النساء",
+            "role": "ممرضة المتابعة",
+            "about": "تتصل بيك بعد الزيارة وتسأل عليك. المتابعة عدها عادة، مو واجب."
+          },
+          {
+            "key": "sara",
+            "name": "سارة",
+            "latin": "SARA",
+            "chip": "رقم ٣ من النساء",
+            "role": "أخصائية التحاليل",
+            "about": "تسحب العينة بخفة إيد، والنتيجة توصلك واضحة على موبايلك."
           }
         ]
       }
