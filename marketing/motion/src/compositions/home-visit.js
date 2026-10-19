@@ -5,7 +5,7 @@
  * that stretch with two AI-generated stills instead, in the same card layout:
  *
  *   knock  a technician in navy scrubs, seen from behind, knocks at a steel door
- *          with a navy kit bag hanging from his hand; the TabeebX logo, in its
+ *          with a navy kit bag hanging from his hand, shot straight from behind; the TabeebX logo, in its
  *          official colours, is printed into the back of the scrubs and onto the
  *          bag in code (scripts/embed-logo.mjs), shaded by the cloth's own folds
  *          and light (an image generator can't draw our logo)
@@ -45,10 +45,10 @@
 
   // Camera: card px per photo px, and the photo point that sits at the card centre.
   const SHOT = {
-    knock: { from: { cx: 540, cy: 965, z: 0.722 }, to: { cx: 525, cy: 945, z: 0.76 } },
+    knock: { from: { cx: 540, cy: 775, z: 0.722 }, to: { cx: 540, cy: 765, z: 0.745 } },
     hands: { from: { cx: 540, cy: 1100, z: 0.722 }, to: { cx: 525, cy: 1030, z: 0.82 } },
   };
-  const FIST = [812, 445]; // knuckles on the door, in knock.jpg pixels
+  const FIST = [820, 414]; // knuckles on the door, in knock.jpg pixels
   /** Builds one photo layer sized like the photo (1080×1920), moved by a camera. */
   function photoLayer(parent, src) {
     const box = el('div', 'abs', parent);
