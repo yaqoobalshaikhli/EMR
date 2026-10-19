@@ -223,16 +223,27 @@ and puts the bag, the phone or the sample kit in the hand. The faces are stock
 `96` renders the choice sheet in about 20 s.
 
 `04-home-lab-visit-beat` (`src/compositions/home-visit.js`) is a stretch of the
-Home Lab Packages Reel, not a whole video: seconds 3.65–9.85 of the 34.3 s reel,
-where a flat illustration of a home visit gave way to two AI-generated stills in
-the same card layout: a technician in navy scrubs knocking at a steel door with the
-kit bag, and a hands-only home blood draw. The TabeebX lockup is composited onto
-the bag and the back of the scrubs in perspective (an image generator can't draw
-our logo). The background is a clean frame of the reel itself (`plate`), with the
-reel's floating logo lifted out as its own layer (`logo`) so both cuts line up.
-Render the stretch with `--from 3.65 --to 9.85 --suffix segment` and the whole
-soundtrack (score, knocks, ticks, doorbell on the call to action) with `--audio`,
-then lay the stretch over the reel with a 0.15 s fade in and a 0.10 s fade out and
-mux the soundtrack. The stills, the plate and the logo sprite live in
-`assets/shots/`, which is kept out of git: without them the job renders with a
-DRAFT stamp.
+Home Lab Packages Reel, not a whole video: seconds 3.65–9.95 of the reel, where a flat
+illustration of a home visit gave way to two AI-generated stills in the same card layout:
+a technician in plain navy scrubs knocking at a steel door with a navy kit bag, and a
+hands-only home blood draw. An image generator can't draw our logo, so
+`scripts/embed-logo.mjs` prints it into the knock photo in code: the official-colour
+lockup (wordmark reversed to white) is warped onto the back of the scrubs and onto the
+bag through a homography, and the cloth's own luminance shapes it (fold shade, a small
+displacement along the folds, the weave showing through, uneven ink, less light in
+shade). Where it goes is in `content/home-visit-prints.json`:
+
+```bash
+node scripts/embed-logo.mjs assets/shots/knock_plain.png assets/shots/knock.jpg
+node scripts/render.mjs 04-home-lab --from 3.65 --to 9.95 --suffix segment
+node scripts/render.mjs 04-home-lab --audio          # score, knocks, ticks, doorbell
+scripts/splice-home-lab-reel.sh REEL.mp4 PACKAGES.mp4 out/04-…-segment.mp4 out/04-….wav OUT.mp4
+```
+
+The background is a clean frame of the reel itself (`plate`), with the reel's floating logo
+lifted out as its own layer (`logo`) so each cut lines up. The splice script keeps the
+testimonials and the call to action of one reel, takes the packages block (one card per
+package, text underneath) from another, and lays the new stretch between them with 0.1–0.15 s
+fades at moments where the layers show the same background and logo. The stills, the plate
+and the logo sprite live in `assets/shots/`, which is kept out of git: without them the job
+renders with a DRAFT stamp.

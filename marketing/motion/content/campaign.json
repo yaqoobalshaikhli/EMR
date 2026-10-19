@@ -3986,7 +3986,7 @@
     },
     {
       "id": "04-home-lab-visit-beat",
-      "when": "Home Lab Packages Reel · replaces seconds 3.65–9.85 (the flat illustration of a visit) with two AI stills: render --from 3.65 --to 9.85, soundtrack with --audio, then cut into the reel",
+      "when": "Home Lab Packages Reel · replaces seconds 3.65–9.95 (the flat illustration of a visit) with two AI stills; the logo is embedded in code (scripts/embed-logo.mjs). render --from 3.65 --to 9.95 --suffix segment, soundtrack with --audio, then scripts/splice-home-lab-reel.sh",
       "template": "home-visit",
       "params": {
         "title": "نجيك للبيت",
