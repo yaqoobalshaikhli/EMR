@@ -229,7 +229,28 @@ function shimmer() {
   return normalize(b, 0.12);
 }
 
-const SFX = { doorbell, pop, tick, whoosh, blip, thump, impact, riser, shimmer };
+/** A knuckle on a steel door: a dull thud, a short ring of the sheet, a dry click, in a little yard. */
+function knock() {
+  const b = buffer(0.7);
+  const rnd = noise(53);
+  const mono = new Float32Array(b.L.length);
+  let prev = 0;
+  for (let i = 0; i < mono.length; i++) {
+    const t = i / SR;
+    const ph = TAU * (92 * t + 38 * 0.02 * (1 - Math.exp(-t / 0.02)));
+    const thud = (Math.sin(ph) + 0.4 * Math.sin(2 * ph)) * Math.exp(-t / 0.075);
+    const ring = (Math.sin(TAU * 410 * t) * 0.5 + Math.sin(TAU * 733 * t) * 0.32 + Math.sin(TAU * 1187 * t) * 0.18) * Math.exp(-t / 0.05);
+    const n = rnd();
+    const click = (n - prev) * Math.exp(-t / 0.0035);
+    prev = n;
+    mono[i] = (thud * 0.95 + ring * 0.32 + click * 0.45) * Math.min(1, t / 0.0012);
+  }
+  b.L = reverb(mono, 0.16, 0);
+  b.R = reverb(mono, 0.16, 1.9);
+  return normalize(b, 0.55);
+}
+
+const SFX = { doorbell, pop, tick, whoosh, blip, thump, impact, riser, shimmer, knock };
 const cache = {};
 export const sfx = (name) => (cache[name] ||= SFX[name]());
 

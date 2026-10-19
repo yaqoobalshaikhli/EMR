@@ -221,3 +221,18 @@ patch, swaps the hospital ID card on the coats for a TabeebX one, adds a smile,
 and puts the bag, the phone or the sample kit in the hand. The faces are stock
 3D scans of models: never present them as real TabeebX doctors or nurses.
 `96` renders the choice sheet in about 20 s.
+
+`04-home-lab-visit-beat` (`src/compositions/home-visit.js`) is a stretch of the
+Home Lab Packages Reel, not a whole video: seconds 3.65–9.85 of the 34.3 s reel,
+where a flat illustration of a home visit gave way to two AI-generated stills in
+the same card layout: a technician in navy scrubs knocking at a steel door with the
+kit bag, and a hands-only home blood draw. The TabeebX lockup is composited onto
+the bag and the back of the scrubs in perspective (an image generator can't draw
+our logo). The background is a clean frame of the reel itself (`plate`), with the
+reel's floating logo lifted out as its own layer (`logo`) so both cuts line up.
+Render the stretch with `--from 3.65 --to 9.85 --suffix segment` and the whole
+soundtrack (score, knocks, ticks, doorbell on the call to action) with `--audio`,
+then lay the stretch over the reel with a 0.15 s fade in and a 0.10 s fade out and
+mux the soundtrack. The stills, the plate and the logo sprite live in
+`assets/shots/`, which is kept out of git: without them the job renders with a
+DRAFT stamp.

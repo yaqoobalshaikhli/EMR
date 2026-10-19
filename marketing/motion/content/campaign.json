@@ -3983,6 +3983,19 @@
           }
         ]
       }
+    },
+    {
+      "id": "04-home-lab-visit-beat",
+      "when": "Home Lab Packages Reel · replaces seconds 3.65–9.85 (the flat illustration of a visit) with two AI stills: render --from 3.65 --to 9.85, soundtrack with --audio, then cut into the reel",
+      "template": "home-visit",
+      "params": {
+        "title": "نجيك للبيت",
+        "chips": ["نوصل لباب بيتك", "سحب العينة بالبيت"],
+        "plate": "../assets/shots/plate.jpg",
+        "logo": "../assets/shots/logo.png",
+        "knock": { "photo": "../assets/shots/knock.jpg" },
+        "hands": { "photo": "../assets/shots/hands.jpg" }
+      }
     }
   ]
 }

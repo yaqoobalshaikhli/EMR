@@ -4,3 +4,5 @@ out/
 assets/people/
 # Microsoft Rocketbox source avatars (MIT), linked locally for scripts/build-cast.mjs.
 .cast-src
+# AI-generated stills and a plate taken from the published reel: kept local, not committed.
+assets/shots/
