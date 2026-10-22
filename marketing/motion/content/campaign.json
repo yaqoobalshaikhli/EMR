@@ -4016,6 +4016,39 @@
           { "icon": "hair", "title": "صحة الشعر\nوتساقطه", "use": "البحث عن أسباب تساقط الشعر مثل نقص الحديد والفيتامينات والغدة الدرقية" }
         ]
       }
+    },
+    {
+      "id": "06-physio-stories",
+      "when": "Home physiotherapy · three stories (Instagram, TikTok, Facebook), same layout as 05-package-stories: what the session is for. Wording is a draft from standard physiotherapy goals and the approved knee film: confirm with the physiotherapist",
+      "template": "package-story",
+      "params": {
+        "eyebrow": "العلاج الطبيعي بالبيت",
+        "label": "الغرض من الجلسة",
+        "cta": "اكتب «علاج طبيعي» على الواتس اب",
+        "phone": "07802610170",
+        "packages": [
+          { "icon": "knee", "title": "آلام المفاصل\nوالركبة", "use": "تقوية العضلات حول المفصل وتخفيف الألم" },
+          { "icon": "spine", "title": "آلام الظهر\nوالرقبة", "use": "تخفيف الألم وتحسين الحركة والوضعية" },
+          { "icon": "walk", "title": "التأهيل بعد\nالعمليات والكسور", "use": "استعادة الحركة والقوة تدريجياً بعد العملية أو الكسر" }
+        ]
+      }
+    },
+    {
+      "id": "07-nursing-stories",
+      "when": "Home nursing · four stories (Instagram, TikTok, Facebook): the four services on the company's service sheet (injections, cannula, wound dressing, drug-sensitivity tests). No gender of staff and no districts are claimed",
+      "template": "package-story",
+      "params": {
+        "eyebrow": "التمريض بالبيت",
+        "label": "الغرض من الخدمة",
+        "cta": "اكتب «تمريض» على الواتس اب",
+        "phone": "07802610170",
+        "packages": [
+          { "icon": "syringe", "title": "الحقن\nبالبيت", "use": "إعطاء الحقن حسب وصفة الطبيب" },
+          { "icon": "drip", "title": "تركيب\nالكانيولا", "use": "تركيب الكانيولا لإعطاء الأدوية والمحاليل الوريدية" },
+          { "icon": "plaster", "title": "تضميد\nالجروح", "use": "تنظيف الجروح وتغيير الضماد بالبيت" },
+          { "icon": "capsule", "title": "فحص الحساسية\nللأدوية", "use": "التأكد من عدم وجود حساسية قبل إعطاء الدواء" }
+        ]
+      }
     }
   ]
 }

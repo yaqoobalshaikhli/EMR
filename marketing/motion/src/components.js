@@ -55,6 +55,13 @@
     drop: '<path d="M24 5C24 5 10 21 10 30a14 14 0 0 0 28 0C38 21 24 5 24 5z"/><path d="M17 31a7 7 0 0 0 7 7"/>',
     liver: '<path d="M3 22c0-5 5-8 12-9l18-4c7-1 12 3 12 11 0 10-7 18-17 18-6 0-8-5-12-6C8 31 3 28 3 22z"/><path d="M28 11c-1 7 2 12 8 14"/>',
     hair: '<path d="M24 4C18 10 30 15 24 21S30 31 24 35"/><circle cx="24" cy="40" r="4"/><path d="M10 12c-4 5 4 8 0 13s2 7 0 9"/><circle cx="10" cy="39" r="3"/><path d="M38 12c-4 5 4 8 0 13s2 7 0 9"/><circle cx="38" cy="39" r="3"/>',
+    // Physiotherapy and nursing (package-story)
+    knee: '<path d="M16 4l5 17"/><circle cx="24" cy="26" r="6"/><path d="M27 32l6 13"/><path d="M36 15a11 11 0 0 1 3 9"/><path d="M40 11a16 16 0 0 1 3 14"/>',
+    spine: '<rect x="16" y="3" width="16" height="8" rx="4"/><rect x="14" y="14" width="20" height="8" rx="4"/><rect x="14" y="25" width="20" height="8" rx="4"/><rect x="16" y="36" width="16" height="8" rx="4"/>',
+    walk: '<circle cx="21" cy="7" r="4"/><path d="M21 13l-2 13"/><path d="M19 26l-5 15"/><path d="M19 26l9 6-2 11"/><path d="M21 15l9 5"/><path d="M33 17v26"/>',
+    drip: '<path d="M24 2v4"/><rect x="14" y="6" width="20" height="22" rx="5"/><path d="M24 12l-4.5 6.5a4.5 4.5 0 0 0 9 0z"/><path d="M24 28v7c0 3 2 5 5 5h7"/><path d="M36 36l6 4-6 4"/>',
+    plaster: '<path d="M9 31L31 9a6.4 6.4 0 0 1 9 9L18 40a6.4 6.4 0 0 1-9-9z"/><path d="M24 17.5l6.5 6.5-6.5 6.5-6.5-6.5z"/><path d="M13.5 30.5l.1.1M34.5 17.5l.1.1"/>',
+    capsule: '<path d="M11 30L25 10a7 7 0 0 1 11 8L22 38a7 7 0 0 1-11-8z"/><path d="M19 21l10 8"/><path d="M33 38l4 4 8-9"/>',
   };
   TX.icon = (name, color = '#1B9CCE', sw = 3.2) =>
     `<svg viewBox="0 0 48 48" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${(ICONS[name] || ICONS.eye).replace(/class="dot"/g, `fill="${color}" stroke="none"`)}</svg>`;
