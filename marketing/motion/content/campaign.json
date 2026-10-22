@@ -3996,6 +3996,26 @@
         "knock": { "photo": "../assets/shots/knock.jpg" },
         "hands": { "photo": "../assets/shots/hands.jpg" }
       }
+    },
+    {
+      "id": "05-package-stories",
+      "when": "Home Lab Packages · seven stories (Instagram, TikTok, Facebook), one per package: its name and what it is for. 1080×1920, nothing in the top 250 px or the bottom 350 px",
+      "template": "package-story",
+      "params": {
+        "eyebrow": "باقات التحاليل الجديدة",
+        "label": "الغرض من الباقة",
+        "cta": "اكتب «باقة» على الواتس اب",
+        "phone": "07802610170",
+        "packages": [
+          { "icon": "kidney", "title": "مراقبة السكري\nوالكلى", "use": "متابعة مستوى السكر والدهون ووظائف الكلى" },
+          { "icon": "thyroid", "title": "صحة الغدة\nالدرقية", "use": "الكشف عن خلل الغدة الدرقية وتأثيره على الدورة والخصوبة" },
+          { "icon": "venus", "title": "الهرمونات\nالأنثوية", "use": "تقييم الهرمونات لتكيس المبايض وانتظام الدورة" },
+          { "icon": "drop", "title": "فقر الدم\nوصحة الحديد", "use": "الكشف عن نقص الحديد وفقر الدم" },
+          { "icon": "bone", "title": "صحة العظام\nوالمعادن", "use": "تقييم الكالسيوم وفيتامين D وصحة العظام" },
+          { "icon": "liver", "title": "الكبد\nوالالتهاب", "use": "تقييم وظائف الكبد ومؤشر الالتهاب" },
+          { "icon": "hair", "title": "صحة الشعر\nوتساقطه", "use": "البحث عن أسباب تساقط الشعر مثل نقص الحديد والفيتامينات والغدة الدرقية" }
+        ]
+      }
     }
   ]
 }

@@ -48,6 +48,13 @@
     scalpel: '<path d="M5 43l17-17"/><path d="M22 26L40 6c3 7-2 15-13 20z"/>',
     bone: '<path d="M17.5 30.5l13-13"/><circle cx="12.5" cy="30.5" r="4.5"/><circle cx="17.5" cy="35.5" r="4.5"/><circle cx="30.5" cy="12.5" r="4.5"/><circle cx="35.5" cy="17.5" r="4.5"/>',
     physio: '<circle cx="24" cy="8" r="4"/><path d="M24 14v14"/><path d="M13 11l11 8 11-8"/><path d="M24 28l-8 13"/><path d="M24 28l9 5-2 9"/>',
+    // Lab packages (package-story): what each panel looks at.
+    kidney: '<path d="M24 5C12 5 6 14 6 24s6 19 18 19c10 0 14-5 14-10 0-4-5-6-5-9s5-5 5-9c0-5-4-10-14-10z"/><path d="M19 15c-4 2-5 5-4 9"/>',
+    thyroid: '<path d="M23 19c-1-7-7-12-13-10-4 1-4 7-3 12 1 7 7 12 12 10 4-2 5-7 4-12z"/><path d="M25 19c1-7 7-12 13-10 4 1 4 7 3 12-1 7-7 12-12 10-4-2-5-7-4-12z"/><path d="M20 22h8"/><path d="M24 4v9"/>',
+    venus: '<circle cx="24" cy="17" r="10"/><path d="M24 27v16"/><path d="M16.5 36h15"/>',
+    drop: '<path d="M24 5C24 5 10 21 10 30a14 14 0 0 0 28 0C38 21 24 5 24 5z"/><path d="M17 31a7 7 0 0 0 7 7"/>',
+    liver: '<path d="M3 22c0-5 5-8 12-9l18-4c7-1 12 3 12 11 0 10-7 18-17 18-6 0-8-5-12-6C8 31 3 28 3 22z"/><path d="M28 11c-1 7 2 12 8 14"/>',
+    hair: '<path d="M24 4C18 10 30 15 24 21S30 31 24 35"/><circle cx="24" cy="40" r="4"/><path d="M10 12c-4 5 4 8 0 13s2 7 0 9"/><circle cx="10" cy="39" r="3"/><path d="M38 12c-4 5 4 8 0 13s2 7 0 9"/><circle cx="38" cy="39" r="3"/>',
   };
   TX.icon = (name, color = '#1B9CCE', sw = 3.2) =>
     `<svg viewBox="0 0 48 48" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${(ICONS[name] || ICONS.eye).replace(/class="dot"/g, `fill="${color}" stroke="none"`)}</svg>`;
