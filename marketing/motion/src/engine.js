@@ -191,18 +191,27 @@
     });
   };
 
-  /** Ambient navy field: a slow drift of lighter navy keeps still moments alive. */
+  /**
+   * Ambient navy field: a slow drift of lighter navy keeps still moments alive.
+   * opts.light drifts a faint blue over white; opts.pink a lighter pink over the
+   * brand pink (Pink October's pink-and-white theme).
+   */
   TX.field = (stage, opts = {}) => {
     const e = TX.el('div', 'layer', stage);
-    const light = !!opts.light;
+    const light = !!opts.light, pink = !!opts.pink;
     return {
       el: e,
       render(t) {
+        // Transparent renders (render --alpha) keep only what's drawn on top of the field.
+        if (TX.alpha) { e.style.background = 'none'; return; }
         const x = 50 + 22 * Math.sin(t * 0.19 + 0.6);
         const y = 34 + 12 * Math.cos(t * 0.15);
+        const at = `${x.toFixed(2)}% ${y.toFixed(2)}%`;
         e.style.background = light
-          ? `radial-gradient(80% 55% at ${x.toFixed(2)}% ${y.toFixed(2)}%, rgba(27,156,206,.07) 0%, rgba(255,254,255,0) 70%), #FFFEFF`
-          : `radial-gradient(85% 55% at ${x.toFixed(2)}% ${y.toFixed(2)}%, rgba(52,55,128,.62) 0%, rgba(24,25,67,0) 72%), #181943`;
+          ? `radial-gradient(80% 55% at ${at}, rgba(27,156,206,.07) 0%, rgba(255,254,255,0) 70%), #FFFEFF`
+          : pink
+            ? `radial-gradient(85% 55% at ${at}, rgba(255,140,176,.5) 0%, rgba(238,57,107,0) 72%), #EE396B`
+            : `radial-gradient(85% 55% at ${at}, rgba(52,55,128,.62) 0%, rgba(24,25,67,0) 72%), #181943`;
       },
     };
   };
