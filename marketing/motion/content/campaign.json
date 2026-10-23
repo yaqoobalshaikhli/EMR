@@ -4049,6 +4049,153 @@
           { "icon": "capsule", "title": "فحص الحساسية\nللأدوية", "use": "التأكد من عدم وجود حساسية قبل إعطاء الدواء" }
         ]
       }
+    },
+    {
+      "id": "08-choose-tests-carousel",
+      "when": "Feed carousel, 8 slides (Instagram, Facebook) · «اختار تحليلك» · how to choose the right lab package: start from the question, not the test name: what you feel, what runs in the family, where you are in life, then the common mistakes, and a doctor who arranges it · the routing is general guidance (symptoms and risks that commonly lead to each package), not a diagnosis: a doctor should review it before it posts · no prices, no promise of results · the doctor line follows the reel: write «باقة» on WhatsApp and a doctor answers",
+      "template": "carousel",
+      "params": {
+        "hookPop": true,
+        "series": "اختار تحليلك",
+        "slides": [
+          {
+            "type": "hook",
+            "bg": "navy",
+            "text": "تحاليل هواية...\n*أي واحد يناسبك؟*",
+            "small": "٣ أسئلة تختصر عليك الطريق.",
+            "swipe": true
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "numbered": true,
+            "title": "ابدي من *سؤالك*،\nمو من اسم التحليل.",
+            "rows": [
+              {
+                "icon": "heart",
+                "text": "شنو تحس بجسمك؟"
+              },
+              {
+                "icon": "family",
+                "text": "شنو يمشي بعائلتك؟"
+              },
+              {
+                "icon": "calendar",
+                "text": "وين انت بالعمر والحياة؟"
+              }
+            ]
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "title": "١. شنو تحس؟",
+            "rows": [
+              {
+                "icon": "drop",
+                "text": "تعب دائم وشحوب ودوخة\n← ~فقر الدم وصحة الحديد~"
+              },
+              {
+                "icon": "kidney",
+                "text": "عطش زايد وتبول كثير\n← ~مراقبة السكري والكلى~"
+              },
+              {
+                "icon": "thyroid",
+                "text": "وزن يتغير وخفقان وبرودة\n← ~صحة الغدة الدرقية~"
+              },
+              {
+                "icon": "hair",
+                "text": "شعر يتساقط\n← ~صحة الشعر وتساقطه~"
+              }
+            ],
+            "rowSize": 47
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "title": "١. شنو تحس؟ (٢)",
+            "rows": [
+              {
+                "icon": "venus",
+                "text": "دورة غير منتظمة وحبوب وشعر زايد\n← ~الهرمونات الأنثوية~"
+              },
+              {
+                "icon": "bone",
+                "text": "ألم عظام وعضلات وإرهاق\n← ~صحة العظام والمعادن~"
+              },
+              {
+                "icon": "liver",
+                "text": "أدوية لفترة طويلة أو وزن زايد\n← ~الكبد والالتهاب~"
+              }
+            ],
+            "rowSize": 47
+          },
+          {
+            "type": "rows",
+            "bg": "white",
+            "title": "٢. شنو يمشي بعائلتك؟",
+            "rows": [
+              {
+                "icon": "kidney",
+                "text": "سكري بالعائلة\n← ~مراقبة السكري والكلى~"
+              },
+              {
+                "icon": "thyroid",
+                "text": "غدة درقية بالعائلة\n← ~صحة الغدة الدرقية~"
+              },
+              {
+                "icon": "drop",
+                "text": "فقر دم أو نزف دورة قوي\n← ~فقر الدم وصحة الحديد~"
+              }
+            ],
+            "rowSize": 47
+          },
+          {
+            "type": "rows",
+            "bg": "navy",
+            "title": "٣. وين انت بالعمر؟",
+            "rows": [
+              {
+                "icon": "ring",
+                "text": "قبل الزواج أو الحمل\n← ~الغدة والهرمونات والحديد~"
+              },
+              {
+                "icon": "calendar",
+                "text": "بعد الأربعين\n← ~السكر والكبد والعظام~"
+              },
+              {
+                "icon": "dumbbell",
+                "text": "رياضي أو دايت قاسي\n← ~الحديد والعظام والمعادن~"
+              }
+            ],
+            "rowSize": 47
+          },
+          {
+            "type": "list",
+            "bg": "white",
+            "title": "٣ أخطاء بالاختيار:",
+            "items": [
+              "تسوي كل التحاليل بلا سبب",
+              "تقرأ النتيجة وتشخّص نفسك",
+              "تختار مثل اللي سواه جارك"
+            ],
+            "small": "الطبيب يربط النتيجة *بحالتك.*"
+          },
+          {
+            "type": "cta",
+            "bg": "navy",
+            "lead": "لا تحتار لوحدك.",
+            "cta": "*اكتب «باقة»*\nعلى الواتس اب",
+            "ctaClass": "t-hook-s",
+            "ctaTop": 410,
+            "body": "ويرد عليك طبيب يرتّب لك\nالباقة المناسبة لحالتك.",
+            "bodyTop": 690,
+            "closing": "لا تصدگنا. شوف بعينك.",
+            "phone": "07802610170",
+            "phoneTop": 1010,
+            "foot": "للتوعية، ولا يغني عن استشارة الطبيب."
+          }
+        ]
+      }
     }
   ]
 }

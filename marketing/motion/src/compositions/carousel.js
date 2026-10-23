@@ -215,7 +215,9 @@
           const n = el('div', 'abs center', ic, TX.ar(i + 1));
           px(n, { right: -12, top: -12, width: 44, height: 44, borderRadius: '50%', background: bg, color: fg, fontSize: 26, fontWeight: '700' });
         }
-        TX.words(el('div', s.rowClass || 't-sub', row), r.text);
+        const rt = el('div', s.rowClass || 't-sub', row);
+        if (s.rowSize) rt.style.fontSize = `${s.rowSize}px`;
+        TX.words(rt, r.text);
         centers.push(y + row.offsetHeight / 2);
         y += Math.max(140, row.offsetHeight + 36);
       });
@@ -268,9 +270,15 @@
     cta(L, s) {
       TX.text(L, s.lead, 'col t-sub', { top: 300 });
       if (s.body) TX.text(L, s.body, 'col t-body dim', { top: s.bodyTop || 400 });
-      const c = TX.text(L, s.cta, 'col t-sub', { top: s.ctaTop || 640 });
+      const c = TX.text(L, s.cta, `col ${s.ctaClass || 't-sub'}`, { top: s.ctaTop || 640 });
+      if (s.foot) TX.text(L, s.foot, 'col t-strip dim', { top: s.footTop || 1170 });
       if (s.signed) TX.text(L, s.signed, 'col t-strip dim', { top: Math.max((s.ctaTop || 640) + 100, bottom(c) + 30) });
       TX.text(L, s.closing || '', 'col t-hook-s', { top: 890 });
+      // a phone number to message: Western digits, left to right, centred (the one place Arabic copy uses them)
+      if (s.phone) {
+        const n = el('div', 'abs', L, s.phone);
+        px(n, { left: 0, width: 1080, top: s.phoneTop || 1040, textAlign: 'center', direction: 'ltr', fontSize: 84, fontWeight: '900', letterSpacing: '0.02em' });
+      }
     },
 
     // ---------------------------------------------------------- infographics
