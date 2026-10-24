@@ -250,7 +250,26 @@ function knock() {
   return normalize(b, 0.55);
 }
 
-const SFX = { doorbell, pop, tick, whoosh, blip, thump, impact, riser, shimmer, knock };
+/** A pen writing on paper: soft scratchy strokes, a little rhythm, fading as the line ends. */
+function pen() {
+  const b = buffer(0.9);
+  const rnd = noise(61);
+  let z1 = 0, z2 = 0;
+  for (let i = 0; i < b.L.length; i++) {
+    const t = i / SR;
+    const fc = 2800 + 700 * Math.sin(t * 41);
+    const f = 2 * Math.sin((Math.PI * fc) / SR), q = 0.45;
+    const hp = rnd() - z2 - q * z1;
+    z1 += f * hp; z2 += f * z1;
+    const stroke = 0.4 + 0.6 * Math.abs(Math.sin(t * Math.PI * 5.2));
+    const env = Math.min(1, t / 0.03) * Math.max(0, 1 - Math.pow(t / 0.85, 3)) * stroke;
+    const v = z1 * env;
+    b.L[i] = v * 0.9; b.R[i] = v;
+  }
+  return normalize(b, 0.06);
+}
+
+const SFX = { doorbell, pop, tick, whoosh, blip, thump, impact, riser, shimmer, knock, pen };
 const cache = {};
 export const sfx = (name) => (cache[name] ||= SFX[name]());
 
