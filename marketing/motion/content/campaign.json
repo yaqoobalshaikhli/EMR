@@ -4196,6 +4196,24 @@
           }
         ]
       }
+    },
+    {
+      "id": "09-physio-film",
+      "when": "Home physiotherapy · Reel built from AI stills (script: content/scripts/97-physio-at-home.md). The short cut (28 s + end card) ends on the first steps; it becomes the full 37 s film when stills s8, s9 and s10 exist in assets/shots/physio/. Voice-over lines are on screen as captions; a real voice can be laid over it",
+      "template": "physio-film",
+      "params": {
+        "phone": "07802610170",
+        "photos": {
+          "s1": "../assets/shots/physio/s1.jpg",
+          "s2": "../assets/shots/physio/s2.jpg",
+          "s3": "../assets/shots/physio/s3.jpg",
+          "s4a": "../assets/shots/physio/s4a.jpg",
+          "s4b": "../assets/shots/physio/s4b.jpg",
+          "s5": "../assets/shots/physio/s5.jpg",
+          "s6": "../assets/shots/physio/s6.jpg",
+          "s7": "../assets/shots/physio/s7.jpg"
+        }
+      }
     }
   ]
 }

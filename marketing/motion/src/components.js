@@ -63,6 +63,7 @@
     plaster: '<path d="M9 31L31 9a6.4 6.4 0 0 1 9 9L18 40a6.4 6.4 0 0 1-9-9z"/><path d="M24 17.5l6.5 6.5-6.5 6.5-6.5-6.5z"/><path d="M13.5 30.5l.1.1M34.5 17.5l.1.1"/>',
     capsule: '<path d="M11 30L25 10a7 7 0 0 1 11 8L22 38a7 7 0 0 1-11-8z"/><path d="M19 21l10 8"/><path d="M33 38l4 4 8-9"/>',
     ring: '<circle cx="24" cy="30" r="12"/><path d="M17 11l3-6h8l3 6-7 8z"/><path d="M17 11h14"/>',
+    mars: '<circle cx="19" cy="29" r="11"/><path d="M27 21L40 8"/><path d="M30 8h10v10"/>',
   };
   TX.icon = (name, color = '#1B9CCE', sw = 3.2) =>
     `<svg viewBox="0 0 48 48" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${(ICONS[name] || ICONS.eye).replace(/class="dot"/g, `fill="${color}" stroke="none"`)}</svg>`;
