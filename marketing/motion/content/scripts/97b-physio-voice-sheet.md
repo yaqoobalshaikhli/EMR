@@ -12,12 +12,12 @@ screen takes about a second to write it, so begin a hair after the pen.
 | # | Start | The line (Iraqi) | How to say it |
 | --- | --- | --- | --- |
 | 1 | 0.6 s | «كل واحد منا... عنده شخص... يتألم بصمت.» | quiet, almost a whisper, a pause after each "..." |
-| 2 | 3.9 s | «رجلك توجعك؟... والطريگ... أوجع.» | tired, a little heavy on «أوجع» |
-| 3 | 7.2 s | «زحمة... طابور... درج.» | flat, three short beats |
-| 4 | 9.5 s | «تأجّل... وتأجّل... والوجع يكبر.» | slower and lower each time |
+| 2 | 3.9 s | «رجلك توجعك؟... والطريق... مؤذي.» | tired, a little heavy on «مؤذي» |
+| 3 | 7.2 s | «ازدحامات... سرة... درج.» | flat, three short beats |
+| 4 | 9.5 s | «تأجل... وتأجل... والوجع يزيد.» | slower and lower each time |
 | 5 | 11.8 s | «مو لأن الوجع بسيط... بس لأن الوصول صعب.» | gentle, as if it is a secret you understand |
 | — | 14.7 s | *(doorbell, no voice)* | |
-| 6 | 16.8 s | «بس شنو لو العلاج... هو اللي يجيك؟» | the first smile in your voice |
+| 6 | 16.8 s | «بس لو العلاج... يصير أسهل.» | the first smile in your voice |
 | 7 | 17.9 s | «نجيك للبيت.» | warm, simple |
 | 8 | 19.8 s | «أخصائية أو أخصائي علاج طبيعي، يوصل لبيتك.» | calm, reassuring |
 | 9 | 23.5 s | «يفحصك... يعلّمك التمارين الصح... ويمشي وياك خطوة بخطوة.» | kind, unhurried |
@@ -27,7 +27,7 @@ screen takes about a second to write it, so begin a hair after the pen.
 | 13 | 31.1 s | «تمسك إيد حفيدك.» | the warmest line, almost a smile |
 | 14 | 33.0 s | «خطوة بخطوة.» | soft, steady |
 | 15 | 36.0 s | «والخطوة اللي كنت تخاف منها... تصير عادية.» | quiet joy |
-| 16 | 39.3 s | «ناسنا... أهم شي عدنا.» | the one line you mean most; slow |
+| 16 | 39.3 s | «أهلنا... أهم شي عدنا.» | the one line you mean most; slow |
 | 17 | 41.3 s | «وكل خطوة صغيرة بحياتهم... تهمنا.» | softer, a thank-you |
 | 18 | 43.4 s | «اكتب «علاج طبيعي» على الواتس اب... وخلي العلاج يجيك.» | clear, friendly, a little brighter |
 

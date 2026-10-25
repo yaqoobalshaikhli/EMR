@@ -21,10 +21,10 @@ living room, going step by step with them until the first free step.
 | # | Time | Picture | Voice-over (Iraqi dialect) | On screen (Cairo, added in post) | Sound |
 | --- | --- | --- | --- | --- | --- |
 | 1 | 0–3.6 s | An older man rises from an armchair, one hand gripping the armrest, the other on his knee, a wince. | «رجلك توجعك؟ والطريگ للعيادة... أوجع.» | «والطريگ... *أوجع.*» | Low drone, a clock ticking, a held breath. |
-| 2 | 3.6–6 s | Through a car window: slow Baghdad traffic, a woman in the back seat, a hand on her lower back, tired. | «زحمة، وطابور...» | «زحمة · طابور · درج» | Traffic, muffled. The drone climbs. |
-| 3 | 6–8 s | The older man at the foot of a staircase, a hand on the rail, looking up. | «ودرج ما تگدر تطلعه. تأجّل... وتأجّل... والوجع يكبر.» | | Everything drops to the clock and one breath. |
+| 2 | 3.6–6 s | Through a car window: slow Baghdad traffic, a woman in the back seat, a hand on her lower back, tired. | «زحمة، وطابور...» | «ازدحامات .. سرة .. درج» | Traffic, muffled. The drone climbs. |
+| 3 | 6–8 s | The older man at the foot of a staircase, a hand on the rail, looking up. | «ودرج ما تگدر تطلعه. تأجل... وتأجل... والوجع يزيد.» | | Everything drops to the clock and one breath. |
 | 4a | 8–10 s | Macro: a finger presses a doorbell. | | | **The TabeebX doorbell** (E5 → C5). Music turns warm, C major, piano. |
-| 4b | 10–13 s | The front door opens onto warm light: a female physiotherapist in navy scrubs with a small navy bag, smiling. | «بس شنو لو العلاج هو اللي يجيك؟» | «*نجيك للبيت*» | A soft swell. |
+| 4b | 10–13 s | The front door opens onto warm light: a female physiotherapist in navy scrubs with a small navy bag, smiling. | «بس لو العلاج يصير أسهل» | «*نجيك للبيت*» | A soft swell. |
 | 5 | 13–17 s | Living room. A male physiotherapist kneels and gently bends the older man's knee, supporting the lower leg; a child watches from the sofa. | «أخصائية أو أخصائي علاج طبيعي، يوصل لبيتك. يفحصك، يعلّمك التمارين الصح...» | «أخصائية» / «أخصائي» (two pills, in turn) | Gentle pulse, a soft tick on each pill. |
 | 6 | 17–21 s | Another living room, a mat on the rug. A female physiotherapist guides a woman through a slow back stretch; curtains drawn, calm. | «...ويمشي وياك خطوة بخطوة... بخصوصية، وبراحتك.» | «بخصوصية» | The pulse continues. |
 | 7 | 21–24 s | A hallway. The male physiotherapist walks beside the older man, who leans on a cane, a hand at his elbow. First steps. | (silence, then the music opens) | «خطوة بخطوة.» | Footsteps; the music swells. |
