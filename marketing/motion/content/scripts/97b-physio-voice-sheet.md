@@ -23,10 +23,10 @@ screen takes about a second to write it, so begin a hair after the pen.
 | 9 | 23.5 s | «يفحصك... يعلّمك التمارين الصح... ويمشي وياك خطوة بخطوة.» | kind, unhurried |
 | 10 | 27.4 s | «الأشياء الصغيرة... هي اللي تغيّر الحياة:» | slow, this is the heart of the film |
 | 11 | 29.5 s | «تنام بلا وجع.» | a breath of relief |
-| 12 | 30.3 s | «تطلع الدرج بسهولة.» | lighter |
-| 13 | 31.1 s | «تمسك إيد حفيدك.» | the warmest line, almost a smile |
+| 12 | 30.3 s | «تصعد الدرج بسهولة.» | lighter |
+| 13 | 31.1 s | «تكمش إيد حفيدك.» | the warmest line, almost a smile |
 | 14 | 33.0 s | «خطوة بخطوة.» | soft, steady |
-| 15 | 36.0 s | «والخطوة اللي كنت تخاف منها... تصير عادية.» | quiet joy |
+| 15 | 36.0 s | «والخطوة اللي جنت تخاف منها... تصير عادية.» | quiet joy |
 | 16 | 39.3 s | «أهلنا... أهم شي عدنا.» | the one line you mean most; slow |
 | 17 | 41.3 s | «وكل خطوة صغيرة بحياتهم... تهمنا.» | softer, a thank-you |
 | 18 | 43.4 s | «اكتب «علاج طبيعي» على الواتس اب... وخلي العلاج يجيك.» | clear, friendly, a little brighter |
