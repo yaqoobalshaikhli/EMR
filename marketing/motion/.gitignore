@@ -6,3 +6,6 @@ assets/people/
 .cast-src
 # AI-generated stills and a plate taken from the published reel: kept local, not committed.
 assets/shots/
+
+# Voice recordings and the cloned voice are private: never committed.
+assets/voice/
