@@ -18,7 +18,7 @@ import { once } from 'node:events';
 import { mkdirSync, readFileSync, existsSync, statSync, createReadStream, rmSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { mix, writeWav, doorbell } from './audio.mjs';
+import { mix, writeWav, doorbell, placeVoice } from './audio.mjs';
 import { lintCampaign } from './lint-copy.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -154,7 +154,12 @@ async function renderJob(job) {
     const f = new Float32Array(raw.buffer.slice(raw.byteOffset, raw.byteOffset + raw.length));
     music = { L: f.subarray(0, f.length / 2), R: f.subarray(f.length / 2) };
   }
-  const soundtrack = mix({ from, to, cues: info.cues, bed: info.bed, music });
+  // A template may lay a voice-over on its clock: [{ file, at }], clips in assets/voice/ (private, not in git).
+  const voice = info.voice && info.voice.length
+    ? placeVoice(info.voice.map((v) => ({ ...v, name: v.file, file: path.join(root, 'assets/voice', v.file) })), info.duration, (m) => console.warn(m))
+    : null;
+  if (info.voice && info.voice.length && !voice) console.warn(`  ⚠ ${job.id}: no voice clips found in assets/voice/, rendering without a voice-over`);
+  const soundtrack = mix({ from, to, cues: info.cues, bed: info.bed, music, voice });
   if (flag('audio')) {
     writeWav(path.join(outDir, `${name}.wav`), soundtrack);
     console.log(`✓ ${name}.wav  ${(to - from).toFixed(1)}s in ${((Date.now() - started) / 1000).toFixed(1)}s`);

@@ -5,7 +5,7 @@
 //  - small interface sounds (pop, tick, whoosh, blip) for motion accents.
 // Everything is generated at 48 kHz stereo and mixed from a cue list the
 // template returns, so sound and picture share one clock.
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 
 export const SR = 48000;
 // Offset of the second note; src/stage.html uses the same value for the rings.
@@ -323,6 +323,8 @@ export function pad(seconds, seed = 1) {
 const MUSIC_LUFS = -16.5;
 const TARGET_LUFS = -14;
 const CEILING = 0.85; // −1.4 dBFS: room for the AAC encoder's overshoot
+const VOICE_LUFS = -16; // a voice-over sits ~8 dB over the score while it speaks
+const VOICE_DUCK = 0.6; // and the score steps back by ~8 dB under it
 
 /**
  * Mix a template's cues into one track covering [from, to].
@@ -330,20 +332,27 @@ const CEILING = 0.85; // −1.4 dBFS: room for the AAC encoder's overshoot
  * music: { L, R } from 0 s, a score the template composed itself (src/score.js).
  * The bed and the music duck under the doorbell so the brand sound is never masked.
  */
-export function mix({ from = 0, to, cues = [], bed = null, music = null }) {
+export function mix({ from = 0, to, cues = [], bed = null, music = null, voice = null }) {
   // Master: peak-normalise to -1 dBFS. The doorbell is usually the peak, so
   // the sonic logo lands at the same level in every video.
   if (!music) return normalize(layer({ from, to, cues, bed }), 0.89);
   const m = { L: Float32Array.from(music.L), R: Float32Array.from(music.R) };
   scale(m, dB(MUSIC_LUFS - loudness(m)));
+  // A voice-over (placeVoice) is set against the score, which ducks under it.
+  let v = null, vd = null;
+  if (voice) {
+    v = { L: Float32Array.from(voice.L), R: Float32Array.from(voice.R) };
+    scale(v, dB(VOICE_LUFS - loudness(v)));
+    vd = voiceDuck(v, VOICE_DUCK);
+  }
   // Measured on the whole film, so a part rendered with --from/--to keeps its level.
-  const full = layer({ from: 0, to: m.L.length / SR, cues, bed, music: m });
-  const out = layer({ from, to, cues, bed, music: m });
+  const full = layer({ from: 0, to: m.L.length / SR, cues, bed, music: m, voice: v, vd });
+  const out = layer({ from, to, cues, bed, music: m, voice: v, vd });
   scale(out, dB(TARGET_LUFS - loudness(full)));
   return limit(out, CEILING);
 }
 
-function layer({ from, to, cues, bed, music }) {
+function layer({ from, to, cues, bed, music, voice = null, vd = null }) {
   const out = buffer(to - from);
   const n = out.L.length;
   const bells = cues.filter((c) => c.sfx === 'doorbell').map((c) => c.t);
@@ -362,7 +371,7 @@ function layer({ from, to, cues, bed, music }) {
       const t = bed.from + i / SR;
       const j = Math.round((t - from) * SR);
       if (j < 0 || j >= n) continue;
-      const g = g0 * duck(t, 0.7);
+      const g = g0 * duck(t, 0.7) * (vd ? vd[Math.min(vd.length - 1, Math.round(t * SR))] : 1);
       out.L[j] += p.L[i] * g;
       out.R[j] += p.R[i] * g;
     }
@@ -371,9 +380,16 @@ function layer({ from, to, cues, bed, music }) {
     // A score is written around the doorbell, so it only dips a little under it.
     const i0 = Math.round(from * SR);
     for (let j = Math.max(0, -i0); j < n && i0 + j < music.L.length; j++) {
-      const g = duck(from + j / SR, 0.25);
+      const g = duck(from + j / SR, 0.25) * (vd ? vd[Math.min(vd.length - 1, i0 + j)] : 1);
       out.L[j] += music.L[i0 + j] * g;
       out.R[j] += music.R[i0 + j] * g;
+    }
+  }
+  if (voice) {
+    const i0 = Math.round(from * SR);
+    for (let j = Math.max(0, -i0); j < n && i0 + j < voice.L.length; j++) {
+      out.L[j] += voice.L[i0 + j];
+      out.R[j] += voice.R[i0 + j];
     }
   }
   for (const c of cues) {
@@ -388,6 +404,62 @@ function layer({ from, to, cues, bed, music }) {
     }
   }
   return out;
+}
+
+/** 16-bit PCM WAV, mono or stereo, at SR. */
+export function readWav(file) {
+  const b = readFileSync(file);
+  let o = 12, ch = 2, bits = 16, data = null;
+  while (o + 8 <= b.length) {
+    const id = b.toString('ascii', o, o + 4), len = b.readUInt32LE(o + 4);
+    if (id === 'fmt ') { ch = b.readUInt16LE(o + 10); bits = b.readUInt16LE(o + 22); if (b.readUInt32LE(o + 12) !== SR) throw new Error(`${file}: not ${SR} Hz`); }
+    if (id === 'data') { data = b.subarray(o + 8, o + 8 + len); break; }
+    o += 8 + len + (len & 1);
+  }
+  if (!data || bits !== 16) throw new Error(`${file}: expected 16-bit PCM`);
+  const n = data.length / (2 * ch), L = new Float32Array(n), R = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    L[i] = data.readInt16LE(i * 2 * ch) / 32768;
+    R[i] = ch > 1 ? data.readInt16LE(i * 2 * ch + 2) / 32768 : L[i];
+  }
+  return { L, R };
+}
+
+/**
+ * Lay voice-over clips on a film's clock: lines = [{ file, at }], seconds = the film's length.
+ * Returns null when no clip exists. Warns when a clip runs into the next one.
+ */
+export function placeVoice(lines, seconds, log = console.warn) {
+  const out = buffer(seconds);
+  let placed = 0, prevEnd = 0, prevName = '';
+  for (const { file, at, name } of [...lines].sort((a, b) => a.at - b.at)) {
+    if (!existsSync(file)) { log(`  ⚠ voice clip missing: ${name || file}`); continue; }
+    const w = readWav(file), j0 = Math.round(at * SR);
+    const end = at + w.L.length / SR;
+    if (at < prevEnd - 0.2) log(`  ⚠ voice ${name} starts at ${at.toFixed(2)} s, ${(prevEnd - at).toFixed(2)} s before ${prevName} ends`);
+    prevEnd = end; prevName = name || '';
+    for (let i = 0; i < w.L.length && j0 + i < out.L.length; i++) { out.L[j0 + i] += w.L[i]; out.R[j0 + i] += w.R[i]; }
+    placed++;
+  }
+  return placed ? out : null;
+}
+
+/** Gain for the score under a voice: fast down at the first word (it looks ahead), slow back up after the last. */
+function voiceDuck(v, depth) {
+  const n = v.L.length, env = new Float32Array(n);
+  const att = 1 - Math.exp(-1 / (0.02 * SR)), rel = 1 - Math.exp(-1 / (0.3 * SR));
+  let e = 0;
+  for (let i = 0; i < n; i++) {
+    const a = Math.max(Math.abs(v.L[i]), Math.abs(v.R[i]));
+    e += (a > e ? att : rel) * (a - e);
+    env[i] = e;
+  }
+  const look = Math.round(0.08 * SR), d = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    const x = Math.min(1, env[Math.min(n - 1, i + look)] / 0.03);
+    d[i] = 1 - depth * x * x * (3 - 2 * x);
+  }
+  return d;
 }
 
 // ----------------------------------------------------------- mastering

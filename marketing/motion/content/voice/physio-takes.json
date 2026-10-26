@@ -1,0 +1,24 @@
+{
+  "about": "Where each film line sits in the founder's read-through (assets/voice/physio-recording.m4a, private, not in git). Times are seconds in that recording. 'squeeze' shortens a silence inside a line by cutting out of its middle: [from, to, keep].",
+  "lufs": -24,
+  "lines": [
+    { "id": "L01", "range": [79.50, 82.70] },
+    { "id": "L02", "range": [83.37, 85.88] },
+    { "id": "L03", "range": [86.13, 88.25] },
+    { "id": "L04", "range": [88.80, 90.98] },
+    { "id": "L05", "range": [91.50, 96.98], "squeeze": [[92.55, 93.42, 0.4]] },
+    { "id": "L06", "range": [97.89, 99.44] },
+    { "id": "L07", "range": [103.45, 104.20] },
+    { "id": "L08", "range": [104.43, 107.25] },
+    { "id": "L09", "range": [107.64, 111.62] },
+    { "id": "L10", "range": [113.25, 116.12] },
+    { "id": "L11", "range": [117.30, 118.40] },
+    { "id": "L12", "range": [118.77, 120.23] },
+    { "id": "L13", "range": [120.54, 121.80] },
+    { "id": "L14", "range": [122.70, 123.65] },
+    { "id": "L15", "range": [124.68, 127.55] },
+    { "id": "L16", "range": [129.48, 130.64] },
+    { "id": "L17", "range": [131.25, 133.80] },
+    { "id": "L18", "range": [134.76, 137.50] }
+  ]
+}

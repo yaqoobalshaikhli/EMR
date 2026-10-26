@@ -1,6 +1,12 @@
 # «العلاج يجيك» — voice-over sheet (read this while you record)
 
-The film is 45.8 s and the words are written on the screen, so the voice does not
+> **Status:** the film is voiced from one read-through of this sheet (one take per line). The picture
+> was re-timed to that voice, so the film is now about 51 s and the start times below are the
+> original plan, not the final ones (`composeVoice` in `src/compositions/physio-film.js` has the real ones).
+> In line 5 the read-through says «بس يعني الوصول للمكان أو للعيادة أو للمركز... صعب» (longer than the card);
+> re-read it as written, one take, if it should match the card exactly.
+
+The film was 45.8 s and the words are written on the screen, so the voice does not
 have to carry the information. It carries the **feeling**. Read slowly, warm and
 close, like someone telling a story to a person sitting next to them: not an
 announcer, not a salesman. Pause where there is a "..."

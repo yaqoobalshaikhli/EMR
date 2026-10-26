@@ -247,3 +247,25 @@ package, text underneath) from another, and lays the new stretch between them wi
 fades at moments where the layers show the same background and logo. The stills, the plate
 and the logo sprite live in `assets/shots/`, which is kept out of git: without them the job
 renders with a DRAFT stamp.
+
+## A voice-over on a film
+
+A template can return `voice: [{ file, at }]` (see `composeVoice` in `src/compositions/physio-film.js`):
+clips from `assets/voice/`, each starting at `at` seconds on the film's clock. The renderer lays them
+over the score (`placeVoice` in `scripts/audio.mjs`), sets the voice at −16 LUFS against the music, and
+ducks the score by about 8 dB under it (fast down, slow back up), then masters the whole film to −14 LUFS
+as before. It warns when a clip runs into the next, or when a clip is missing (the film then renders without it).
+
+`09-physio-film` uses the founder's own voice: one read-through recording, cut into one clip per line.
+
+```
+cp his-recording.m4a assets/voice/physio-recording.m4a      # private: assets/voice/ is git-ignored
+node scripts/voice-lines.mjs                                 # → assets/voice/physio/L01…L18.wav
+node scripts/render.mjs 09-physio-film
+```
+
+`content/voice/physio-takes.json` says where each line sits in the recording (and which silences to
+shorten). The film's picture is timed to the voice: if a line is re-recorded, change its range and rerun,
+then adjust the card or shot durations in `plan()` if the line got longer or shorter.
+A cloned voice was tried first (Chatterbox, zero-shot) and was rejected: it did not sound like him and
+missed the Iraqi accent.

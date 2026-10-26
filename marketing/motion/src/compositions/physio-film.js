@@ -33,32 +33,33 @@
     // caps: [from, to, text, top, class] relative to the shot's start. A caption's lines are written one after another.
     const shot = (id, dur, cam, extra = {}) => add({ kind: 'shot', id, dur, ...cam, ...extra });
 
-    add({ kind: 'card', key: 'c1', bg: 's1', grade: 0, dur: 3.7, size: 112, top: 690, head: ['كل واحد منا', 'عنده شخص...', '*يتألم بصمت.*'], headAt: [0.3, 1.15, 2.0] });
-    shot('s1', 3.3, { zoom: [1.05, 1.17], at: [50, 42], pan: [0, 14, -14, -8], grade: 0 }, {
+    const c1 = add({ kind: 'card', key: 'c1', bg: 's1', grade: 0, dur: 3.7, size: 112, top: 690, head: ['كل واحد منا', 'عنده شخص...', '*يتألم بصمت.*'], headAt: [0.3, 1.15, 2.0] });
+    const s1 = shot('s1', 3.3, { zoom: [1.05, 1.17], at: [50, 42], pan: [0, 14, -14, -8], grade: 0 }, {
       caps: [[0.15, 3.2, 'رجلك توجعك؟\nوالطريق... *مؤذي.*', 1130, 't-hook']] });
-    shot('s2', 2.3, { zoom: [1.06, 1.14], at: [50, 52], pan: [10, 0, -12, 0], grade: 0 }, { caps: [[0.1, 2.2, 'ازدحامات .. سرة .. درج', 1290, 't-sub']] });
-    shot('s3', 2.2, { zoom: [1.07, 1.19], at: [50, 55], pan: [0, 10, 0, -12], grade: 0 }, { caps: [[0.1, 2.1, 'تأجل... وتأجل...\nوالوجع يزيد.', 1220, 't-sub']] });
-    add({ kind: 'card', key: 'c2', bg: 's3', grade: 0, dur: 3.2, size: 100, top: 760, head: ['مو لأن الوجع بسيط...', 'بس لأن الوصول *صعب.*'], headAt: [0.3, 1.3] });
+    const s2 = shot('s2', 2.3, { zoom: [1.06, 1.14], at: [50, 52], pan: [10, 0, -12, 0], grade: 0 }, { caps: [[0.1, 2.2, 'ازدحامات .. سرة .. درج', 1290, 't-sub']] });
+    const s3 = shot('s3', 2.2, { zoom: [1.07, 1.19], at: [50, 55], pan: [0, 10, 0, -12], grade: 0 }, { caps: [[0.1, 2.1, 'تأجل... وتأجل...\nوالوجع يزيد.', 1220, 't-sub']] });
+    const c2 = add({ kind: 'card', key: 'c2', bg: 's3', grade: 0, dur: 5.5, size: 100, top: 760, head: ['مو لأن الوجع بسيط...', 'بس لأن الوصول *صعب.*'], headAt: [0.3, 1.9] });
     const bell = shot('s4a', 1.9, { zoom: [1.10, 1.24], at: [63, 49], pan: [0, 0, 0, 0], grade: [0.25, 0.7] }, { cut: true });
     const warm = shot('s4b', 3.0, { zoom: [1.04, 1.13], at: [50, 38], pan: [0, 8, 0, -8], grade: 1 }, {
       caps: [[0.2, 1.6, 'بس لو العلاج يصير أسهل', 1230, 't-sub'], [1.65, 2.95, '*نجيك للبيت*', 1250, 't-hook']] });
     const male = shot('s5', 3.7, { zoom: [1.05, 1.14], at: [48, 55], pan: [28, 0, -28, 0], grade: 1 }, {
       caps: [[0.2, 3.6, 'أخصائية أو أخصائي علاج طبيعي\nيوصل لبيتك.', 1170, 't-sub']], pills: [['أخصائي', 'mars', 0.3, 3.6]] });
-    const female = shot('s6', 3.8, { zoom: [1.06, 1.13], at: [50, 55], pan: [-18, 0, 18, 0], grade: 1 }, {
+    const female = shot('s6', 4.1, { zoom: [1.06, 1.13], at: [50, 55], pan: [-18, 0, 18, 0], grade: 1 }, {
       caps: [[0.15, 2.8, 'يفحصك، يعلّمك التمارين الصح\nويمشي وياك خطوة بخطوة.', 1170, 't-sub']],
       pills: [['أخصائية', 'venus', 0.3, 2.5], ['بخصوصية', 'heart', 2.7, 3.7]] });
-    const c3 = add({ kind: 'card', key: 'c3', bg: 's6', grade: 1, dur: 5.7, size: 100, top: 500, head: ['الأشياء الصغيرة', 'هي اللي *تغيّر الحياة:*'], headAt: [0.3, 1.25],
-      list: ['تنام بلا وجع', 'تصعد الدرج بسهولة', 'تكمش إيد حفيدك'], listAt: [2.4, 3.2, 4.0] });
-    const steps = shot('s7', 2.9, { zoom: [1.12, 1.02], at: [50, 50], pan: [0, 0, 0, 0], grade: 1 }, { caps: [[0.2, 2.8, '*خطوة بخطوة.*', 1250, 't-hook']] });
-    shot('s7', 3.3, { zoom: [1.38, 1.52], at: [62, 30], pan: [0, 0, 0, 0], grade: 1 }, { caps: [[0.3, 3.2, 'والخطوة اللي جنت تخاف منها...\nتصير عادية.', 1210, 't-sub']] });
+    const c3 = add({ kind: 'card', key: 'c3', bg: 's6', grade: 1, dur: 7.4, size: 100, top: 500, head: ['الأشياء الصغيرة', 'هي اللي *تغيّر الحياة:*'], headAt: [0.3, 1.8],
+      list: ['تنام بلا وجع', 'تصعد الدرج بسهولة', 'تكمش إيد حفيدك'], listAt: [3.1, 4.35, 5.95] });
+    const steps = shot('s7', 2.4, { zoom: [1.12, 1.02], at: [50, 50], pan: [0, 0, 0, 0], grade: 1 }, { caps: [[0.2, 2.8, '*خطوة بخطوة.*', 1250, 't-hook']] });
+    const steps2 = shot('s7', 3.4, { zoom: [1.38, 1.52], at: [62, 30], pan: [0, 0, 0, 0], grade: 1 }, { caps: [[0.3, 3.2, 'والخطوة اللي جنت تخاف منها...\nتصير عادية.', 1210, 't-sub']] });
     if (photos.s8) shot('s8', 3.6, { zoom: [1.03, 1.13], at: [50, 50], pan: [24, 0, -24, 0], grade: 1 }, { caps: [[0.3, 3.5, 'ويمشي... وإيد حفيدته بإيده.', 1210, 't-sub']] });
     if (photos.s9) shot('s9', 3.0, { zoom: [1.04, 1.11], at: [50, 45], pan: [0, 10, 0, -6], grade: 1 }, { caps: [[0.3, 2.9, 'وتشيل ولدك... وتلعب ويا عيالك.', 1210, 't-sub']] });
-    const c5 = add({ kind: 'card', key: 'c5', bg: photos.s9 ? 's9' : 's7', grade: 1, dur: 3.8, size: 118, top: 660, head: ['أهلنا...', '*أهم شي عدنا.*'], headAt: [0.3, 1.2],
-      small: 'وكل خطوة صغيرة بحياتهم... تهمنا.', smallAt: 2.3 });
+    const c5 = add({ kind: 'card', key: 'c5', bg: photos.s9 ? 's9' : 's7', grade: 1, dur: 4.6, size: 118, top: 660, head: ['أهلنا...', '*أهم شي عدنا.*'], headAt: [0.3, 1.0],
+      small: 'وكل خطوة صغيرة بحياتهم... تهمنا.', smallAt: 1.8 });
     let tail = null;
     if (photos.s10) tail = shot('s10', 3.0, { zoom: [1.10, 1.02], at: [50, 52], pan: [0, 0, 0, 0], grade: 1 }, {});
     const END = t;
-    return { segs, END, TOTAL: END + 3.0, BELL2: END + 0.25, tail, A: { bell: bell.t0, warm: warm.t0, male: male.t0, female: female.t0, c3: c3.t0, steps: steps.t0, c5: c5.t0 } };
+    return { segs, END, TOTAL: END + 3.6, BELL2: END + 0.25, tail, S: { c1, s1, s2, s3, c2, warm, male, female, c3, steps, steps2, c5 },
+      A: { bell: bell.t0, warm: warm.t0, male: male.t0, female: female.t0, c3: c3.t0, c3End: c3.t1, list: c3.listAt.map((x) => c3.t0 + x), steps: steps.t0, c5: c5.t0 } };
   }
 
   // ------------------------------------------------------------------ score
@@ -79,7 +80,7 @@
     k.shimmer(A.warm + 0.05, 0.04, 12, 0.9);
     k.whoosh(A.warm - 0.45, 0.9, 0.1, -0.5, 0.5);
     const beat = 0.62, groove = A.steps + 0.4;
-    const quiet = (t) => t > A.c3 && t < A.c3 + 4.9; // under the small things on the card the music steps back
+    const quiet = (t) => t > A.c3 && t < A.c3End - 0.5; // under the small things on the card the music steps back
     const bars = [
       { pad: ['C3', 'G3', 'D4', 'E4'], bass: ['C3', 'G3', 'C4', 'G3'], sub: 'C2' },
       { pad: ['A2', 'E3', 'G3', 'C4'], bass: ['A2', 'E3', 'A3', 'E3'], sub: 'A1' },
@@ -101,7 +102,7 @@
     // «أخصائي» / «أخصائية»: a note on each; the small things on the card: three rising notes
     k.piano('G4', A.male + 0.4, { vel: 0.1, decay: 2.4, pan: 0.2 });
     k.piano('C5', A.female + 0.4, { vel: 0.1, decay: 2.4, pan: 0.2 });
-    ['C5', 'E5', 'G5'].forEach((n, i) => k.piano(n, A.c3 + [2.4, 3.2, 4.0][i] + 0.1, { vel: 0.1, decay: 3, pan: -0.15 + i * 0.15, send: 0.5 }));
+    ['C5', 'E5', 'G5'].forEach((n, i) => k.piano(n, A.list[i] + 0.1, { vel: 0.1, decay: 3, pan: -0.15 + i * 0.15, send: 0.5 }));
     k.shimmer(A.c3 + 0.3, 0.03, 10, 0.8);
     // the first steps: the music opens
     k.riser(A.steps - 1.8, A.steps, 0.16);
@@ -119,6 +120,21 @@
     k.shimmer(END + 0.4, 0.045, 16, 1.0);
     ['G5', 'E5', 'C6'].forEach((n, i) => k.piano(n, END + 0.9 + i * 0.25, { vel: 0.06, decay: 2.4, pan: -0.2 + i * 0.2 }));
     return k.render();
+  }
+
+  /**
+   * The founder's voice, one clip per line (assets/voice/physio/Lnn.wav, private: scripts/voice-lines.mjs).
+   * Each line starts a hair after the pen that writes it; the picture is timed to the voice, not the other way round.
+   */
+  function composeVoice(pl) {
+    const { S, A, END } = pl;
+    const at = [
+      S.c1.t0 + 0.55, S.s1.t0 + 0.25, S.s2.t0 + 0.2, S.s3.t0 + 0.2, S.c2.t0 + 0.3,
+      S.warm.t0 + 0.2, S.warm.t0 + 1.7, S.male.t0 + 0.2, S.female.t0 + 0.2, S.c3.t0 + 0.3,
+      A.list[0] + 0.1, A.list[1] + 0.1, A.list[2] + 0.1, S.steps.t0 + 0.3, S.steps2.t0 + 0.4,
+      S.c5.t0 + 0.5, S.c5.t0 + 1.9, END + 0.6,
+    ];
+    return at.map((t, i) => ({ file: `physio/L${String(i + 1).padStart(2, '0')}.wav`, at: +t.toFixed(3) }));
   }
 
   function composeCues(pl) {
@@ -315,6 +331,7 @@
         ready,
         duration: TOTAL,
         cues: composeCues(pl),
+        voice: composeVoice(pl),
         score: () => composeScore(pl),
         cover: pl.A.warm + 2.1,
         render(t) {
