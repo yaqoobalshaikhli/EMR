@@ -33,6 +33,37 @@
     calendar: '<rect x="6" y="9" width="36" height="33" rx="5"/><path d="M6 18h36M15 5v8M33 5v8"/>',
     kit: '<rect x="6" y="15" width="36" height="25" rx="5"/><path d="M17 15v-5h14v5M24 22v11M18.5 27.5h11"/>',
     user: '<circle cx="24" cy="15" r="8"/><path d="M8 42c2-9 8.5-14 16-14s14 5 16 14"/>',
+    // Home services (door-reel): what comes to the door.
+    stethoscope: '<path d="M8 6h6M24 6h6"/><path d="M11 6v10a8 8 0 0 0 16 0V6"/><path d="M19 24v6a9 9 0 0 0 18 0v-5"/><circle cx="37" cy="21" r="4.5"/>',
+    syringe: '<path d="M30.5 10.5l7 7-18 18-7-7z"/><path d="M16 32l-8 8M34 14l6-6M36.5 4.5l7 7M28.3 8.3l11.4 11.4"/><path d="M22 19l2.5 2.5M18 23l2.5 2.5"/>',
+    tubes: '<path d="M10 6h12M13 6v28a3 3 0 0 0 6 0V6"/><path d="M26 12h12M29 12v22a3 3 0 0 0 6 0V12"/><path d="M13 22h6M29 25h6"/><path d="M7 43h34"/>',
+    ultrasound: '<path d="M19 4h10v6H19z"/><path d="M24 10L3 31a30 30 0 0 0 42 0z"/><path d="M11.3 22.7a18 18 0 0 0 25.4 0"/><path d="M17 29a10 10 0 0 0 14 0"/>',
+    xray: '<rect x="7" y="6" width="34" height="36" rx="6"/><path d="M19 18l10 12"/><circle cx="17.3" cy="19.4" r="2.6"/><circle cx="20.7" cy="16.6" r="2.6"/><circle cx="27.3" cy="31.4" r="2.6"/><circle cx="30.7" cy="28.6" r="2.6"/>',
+    ecg: '<rect x="5" y="8" width="38" height="28" rx="5"/><path d="M9 23h8l3-7 5 13 3-6h11"/><path d="M18 43h12M24 36v7"/>',
+    pulse: '<path d="M3 26h10l4 -9l6 18l5 -22l5 18l3 -5h9"/>',
+    ribbon: '<path d="M20.2 19.6C17.9 15.9 17.2 13.8 17.2 12.2 17.2 8.6 20.2 6 24 6s6.8 2.6 6.8 6.2c0 1.6-.7 3.7-3 7.4"/><path d="M20.2 19.6L32.8 41.6M27.8 19.6L15.2 41.6"/>',
+    // Hormones series (gym): the gym, and the specialties that follow a user.
+    dumbbell: '<path d="M14 24h20"/><rect x="7" y="14" width="7" height="20" rx="2.5"/><rect x="34" y="14" width="7" height="20" rx="2.5"/><path d="M3 19.5v9M45 19.5v9"/>',
+    brain: '<path d="M24 10v29"/><path d="M24 13a6 6 0 0 0-10.5-2.5A6 6 0 0 0 8 19a6 6 0 0 0 1.5 10A6.5 6.5 0 0 0 17 37a5 5 0 0 0 7 2"/><path d="M24 13a6 6 0 0 1 10.5-2.5A6 6 0 0 1 40 19a6 6 0 0 1-1.5 10A6.5 6.5 0 0 1 31 37a5 5 0 0 1-7 2"/><path d="M15 21c2.5 0 4 1.5 4 4M33 21c-2.5 0-4 1.5-4 4"/>',
+    scalpel: '<path d="M5 43l17-17"/><path d="M22 26L40 6c3 7-2 15-13 20z"/>',
+    bone: '<path d="M17.5 30.5l13-13"/><circle cx="12.5" cy="30.5" r="4.5"/><circle cx="17.5" cy="35.5" r="4.5"/><circle cx="30.5" cy="12.5" r="4.5"/><circle cx="35.5" cy="17.5" r="4.5"/>',
+    physio: '<circle cx="24" cy="8" r="4"/><path d="M24 14v14"/><path d="M13 11l11 8 11-8"/><path d="M24 28l-8 13"/><path d="M24 28l9 5-2 9"/>',
+    // Lab packages (package-story): what each panel looks at.
+    kidney: '<path d="M24 5C12 5 6 14 6 24s6 19 18 19c10 0 14-5 14-10 0-4-5-6-5-9s5-5 5-9c0-5-4-10-14-10z"/><path d="M19 15c-4 2-5 5-4 9"/>',
+    thyroid: '<path d="M23 19c-1-7-7-12-13-10-4 1-4 7-3 12 1 7 7 12 12 10 4-2 5-7 4-12z"/><path d="M25 19c1-7 7-12 13-10 4 1 4 7 3 12-1 7-7 12-12 10-4-2-5-7-4-12z"/><path d="M20 22h8"/><path d="M24 4v9"/>',
+    venus: '<circle cx="24" cy="17" r="10"/><path d="M24 27v16"/><path d="M16.5 36h15"/>',
+    drop: '<path d="M24 5C24 5 10 21 10 30a14 14 0 0 0 28 0C38 21 24 5 24 5z"/><path d="M17 31a7 7 0 0 0 7 7"/>',
+    liver: '<path d="M3 22c0-5 5-8 12-9l18-4c7-1 12 3 12 11 0 10-7 18-17 18-6 0-8-5-12-6C8 31 3 28 3 22z"/><path d="M28 11c-1 7 2 12 8 14"/>',
+    hair: '<path d="M24 4C18 10 30 15 24 21S30 31 24 35"/><circle cx="24" cy="40" r="4"/><path d="M10 12c-4 5 4 8 0 13s2 7 0 9"/><circle cx="10" cy="39" r="3"/><path d="M38 12c-4 5 4 8 0 13s2 7 0 9"/><circle cx="38" cy="39" r="3"/>',
+    // Physiotherapy and nursing (package-story)
+    knee: '<path d="M16 4l5 17"/><circle cx="24" cy="26" r="6"/><path d="M27 32l6 13"/><path d="M36 15a11 11 0 0 1 3 9"/><path d="M40 11a16 16 0 0 1 3 14"/>',
+    spine: '<rect x="16" y="3" width="16" height="8" rx="4"/><rect x="14" y="14" width="20" height="8" rx="4"/><rect x="14" y="25" width="20" height="8" rx="4"/><rect x="16" y="36" width="16" height="8" rx="4"/>',
+    walk: '<circle cx="21" cy="7" r="4"/><path d="M21 13l-2 13"/><path d="M19 26l-5 15"/><path d="M19 26l9 6-2 11"/><path d="M21 15l9 5"/><path d="M33 17v26"/>',
+    drip: '<path d="M24 2v4"/><rect x="14" y="6" width="20" height="22" rx="5"/><path d="M24 12l-4.5 6.5a4.5 4.5 0 0 0 9 0z"/><path d="M24 28v7c0 3 2 5 5 5h7"/><path d="M36 36l6 4-6 4"/>',
+    plaster: '<path d="M9 31L31 9a6.4 6.4 0 0 1 9 9L18 40a6.4 6.4 0 0 1-9-9z"/><path d="M24 17.5l6.5 6.5-6.5 6.5-6.5-6.5z"/><path d="M13.5 30.5l.1.1M34.5 17.5l.1.1"/>',
+    capsule: '<path d="M11 30L25 10a7 7 0 0 1 11 8L22 38a7 7 0 0 1-11-8z"/><path d="M19 21l10 8"/><path d="M33 38l4 4 8-9"/>',
+    ring: '<circle cx="24" cy="30" r="12"/><path d="M17 11l3-6h8l3 6-7 8z"/><path d="M17 11h14"/>',
+    mars: '<circle cx="19" cy="29" r="11"/><path d="M27 21L40 8"/><path d="M30 8h10v10"/>',
   };
   TX.icon = (name, color = '#1B9CCE', sw = 3.2) =>
     `<svg viewBox="0 0 48 48" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${(ICONS[name] || ICONS.eye).replace(/class="dot"/g, `fill="${color}" stroke="none"`)}</svg>`;
@@ -76,6 +107,9 @@
   /** Rings that spread from a point when the doorbell sounds: sound made visible. */
   C.rings = (stage, count = 2) => {
     const holder = el('div', 'abs', stage);
+    // Pin the empty holder to the top left: in an RTL stage its static position is
+    // the right edge, which pushed every ring a full frame width off screen.
+    px(holder, { left: 0, top: 0 });
     const rings = [];
     for (let i = 0; i < count * 2; i++) {
       const r = el('div', 'abs', holder);

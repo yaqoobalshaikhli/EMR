@@ -2,3 +2,10 @@ node_modules/
 out/
 # Photos of real people stay out of this public repo (consent, privacy).
 assets/people/
+# Microsoft Rocketbox source avatars (MIT), linked locally for scripts/build-cast.mjs.
+.cast-src
+# AI-generated stills and a plate taken from the published reel: kept local, not committed.
+assets/shots/
+
+# Voice recordings and the cloned voice are private: never committed.
+assets/voice/

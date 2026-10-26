@@ -1,0 +1,59 @@
+{
+  "about": "Where the TabeebX logo is printed on knock.jpg (assets/shots/, AI-generated, kept out of git) by scripts/embed-logo.mjs. quad: the four corners in photo pixels, TL TR BR BL. lit: the brightness of the cloth (0-1) where the print is fully exposed; floor: how dark the print gets in shade; fold: how strongly the cloth's folds shape the print; ink: how uneven the ink is; micro: how much of the cloth's own grain shows through the print.",
+  "prints": [
+    {
+      "name": "scrubs",
+      "quad": [
+        [
+          453,
+          490
+        ],
+        [
+          653,
+          492
+        ],
+        [
+          653,
+          694
+        ],
+        [
+          453,
+          692
+        ]
+      ],
+      "lit": 0.2,
+      "floor": 0.8,
+      "fold": 0.8,
+      "ink": 0.05,
+      "micro": 0.3,
+      "alpha": 0.98
+    },
+    {
+      "name": "bag",
+      "quad": [
+        [
+          280,
+          1222
+        ],
+        [
+          364,
+          1222
+        ],
+        [
+          364,
+          1306
+        ],
+        [
+          280,
+          1306
+        ]
+      ],
+      "lit": 0.1,
+      "floor": 0.78,
+      "fold": 0.7,
+      "ink": 0.05,
+      "micro": 0.3,
+      "alpha": 0.98
+    }
+  ]
+}

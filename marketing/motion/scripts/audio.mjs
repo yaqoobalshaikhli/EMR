@@ -5,7 +5,7 @@
 //  - small interface sounds (pop, tick, whoosh, blip) for motion accents.
 // Everything is generated at 48 kHz stereo and mixed from a cue list the
 // template returns, so sound and picture share one clock.
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 
 export const SR = 48000;
 // Offset of the second note; src/stage.html uses the same value for the rings.
@@ -161,7 +161,115 @@ function blip() {
   return normalize(b, 0.16);
 }
 
-const SFX = { doorbell, pop, tick, whoosh, blip };
+/** A soft heartbeat thud: pitch falls from ~110 Hz; the octave keeps it audible on phones. */
+function thump() {
+  const b = buffer(0.5);
+  for (let i = 0; i < b.L.length; i++) {
+    const t = i / SR;
+    const ph = TAU * (50 * t + 60 * 0.03 * (1 - Math.exp(-t / 0.03)));
+    const v = (Math.sin(ph) + 0.35 * Math.sin(2 * ph)) * Math.exp(-t / 0.12) * Math.min(1, t / 0.003);
+    b.L[i] = b.R[i] = v;
+  }
+  return normalize(b, 0.5);
+}
+
+/** The logo lands: a deep swept boom with a soft crack, in a little room. */
+function impact() {
+  const b = buffer(2.2);
+  const rnd = noise(23);
+  const mono = new Float32Array(b.L.length);
+  let lp = 0;
+  for (let i = 0; i < mono.length; i++) {
+    const t = i / SR;
+    const ph = TAU * (40 * t + 70 * 0.06 * (1 - Math.exp(-t / 0.06)));
+    const body = (Math.sin(ph) + 0.3 * Math.sin(2 * ph)) * Math.exp(-t / 0.5);
+    lp = lp * 0.88 + rnd() * 0.12;
+    mono[i] = (body + lp * 1.6 * Math.exp(-t / 0.045)) * Math.min(1, t / 0.002);
+  }
+  b.L = reverb(mono, 0.2, 0);
+  b.R = reverb(mono, 0.2, 1.7);
+  return normalize(b, 0.55);
+}
+
+/** Tension into the logo: filtered noise and a tone that both climb, then stop dead. */
+function riser() {
+  const dur = 1.6;
+  const b = buffer(dur);
+  const rnd = noise(31);
+  let z1 = 0, z2 = 0;
+  for (let i = 0; i < b.L.length; i++) {
+    const t = i / SR, k = t / dur;
+    const fc = 400 + 5200 * k * k;
+    const f = 2 * Math.sin((Math.PI * fc) / SR), q = 0.35;
+    const hp = rnd() - z2 - q * z1;
+    z1 += f * hp; z2 += f * z1;
+    const tone = Math.sin(TAU * (180 * t + (600 / (2 * dur)) * t * t));
+    const env = k * k * (k < 0.97 ? 1 : (1 - k) / 0.03);
+    const v = (z1 * 0.8 + tone * 0.22) * env;
+    b.L[i] = v * (1 - 0.2 * k); b.R[i] = v * (0.8 + 0.2 * k);
+  }
+  return normalize(b, 0.18);
+}
+
+/** Light catching the logo: a scatter of high, short, bell-like partials. */
+function shimmer() {
+  const b = buffer(1.6);
+  const rnd = noise(41);
+  const u = () => (rnd() + 1) / 2;
+  const mono = new Float32Array(b.L.length);
+  for (let n = 0; n < 14; n++) {
+    const f = 2200 + u() * 3800, t0 = u() * 0.5, d = 0.15 + u() * 0.35, a = 0.4 + 0.6 * u();
+    for (let i = Math.round(t0 * SR); i < mono.length; i++) {
+      const tt = i / SR - t0;
+      mono[i] += a * Math.sin(TAU * f * tt) * Math.exp(-tt / d) * Math.min(1, tt / 0.002);
+    }
+  }
+  b.L = reverb(mono, 0.35, 0);
+  b.R = reverb(mono, 0.35, 2.3);
+  return normalize(b, 0.12);
+}
+
+/** A knuckle on a steel door: a dull thud, a short ring of the sheet, a dry click, in a little yard. */
+function knock() {
+  const b = buffer(0.7);
+  const rnd = noise(53);
+  const mono = new Float32Array(b.L.length);
+  let prev = 0;
+  for (let i = 0; i < mono.length; i++) {
+    const t = i / SR;
+    const ph = TAU * (92 * t + 38 * 0.02 * (1 - Math.exp(-t / 0.02)));
+    const thud = (Math.sin(ph) + 0.4 * Math.sin(2 * ph)) * Math.exp(-t / 0.075);
+    const ring = (Math.sin(TAU * 410 * t) * 0.5 + Math.sin(TAU * 733 * t) * 0.32 + Math.sin(TAU * 1187 * t) * 0.18) * Math.exp(-t / 0.05);
+    const n = rnd();
+    const click = (n - prev) * Math.exp(-t / 0.0035);
+    prev = n;
+    mono[i] = (thud * 0.95 + ring * 0.32 + click * 0.45) * Math.min(1, t / 0.0012);
+  }
+  b.L = reverb(mono, 0.16, 0);
+  b.R = reverb(mono, 0.16, 1.9);
+  return normalize(b, 0.55);
+}
+
+/** A pen writing on paper: soft scratchy strokes, a little rhythm, fading as the line ends. */
+function pen() {
+  const b = buffer(0.9);
+  const rnd = noise(61);
+  let z1 = 0, z2 = 0;
+  for (let i = 0; i < b.L.length; i++) {
+    const t = i / SR;
+    const fc = 2800 + 700 * Math.sin(t * 41);
+    const f = 2 * Math.sin((Math.PI * fc) / SR), q = 0.45;
+    const hp = rnd() - z2 - q * z1;
+    z1 += f * hp; z2 += f * z1;
+    const stroke = 0.4 + 0.6 * Math.abs(Math.sin(t * Math.PI * 5.2));
+    const env = Math.min(1, t / 0.03) * Math.max(0, 1 - Math.pow(t / 0.85, 3)) * stroke;
+    const v = z1 * env;
+    b.L[i] = v * 0.9; b.R[i] = v;
+  }
+  return normalize(b, 0.06);
+}
+
+const SFX = { doorbell, pop, tick, whoosh, blip, thump, impact, riser, shimmer, knock, pen };
 const cache = {};
 export const sfx = (name) => (cache[name] ||= SFX[name]());
 
@@ -209,15 +317,53 @@ export function pad(seconds, seed = 1) {
 }
 
 // ---------------------------------------------------------------- mix
+// A scored film is mastered like one: its score sits at MUSIC_LUFS under the
+// cues, and the whole track is brought to TARGET_LUFS, the usual level for
+// social video, with a look-ahead limiter holding the peaks at CEILING.
+const MUSIC_LUFS = -16.5;
+const TARGET_LUFS = -14;
+const CEILING = 0.85; // −1.4 dBFS: room for the AAC encoder's overshoot
+const VOICE_LUFS = -16; // a voice-over sits ~8 dB over the score while it speaks
+const VOICE_DUCK = 0.6; // and the score steps back by ~8 dB under it
+
 /**
  * Mix a template's cues into one track covering [from, to].
- * cues: [{ t, sfx, gain? }]; bed: { from, to, gain } or null.
- * The bed ducks under the doorbell so the brand sound is never masked.
+ * cues: [{ t, sfx, gain? }]; bed: { from, to, gain } or null;
+ * music: { L, R } from 0 s, a score the template composed itself (src/score.js).
+ * The bed and the music duck under the doorbell so the brand sound is never masked.
  */
-export function mix({ from = 0, to, cues = [], bed = null }) {
+export function mix({ from = 0, to, cues = [], bed = null, music = null, voice = null }) {
+  // Master: peak-normalise to -1 dBFS. The doorbell is usually the peak, so
+  // the sonic logo lands at the same level in every video.
+  if (!music) return normalize(layer({ from, to, cues, bed }), 0.89);
+  const m = { L: Float32Array.from(music.L), R: Float32Array.from(music.R) };
+  scale(m, dB(MUSIC_LUFS - loudness(m)));
+  // A voice-over (placeVoice) is set against the score, which ducks under it.
+  let v = null, vd = null;
+  if (voice) {
+    v = { L: Float32Array.from(voice.L), R: Float32Array.from(voice.R) };
+    scale(v, dB(VOICE_LUFS - loudness(v)));
+    vd = voiceDuck(v, VOICE_DUCK);
+  }
+  // Measured on the whole film, so a part rendered with --from/--to keeps its level.
+  const full = layer({ from: 0, to: m.L.length / SR, cues, bed, music: m, voice: v, vd });
+  const out = layer({ from, to, cues, bed, music: m, voice: v, vd });
+  scale(out, dB(TARGET_LUFS - loudness(full)));
+  return limit(out, CEILING);
+}
+
+function layer({ from, to, cues, bed, music, voice = null, vd = null }) {
   const out = buffer(to - from);
   const n = out.L.length;
   const bells = cues.filter((c) => c.sfx === 'doorbell').map((c) => c.t);
+  const duck = (t, depth) => {
+    let d = 1;
+    for (const bt of bells) {
+      const a = ramp(t, bt - 0.25, bt - 0.05), z = 1 - ramp(t, bt + 1.3, bt + 1.8);
+      d = Math.min(d, 1 - depth * Math.min(a, z));
+    }
+    return d;
+  };
   if (bed) {
     const p = pad(bed.to - bed.from, 3);
     const g0 = bed.gain == null ? 1 : bed.gain;
@@ -225,13 +371,25 @@ export function mix({ from = 0, to, cues = [], bed = null }) {
       const t = bed.from + i / SR;
       const j = Math.round((t - from) * SR);
       if (j < 0 || j >= n) continue;
-      let duck = 1;
-      for (const bt of bells) {
-        const a = ramp(t, bt - 0.25, bt - 0.05), z = 1 - ramp(t, bt + 1.3, bt + 1.8);
-        duck = Math.min(duck, 1 - 0.7 * Math.min(a, z));
-      }
-      out.L[j] += p.L[i] * g0 * duck;
-      out.R[j] += p.R[i] * g0 * duck;
+      const g = g0 * duck(t, 0.7) * (vd ? vd[Math.min(vd.length - 1, Math.round(t * SR))] : 1);
+      out.L[j] += p.L[i] * g;
+      out.R[j] += p.R[i] * g;
+    }
+  }
+  if (music) {
+    // A score is written around the doorbell, so it only dips a little under it.
+    const i0 = Math.round(from * SR);
+    for (let j = Math.max(0, -i0); j < n && i0 + j < music.L.length; j++) {
+      const g = duck(from + j / SR, 0.25) * (vd ? vd[Math.min(vd.length - 1, i0 + j)] : 1);
+      out.L[j] += music.L[i0 + j] * g;
+      out.R[j] += music.R[i0 + j] * g;
+    }
+  }
+  if (voice) {
+    const i0 = Math.round(from * SR);
+    for (let j = Math.max(0, -i0); j < n && i0 + j < voice.L.length; j++) {
+      out.L[j] += voice.L[i0 + j];
+      out.R[j] += voice.R[i0 + j];
     }
   }
   for (const c of cues) {
@@ -245,9 +403,120 @@ export function mix({ from = 0, to, cues = [], bed = null }) {
       out.R[j] += s.R[i] * g;
     }
   }
-  // Master: peak-normalise to -1 dBFS. The doorbell is usually the peak, so
-  // the sonic logo lands at the same level in every video.
-  return normalize(out, 0.89);
+  return out;
+}
+
+/** 16-bit PCM WAV, mono or stereo, at SR. */
+export function readWav(file) {
+  const b = readFileSync(file);
+  let o = 12, ch = 2, bits = 16, data = null;
+  while (o + 8 <= b.length) {
+    const id = b.toString('ascii', o, o + 4), len = b.readUInt32LE(o + 4);
+    if (id === 'fmt ') { ch = b.readUInt16LE(o + 10); bits = b.readUInt16LE(o + 22); if (b.readUInt32LE(o + 12) !== SR) throw new Error(`${file}: not ${SR} Hz`); }
+    if (id === 'data') { data = b.subarray(o + 8, o + 8 + len); break; }
+    o += 8 + len + (len & 1);
+  }
+  if (!data || bits !== 16) throw new Error(`${file}: expected 16-bit PCM`);
+  const n = data.length / (2 * ch), L = new Float32Array(n), R = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    L[i] = data.readInt16LE(i * 2 * ch) / 32768;
+    R[i] = ch > 1 ? data.readInt16LE(i * 2 * ch + 2) / 32768 : L[i];
+  }
+  return { L, R };
+}
+
+/**
+ * Lay voice-over clips on a film's clock: lines = [{ file, at }], seconds = the film's length.
+ * Returns null when no clip exists. Warns when a clip runs into the next one.
+ */
+export function placeVoice(lines, seconds, log = console.warn) {
+  const out = buffer(seconds);
+  let placed = 0, prevEnd = 0, prevName = '';
+  for (const { file, at, name } of [...lines].sort((a, b) => a.at - b.at)) {
+    if (!existsSync(file)) { log(`  ⚠ voice clip missing: ${name || file}`); continue; }
+    const w = readWav(file), j0 = Math.round(at * SR);
+    const end = at + w.L.length / SR;
+    if (at < prevEnd - 0.2) log(`  ⚠ voice ${name} starts at ${at.toFixed(2)} s, ${(prevEnd - at).toFixed(2)} s before ${prevName} ends`);
+    prevEnd = end; prevName = name || '';
+    for (let i = 0; i < w.L.length && j0 + i < out.L.length; i++) { out.L[j0 + i] += w.L[i]; out.R[j0 + i] += w.R[i]; }
+    placed++;
+  }
+  return placed ? out : null;
+}
+
+/** Gain for the score under a voice: fast down at the first word (it looks ahead), slow back up after the last. */
+function voiceDuck(v, depth) {
+  const n = v.L.length, env = new Float32Array(n);
+  const att = 1 - Math.exp(-1 / (0.02 * SR)), rel = 1 - Math.exp(-1 / (0.3 * SR));
+  let e = 0;
+  for (let i = 0; i < n; i++) {
+    const a = Math.max(Math.abs(v.L[i]), Math.abs(v.R[i]));
+    e += (a > e ? att : rel) * (a - e);
+    env[i] = e;
+  }
+  const look = Math.round(0.08 * SR), d = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    const x = Math.min(1, env[Math.min(n - 1, i + look)] / 0.03);
+    d[i] = 1 - depth * x * x * (3 - 2 * x);
+  }
+  return d;
+}
+
+// ----------------------------------------------------------- mastering
+const dB = (db) => Math.pow(10, db / 20);
+function scale(b, g) {
+  for (let i = 0; i < b.L.length; i++) { b.L[i] *= g; b.R[i] *= g; }
+  return b;
+}
+
+function biquad(x, [b0, b1, b2], [a1, a2]) {
+  const y = new Float32Array(x.length);
+  let x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+  for (let i = 0; i < x.length; i++) {
+    const v = b0 * x[i] + b1 * x1 + b2 * x2 - a1 * y1 - a2 * y2;
+    x2 = x1; x1 = x[i]; y2 = y1; y1 = v; y[i] = v;
+  }
+  return y;
+}
+
+/** Integrated loudness in LUFS (ITU-R BS.1770: K-weighted, 400 ms blocks, gated). */
+export function loudness({ L, R }) {
+  // K-weighting at 48 kHz: a +4 dB shelf above ~1.5 kHz, then a high-pass at ~38 Hz.
+  const k = (x) => biquad(biquad(x, [1.53512485958697, -2.69169618940638, 1.19839281085285], [-1.69065929318241, 0.73248077421585]),
+    [1, -2, 1], [-1.99004745483398, 0.99007225036621]);
+  const l = k(L), r = k(R);
+  const block = Math.round(0.4 * SR), hop = Math.round(0.1 * SR);
+  const z = [];
+  for (let s = 0; s + block <= l.length; s += hop) {
+    let e = 0;
+    for (let i = s; i < s + block; i++) e += l[i] * l[i] + r[i] * r[i];
+    z.push(e / block);
+  }
+  const lufs = (e) => -0.691 + 10 * Math.log10(e);
+  const mean = (a) => a.reduce((x, y) => x + y, 0) / a.length;
+  const loud = z.filter((e) => lufs(e) > -70);
+  if (!loud.length) return -70;
+  const gate = lufs(mean(loud)) - 10;
+  return lufs(mean(loud.filter((e) => lufs(e) > gate)));
+}
+
+/** Look-ahead peak limiter: the gain rides down before a peak and recovers after it. */
+function limit(b, ceiling, look = 0.005, release = 0.12) {
+  const n = b.L.length, step = 1 / Math.round(look * SR);
+  const g = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    const a = Math.max(Math.abs(b.L[i]), Math.abs(b.R[i]));
+    g[i] = a > ceiling ? ceiling / a : 1;
+  }
+  // Backwards: the gain may fall by at most `step` per sample, so it starts falling before the peak.
+  for (let i = n - 2; i >= 0; i--) g[i] = Math.min(g[i], g[i + 1] + step);
+  const rc = 1 - Math.exp(-1 / (release * SR));
+  let r = 1;
+  for (let i = 0; i < n; i++) {
+    r = Math.min(g[i], r + (1 - r) * rc);
+    b.L[i] *= r; b.R[i] *= r;
+  }
+  return b;
 }
 
 function ramp(t, a, b) {

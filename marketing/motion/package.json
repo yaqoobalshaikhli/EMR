@@ -9,11 +9,11 @@
     "check": "node scripts/lint-copy.mjs",
     "render": "node scripts/render.mjs",
     "render:all": "node scripts/render.mjs all",
-    "preview": "node scripts/preview.mjs",
-    "figure": "node scripts/extract-figure.mjs"
+    "preview": "node scripts/preview.mjs"
   },
   "dependencies": {
-    "playwright": "1.56.1"
+    "playwright": "1.56.1",
+    "three": "0.180.0"
   },
   "engines": {
     "node": ">=18"

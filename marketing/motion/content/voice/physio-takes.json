@@ -1,0 +1,139 @@
+{
+  "about": "Where each film line sits in the founder's read-through (assets/voice/physio-recording.m4a, private, not in git). Times are seconds in that recording. 'squeeze' shortens a silence inside a line by cutting out of its middle: [from, to, keep].",
+  "lufs": -24,
+  "lines": [
+    {
+      "id": "L01",
+      "range": [
+        79.41,
+        82.7
+      ]
+    },
+    {
+      "id": "L02",
+      "range": [
+        83.28,
+        85.88
+      ]
+    },
+    {
+      "id": "L03",
+      "range": [
+        86.04,
+        88.25
+      ]
+    },
+    {
+      "id": "L04",
+      "range": [
+        88.71,
+        90.98
+      ]
+    },
+    {
+      "id": "L05",
+      "range": [
+        91.41,
+        96.98
+      ],
+      "squeeze": [
+        [
+          92.55,
+          93.42,
+          0.4
+        ]
+      ]
+    },
+    {
+      "id": "L06",
+      "range": [
+        97.8,
+        99.44
+      ]
+    },
+    {
+      "id": "L07",
+      "range": [
+        103.0,
+        104.2
+      ]
+    },
+    {
+      "id": "L08",
+      "range": [
+        104.34,
+        107.25
+      ]
+    },
+    {
+      "id": "L09",
+      "range": [
+        107.55,
+        111.62
+      ]
+    },
+    {
+      "id": "L10",
+      "range": [
+        113.16,
+        116.12
+      ]
+    },
+    {
+      "id": "L11",
+      "range": [
+        117.21,
+        118.4
+      ]
+    },
+    {
+      "id": "L12",
+      "range": [
+        118.68,
+        120.23
+      ]
+    },
+    {
+      "id": "L13",
+      "range": [
+        120.45,
+        121.8
+      ]
+    },
+    {
+      "id": "L14",
+      "range": [
+        122.61,
+        123.65
+      ]
+    },
+    {
+      "id": "L15",
+      "range": [
+        124.59,
+        127.55
+      ]
+    },
+    {
+      "id": "L16",
+      "range": [
+        129.39,
+        130.64
+      ]
+    },
+    {
+      "id": "L17",
+      "range": [
+        131.16,
+        133.8
+      ]
+    },
+    {
+      "id": "L18",
+      "range": [
+        134.67,
+        137.5
+      ]
+    }
+  ]
+}
